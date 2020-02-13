@@ -6,13 +6,19 @@
 
 /* ============================= Header ================================== */
 function openNav() {
-    $('.mobileNav').css({width: "50vw"});
+    $('.mobileNav').css({
+        width: "50vw"
+    });
     $('body').toggleClass("backgroundColor--dark");
-    $('body').removeClass("backgroundColor--light");
 }
 
 function closeNav() {
-    $('.mobileNav').css({width: "0"});
+    $('.mobileNav').css({
+        width: "0"
+    });
     $('body').toggleClass("backgroundColor--light");
     $('body').removeClass("backgroundColor--dark");
+    setTimeout(function() {
+        $('body').removeClass("backgroundColor--light");
+    }, 500);
 }

@@ -30,6 +30,7 @@ body {
     background-image: url(../images/background/backgroundMobile.svg);
     background-position: left bottom;
     background-repeat: no-repeat;
+    background-size: 100vw;
     font-family: "Nunito", sans-serif;
     font-size: 16px
 }
@@ -144,4 +145,37 @@ nav .menuHamburger img {
     font-size: 2.25rem;
 }
 
-/* End of navigation menu on mobile */
+/* Navigation menu on computer */
+.computerNav {
+    display: none;
+}
+
+@media screen and (min-width: 992px) {
+    .mobileNav, .menuHamburger {
+        display: none;
+    }
+
+    .computerNav {
+        display: block;
+    }
+
+    .computerNav a {
+        margin-left: 1rem;
+        padding: 0.25rem 1.75rem;
+        color: var(--color-darkGray);
+        font-size: 1.25rem;
+        font-weight: 200;
+        text-decoration: none;
+    }
+
+    .computerNav a:hover {
+        color: #222222;
+        text-decoration: underline;
+    }
+
+    .computerNav #btn_login {
+        border-radius: 5rem;
+        background-color: var(--color-primary);
+        color: var(--color-white);
+    }
+}
