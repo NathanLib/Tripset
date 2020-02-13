@@ -3,41 +3,42 @@
                                  General
 
    ======================================================================= */
-
 *,
 *::after,
 *::before {
+    box-sizing: inherit;
     margin: 0;
     padding: 0;
-    box-sizing: inherit;
 }
 
 :root {
     --color-primary: #73ccff;
-
     --color-lightGray: #f2f2f2;
     --color-darkGray: #747474;
     --color-white: #ffffff;
 }
 
 html {
-    font-size: 100%;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
+    font-size: 100%;
 }
 
 body {
-    font-family: "Nunito", sans-serif;
-    font-size: 16px;
-
     padding: 20px 15px 0;
+    background-attachment: fixed;
+    background-image: url(../images/background/backgroundMobile.svg);
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    font-family: "Nunito", sans-serif;
+    font-size: 16px
 }
 
 @media screen and (min-width: 768px) {
     html {
-        font-size: 125%;
         -ms-text-size-adjust: 125%;
         -webkit-text-size-adjust: 125%;
+        font-size: 125%;
     }
 
     body {
@@ -46,45 +47,55 @@ body {
 }
 
 h1 {
-    font-size: 2em;
     margin: 0.67em 0;
+    font-size: 2em;
 }
 
 h2 {
-    font-size: 1.5em;
     margin: 0.83em 0;
+    font-size: 1.5em;
 }
 
 h3 {
-    font-size: 1.17em;
     margin: 1em 0;
+    font-size: 1.17em;
 }
 
 h4 {
-    font-size: 1em;
     margin: 1.33em 0;
+    font-size: 1em;
 }
 
 h5 {
-    font-size: 0.83em;
     margin: 1.67em 0;
+    font-size: 0.83em;
 }
 
 h6 {
-    font-size: 0.67em;
     margin: 2.33em 0;
+    font-size: 0.67em;
+}
+
+.backgroundColor--dark {
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: background-color 0.5s ease;
+}
+
+.backgroundColor--light {
+    background-color: var(--color-white);
+    transition: background-color 0.5s ease;
 }
 
 /* ============================== HEADER ================================= */
 nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 }
 
 nav .logo img {
-    height: 2rem;
     width: auto;
+    height: 2rem;
 }
 
 /* The side navigation menu on mobile*/
@@ -94,35 +105,35 @@ nav .menuHamburger img {
 }
 
 .mobileNav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    right: 0;
-    background-color: var(--color-white);
-    overflow-x: hidden;
-    padding-top: 4.5rem;
-    transition: 0.5s;
     -webkit-transition: 0.5s;
     -moz-transition: 0.5s;
     -ms-transition: 0.5s;
     -o-transition: 0.5s;
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 100%;
+    padding-top: 4.5rem;
+    overflow-x: hidden;
+    background-color: var(--color-white);
+    transition: 0.5s;
 }
 
 .mobileNav a {
-    padding: 0.75rem 1.5rem;
-    text-decoration: none;
-    font-size: 1.25rem;
-    color: var(--color-darkGray);
-    display: block;
-    text-align: end;
     -webkit-font-smoothing: antialiased;
-    transition: 0.3s;
     -webkit-transition: 0.3s;
     -moz-transition: 0.3s;
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: var(--color-darkGray);
+    font-size: 1.25rem;
+    text-align: end;
+    text-decoration: none;
+    transition: 0.3s;
 }
 
 .mobileNav .closebtn {
@@ -131,4 +142,5 @@ nav .menuHamburger img {
     right: 0;
     font-size: 2.25rem;
 }
+
 /* End of navigation menu on mobile */
