@@ -43,6 +43,7 @@ body {
 
     body {
         padding: 50px 150px 0;
+        background-image: url(../images/background/background.svg);
     }
 }
 
