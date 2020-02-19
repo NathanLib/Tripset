@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>TRIPSET</title>
+
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="public/css/main.css" />
+</head>
+
+<body>
+    <div class="header-container">
+        <header>
+            <nav role="navigation">
+                <div class="logo">
+                    <img src="public/images/header/tripset.svg" alt="logo tripset" />
+                </div>
+
+                <div class="menuHamburger" onclick="openNav()">
+                    <img src="public/images/header/menu hamburger.svg" alt="menu hamburger" />
+                </div>
+
+                <div class="mobileNav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="#">Home</a>
+                    <a href="#">About</a>
+                    <a href="#">Login</a>
+                </div>
+
+                <div class="computerNav">
+                    <a href="#">Home</a>
+                    <a href="#">About</a>
+                    <a id="btn_login" href="#">Login</a>
+                </div>
+            </nav>
+        </header>
+    </div>
+
+    <div class="main-container">
+        <div class="searchbar-container">
+            <div class="searchbar">
+                <div class="searchbar-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+                        <path id="Icon_material-search" data-name="Icon material-search"
+                            d="M25.941,23.368H24.586l-.48-.463a11.166,11.166,0,1,0-1.2,1.2l.463.48v1.355L31.944,34.5,34.5,31.944Zm-10.292,0a7.719,7.719,0,1,1,7.719-7.719A7.708,7.708,0,0,1,15.649,23.368Z" transform="translate(-4.5 -4.5)"
+                            fill="#747474" />
+                    </svg>
+                </div>
+                <div class="searchbar-text">
+                    Enter your destination
+                </div>
+                <input class="searchbar-input" type="text" name="searchbar-input" value="">
+                <div class="searchbar-date-container">
+                    <div class="date-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33.875" viewBox="0 0 33 33.875">
+                            <g id="Group_26" data-name="Group 26" transform="translate(-589 -332.8)">
+                                <path id="Path_418" data-name="Path 418"
+                                    d="M617.666,337.651h-2.028V334.4a1.193,1.193,0,0,0-2.386-.048v3.3l-6.361-.4V334a1.193,1.193,0,0,0-2.385-.048v3.3l-6.759.4V334.4a1.193,1.193,0,0,0-2.386-.048v3.3h-2.028A4.344,4.344,0,0,0,589,341.985v20.357a4.344,4.344,0,0,0,4.334,4.334h24.333A4.349,4.349,0,0,0,622,362.341V341.985A4.346,4.346,0,0,0,617.666,337.651Zm1.948,24.611a2.036,2.036,0,0,1-2.028,2.028H593.413a2.031,2.031,0,0,1-2.028-2.028V347.988h28.229Zm0-16.659H591.385v-3.936a2.036,2.036,0,0,1,2.028-2.028h1.948v1.543a1.193,1.193,0,0,0,2.386.048v-1.59h6.759v1.543a1.193,1.193,0,0,0,2.385.048v-1.59h6.361v1.543a1.193,1.193,0,0,0,2.386.048v-1.59h1.948a2.034,2.034,0,0,1,2.028,2.028Z"
+                                    fill="#747474" />
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="date-text">
+                        Add dates
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- #main-container -->
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="public/js/main.js"></script>
+</body>
+
+</html>
