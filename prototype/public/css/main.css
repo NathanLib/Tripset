@@ -188,24 +188,35 @@ nav .menuHamburger img {
    ======================================================================= */
 /* ============================= Searchbar =============================== */
 .searchbar-container {
-    margin: 0 auto 0 auto;
+    margin: 33% auto 0 auto;
 }
 
 .searchbar {
+    display: flex;
     position: relative;
     height: 2.5rem;
 }
 
 .searchbar .searchbar-icon {
+    display: flex;
     z-index: 1;
     position: absolute;
+    width: 3rem;
     height: 100%;
 }
 
-.searchbar .searchbar-icon svg {}
+.searchbar .searchbar-icon svg {
+    height: 1.15rem;
+    margin: auto;
+}
 
 .searchbar .searchbar-text {
+    display: flex;
     position: absolute;
+    align-items: center;
+    height: 100%;
+    padding-left: 3rem;
+    color: var(--color-darkGray);
 }
 
 .searchbar .searchbar-input {
@@ -218,6 +229,7 @@ nav .menuHamburger img {
 }
 
 .searchbar .searchbar-date-container {
+    display: none;
     position: relative;
 }
 
@@ -227,4 +239,11 @@ nav .menuHamburger img {
 
 .searchbar .searchbar-date-container .date-text {
     position: absolute;
+}
+
+@media screen and (min-width: 768px) {
+    .searchbar-container {
+        max-width: 35rem;
+        margin: 18% auto 0 auto;
+    }
 }
