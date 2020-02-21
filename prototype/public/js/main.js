@@ -9,16 +9,20 @@ function openNav() {
     $('.mobileNav').css({
         width: "50vw"
     });
-    $('body').toggleClass("backgroundColor--dark");
+    $('.mobileNav-background').fadeIn(600, function() {
+        $('.mobileNav-background').css({
+            display:"block"
+        });
+    });
 }
 
 function closeNav() {
     $('.mobileNav').css({
         width: "0"
     });
-    $('body').toggleClass("backgroundColor--light");
-    $('body').removeClass("backgroundColor--dark");
-    setTimeout(function() {
-        $('body').removeClass("backgroundColor--light");
-    }, 500);
+    $('.mobileNav-background').fadeOut(600, function() {
+        $('.mobileNav-background').css({
+            display:"none"
+        });
+    });
 }
