@@ -79,17 +79,21 @@ h6 {
     font-size: 0.67em;
 }
 
-.backgroundColor--dark {
-    background-color: rgba(0, 0, 0, 0.4);
-    transition: background-color 0.5s ease;
-}
-
-.backgroundColor--light {
-    background-color: var(--color-white);
-    transition: background-color 0.5s ease;
-}
-
 /* ============================== HEADER ================================= */
+.header-container {
+    z-index: 100;
+    position: sticky;
+    top: 20px;
+    left: 15px;
+}
+
+@media screen and (min-width: 768px) {
+    .header-container {
+        top: 50px;
+        left: 150px;
+    }
+}
+
 nav {
     display: flex;
     align-items: center;
@@ -107,12 +111,23 @@ nav .menuHamburger img {
     height: auto;
 }
 
+.mobileNav-background {
+    display: none;
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
 .mobileNav {
     -webkit-transition: 0.5s;
     -moz-transition: 0.5s;
     -ms-transition: 0.5s;
     -o-transition: 0.5s;
-    z-index: 1;
+    z-index: 2;
     position: fixed;
     top: 0;
     right: 0;
@@ -137,6 +152,11 @@ nav .menuHamburger img {
     text-align: end;
     text-decoration: none;
     transition: 0.3s;
+}
+
+.mobileNav #btn_login {
+    color: var(--color-primary);
+    font-weight: 900;
 }
 
 .mobileNav .closebtn {
