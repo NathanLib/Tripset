@@ -17,6 +17,11 @@
     --color-darkGray: #747474;
     --color-white: #ffffff;
     --default-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
+    /* Change date picker color */
+    --litepickerDayIsStartBg: #73ccff !important;
+    --litepickerDayIsEndBg: #73ccff !important;
+    --litepickerDayIsInRange: #daf1ff !important;
+    --litepickerDayColorHover: #73ccff !important;
 }
 
 html {
@@ -208,7 +213,12 @@ nav .menuHamburger img {
    ======================================================================= */
 /* ============================= Searchbar =============================== */
 .searchbar-container {
+    width: 100%;
+    height: auto;
     margin: 10rem auto 0 auto;
+    border-radius: 20px;
+    background-color: var(--color-white);
+    box-shadow: var(--default-shadow);
 }
 
 .searchbar {
@@ -235,8 +245,7 @@ nav .menuHamburger img {
     height: 100%;
     padding-left: 3rem;
     border: 0;
-    border-radius: 5rem;
-    box-shadow: var(--default-shadow);
+    border-radius: 20px;
     color: #222222;
     font-size: 0.875rem;
 }
@@ -286,4 +295,40 @@ nav .menuHamburger img {
         color: var(--color-darkGray);
         font-size: 0.875rem;
     }
+}
+
+/* =========================== Dates details ============================= */
+.dates-details {
+    /* display: none; */
+    padding: 0.25rem 0.75rem;
+}
+
+#dates-form-separator {
+    width: 95%;
+    margin: 0 auto;
+    border-top: solid var(--color-darkGray) 1px;
+}
+
+.dates-details-from,
+.dates-details-to {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.dates-details form input[type="number"] {
+    width: 3rem;
+    margin: 0.25rem 0.5rem;
+    padding: 1rem 1.25rem;
+    border: 0;
+    border-radius: 10px;
+    background-color: var(--color-lightGray);
+    text-align: center;
+}
+
+.dates-text {
+    margin-top: 0.75rem;
+    margin-bottom: 0.25rem;
+    color: var(--color-darkGray);
 }

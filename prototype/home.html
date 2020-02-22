@@ -12,6 +12,8 @@
 
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="public/css/main.css" />
+
+    <script type="module" src="https://cdn.jsdelivr.net/npm/litepicker/dist/js/main.js"></script>
 </head>
 
 <body>
@@ -55,7 +57,7 @@
                             fill="#747474" />
                     </svg>
                 </div>
-                <div class="searchbar-date-container">
+                <div class="searchbar-date-container" onclick="addDates()">
                     <div class="date-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33.875" viewBox="0 0 33 33.875">
                             <g id="Group_26" data-name="Group 26" transform="translate(-589 -332.8)">
@@ -69,6 +71,38 @@
                         Add dates
                     </div>
                 </div>
+            </div>
+
+            <!-- =============================================================== -->
+
+            <div class="dates-details">
+                <hr id="dates-form-separator">
+                <!-- Use method="POST" -->
+                <form action="" id="myform" method="">
+
+                    <p class="dates-text">From:</p>
+                    <div class="dates-details-from">
+                        <input type="number" id="dayFrom" placeholder="Day" name="dayFrom" value="" />
+                        <span> / </span>
+                        <input type="number" id="monthFrom" placeholder="Month" name="monthFrom" value="" />
+                        <span> / </span>
+                        <input type="number" id="yearFrom" placeholder="Year" name="yearFrom" value="" />
+                    </div>
+
+                    <p class="dates-text">To:</p>
+                    <div class="dates-details-to">
+                        <input type="number" id="dayTo" placeholder="Day" name="dayTo" value="" />
+                        <span> / </span>
+                        <input type="number" id="monthTo" placeholder="Month" name="monthTo" value="" />
+                        <span> / </span>
+                        <input type="number" id="yearTo" placeholder="Year" name="yearTo" value="" />
+                    </div>
+
+                    <div id="litepicker"></div>
+
+                    <!-- Use type="submit" -->
+                    <input id="dates-submit" onsubmit="return datesValidation()" type="" value=" Submit">
+                </form>
             </div>
         </div>
     </div>
