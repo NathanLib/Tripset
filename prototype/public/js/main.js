@@ -47,8 +47,6 @@ function addDates() {
     var monthTo = $('#monthTo');
     var yearTo = $('#yearTo');
 
-    $('.dates-details').slideToggle(700);
-
     if (width >= 992) {
         numberOfColumns = 2;
     }
@@ -83,6 +81,8 @@ function addDates() {
             }
         });
     }
+
+    $('.dates-details').slideToggle(700);
 }
 
 function datesValidation() {}
