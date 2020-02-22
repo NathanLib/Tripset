@@ -12,8 +12,6 @@
 
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="public/css/main.css" />
-
-    <script type="module" src="https://cdn.jsdelivr.net/npm/litepicker/dist/js/main.js"></script>
 </head>
 
 <body>
@@ -82,20 +80,20 @@
 
                     <p class="dates-text">From:</p>
                     <div class="dates-details-from">
-                        <input type="number" id="dayFrom" placeholder="Day" name="dayFrom" value="" />
+                        <input type="number" id="dayFrom" onfocusout="manageCalendar()" placeholder="Day" name="dayFrom" value="" />
                         <span> / </span>
-                        <input type="number" id="monthFrom" placeholder="Month" name="monthFrom" value="" />
+                        <input type="number" id="monthFrom" onfocusout="manageCalendar()" placeholder="Month" name="monthFrom" value="" />
                         <span> / </span>
-                        <input type="number" id="yearFrom" placeholder="Year" name="yearFrom" value="" />
+                        <input type="number" id="yearFrom" onfocusout="manageCalendar()" placeholder="Year" name="yearFrom" value="" />
                     </div>
 
                     <p class="dates-text">To:</p>
                     <div class="dates-details-to">
-                        <input type="number" id="dayTo" placeholder="Day" name="dayTo" value="" />
+                        <input type="number" id="dayTo" onfocusout="manageCalendar()" placeholder="Day" name="dayTo" value="" />
                         <span> / </span>
-                        <input type="number" id="monthTo" placeholder="Month" name="monthTo" value="" />
+                        <input type="number" id="monthTo" onfocusout="manageCalendar()" placeholder="Month" name="monthTo" value="" />
                         <span> / </span>
-                        <input type="number" id="yearTo" placeholder="Year" name="yearTo" value="" />
+                        <input type="number" id="yearTo" onfocusout="manageCalendar()" placeholder="Year" name="yearTo" value="" />
                     </div>
 
                     <div id="litepicker" class="dates-picker"></div>
@@ -109,6 +107,7 @@
     <!-- #main-container -->
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/litepicker/dist/js/main.js"></script>
     <script src="public/js/main.js"></script>
 </body>
 
