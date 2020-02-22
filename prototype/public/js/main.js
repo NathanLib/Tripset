@@ -40,6 +40,8 @@ function addDates() {
     var numberOfColumns = 1;
     var width = document.body.clientWidth;
 
+    $('.dates-details').slideToggle(700);
+
     if (width >= 992) {
         numberOfColumns = 2;
     }

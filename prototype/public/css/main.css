@@ -299,7 +299,7 @@ nav .menuHamburger img {
 
 /* =========================== Dates details ============================= */
 .dates-details {
-    /* display: none; */
+    display: none;
     padding: 0.25rem 0.75rem;
 }
 
@@ -331,4 +331,16 @@ nav .menuHamburger img {
     margin-top: 0.75rem;
     margin-bottom: 0.25rem;
     color: var(--color-darkGray);
+}
+
+.dates-picker {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+@media screen and (min-width: 992px) {
+    .dates-picker {
+        padding: 2rem 0;
+    }
 }
