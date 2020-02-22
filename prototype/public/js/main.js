@@ -40,13 +40,20 @@ function addDates() {
     var numberOfColumns = 1;
     var width = document.body.clientWidth;
 
+    var dayFrom = $('#dayFrom');
+    var monthFrom = $('#monthFrom');
+    var yearFrom = $('#yearFrom');
+    var dayTo = $('#dayTo');
+    var monthTo = $('#monthTo');
+    var yearTo = $('#yearTo');
+
     $('.dates-details').slideToggle(700);
 
     if (width >= 992) {
         numberOfColumns = 2;
     }
 
-    if( $('#litepicker').is(':empty') ) {
+    if ($('#litepicker').is(':empty')) {
         var picker = new Litepicker({
             element: document.getElementById('litepicker'),
             singleMode: false,
@@ -55,9 +62,25 @@ function addDates() {
             numberOfMonths: 2,
             numberOfColumns: numberOfColumns,
             startDate: startDate,
+            minDate: startDate,
             autoApply: true,
             showWeekNumbers: true,
-            mobileFriendly: true
+            mobileFriendly: true,
+            onSelect: (date1, date2) => {
+                dayFrom.html(date1.format('DD'));
+                dayFrom.val(date1.format('DD'));
+                monthFrom.html(date1.format('MM'));
+                monthFrom.val(date1.format('MM'));
+                yearFrom.html(date1.format('YYYY'));
+                yearFrom.val(date1.format('YYYY'));
+
+                dayTo.html(date2.format('DD'));
+                dayTo.val(date2.format('DD'));
+                monthTo.html(date2.format('MM'));
+                monthTo.val(date2.format('MM'));
+                yearTo.html(date2.format('YYYY'));
+                yearTo.val(date2.format('YYYY'));
+            }
         });
     }
 }

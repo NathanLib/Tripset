@@ -339,6 +339,11 @@ nav .menuHamburger img {
     padding: 1rem 0;
 }
 
+.litepicker .container__months {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
 @media screen and (min-width: 992px) {
     .dates-picker {
         padding: 2rem 0;
