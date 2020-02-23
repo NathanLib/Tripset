@@ -16,7 +16,14 @@
     --color-lightGray: #f2f2f2;
     --color-darkGray: #747474;
     --color-white: #ffffff;
+    --color-wrong: #ff4d4d;
+    --color-validated: #c1e0c1;
     --default-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
+    /* Change date picker color */
+    --litepickerDayIsStartBg: #73ccff !important;
+    --litepickerDayIsEndBg: #73ccff !important;
+    --litepickerDayIsInRange: #daf1ff !important;
+    --litepickerDayColorHover: #73ccff !important;
 }
 
 html {
@@ -208,7 +215,12 @@ nav .menuHamburger img {
    ======================================================================= */
 /* ============================= Searchbar =============================== */
 .searchbar-container {
+    width: 100%;
+    height: auto;
     margin: 10rem auto 0 auto;
+    border-radius: 20px;
+    background-color: var(--color-white);
+    box-shadow: var(--default-shadow);
 }
 
 .searchbar {
@@ -235,8 +247,7 @@ nav .menuHamburger img {
     height: 100%;
     padding-left: 3rem;
     border: 0;
-    border-radius: 5rem;
-    box-shadow: var(--default-shadow);
+    border-radius: 20px;
     color: #222222;
     font-size: 0.875rem;
 }
@@ -285,5 +296,250 @@ nav .menuHamburger img {
         margin: 0 1rem;
         color: var(--color-darkGray);
         font-size: 0.875rem;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .searchbar-container {
+        width: 75%;
+    }
+}
+
+#dates-submit {
+    display: none;
+    position: absolute;
+    left: 50%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    transform: translateX(-50%);
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+/* =========================== Dates details ============================= */
+.dates-details {
+    display: none;
+    padding: 0.25rem 0.75rem;
+}
+
+.dates-form {
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 1600px) {
+    .dates-form {
+        flex-direction: row;
+        align-items: baseline;
+        justify-content: space-between;
+    }
+}
+
+#dates-form-separator {
+    width: 95%;
+    margin: 0 auto;
+    border-top: solid var(--color-darkGray) 1px;
+}
+
+.dates-details-from,
+.dates-details-to {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.dates-details form input[type="number"] {
+    width: 3rem;
+    margin: 0.25rem 0.5rem;
+    padding: 1rem 1.25rem;
+    border: 0;
+    border-radius: 10px;
+    background-color: var(--color-lightGray);
+    text-align: center;
+}
+
+.dates-details form input[type=number]::-webkit-inner-spin-button,
+.dates-details form input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+@media screen and (min-width: 992px) {
+    .dates-inputs {
+        width: 628px;
+        margin: auto;
+        margin-top: 1rem;
+    }
+
+    .dates-details form input[type="number"] {
+        width: 5rem;
+        padding: 0.75rem 1rem;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .dates-details form input[type="number"] {
+        width: 2rem;
+    }
+}
+
+.dates-text {
+    margin-top: 0.75rem;
+    margin-bottom: 0.25rem;
+    color: var(--color-darkGray);
+}
+
+.dates-picker {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+.litepicker {
+    display: flex !important;
+    max-width: 100% !important;
+}
+
+.litepicker .container__months {
+    -webkit-box-shadow: none !important;
+    justify-content: center !important;
+    box-shadow: none !important;
+}
+
+@media screen and (min-width: 992px) {
+    .dates-picker {
+        padding: 2rem 0;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .dates-picker {
+        padding: 1rem 0;
+    }
+}
+
+.validated-dates {
+    background-color: var(--color-validated) !important;
+}
+
+.error-message {
+    margin-top: 1rem;
+    color: var(--color-wrong);
+    text-align: center
+}
+
+.wrong-shake {
+    -webkit-animation: wrong_shake 0.5s 1 linear;
+    -moz-animation: wrong_shake 0.5s 1 linear;
+    -o-animation: wrong_shake 0.5s 1 linear;
+    background-color: var(--color-wrong) !important;
+    color: white !important;
+    font-weight: 900 !important;
+    animation: wrong_shake 0.5s 1 linear;
+}
+
+@keyframes wrong_shake {
+    0% {
+        transform: translate(15px);
+    }
+
+    20% {
+        transform: translate(-15px);
+    }
+
+    40% {
+        transform: translate(7px);
+    }
+
+    60% {
+        transform: translate(-7px);
+    }
+
+    80% {
+        transform: translate(4px);
+    }
+
+    100% {
+        transform: translate(0px);
+    }
+}
+
+@-webkit-keyframes wrong_shake {
+    0% {
+        -webkit-transform: translate(15px);
+    }
+
+    20% {
+        -webkit-transform: translate(-15px);
+    }
+
+    40% {
+        -webkit-transform: translate(7px);
+    }
+
+    60% {
+        -webkit-transform: translate(-7px);
+    }
+
+    80% {
+        -webkit-transform: translate(4px);
+    }
+
+    100% {
+        -webkit-transform: translate(0px);
+    }
+}
+
+@-moz-keyframes wrong_shake {
+    0% {
+        -moz-transform: translate(15px);
+    }
+
+    20% {
+        -moz-transform: translate(-15px);
+    }
+
+    40% {
+        -moz-transform: translate(7px);
+    }
+
+    60% {
+        -moz-transform: translate(-7px);
+    }
+
+    80% {
+        -moz-transform: translate(4px);
+    }
+
+    100% {
+        -moz-transform: translate(0px);
+    }
+}
+
+@-o-keyframes wrong_shake {
+    0% {
+        -o-transform: translate(15px);
+    }
+
+    20% {
+        -o-transform: translate(-15px);
+    }
+
+    40% {
+        -o-transform: translate(7px);
+    }
+
+    60% {
+        -o-transform: translate(-7px);
+    }
+
+    80% {
+        -o-transform: translate(4px);
+    }
+
+    100% {
+        -o-origin-transform: translate(0px);
     }
 }

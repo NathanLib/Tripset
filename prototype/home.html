@@ -47,7 +47,7 @@
     <div class="main-container">
         <div class="searchbar-container">
             <div class="searchbar">
-                <input class="searchbar-input" type="text" name="searchbar-input" placeholder="Enter your destination" value="">
+                <input class="searchbar-input" type="text" name="searchbar-input" placeholder="Enter your destination" oninput="displaySubmit()" value="">
                 <div class="searchbar-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
                         <path id="Icon_material-search" data-name="Icon material-search"
@@ -55,7 +55,7 @@
                             fill="#747474" />
                     </svg>
                 </div>
-                <div class="searchbar-date-container">
+                <div class="searchbar-date-container" onclick="addDates()">
                     <div class="date-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33.875" viewBox="0 0 33 33.875">
                             <g id="Group_26" data-name="Group 26" transform="translate(-589 -332.8)">
@@ -70,11 +70,73 @@
                     </div>
                 </div>
             </div>
+
+            <!-- =============================================================== -->
+
+            <div class="dates-details">
+                <hr id="dates-form-separator">
+                <!-- Use method="POST" -->
+                <form action="" id="dates-form" class="dates-form" method="">
+
+                    <div class="dates-inputs">
+                        <div>
+                            <p class="dates-text" id="dates-text-from">From:</p>
+                            <div class="dates-details-from">
+                                <input type="number" id="dayFrom" oninput="manageCalendar()" onchange="datesValidation(this)" placeholder="Day" name="dayFrom" value="" min="1" max="31" maxlength="2" />
+                                <span> / </span>
+                                <input type="number" id="monthFrom" oninput="manageCalendar()" onchange="datesValidation()" placeholder="Month" name="monthFrom" value="" min="1" max="12" maxlength="2" />
+                                <span> / </span>
+                                <input type="number" id="yearFrom" oninput="manageCalendar()" onchange="datesValidation()" placeholder="Year" name="yearFrom" value="" min="1950" max="2050" maxlength="4" />
+                            </div>
+                        </div>
+
+                        <div>
+                            <p class="dates-text" id="dates-text-to">To:</p>
+                            <div class="dates-details-to">
+                                <input type="number" id="dayTo" oninput="manageCalendar()" onchange="datesValidation()" placeholder="Day" name="dayTo" value="" min="1" max="31" maxlength="2" />
+                                <span> / </span>
+                                <input type="number" id="monthTo" oninput="manageCalendar()" onchange="datesValidation()" placeholder="Month" name="monthTo" value="" min="1" max="12" maxlength="2" />
+                                <span> / </span>
+                                <input type="number" id="yearTo" oninput="manageCalendar()" onchange="datesValidation()" placeholder="Year" name="yearTo" value="" min="1950" max="2050" maxlength="4" />
+                            </div>
+                        </div>
+
+                        <div class="error-message"></div>
+                    </div>
+
+                    <div id="litepicker" class="dates-picker"></div>
+                </form>
+            </div>
+
+            <!-- Use type="submit" -->
+            <button id="dates-submit" onsubmit="return datesValidation()" type="">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="38.586" height="38.586" viewBox="0 0 38.586 38.586">
+                    <defs>
+                        <filter id="Icon_awesome-arrow-down" x="2.025" y="2.861" width="33.944" height="34.358" filterUnits="userSpaceOnUse">
+                            <feOffset dy="1" input="SourceAlpha" />
+                            <feGaussianBlur stdDeviation="3" result="blur" />
+                            <feFlood flood-color="#202124" flood-opacity="0.161" />
+                            <feComposite operator="in" in2="blur" />
+                            <feComposite in="SourceGraphic" />
+                        </filter>
+                    </defs>
+                    <g id="Group_41" data-name="Group 41" transform="translate(-932 -724)">
+                        <circle id="Ellipse_66" data-name="Ellipse 66" cx="19.293" cy="19.293" r="19.293" transform="translate(932 724)" fill="#73ccff" />
+                        <g transform="matrix(1, 0, 0, 1, 932, 724)" filter="url(#Icon_awesome-arrow-down)">
+                            <path id="Icon_awesome-arrow-down-2" data-name="Icon awesome-arrow-down"
+                                d="M15.273,9.205l.811.811a.873.873,0,0,1,0,1.238l-7.094,7.1a.873.873,0,0,1-1.238,0l-7.1-7.1a.873.873,0,0,1,0-1.238l.811-.811a.877.877,0,0,1,1.252.015l4.191,4.4V3.126a.874.874,0,0,1,.876-.876H8.953a.874.874,0,0,1,.876.876V13.619l4.191-4.4a.871.871,0,0,1,1.252-.015Z"
+                                transform="translate(10.63 8.61)" fill="#fff" />
+                        </g>
+                    </g>
+                </svg>
+            </button>
+
         </div>
     </div>
     <!-- #main-container -->
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/litepicker/dist/js/main.js"></script>
     <script src="public/js/main.js"></script>
 </body>
 
