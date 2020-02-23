@@ -54,6 +54,7 @@ function createCalendar() {
         numberOfColumns: 2,
         minDate: new Date(),
         autoApply: true,
+        showTooltip: false,
         showWeekNumbers: true,
         onSelect: (date1, date2) => {
             dayFrom.html(date1.format('DD'));
@@ -85,6 +86,7 @@ function createCalendarWithRange(startDate, endDate) {
         numberOfColumns: 2,
         minDate: new Date(),
         autoApply: true,
+        showTooltip: false,
         showWeekNumbers: true,
 
         startDate: startDate,

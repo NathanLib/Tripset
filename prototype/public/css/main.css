@@ -346,6 +346,12 @@ nav .menuHamburger img {
     text-align: center;
 }
 
+.dates-details form input[type=number]::-webkit-inner-spin-button,
+.dates-details form input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 @media screen and (min-width: 992px) {
     .dates-inputs {
         width: 628px;
