@@ -297,10 +297,29 @@ nav .menuHamburger img {
     }
 }
 
+@media screen and (min-width: 1200px) {
+    .searchbar-container {
+        width: 75%;
+    }
+}
+
 /* =========================== Dates details ============================= */
 .dates-details {
     display: none;
     padding: 0.25rem 0.75rem;
+}
+
+.dates-form {
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 1600px) {
+    .dates-form {
+        flex-direction: row;
+        align-items: baseline;
+        justify-content: space-between;
+    }
 }
 
 #dates-form-separator {
@@ -327,6 +346,25 @@ nav .menuHamburger img {
     text-align: center;
 }
 
+@media screen and (min-width: 992px) {
+    .dates-inputs {
+        width: 628px;
+        margin: auto;
+        margin-top: 1rem;
+    }
+
+    .dates-details form input[type="number"] {
+        width: 5rem;
+        padding: 0.75rem 1rem;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .dates-details form input[type="number"] {
+        width: 2rem;
+    }
+}
+
 .dates-text {
     margin-top: 0.75rem;
     margin-bottom: 0.25rem;
@@ -339,13 +377,25 @@ nav .menuHamburger img {
     padding: 1rem 0;
 }
 
+.litepicker {
+    display: flex !important;
+    max-width: 100% !important;
+}
+
 .litepicker .container__months {
     -webkit-box-shadow: none !important;
+    justify-content: center !important;
     box-shadow: none !important;
 }
 
 @media screen and (min-width: 992px) {
     .dates-picker {
         padding: 2rem 0;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .dates-picker {
+        padding: 1rem 0;
     }
 }

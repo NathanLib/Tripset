@@ -44,20 +44,6 @@ var dayTo = $('#dayTo');
 var monthTo = $('#monthTo');
 var yearTo = $('#yearTo');
 
-var myPicker = null;
-
-function numberOfColumns() {
-    var width = document.body.clientWidth;
-    var numberOfColumns = 1;
-
-    if (width >= 992) {
-        numberOfColumns = 2;
-    }
-
-    return numberOfColumns;
-}
-
-
 function createCalendar() {
     var picker = new Litepicker({
         element: document.getElementById('litepicker'),
@@ -65,11 +51,10 @@ function createCalendar() {
         allowRepick: true,
         inlineMode: true,
         numberOfMonths: 2,
-        numberOfColumns: numberOfColumns(),
+        numberOfColumns: 2,
         minDate: new Date(),
         autoApply: true,
         showWeekNumbers: true,
-        mobileFriendly: true,
         onSelect: (date1, date2) => {
             dayFrom.html(date1.format('DD'));
             dayFrom.val(date1.format('DD'));
@@ -97,11 +82,10 @@ function createCalendarWithRange(startDate, endDate) {
         allowRepick: true,
         inlineMode: true,
         numberOfMonths: 2,
-        numberOfColumns: numberOfColumns(),
+        numberOfColumns: 2,
         minDate: new Date(),
         autoApply: true,
         showWeekNumbers: true,
-        mobileFriendly: true,
 
         startDate: startDate,
         endDate: endDate,
@@ -131,7 +115,7 @@ function manageCalendar() {
         dayTo.val() != "" && monthTo.val() != "" && yearTo.val() != "") {
 
         // -1 because month Integer value representing the month, beginning with 0 for January to 11 for December.
-        var startDate = new Date(yearFrom.val(), monthFrom.val() - 1 , dayFrom.val());
+        var startDate = new Date(yearFrom.val(), monthFrom.val() - 1, dayFrom.val());
         var endDate = new Date(yearTo.val(), monthTo.val() - 1, dayTo.val());
 
         createCalendarWithRange(startDate, endDate);
@@ -142,6 +126,28 @@ function addDates() {
     $.when(
         manageCalendar()
     ).done(function() {
+        if (document.body.clientWidth <= 992) {
+            if ($('.dates-details').css('display') == 'none') {
+                $('.searchbar-container').animate({
+                    marginTop: '1rem'
+                }, 700);
+            } else {
+                $('.searchbar-container').animate({
+                    marginTop: '10rem'
+                }, 700);
+            }
+        } else if (document.body.clientWidth <= 1200) {
+            if ($('.dates-details').css('display') == 'none') {
+                $('.searchbar-container').animate({
+                    marginTop: '7.5rem'
+                }, 700);
+            } else {
+                $('.searchbar-container').animate({
+                    marginTop: '10rem'
+                }, 700);
+            }
+        }
+
         $('.dates-details').slideToggle(700);
     });
 }

@@ -76,30 +76,36 @@
             <div class="dates-details">
                 <hr id="dates-form-separator">
                 <!-- Use method="POST" -->
-                <form action="" id="myform" method="">
+                <form action="" id="dates-form" class="dates-form" method="">
 
-                    <p class="dates-text">From:</p>
-                    <div class="dates-details-from">
-                        <input type="number" id="dayFrom" onfocusout="manageCalendar()" placeholder="Day" name="dayFrom" value="" />
-                        <span> / </span>
-                        <input type="number" id="monthFrom" onfocusout="manageCalendar()" placeholder="Month" name="monthFrom" value="" />
-                        <span> / </span>
-                        <input type="number" id="yearFrom" onfocusout="manageCalendar()" placeholder="Year" name="yearFrom" value="" />
-                    </div>
+                    <div class="dates-inputs">
+                        <div>
+                            <p class="dates-text">From:</p>
+                            <div class="dates-details-from">
+                                <input type="number" id="dayFrom" oninput="manageCalendar()" placeholder="Day" name="dayFrom" value="" />
+                                <span> / </span>
+                                <input type="number" id="monthFrom" oninput="manageCalendar()" placeholder="Month" name="monthFrom" value="" />
+                                <span> / </span>
+                                <input type="number" id="yearFrom" oninput="manageCalendar()" placeholder="Year" name="yearFrom" value="" />
+                            </div>
+                        </div>
 
-                    <p class="dates-text">To:</p>
-                    <div class="dates-details-to">
-                        <input type="number" id="dayTo" onfocusout="manageCalendar()" placeholder="Day" name="dayTo" value="" />
-                        <span> / </span>
-                        <input type="number" id="monthTo" onfocusout="manageCalendar()" placeholder="Month" name="monthTo" value="" />
-                        <span> / </span>
-                        <input type="number" id="yearTo" onfocusout="manageCalendar()" placeholder="Year" name="yearTo" value="" />
+                        <div>
+                            <p class="dates-text">To:</p>
+                            <div class="dates-details-to">
+                                <input type="number" id="dayTo" oninput="manageCalendar()" placeholder="Day" name="dayTo" value="" />
+                                <span> / </span>
+                                <input type="number" id="monthTo" oninput="manageCalendar()" placeholder="Month" name="monthTo" value="" />
+                                <span> / </span>
+                                <input type="number" id="yearTo" oninput="manageCalendar()" placeholder="Year" name="yearTo" value="" />
+                            </div>
+                        </div>
                     </div>
 
                     <div id="litepicker" class="dates-picker"></div>
 
                     <!-- Use type="submit" -->
-                    <input id="dates-submit" onsubmit="return datesValidation()" type="" value=" Submit">
+                    <!-- <input id="dates-submit" onsubmit="return datesValidation()" type="" value=" Submit"> -->
                 </form>
             </div>
         </div>
