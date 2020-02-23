@@ -44,6 +44,11 @@ var dayTo = $('#dayTo');
 var monthTo = $('#monthTo');
 var yearTo = $('#yearTo');
 
+var textFrom = $('#dates-text-from');
+var textTo = $('#dates-text-to');
+
+var errorMessage = $('.error-message');
+
 function createCalendar() {
     var picker = new Litepicker({
         element: document.getElementById('litepicker'),
@@ -113,14 +118,28 @@ function createCalendarWithRange(startDate, endDate) {
 function manageCalendar() {
     if ($('#litepicker').is(':empty')) {
         createCalendar();
-    } else if (dayFrom.val() != "" && monthFrom.val() != "" && yearFrom.val() != "" &&
-        dayTo.val() != "" && monthTo.val() != "" && yearTo.val() != "") {
-
+    } else if (isDatesFromCompleted && isDatesToCompleted) {
         // -1 because month Integer value representing the month, beginning with 0 for January to 11 for December.
         var startDate = new Date(yearFrom.val(), monthFrom.val() - 1, dayFrom.val());
         var endDate = new Date(yearTo.val(), monthTo.val() - 1, dayTo.val());
 
         createCalendarWithRange(startDate, endDate);
+    }
+}
+
+function isDatesFromCompleted() {
+    if (dayFrom.val() != "" && monthFrom.val() != "" && yearFrom.val() != "") {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function isDatesToCompleted() {
+    if (dayTo.val() != "" && monthTo.val() != "" && yearTo.val() != "") {
+        return true;
+    } else {
+        return false;
     }
 }
 
@@ -159,40 +178,97 @@ function displaySubmit() {
         $(this).css({
             display: 'block'
         });
-        $(this).effect("shake");
     });
 }
 
 function datesValidation() {
-    $('#submit').click(function() {
-        var date = parseInt($('#date').val());
-        var month = parseInt($('#month').val());
-        var year = parseInt($('#year').val());
-        if (isNaN(date) || isNaN(month) || isNaN(year)) {
-            alert('wrong format');
+
+    var message = "";
+
+    var dayFrom_val = dayFrom.val();
+    var monthFrom_val = monthFrom.val();
+    var yearFrom_val = yearFrom.val();
+
+    var dayTo_val = dayTo.val();
+    var monthTo_val = monthTo.val();
+    var yearTo_val = yearTo.val();
+
+    if (isNaN(dayFrom_val) || isNaN(dayFrom_val) || isNaN(dayFrom_val)) {
+        message = 'Wrong format';
+        errorDates(null, null, message);
+        return false;
+    } else {
+        if (dayFrom_val > 31 || dayFrom_val < 1) {
+
+            message = 'The day chosen for the start date is not correct!';
+            errorDates(dayFrom, null, message);
             return false;
-        } else {
-            if (date > 31 || date < 1) {
-                alert('wrong date');
+
+        } else if ((monthFrom_val == 4
+                    || monthFrom_val == 6
+                    || monthFrom_val == 9
+                    || monthFrom_val == 11)
+                    && dayFrom_val == 31) {
+
+                message = 'There\'s an error between the day and the month chosen';
+                errorDates(dayFrom, monthFrom, message);
                 return false;
-            } else if ((month == 4 || month == 6 || month == 9 || month == 11) && date == 31) {
-                alert('wrong date');
-                return false;
-            } else if (month == 2) {
-                var isleap = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
-                if (date > 29 || (date == 29 && !isleap))
-                    alert('wrong date');
-                return false;
-            }
-            if (month > 12 || month < 1) {
-                alert('wrong month');
-                return false;
-            }
-            if (year > 2050 || year < 1900) {
-                alert('wrong year');
+
+        } else if (monthFrom_val == 2) {
+            var isleap = (yearFrom_val % 4 == 0
+                        && (yearFrom_val % 100 != 0
+                        || yearFrom_val % 400 == 0));
+
+            if (dayFrom_val > 29 || (dayFrom_val == 29 && !isleap)) {
+                message = 'There is no such day!';
+                errorDates(dayFrom, null, message);
                 return false;
             }
         }
-        $('#myform').submit();
-    });
+        if (monthFrom_val > 12 || monthFrom_val < 1) {
+            message = 'This is not the time to invent a month :)';
+            errorDates(monthFrom, null, message);
+            return false;
+        }
+        if (yearFrom_val > 2050 || yearFrom_val < 1950) {
+            message = 'You\'re looking a little too far for us here, sorru!';
+            errorDates(yearFrom, null, message);
+            return false;
+        }
+    }
+
+    errorMessage.text("");
+    return true;
+}
+
+function errorDates(element1, element2, message) {
+    errorMessage.text(message);
+
+    if (!isNull(element1) && !isNull(element2)) {
+        // element1.on('click', function(e) {
+        //     e.preventDefault();
+        //     element1.addClass('wrong-shake');
+        // });
+        element1.addClass('wrong-shake');
+
+        element1.on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
+            element1.delay(200).removeClass('wrong-shake');
+        });
+
+        element2.on('click', function(e) {
+            e.preventDefault();
+            element1.addClass('wrong-shake');
+        });
+
+        element2.on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
+            element1.delay(200).removeClass('wrong-shake');
+        });
+    }
+    else if (!isNull(element1)) {
+        element1.addClass('wrong-shake');
+
+        element1.on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
+            element1.delay(200).removeClass('wrong-shake');
+        });
+    }
 }
