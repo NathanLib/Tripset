@@ -148,29 +148,25 @@ function addDates() {
         manageCalendar()
     ).done(function() {
         if (document.body.clientWidth <= 992) {
-            if ($('.dates-details').css('display') == 'none') {
-                $('.searchbar-container').animate({
-                    marginTop: '1rem'
-                }, 700);
-            } else {
-                $('.searchbar-container').animate({
-                    marginTop: '10rem'
-                }, 700);
-            }
-        } else if (document.body.clientWidth <= 1200) {
-            if ($('.dates-details').css('display') == 'none') {
-                $('.searchbar-container').animate({
-                    marginTop: '3.5rem'
-                }, 700);
-            } else {
-                $('.searchbar-container').animate({
-                    marginTop: '10rem'
-                }, 700);
-            }
+            slideSearchContainer('1rem')
+        } else if (document.body.clientWidth <= 1600) {
+            slideSearchContainer('3.5rem')
         }
 
         $('.dates-details').slideToggle(700);
     });
+}
+
+function slideSearchContainer(value) {
+    if ($('.dates-details').css('display') == 'none') {
+        $('.searchbar-container').animate({
+            marginTop: value
+        }, 700);
+    } else {
+        $('.searchbar-container').animate({
+            marginTop: '10rem'
+        }, 700);
+    }
 }
 
 function displaySubmit() {
@@ -233,6 +229,7 @@ function datesValidation() {
         return false;
     }
 
+    i
     errorMessage.text("");
     return true;
 }

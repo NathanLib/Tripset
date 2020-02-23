@@ -17,6 +17,7 @@
     --color-darkGray: #747474;
     --color-white: #ffffff;
     --color-wrong: #ff4d4d;
+    --color-validated: #66b266;
     --default-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
     /* Change date picker color */
     --litepickerDayIsStartBg: #73ccff !important;
@@ -417,6 +418,12 @@ nav .menuHamburger img {
     .dates-picker {
         padding: 1rem 0;
     }
+}
+
+.validated-dates {
+    background-color: var(--color-validated) !important;
+    color: white !important;
+    font-weight: 900 !important;
 }
 
 .error-message {
