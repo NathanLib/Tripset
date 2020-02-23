@@ -417,3 +417,88 @@ nav .menuHamburger img {
         padding: 1rem 0;
     }
 }
+
+.wrong-shake {
+    -webkit-animation: kf_shake 0.4s 1 linear;
+    -moz-animation: kf_shake 0.4s 1 linear;
+    -o-animation: kf_shake 0.4s 1 linear;
+    background-color: red;
+}
+
+@-webkit-keyframes kf_shake {
+    0% {
+        -webkit-transform: translate(15px);
+    }
+
+    20% {
+        -webkit-transform: translate(-15px);
+    }
+
+    40% {
+        -webkit-transform: translate(7px);
+    }
+
+    60% {
+        -webkit-transform: translate(-7px);
+    }
+
+    80% {
+        -webkit-transform: translate(4px);
+    }
+
+    100% {
+        -webkit-transform: translate(0px);
+    }
+}
+
+@-moz-keyframes kf_shake {
+    0% {
+        -moz-transform: translate(15px);
+    }
+
+    20% {
+        -moz-transform: translate(-15px);
+    }
+
+    40% {
+        -moz-transform: translate(7px);
+    }
+
+    60% {
+        -moz-transform: translate(-7px);
+    }
+
+    80% {
+        -moz-transform: translate(4px);
+    }
+
+    100% {
+        -moz-transform: translate(0px);
+    }
+}
+
+@-o-keyframes kf_shake {
+    0% {
+        -o-transform: translate(15px);
+    }
+
+    20% {
+        -o-transform: translate(-15px);
+    }
+
+    40% {
+        -o-transform: translate(7px);
+    }
+
+    60% {
+        -o-transform: translate(-7px);
+    }
+
+    80% {
+        -o-transform: translate(4px);
+    }
+
+    100% {
+        -o-origin-transform: translate(0px);
+    }
+}

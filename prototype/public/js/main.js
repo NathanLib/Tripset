@@ -159,6 +159,7 @@ function displaySubmit() {
         $(this).css({
             display: 'block'
         });
+        $(this).effect("shake");
     });
 }
 
