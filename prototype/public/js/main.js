@@ -141,7 +141,7 @@ function addDates() {
         } else if (document.body.clientWidth <= 1200) {
             if ($('.dates-details').css('display') == 'none') {
                 $('.searchbar-container').animate({
-                    marginTop: '7.5rem'
+                    marginTop: '3.5rem'
                 }, 700);
             } else {
                 $('.searchbar-container').animate({
@@ -151,6 +151,14 @@ function addDates() {
         }
 
         $('.dates-details').slideToggle(700);
+    });
+}
+
+function displaySubmit() {
+    $('#dates-submit').fadeIn(300, function() {
+        $(this).css({
+            display: 'block'
+        });
     });
 }
 

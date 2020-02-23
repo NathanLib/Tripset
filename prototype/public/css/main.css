@@ -303,6 +303,18 @@ nav .menuHamburger img {
     }
 }
 
+#dates-submit {
+    display: none;
+    position: absolute;
+    left: 50%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    transform: translateX(-50%);
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
 /* =========================== Dates details ============================= */
 .dates-details {
     display: none;
