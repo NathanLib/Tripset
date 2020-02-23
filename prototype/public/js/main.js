@@ -178,9 +178,6 @@ function displaySubmit() {
 }
 
 function datesValidation() {
-
-    var message = "";
-
     var dayFrom_val = dayFrom.val();
     var monthFrom_val = monthFrom.val();
     var yearFrom_val = yearFrom.val();
@@ -189,49 +186,96 @@ function datesValidation() {
     var monthTo_val = monthTo.val();
     var yearTo_val = yearTo.val();
 
-    if ((dayFrom_val > 31 || dayFrom_val < 1) && dayFrom_val != "") {
-
-        message = 'This day doesn\'t exist';
-        errorDates(dayFrom, null, message);
-        return false;
-
-    } else if ((monthFrom_val == 4
-            || monthFrom_val == 6
-            || monthFrom_val == 9
-            || monthFrom_val == 11)
-            && dayFrom_val >= 31
-            && dayFrom_val != ""
-            && monthFrom_val != "") {
-
-        message = 'There\'s only 30 days in this month!';
-        errorDates(dayFrom, monthFrom, message);
-        return false;
-
-    } else if (monthFrom_val == 2 && monthFrom_val != "") {
-        var isleap = (yearFrom_val % 4 == 0
-                && (yearFrom_val % 100 != 0
-                || yearFrom_val % 400 == 0));
-
-        if (dayFrom_val > 29 || (dayFrom_val == 29 && !isleap)) {
-            message = 'There is no such day!';
-            errorDates(dayFrom, null, message);
-            return false;
-        }
-    }
-    if ((monthFrom_val > 12 || monthFrom_val < 1) && monthFrom_val != "") {
-        message = 'This is not the time to invent a month :)';
-        errorDates(monthFrom, null, message);
+    if (!checkDates(dayFrom_val, monthFrom_val, yearFrom_val, dayFrom, monthFrom, yearFrom)) {
         return false;
     }
-    if ((yearFrom_val > 2050 || yearFrom_val < 1950) && yearFrom_val != "") {
-        message = 'You\'re looking a little too far for us here, sorru!';
-        errorDates(yearFrom, null, message);
+    if (!checkDates(dayTo_val, monthTo_val, yearTo_val, dayTo, monthTo, yearTo)) {
         return false;
     }
 
-    i
     errorMessage.text("");
     return true;
+}
+
+function checkDates(day_val, month_val, year_val, day, month, year) {
+    if (checkDays(day_val, day)) {
+        return false;
+    } else if (checkMonth30(day_val, month_val, day, month)) {
+        return false;
+    } else if (checkMonthLeap(day_val, month_val, year_val, day, month)) {
+        return false
+    }
+
+    if (checkMonth(month_val, month)) {
+        return false;
+    }
+    if (checkYear(year_val, year)) {
+        return false;
+    }
+
+    return true;
+}
+
+function checkDays(day_val, day) {
+    if ((day_val > 31 || day_val < 1) && day_val != "") {
+
+        var message = 'This day doesn\'t exist';
+
+        errorDates(day, null, message);
+        return true;
+    }
+    return false;
+}
+
+function checkMonth(month_val, month) {
+    if ((month_val > 12 || month_val < 1) && month_val != "") {
+
+        var message = 'This is not the time to invent a month :)';
+
+        errorDates(month, null, message);
+        return true;
+    }
+    return false;
+}
+
+function checkMonth30(day_val, month_val, day, month) {
+    if ((month_val == 4 ||
+            month_val == 6 ||
+            month_val == 9 ||
+            month_val == 11) &&
+        day_val >= 31 &&
+        day_val != "" &&
+        month_val != "") {
+
+        var message = 'There\'s only 30 days in this month!';
+        errorDates(day, month, message);
+        return true;
+    }
+    return false;
+}
+
+function checkMonthLeap(day_val, month_val, year_val, day, month) {
+    if (month_val == 2 && month_val != "") {
+        var isleap = (year_val % 4 == 0 &&
+            (year_val % 100 != 0 ||
+                year_val % 400 == 0));
+
+        if (day_val > 29 || (day_val == 29 && !isleap)) {
+            var message = 'There is no such day!';
+            errorDates(day, month, message);
+            return true;
+        }
+    }
+}
+
+function checkYear(year_val, year) {
+    if ((year_val > 2050 || year_val < 1950) && year_val != "") {
+
+        var message = 'You\'re looking a little too far for us here, sorry!';
+
+        errorDates(year, null, message);
+        return true;
+    }
 }
 
 function errorDates(element1, element2, message) {
