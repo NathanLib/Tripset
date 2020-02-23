@@ -189,8 +189,15 @@ function datesValidation() {
     if (!checkDates(dayFrom_val, monthFrom_val, yearFrom_val, dayFrom, monthFrom, yearFrom)) {
         return false;
     }
+    else {
+        validatedDates(dayFrom_val, monthFrom_val, yearFrom_val, dayFrom, monthFrom, yearFrom);
+    }
+
     if (!checkDates(dayTo_val, monthTo_val, yearTo_val, dayTo, monthTo, yearTo)) {
         return false;
+    }
+    else {
+        validatedDates(dayTo_val, monthTo_val, yearTo_val, dayTo, monthTo, yearTo);
     }
 
     errorMessage.text("");
@@ -296,5 +303,13 @@ function errorDates(element1, element2, message) {
         element1.one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
             element1.delay(200).removeClass('wrong-shake');
         });
+    }
+}
+
+function validatedDates(day_val, month_val, year_val, day, month, year) {
+    if (day_val != "" && month_val != "" && year_val != "") {
+        day.addClass('validated-dates');
+        month.addClass('validated-dates');
+        year.addClass('validated-dates');
     }
 }
