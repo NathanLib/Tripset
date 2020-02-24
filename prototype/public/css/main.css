@@ -24,6 +24,11 @@
     --litepickerDayIsEndBg: #73ccff !important;
     --litepickerDayIsInRange: #daf1ff !important;
     --litepickerDayColorHover: #73ccff !important;
+    /* Values for body padding */
+    --default-paddingTop-mobile: 20px;
+    --default-paddingLeft-mobile: 15px;
+    --default-paddingTop: 50px;
+    --default-paddingLeft: 150px;
 }
 
 html {
@@ -33,7 +38,7 @@ html {
 }
 
 body {
-    padding: 20px 15px 0;
+    padding: var(--default-paddingTop-mobile) var(--default-paddingLeft-mobile) 0;
     background-attachment: fixed;
     background-image: url(../images/background/backgroundMobile.svg);
     background-position: left bottom;
@@ -51,7 +56,7 @@ body {
     }
 
     body {
-        padding: 50px 150px 0;
+        padding: var(--default-paddingTop) var(--default-paddingLeft) 0;
         background-image: url(../images/background/background.svg);
     }
 }
@@ -89,15 +94,40 @@ h6 {
 /* ============================== HEADER ================================= */
 .header-container {
     z-index: 100;
-    position: sticky;
-    top: 20px;
-    left: 15px;
+    position: fixed;
+    top: var(--default-paddingTop-mobile);
+    left: var(--default-paddingLeft-mobile);
+    width: calc(100% - (var(--default-paddingLeft-mobile) * 2));
 }
 
 @media screen and (min-width: 768px) {
     .header-container {
-        top: 50px;
-        left: 150px;
+        top: var(--default-paddingTop);
+        left: var(--default-paddingLeft);
+        width: calc(100% - (var(--default-paddingLeft) * 2));
+    }
+}
+
+.menu-background {
+    display: none;
+    z-index: -1;
+    position: absolute;
+    top: calc(var(--default-paddingTop-mobile) * -1);
+    left: calc(var(--default-paddingLeft-mobile) * -1);
+    width: calc(100% + (var(--default-paddingLeft-mobile) * 2));
+    height: calc(2rem + (var(--default-paddingTop-mobile) * 2));
+    border-radius: 0 0 10px 10px;
+    background-color: #ffffff;
+    box-shadow: var(--default-shadow);
+}
+
+@media screen and (min-width: 768px) {
+    .menu-background {
+        top: calc(var(--default-paddingTop) * -1);
+        left: calc(var(--default-paddingLeft) * -1);
+        width: calc(100% + (var(--default-paddingLeft) * 2));
+        height: calc(2rem + (var(--default-paddingTop) * 2));
+        border-radius: 0 0 25px 25px;
     }
 }
 
@@ -217,7 +247,7 @@ nav .menuHamburger img {
 .searchbar-container {
     width: 100%;
     height: auto;
-    margin: 10rem auto 0 auto;
+    margin: 12rem auto 0 auto;
     border-radius: 20px;
     background-color: var(--color-white);
     box-shadow: var(--default-shadow);
