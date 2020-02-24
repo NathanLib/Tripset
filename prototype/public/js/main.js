@@ -29,6 +29,25 @@ function closeNav() {
     });
 }
 
+$(function() {
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+        var currentScrollPos = window.pageYOffset;
+        if (currentScrollPos > 115) {
+            if (prevScrollpos > currentScrollPos) {
+                $('.menu-background').fadeIn(250);
+                $('.header-container').fadeIn(250);
+            } else {
+                $('.menu-background').fadeOut(250);
+                $('.header-container').fadeOut(250);
+            }
+        } else {
+            $('.menu-background').fadeOut(100)
+        }
+        prevScrollpos = currentScrollPos;
+    }
+});
+
 /* =======================================================================
 
                                 Home page
@@ -148,9 +167,9 @@ function addDates() {
         manageCalendar()
     ).done(function() {
         if (document.body.clientWidth <= 992) {
-            slideSearchContainer('1rem')
+            slideSearchContainer('3rem')
         } else if (document.body.clientWidth <= 1600) {
-            slideSearchContainer('3.5rem')
+            slideSearchContainer('5.5rem')
         }
 
         $('.dates-details').slideToggle(700);
@@ -164,7 +183,7 @@ function slideSearchContainer(value) {
         }, 700);
     } else {
         $('.searchbar-container').animate({
-            marginTop: '10rem'
+            marginTop: '12rem'
         }, 700);
     }
 }
@@ -188,15 +207,13 @@ function datesValidation() {
 
     if (!checkDates(dayFrom_val, monthFrom_val, yearFrom_val, dayFrom, monthFrom, yearFrom)) {
         return false;
-    }
-    else {
+    } else {
         validatedDates(dayFrom_val, monthFrom_val, yearFrom_val, dayFrom, monthFrom, yearFrom);
     }
 
     if (!checkDates(dayTo_val, monthTo_val, yearTo_val, dayTo, monthTo, yearTo)) {
         return false;
-    }
-    else {
+    } else {
         validatedDates(dayTo_val, monthTo_val, yearTo_val, dayTo, monthTo, yearTo);
     }
 
