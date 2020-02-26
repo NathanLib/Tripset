@@ -255,6 +255,12 @@ nav .menuHamburger img {
     }
 }
 
+/* Main container*/
+
+.main-container {
+    padding-top: 4rem;
+}
+
 /* ============================== User profile ================================= */
 
 .info-bloc {
@@ -301,7 +307,10 @@ nav .menuHamburger img {
     font-size: large;
 }
 
-.liste-city-bloc {}
+.liste-city-bloc {
+    display: flex;
+    flex-direction: column;
+}
 
 .city-bloc {
     background-color: var(--color-lightGray);
