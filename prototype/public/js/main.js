@@ -372,20 +372,20 @@ function validatedDates(day_val, month_val, year_val, day, month, year) {
 
 /* ============================= Weather ================================= */
 $(function() {
-    if (document.body.clientWidth <= 768) {
-        $(".forecast").each(function() {
+    $(".forecast").each(function() {
+        if (document.body.clientWidth <= 768) {
             sliceDayOnMobile($(this), ".forecast-day");
+        }
 
-            if (
-                $(this).html() !=
-                $(".forecast")
-                    .last()
-                    .html()
-            ) {
-                $('<hr class="weather-separator" />').insertAfter($(this));
-            }
-        });
-    }
+        if (
+            $(this).html() !=
+            $(".forecast")
+                .last()
+                .html()
+        ) {
+            $('<hr class="weather-separator" />').insertAfter($(this));
+        }
+    });
 });
 
 function sliceDayOnMobile(element, subclass) {

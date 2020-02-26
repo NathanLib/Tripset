@@ -598,10 +598,16 @@ nav .menuHamburger img {
     background-color: white;
     border-radius: 20px;
     box-shadow: var(--default-shadow);
-    padding: 1rem;
+    padding: 1rem 0;
     display: flex;
     overflow-x: scroll;
-    justify-content: space-around;
+    justify-content: space-between;
+}
+
+@media screen and (min-width: 1200px) {
+    .forecast-container {
+        justify-content: space-evenly;
+    }
 }
 
 .forecast {
@@ -610,6 +616,7 @@ nav .menuHamburger img {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0 1rem;
 }
 
 .forecast-day {
@@ -640,7 +647,6 @@ nav .menuHamburger img {
     border: none;
     border-left: 1px solid var(--color-lightGray);
     width: 1px;
-    margin: 0 1rem;
 }
 
 .animation-zoom-origin {
