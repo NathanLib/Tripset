@@ -16,9 +16,10 @@
     --color-lightGray: #f2f2f2;
     --color-darkGray: #747474;
     --color-white: #ffffff;
+    --color-primary-faded: #f1faff;
     --color-wrong: #ff4d4d;
     --color-validated: #c1e0c1;
-    --default-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
+    --default-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
     /* Change date picker color */
     --litepickerDayIsStartBg: #73ccff !important;
     --litepickerDayIsEndBg: #73ccff !important;
@@ -38,14 +39,15 @@ html {
 }
 
 body {
-    padding: var(--default-paddingTop-mobile) var(--default-paddingLeft-mobile) 0;
+    padding: var(--default-paddingTop-mobile) var(--default-paddingLeft-mobile)
+        0;
     background-attachment: fixed;
     background-image: url(../images/background/backgroundMobile.svg);
     background-position: left bottom;
     background-repeat: no-repeat;
     background-size: 100vw;
     font-family: "Nunito", sans-serif;
-    font-size: 16px
+    font-size: 16px;
 }
 
 @media screen and (min-width: 768px) {
@@ -209,7 +211,8 @@ nav .menuHamburger img {
 }
 
 @media screen and (min-width: 992px) {
-    .mobileNav, .menuHamburger {
+    .mobileNav,
+    .menuHamburger {
         display: none;
     }
 
@@ -390,8 +393,8 @@ nav .menuHamburger img {
     text-align: center;
 }
 
-.dates-details form input[type=number]::-webkit-inner-spin-button,
-.dates-details form input[type=number]::-webkit-outer-spin-button {
+.dates-details form input[type="number"]::-webkit-inner-spin-button,
+.dates-details form input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
@@ -457,7 +460,7 @@ nav .menuHamburger img {
 .error-message {
     margin-top: 1rem;
     color: var(--color-wrong);
-    text-align: center
+    text-align: center;
 }
 
 .wrong-shake {
@@ -572,4 +575,50 @@ nav .menuHamburger img {
     100% {
         -o-origin-transform: translate(0px);
     }
+}
+
+/* =======================================================================
+
+                              Information page
+
+   ======================================================================= */
+/* ============================== General ================================ */
+
+.information-page {
+    background-image: none;
+    background-color: var(--color-primary-faded);
+}
+
+.information-page .main-container {
+    padding-top: 5rem;
+}
+
+.forecast-container {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: var(--default-shadow);
+    padding: 0.5rem 0;
+    display: flex;
+    overflow-x: scroll;
+
+    -webkit-transition: all 1s ease; /* Safari and Chrome */
+    -moz-transition: all 1s ease; /* Firefox */
+    -ms-transition: all 1s ease; /* Internet Explorer 9 */
+    -o-transition: all 1s ease; /* Opera */
+    transition: all 1s ease;
+}
+
+.forecast {
+    margin: 0 0.75rem;
+    padding: 0.5rem 0.75rem;
+    background-color: white;
+    border-radius: 20px;
+}
+.forecast:hover {
+    box-shadow: var(--default-shadow);
+    -webkit-transform: scale(1.1); /*SafarietChrome*/
+    -moz-transform: scale(1.1); /*Firefox*/
+    -ms-transform: scale(1.1); /*Internet Explorer9*/
+    -o-transform: scale(1.1); /*Opera*/
+    transform: scale(1.1);
 }

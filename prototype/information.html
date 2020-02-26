@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+        <title>TRIPSET</title>
+
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,300,400&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="public/css/main.css" />
+    </head>
+
+    <body class="information-page">
+        <div class="header-container" id="header-container">
+            <header>
+                <div class="menu-background"></div>
+
+                <nav role="navigation">
+                    <div class="logo">
+                        <img
+                            src="public/images/header/tripset.svg"
+                            alt="logo tripset"
+                        />
+                    </div>
+
+                    <div class="menuHamburger" onclick="openNav()">
+                        <img
+                            src="public/images/header/menu hamburger.svg"
+                            alt="menu hamburger"
+                        />
+                    </div>
+
+                    <div class="mobileNav">
+                        <a
+                            href="javascript:void(0)"
+                            class="closebtn"
+                            onclick="closeNav()"
+                            >&times;</a
+                        >
+                        <a href="#">Home</a>
+                        <a href="#">About</a>
+                        <a id="btn_login" href="#">Login</a>
+                    </div>
+                    <div
+                        class="mobileNav-background"
+                        onclick="closeNav()"
+                    ></div>
+
+                    <div class="computerNav">
+                        <a href="#">Home</a>
+                        <a href="#">About</a>
+                        <a id="btn_login" href="#">Login</a>
+                    </div>
+                </nav>
+            </header>
+        </div>
+
+        <div class="main-container">
+            <!-- All icons are from: https://dribbble.com/shots/3761552-Free-Weather-Icons -->
+            <section class="forecast-container">
+                <!-- I duplicated the code for the 7 days of the week, 
+                    but once the back-end part is done, 
+                    it will be possible to create a loop to avoid redundant code. -->
+                <div class="forecast" id="forecast-monday">
+                    <div class="forcast-day">Monday</div>
+                    <div class="forcast-icon"></div>
+                    <div class="forcast-temperature"></div>
+                    <div class="forcast-description"></div>
+                </div>
+                <div class="forecast" id="forecast-tuesday">
+                    <div class="forcast-day">Tuesday</div>
+                    <div class="forcast-icon"></div>
+                    <div class="forcast-temperature"></div>
+                    <div class="forcast-description"></div>
+                </div>
+                <div class="forecast" id="forecast-wednesday">
+                    <div class="forcast-day">Wednesday</div>
+                    <div class="forcast-icon"></div>
+                    <div class="forcast-temperature"></div>
+                    <div class="forcast-description"></div>
+                </div>
+                <div class="forecast" id="forecast-thursday">
+                    <div class="forcast-day">Thursday</div>
+                    <div class="forcast-icon"></div>
+                    <div class="forcast-temperature"></div>
+                    <div class="forcast-description"></div>
+                </div>
+                <div class="forecast" id="forecast-friday">
+                    <div class="forcast-day">Friday</div>
+                    <div class="forcast-icon"></div>
+                    <div class="forcast-temperature"></div>
+                    <div class="forcast-description"></div>
+                </div>
+                <div class="forecast" id="forecast-saturday">
+                    <div class="forcast-day">Saturday</div>
+                    <div class="forcast-icon"></div>
+                    <div class="forcast-temperature"></div>
+                    <div class="forcast-description"></div>
+                </div>
+                <div class="forecast" id="forecast-sunday">
+                    <div class="forcast-day">Sunday</div>
+                    <div class="forcast-icon"></div>
+                    <div class="forcast-temperature"></div>
+                    <div class="forcast-description"></div>
+                </div>
+            </section>
+            <section class="events-container"></section>
+            <section class="maps-container"></section>
+            <section class="photos-container"></section>
+            <section class="twitter-container"></section>
+        </div>
+        <!-- #main-container -->
+
+        <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"
+        ></script>
+        <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/js/main.js"></script>
+        <script type="text/javascript" src="public/js/main.js"></script>
+    </body>
+</html>
