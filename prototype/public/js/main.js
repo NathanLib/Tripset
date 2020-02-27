@@ -371,10 +371,10 @@ function validatedDates(day_val, month_val, year_val, day, month, year) {
    ======================================================================= */
 
 function sliceText(element, subclass, length) {
-    var text = element.find(subclass).html();
+    var text = $.trim(element.find(subclass).html());
 
-    var shortText = text.slice(0, length);
-    element.find(subclass).text(shortText);
+    var textSliced = text.slice(0, length);
+    element.find(subclass).text(textSliced);
 }
 
 /* ============================= Weather ================================= */
@@ -397,45 +397,84 @@ $(function() {
 
 /* ============================= Events ================================== */
 
-var context;
-var $window = $(window);
+/*
+        BIG problem with this function: ask John on Monday
+*/
 
-// run this right away to set context
-if ($window.width() <= 768) {
-    context = "small";
-} else if (768 < $window.width() < 992) {
-    context = "medium";
-}
-// else {
-//     context = "large";
-// }
+// $(window).bind("resize", function(e) {
+//     var context;
+//     // run this right away to set context
 
-// refresh the page only if you're crossing into a context
-// that isn't already set
-$(window).resize(function() {
-    if ($window.width() <= 768 && context != "small") {
-        //refresh the page
-        location.reload();
-    } else if (768 < $window.width() < 992 && context != "medium") {
-        location.reload();
-    }
-    // else if (context != "large") {
-    //     location.reload();
-    // }
-});
+//     if (document.body.clientWidth <= 768) {
+//         context = "small";
+//     }
+//     if (768 < document.body.clientWidth <= 992) {
+//         context = "medium";
+//     }
+//     if (992 < document.body.clientWidth <= 1200) {
+//         context = "large";
+//     }
+//     if (1200 < document.body.clientWidth) {
+//         context = "extra-large";
+//     }
+
+//     if (document.body.clientWidth <= 768) {
+//         if (context != "small") {
+//             //refresh the page
+//             console.log("small");
+
+//             /* false to get page from cache */
+//             this.location.reload(false);
+//         }
+//     }
+//     if (768 < document.body.clientWidth && document.body.clientWidth <= 992) {
+//         if (context != "medium") {
+//             console.log("medium");
+
+//             /* false to get page from cache */
+//             this.location.reload(false);
+//         }
+//     }
+//     if (992 < document.body.clientWidth && document.body.clientWidth <= 1200) {
+//         if (context != "large") {
+//             console.log("large");
+
+//             /* false to get page from cache */
+//             this.location.reload(false);
+//         }
+//     }
+
+//     // refresh the page only if you're crossing into a context
+//     // that isn't already set
+//     // $(window).resize(function() {
+//     //     if (1200 < document.body.clientWidth) {
+//     //         if (context != "extra-large") {
+//     //             console.log("extra");
+
+//     //             location.reload();
+//     //         }
+//     //     }
+//     // });
+// });
 
 $(function() {
     $(".event").each(function() {
         if (document.body.clientWidth <= 500) {
-            // sliceText($(this), ".event-content-description", 20);
-            // $(".event-content-description").text(
-            //     $(".event-content-description").text() + "..."
-            // );
-            // console.log(
-            //     $(".event-content-description").text(
-            //         $(".event-content-description").html() + "..."
-            //     )
-            // );
+            eventTitle($(this), 15);
+        } else if (document.body.clientWidth > 1200) {
+            eventTitle($(this), 30);
         }
     });
 });
+
+function eventTitle(element, length) {
+    var titreSize = element.find(".event-content-title").text().length;
+
+    sliceText(element, ".event-content-title", length);
+
+    if (titreSize > length) {
+        element
+            .find(".event-content-title")
+            .text(element.find(".event-content-title").text() + "...");
+    }
+}

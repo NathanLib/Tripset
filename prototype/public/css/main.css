@@ -52,12 +52,6 @@ body {
 }
 
 @media screen and (min-width: 768px) {
-    html {
-        -ms-text-size-adjust: 125%;
-        -webkit-text-size-adjust: 125%;
-        font-size: 125%;
-    }
-
     body {
         padding: var(--default-paddingTop) var(--default-paddingLeft) 0;
         background-image: url(../images/background/background.svg);
@@ -714,6 +708,18 @@ nav .menuHamburger img {
     padding-bottom: 0.45rem; /* Compensation for the title */
     margin: 0.75rem 0;
     display: flex;
+}
+
+@media screen and (min-width: 1200px) {
+    .events {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .event {
+        width: 46%;
+    }
 }
 
 .event-date {
