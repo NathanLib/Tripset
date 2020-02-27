@@ -690,7 +690,7 @@ nav .menuHamburger img {
     flex-direction: column;
     overflow-y: scroll;
     justify-content: space-between;
-    max-height: 12.5rem;
+    max-height: 34rem;
     margin-top: 1.5rem;
 }
 
@@ -733,6 +733,8 @@ nav .menuHamburger img {
 
 .event-content {
     margin: 0 0.75rem;
+    height: 80px;
+    overflow: hidden;
 }
 
 .event-content .event-content-title {
@@ -744,4 +746,5 @@ nav .menuHamburger img {
     color: var(--color-darkGray);
     font-size: 0.85rem;
     text-align: justify;
+    overflow: hidden;
 }

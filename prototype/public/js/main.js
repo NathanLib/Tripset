@@ -396,12 +396,46 @@ $(function() {
 });
 
 /* ============================= Events ================================== */
+
+var context;
+var $window = $(window);
+
+// run this right away to set context
+if ($window.width() <= 768) {
+    context = "small";
+} else if (768 < $window.width() < 992) {
+    context = "medium";
+}
+// else {
+//     context = "large";
+// }
+
+// refresh the page only if you're crossing into a context
+// that isn't already set
+$(window).resize(function() {
+    if ($window.width() <= 768 && context != "small") {
+        //refresh the page
+        location.reload();
+    } else if (768 < $window.width() < 992 && context != "medium") {
+        location.reload();
+    }
+    // else if (context != "large") {
+    //     location.reload();
+    // }
+});
+
 $(function() {
     $(".event").each(function() {
-        sliceText($(this), ".event-content-description", 125);
-
-        $(".event-content-description").text(
-            $(".event-content-description").text() + "..."
-        );
+        if (document.body.clientWidth <= 500) {
+            // sliceText($(this), ".event-content-description", 20);
+            // $(".event-content-description").text(
+            //     $(".event-content-description").text() + "..."
+            // );
+            // console.log(
+            //     $(".event-content-description").text(
+            //         $(".event-content-description").html() + "..."
+            //     )
+            // );
+        }
     });
 });
