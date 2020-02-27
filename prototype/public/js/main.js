@@ -370,11 +370,18 @@ function validatedDates(day_val, month_val, year_val, day, month, year) {
 
    ======================================================================= */
 
+function sliceText(element, subclass, length) {
+    var text = element.find(subclass).html();
+
+    var shortText = text.slice(0, length);
+    element.find(subclass).text(shortText);
+}
+
 /* ============================= Weather ================================= */
 $(function() {
     $(".forecast").each(function() {
         if (document.body.clientWidth <= 768) {
-            sliceDayOnMobile($(this), ".forecast-day");
+            sliceText($(this), ".forecast-day", 3);
         }
 
         if (
@@ -388,9 +395,13 @@ $(function() {
     });
 });
 
-function sliceDayOnMobile(element, subclass) {
-    var day = element.find(subclass).html();
+/* ============================= Events ================================== */
+$(function() {
+    $(".event").each(function() {
+        sliceText($(this), ".event-content-description", 125);
 
-    var shortDay = day.slice(0, 3);
-    element.find(subclass).text(shortDay);
-}
+        $(".event-content-description").text(
+            $(".event-content-description").text() + "..."
+        );
+    });
+});
