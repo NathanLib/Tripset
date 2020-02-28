@@ -33,7 +33,7 @@ $(function() {
     var prevScrollpos = window.pageYOffset;
     window.onscroll = function() {
         var currentScrollPos = window.pageYOffset;
-        if (currentScrollPos > 115) {
+        if (currentScrollPos > 30) {
             if (prevScrollpos > currentScrollPos) {
                 $(".menu-background").fadeIn(250);
                 $(".header-container").fadeIn(250);
@@ -462,7 +462,7 @@ $(function() {
         if (document.body.clientWidth <= 500) {
             eventTitle($(this), 15);
         } else if (document.body.clientWidth > 1200) {
-            eventTitle($(this), 30);
+            eventTitle($(this), 20);
         }
     });
 });

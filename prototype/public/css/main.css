@@ -586,6 +586,9 @@ nav .menuHamburger img {
 
 .information-page .main-container {
     padding-top: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .animation-zoom-origin {
@@ -604,14 +607,6 @@ nav .menuHamburger img {
     transform: scale(1.2);
 }
 
-.center-cropped {
-    object-fit: cover;
-    object-position: center;
-    height: 80px;
-    width: 80px;
-    border-radius: 5px;
-}
-
 /* ============================= Forecast ================================ */
 
 .forecast-container {
@@ -622,6 +617,7 @@ nav .menuHamburger img {
     display: flex;
     overflow-x: scroll;
     justify-content: space-between;
+    width: 100%;
 }
 
 @media screen and (min-width: 1200px) {
@@ -680,12 +676,17 @@ nav .menuHamburger img {
     border-radius: 20px;
     box-shadow: var(--default-shadow);
     padding: 1rem;
-    display: flex;
-    flex-direction: column;
     overflow-y: scroll;
-    justify-content: space-between;
     max-height: 34rem;
     margin-top: 1.5rem;
+}
+
+.events-container {
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+}
+.events-container::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
 }
 
 .events-header {
@@ -708,18 +709,6 @@ nav .menuHamburger img {
     padding-bottom: 0.45rem; /* Compensation for the title */
     margin: 0.75rem 0;
     display: flex;
-}
-
-@media screen and (min-width: 1200px) {
-    .events {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-    }
-
-    .event {
-        width: 46%;
-    }
 }
 
 .event-date {
@@ -753,4 +742,102 @@ nav .menuHamburger img {
     font-size: 0.85rem;
     text-align: justify;
     overflow: hidden;
+}
+
+.event-photo-center-cropped {
+    object-fit: cover;
+    object-position: center;
+    height: 80px;
+    width: 80px;
+    border-radius: 5px;
+}
+
+@media screen and (min-width: 1200px) {
+    .events-container {
+        width: 40%;
+    }
+}
+
+/* ================================ Maps ================================= */
+
+.maps-container {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: var(--default-shadow);
+    width: 100%;
+    margin-top: 1.5rem;
+    display: flex;
+}
+
+.map-center-cropped {
+    object-fit: cover;
+    object-position: center;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 20px;
+}
+
+@media screen and (min-width: 1200px) {
+    .maps-container {
+        width: 50%;
+    }
+}
+
+/* ============================== Gallery ================================= */
+
+.photos-container {
+    width: 100%;
+    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.photos-container a {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: var(--default-shadow);
+    margin-bottom: 1.5rem;
+    text-decoration: none;
+}
+
+.photos-container a img {
+    object-fit: cover;
+    object-position: center;
+    height: 100px;
+    border-radius: 10px;
+    padding: 0.5rem;
+}
+
+.gallery-photo-name {
+    color: var(--color-darkGray);
+    padding-left: 0.5rem;
+    padding-bottom: 0.5rem;
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+.photos-header {
+    border-radius: 20px;
+    color: var(--color-darkGray);
+    display: flex;
+    align-items: flex-end;
+    font-size: 1.25rem;
+    background-color: white;
+    width: 100%;
+    padding: 0.5rem 0 0.75rem 1rem;
+    margin-bottom: 1rem;
+    box-shadow: var(--default-shadow);
+}
+
+.photos-header svg {
+    width: 35px;
+    height: 35px;
+    margin-left: 1rem;
+}
+
+@media screen and (min-width: 1200px) {
+    .photos-container {
+        width: 60%;
+    }
 }

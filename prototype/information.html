@@ -13,6 +13,10 @@
             href="https://fonts.googleapis.com/css?family=Nunito:200,300,400&display=swap"
             rel="stylesheet"
         />
+        <link
+            href="public/vendors/lightbox/css/lightbox.css"
+            rel="stylesheet"
+        />
         <link rel="stylesheet" href="public/css/main.css" />
     </head>
 
@@ -315,7 +319,7 @@
                         </div>
                         <div class="event-photo">
                             <img
-                                class="center-cropped"
+                                class="event-photo-center-cropped"
                                 src="public/images/events/example1.jpg"
                                 alt="Example event-photo"
                             />
@@ -341,7 +345,7 @@
                         </div>
                         <div class="event-photo">
                             <img
-                                class="center-cropped"
+                                class="event-photo-center-cropped"
                                 src="public/images/events/example2.jpg"
                                 alt="Example event-photo"
                             />
@@ -367,7 +371,7 @@
                         </div>
                         <div class="event-photo">
                             <img
-                                class="center-cropped"
+                                class="event-photo-center-cropped"
                                 src="public/images/events/example3.jpg"
                                 alt="Example event-photo"
                             />
@@ -395,7 +399,7 @@
                         </div>
                         <div class="event-photo">
                             <img
-                                class="center-cropped"
+                                class="event-photo-center-cropped"
                                 src="public/images/events/example1.jpg"
                                 alt="Example event-photo"
                             />
@@ -420,7 +424,7 @@
                         </div>
                         <div class="event-photo">
                             <img
-                                class="center-cropped"
+                                class="event-photo-center-cropped"
                                 src="public/images/events/example2.jpg"
                                 alt="Example event-photo"
                             />
@@ -444,9 +448,9 @@
                                 Week returns this...
                             </div>
                         </div>
-                        <div class="event-photo">
+                        <div class="event-photo-event-photo">
                             <img
-                                class="center-cropped"
+                                class="event-photo-center-cropped"
                                 src="public/images/events/example3.jpg"
                                 alt="Example event-photo"
                             />
@@ -455,11 +459,154 @@
                 </div>
             </section>
 
-            <section class="maps-container"></section>
+            <section class="maps-container">
+                <img
+                    class="map-center-cropped"
+                    src="public/images/maps/example.png"
+                    alt="example maps"
+                />
+            </section>
 
-            <section class="photos-container"></section>
+            <section class="photos-container">
+                <div class="photos-header">
+                    Some photos of the city
+                    <svg
+                        version="1.1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        x="0px"
+                        y="0px"
+                        width="100px"
+                        height="75.4px"
+                        viewBox="0 0 100 75.4"
+                        style="enable-background:new 0 0 100 75.4;"
+                        xml:space="preserve"
+                    >
+                        <style type="text/css">
+                            .icPhoto {
+                                fill: #73ccff;
+                            }
+                        </style>
+                        <defs></defs>
+                        <g>
+                            <path
+                                class="icPhoto"
+                                d="M28.2,26.4c-3.6,0-6.6,2.9-6.6,6.6c0,3.6,2.9,6.6,6.6,6.6s6.6-2.9,6.6-6.6C34.8,29.3,31.8,26.4,28.2,26.4
+                            L28.2,26.4z M78.2,10.5H10.7C4.8,10.5,0,15.3,0,21.2v43.5c0,5.9,4.8,10.7,10.7,10.7h67.6c5.9,0,10.7-4.8,10.7-10.7V21.2
+                            C88.9,15.3,84.1,10.5,78.2,10.5L78.2,10.5z M83.6,64.7c0,2.9-2.4,5.3-5.3,5.3h-0.8c-0.2-0.9-0.5-1.8-1-2.7L58.6,36.6
+                            c-2.4-4.2-6.4-4.2-8.9,0L35.6,61l-3.8-6.3c-2.5-4.2-6.6-4.2-9.1,0l-7.6,12.8c-0.5,0.8-0.8,1.7-1,2.6h-3.5c-2.9,0-5.3-2.4-5.3-5.3
+                            c0,0,0,0,0-0.1V21.2c0-2.9,2.4-5.3,5.3-5.3h67.6c2.9,0,5.3,2.4,5.3,5.3L83.6,64.7L83.6,64.7z"
+                            />
+                            <path
+                                class="icPhoto"
+                                d="M88.8,0H27.7c-4.9,0-9.3,3.3-10.7,8H23c1.1-1.5,2.8-2.4,4.6-2.4h61.1c3.1,0,5.7,2.5,5.7,5.7v44.5
+                            c0,1.9-1,3.7-2.7,4.8c0,1.8,0,3.9,0,6c4.8-1.4,8.2-5.7,8.2-10.8V11.2C100,5,95,0,88.8,0z"
+                            />
+                        </g>
+                    </svg>
+                </div>
+                <a
+                    href="public/images/gallery/example1.jpg"
+                    data-lightbox="city-photos"
+                    data-title="Click on the edges to navigate between images"
+                >
+                    <img
+                        src="public/images/gallery/example1.jpg"
+                        alt="example1"
+                    />
+                    <p class="gallery-photo-name">Example 1</p>
+                </a>
+                <a
+                    href="public/images/gallery/example2.jpg"
+                    data-lightbox="city-photos"
+                >
+                    <img
+                        src="public/images/gallery/example2.jpg"
+                        alt="example2"
+                    />
+                    <p class="gallery-photo-name">Example 2</p>
+                </a>
+                <a
+                    href="public/images/gallery/example3.jpg"
+                    data-lightbox="city-photos"
+                >
+                    <img
+                        src="public/images/gallery/example3.jpg"
+                        alt="example3"
+                    />
+                    <p class="gallery-photo-name">Example 3</p>
+                </a>
+                <a
+                    href="public/images/gallery/example4.jpg"
+                    data-lightbox="city-photos"
+                >
+                    <img
+                        src="public/images/gallery/example4.jpg"
+                        alt="example4"
+                    />
+                    <p class="gallery-photo-name">Example 4</p>
+                </a>
+                <a
+                    href="public/images/gallery/example5.jpg"
+                    data-lightbox="city-photos"
+                >
+                    <img
+                        src="public/images/gallery/example5.jpg"
+                        alt="example5"
+                    />
+                    <p class="gallery-photo-name">Example 5</p>
+                </a>
+                <a
+                    href="public/images/gallery/example6.jpg"
+                    data-lightbox="city-photos"
+                >
+                    <img
+                        src="public/images/gallery/example6.jpg"
+                        alt="example6"
+                    />
+                    <p class="gallery-photo-name">Example 6</p>
+                </a>
+                <a
+                    href="public/images/gallery/example7.jpg"
+                    data-lightbox="city-photos"
+                >
+                    <img
+                        src="public/images/gallery/example7.jpg"
+                        alt="example7"
+                    />
+                    <p class="gallery-photo-name">Example 7</p>
+                </a>
+                <a
+                    href="public/images/gallery/example8.jpg"
+                    data-lightbox="city-photos"
+                >
+                    <img
+                        src="public/images/gallery/example8.jpg"
+                        alt="example8"
+                    />
+                    <p class="gallery-photo-name">Example 8</p>
+                </a>
+                <a
+                    href="public/images/gallery/example9.jpg"
+                    data-lightbox="city-photos"
+                >
+                    <img
+                        src="public/images/gallery/example9.jpg"
+                        alt="example9"
+                    />
+                    <p class="gallery-photo-name">Example 9</p>
+                </a>
+            </section>
 
-            <section class="twitter-container"></section>
+            <section class="twitter-container">
+                <div class="tweet">
+                    <div class="tweet-header">
+                        <div class="tweet-header-photo"></div>
+                        <div class="tweet-header-name"></div>
+                    </div>
+                    <div class="tweet-content"></div>
+                </div>
+            </section>
         </div>
         <!-- #main-container -->
 
@@ -469,6 +616,13 @@
             crossorigin="anonymous"
         ></script>
         <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/js/main.js"></script>
+
+        <!-- 
+            Copyright (c) 2015 Lokesh Dhakar
+            https://lokeshdhakar.com/projects/lightbox2/
+        -->
+        <script src="public/vendors/lightbox/js/lightbox.js"></script>
+
         <script type="text/javascript" src="public/js/main.js"></script>
     </body>
 </html>
