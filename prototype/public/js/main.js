@@ -469,10 +469,15 @@ $(function() {
 
 function eventTitle(element, length) {
     var titreSize = element.find(".event-content-title").text().length;
+    var spaceCount =
+        element
+            .find(".event-content-title")
+            .text()
+            .split(" ").length - 1;
 
     sliceText(element, ".event-content-title", length);
 
-    if (titreSize > length) {
+    if (titreSize > length + spaceCount) {
         element
             .find(".event-content-title")
             .text(element.find(".event-content-title").text() + "...");

@@ -618,11 +618,13 @@ nav .menuHamburger img {
     overflow-x: scroll;
     justify-content: space-between;
     width: 100%;
+    margin-bottom: 1.5rem;
 }
 
 @media screen and (min-width: 1200px) {
     .forecast-container {
         justify-content: space-evenly;
+        margin-bottom: 3.5rem;
     }
 }
 
@@ -677,8 +679,8 @@ nav .menuHamburger img {
     box-shadow: var(--default-shadow);
     padding: 1rem;
     overflow-y: scroll;
-    max-height: 34rem;
-    margin-top: 1.5rem;
+    max-height: 35rem;
+    margin-bottom: 1.5rem;
 }
 
 .events-container {
@@ -755,6 +757,7 @@ nav .menuHamburger img {
 @media screen and (min-width: 1200px) {
     .events-container {
         width: 40%;
+        margin-bottom: 3.5rem;
     }
 }
 
@@ -765,8 +768,9 @@ nav .menuHamburger img {
     border-radius: 20px;
     box-shadow: var(--default-shadow);
     width: 100%;
-    margin-top: 1.5rem;
+    max-height: 35rem;
     display: flex;
+    margin-bottom: 1.5rem;
 }
 
 .map-center-cropped {
@@ -780,6 +784,15 @@ nav .menuHamburger img {
 @media screen and (min-width: 1200px) {
     .maps-container {
         width: 50%;
+        margin-bottom: 3.5rem;
+    }
+
+    .maps-container {
+        -ms-overflow-style: none; /* Internet Explorer 10+ */
+        scrollbar-width: none; /* Firefox */
+    }
+    .maps-container::-webkit-scrollbar {
+        display: none; /* Safari and Chrome */
     }
 }
 
@@ -787,9 +800,10 @@ nav .menuHamburger img {
 
 .photos-container {
     width: 100%;
-    margin-top: 1.5rem;
     display: flex;
     flex-wrap: wrap;
+    max-height: 35rem;
+    margin-bottom: 1.5rem;
     justify-content: space-around;
 }
 
@@ -828,6 +842,7 @@ nav .menuHamburger img {
     padding: 0.5rem 0 0.75rem 1rem;
     margin-bottom: 1rem;
     box-shadow: var(--default-shadow);
+    max-height: 2.5rem;
 }
 
 .photos-header svg {
@@ -838,6 +853,75 @@ nav .menuHamburger img {
 
 @media screen and (min-width: 1200px) {
     .photos-container {
-        width: 60%;
+        width: 57.5%;
+        margin-bottom: 3.5rem;
+    }
+
+    .photos-container {
+        -ms-overflow-style: none; /* Internet Explorer 10+ */
+        scrollbar-width: none; /* Firefox */
+    }
+    .photos-container::-webkit-scrollbar {
+        display: none; /* Safari and Chrome */
+    }
+}
+
+/* ============================== Twitter ================================= */
+
+.twitter-container {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: var(--default-shadow);
+    padding: 1rem;
+    overflow-y: scroll;
+    max-height: 35rem;
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.twitter-header {
+    color: var(--color-darkGray);
+    font-size: 1.25rem;
+}
+
+.tweet {
+    background-color: var(--color-lightGray);
+    border-radius: 10px;
+    padding: 0.75rem;
+    margin: 0.75rem 0;
+}
+
+.tweet-header {
+    display: flex;
+    align-items: center;
+}
+
+.tweet-header-photo img {
+    object-fit: cover;
+    object-position: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 100px;
+}
+
+.tweet-header-name {
+    font-weight: bold;
+    margin-left: 1rem;
+    font-size: 1.15rem;
+    line-height: 1;
+}
+
+@media screen and (min-width: 1200px) {
+    .twitter-container {
+        width: 35%;
+        margin-bottom: 2.5rem;
+    }
+
+    .twitter-container {
+        -ms-overflow-style: none; /* Internet Explorer 10+ */
+        scrollbar-width: none; /* Firefox */
+    }
+    .twitter-container::-webkit-scrollbar {
+        display: none; /* Safari and Chrome */
     }
 }
