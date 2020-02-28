@@ -3,9 +3,8 @@
                                  General
 
    ======================================================================= */
-*,
-*::after,
-*::before {
+
+*, *::after, *::before {
     box-sizing: inherit;
     margin: 0;
     padding: 0;
@@ -14,6 +13,7 @@
 :root {
     --color-primary: #73ccff;
     --color-primary-faded: #f1faff;
+    --color-softBlue: #F1FAFF;
     --color-lightGray: #f2f2f2;
     --color-darkGray: #747474;
     --color-gray: #c1c1c1;
@@ -49,6 +49,11 @@ body {
     background-size: 100vw;
     font-family: "Nunito", sans-serif;
     font-size: 16px;
+}
+
+.no-background {
+    background-image: none;
+    background-color: var(--color-softBlue);
 }
 
 @media screen and (min-width: 768px) {
@@ -89,6 +94,7 @@ h6 {
 }
 
 /* ============================== HEADER ================================= */
+
 .header-container {
     z-index: 100;
     position: fixed;
@@ -140,6 +146,7 @@ nav .logo img {
 }
 
 /* The side navigation menu on mobile*/
+
 nav .menuHamburger img {
     width: 1.5rem;
     height: auto;
@@ -201,6 +208,7 @@ nav .menuHamburger img {
 }
 
 /* Navigation menu on computer */
+
 .computerNav {
     display: none;
 }
@@ -210,11 +218,10 @@ nav .menuHamburger img {
     .menuHamburger {
         display: none;
     }
-
     .computerNav {
-        display: block;
+        display: inline-flex;
+        align-items: center;
     }
-
     .computerNav a {
         margin-left: 1rem;
         padding: 0.25rem 1.75rem;
@@ -223,16 +230,157 @@ nav .menuHamburger img {
         font-weight: 200;
         text-decoration: none;
     }
-
     .computerNav a:hover {
         color: #222222;
         text-decoration: underline;
     }
-
     .computerNav #btn_login {
         border-radius: 5rem;
         background-color: var(--color-primary);
         color: var(--color-white);
+    }
+    .btn_login_logged {
+        display: inline-flex;
+    }
+    .btn_login_logged img {
+        width: 3.5rem;
+        position: relative;
+        right: -1.5rem;
+    }
+    .computerNav .btn_login_logged .username {
+        margin-left: 0;
+        align-self: center;
+        padding-left: 1.85rem;
+    }
+}
+
+/* Main container*/
+
+.main-container {
+    padding-top: 4rem;
+}
+
+/* ============================== User profile ================================= */
+
+.info-bloc {
+    background-color: var(--color-white);
+    border-radius: 1rem;
+    margin: 2.5rem 0;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.line {
+    display: inline-flex;
+    align-items: center;
+}
+
+.edit {
+    color: var(--color-darkGray);
+    text-align: right;
+    align-self: flex-end;
+    font-size: small;
+}
+
+.edit:hover {
+    color: black;
+}
+
+.edit img {
+    width: 1rem;
+}
+
+.user-details-bloc {
+    display: inline-flex;
+    align-self: center;
+    align-items: center;
+}
+
+.user-details-bloc img {
+    width: 4rem;
+}
+
+.user-details {
+    padding-left: 0.5rem;
+    font-size: large;
+}
+
+.liste-city-bloc {
+    display: flex;
+    flex-direction: column;
+}
+
+.city-bloc {
+    background-color: var(--color-lightGray);
+    border: 1px solid var(--color-darkGray);
+    border-radius: 0.5rem;
+    padding: 0.8rem;
+    color: black;
+    text-decoration: none;
+    margin: 1rem;
+}
+
+.city-bloc .city-name {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 1.2rem;
+    border-bottom: 1px solid var(--color-darkGray);
+}
+
+.city-bloc .line {
+    display: flex;
+}
+
+.city-bloc .city-temperature {
+    flex: 1;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    align-self: center;
+}
+
+.section-title img {
+    width: 2rem;
+}
+
+@media screen and (min-width: 992px) {
+    .section-title {
+        align-self: start;
+    }
+    .liste-city-bloc {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .city-bloc .city-name {
+        border-bottom: none;
+    }
+    .city-bloc .line {
+        align-items: baseline;
+        flex-direction: column;
+    }
+    .city-bloc .city-weather {
+        margin-bottom: 0.9rem;
+    }
+    .hvr-grow {
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-property: transform;
+        transition-property: transform;
+    }
+    .hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+        box-shadow: var(--default-shadow);
+    }
+    .city-bloc .city-weather {
+        margin-bottom: 0.9rem;
     }
 }
 
@@ -241,7 +389,9 @@ nav .menuHamburger img {
                                  Home page
 
    ======================================================================= */
+
 /* ============================= Searchbar =============================== */
+
 .searchbar-container {
     width: 100%;
     height: auto;
@@ -346,6 +496,7 @@ nav .menuHamburger img {
 }
 
 /* =========================== Dates details ============================= */
+
 .dates-details {
     display: none;
     padding: 0.25rem 0.75rem;
@@ -370,8 +521,7 @@ nav .menuHamburger img {
     border-top: solid var(--color-darkGray) 1px;
 }
 
-.dates-details-from,
-.dates-details-to {
+.dates-details-from, .dates-details-to {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -400,7 +550,6 @@ nav .menuHamburger img {
         margin: auto;
         margin-top: 1rem;
     }
-
     .dates-details form input[type="number"] {
         width: 5rem;
         padding: 0.75rem 1rem;
@@ -472,23 +621,18 @@ nav .menuHamburger img {
     0% {
         transform: translate(15px);
     }
-
     20% {
         transform: translate(-15px);
     }
-
     40% {
         transform: translate(7px);
     }
-
     60% {
         transform: translate(-7px);
     }
-
     80% {
         transform: translate(4px);
     }
-
     100% {
         transform: translate(0px);
     }
@@ -498,23 +642,18 @@ nav .menuHamburger img {
     0% {
         -webkit-transform: translate(15px);
     }
-
     20% {
         -webkit-transform: translate(-15px);
     }
-
     40% {
         -webkit-transform: translate(7px);
     }
-
     60% {
         -webkit-transform: translate(-7px);
     }
-
     80% {
         -webkit-transform: translate(4px);
     }
-
     100% {
         -webkit-transform: translate(0px);
     }
@@ -524,23 +663,18 @@ nav .menuHamburger img {
     0% {
         -moz-transform: translate(15px);
     }
-
     20% {
         -moz-transform: translate(-15px);
     }
-
     40% {
         -moz-transform: translate(7px);
     }
-
     60% {
         -moz-transform: translate(-7px);
     }
-
     80% {
         -moz-transform: translate(4px);
     }
-
     100% {
         -moz-transform: translate(0px);
     }
@@ -550,23 +684,18 @@ nav .menuHamburger img {
     0% {
         -o-transform: translate(15px);
     }
-
     20% {
         -o-transform: translate(-15px);
     }
-
     40% {
         -o-transform: translate(7px);
     }
-
     60% {
         -o-transform: translate(-7px);
     }
-
     80% {
         -o-transform: translate(4px);
     }
-
     100% {
         -o-origin-transform: translate(0px);
     }
