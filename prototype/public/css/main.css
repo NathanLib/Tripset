@@ -4,7 +4,9 @@
 
    ======================================================================= */
 
-*, *::after, *::before {
+*,
+*::after,
+*::before {
     box-sizing: inherit;
     margin: 0;
     padding: 0;
@@ -12,8 +14,7 @@
 
 :root {
     --color-primary: #73ccff;
-    --color-primary-faded: #f1faff;
-    --color-softBlue: #F1FAFF;
+    --color-primary-soft: #f1faff;
     --color-lightGray: #f2f2f2;
     --color-darkGray: #747474;
     --color-gray: #c1c1c1;
@@ -53,7 +54,7 @@ body {
 
 .no-background {
     background-image: none;
-    background-color: var(--color-softBlue);
+    background-color: var(--color-primary-soft);
 }
 
 @media screen and (min-width: 768px) {
@@ -121,6 +122,7 @@ h6 {
     height: calc(2rem + (var(--default-paddingTop-mobile) * 2));
     border-radius: 0 0 10px 10px;
     background-color: #ffffff;
+    opacity: 0.9;
     box-shadow: var(--default-shadow);
 }
 
@@ -195,7 +197,7 @@ nav .menuHamburger img {
     transition: 0.3s;
 }
 
-.mobileNav #btn_login {
+.mobileNav .btn_login {
     color: var(--color-primary);
     font-weight: 900;
 }
@@ -234,7 +236,7 @@ nav .menuHamburger img {
         color: #222222;
         text-decoration: underline;
     }
-    .computerNav #btn_login {
+    .computerNav .btn_login {
         border-radius: 5rem;
         background-color: var(--color-primary);
         color: var(--color-white);
@@ -254,21 +256,21 @@ nav .menuHamburger img {
     }
 }
 
-/* Main container*/
-
-.main-container {
-    padding-top: 4rem;
-}
-
 /* ============================== User profile ================================= */
+
+.profile-page .main-container,
+.edit-profile-page .main-container {
+    padding-top: 5rem;
+}
 
 .info-bloc {
     background-color: var(--color-white);
     border-radius: 1rem;
-    margin: 2.5rem 0;
+    margin-bottom: 2.5rem;
     padding: 1rem;
     display: flex;
     flex-direction: column;
+    box-shadow: var(--default-shadow);
 }
 
 .line {
@@ -339,15 +341,21 @@ nav .menuHamburger img {
 .section-title {
     font-size: 1.5rem;
     align-self: center;
+    color: var(--color-darkGray);
 }
 
 .section-title img {
     width: 2rem;
+    margin-right: 0.5rem;
+    max-height: 2.5rem;
 }
 
 @media screen and (min-width: 992px) {
     .section-title {
         align-self: start;
+    }
+    .section-title img {
+        margin-left: 1rem;
     }
     .liste-city-bloc {
         display: flex;
@@ -374,13 +382,19 @@ nav .menuHamburger img {
         -webkit-transition-property: transform;
         transition-property: transform;
     }
-    .hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+    .hvr-grow:hover,
+    .hvr-grow:focus,
+    .hvr-grow:active {
         -webkit-transform: scale(1.1);
         transform: scale(1.1);
         box-shadow: var(--default-shadow);
     }
     .city-bloc .city-weather {
         margin-bottom: 0.9rem;
+    }
+
+    .edit-profile-page .info-bloc {
+        margin-top: 3.5rem;
     }
 }
 
@@ -521,7 +535,8 @@ nav .menuHamburger img {
     border-top: solid var(--color-darkGray) 1px;
 }
 
-.dates-details-from, .dates-details-to {
+.dates-details-from,
+.dates-details-to {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -719,7 +734,8 @@ nav .menuHamburger img {
     font-size: 1rem;
 }
 
-.edit-profile input[type="text"], .edit-profile input[type=mail] {
+.edit-profile input[type="text"],
+.edit-profile input[type="mail"] {
     border-radius: 0.2rem;
     border: 1px solid var(--color-darkGray);
     font-size: 1rem;
@@ -772,12 +788,13 @@ nav .menuHamburger img {
 }
 
 @media screen and (min-width: 992px) {
-    .edit-profile .buttons, .pwd {
+    .edit-profile .buttons,
+    .pwd {
         flex-direction: row;
         align-self: center;
         align-items: baseline;
     }
-    .pwd a{
+    .pwd a {
         padding-left: 1rem;
     }
 }
@@ -787,11 +804,6 @@ nav .menuHamburger img {
 
    ======================================================================= */
 /* ============================== General ================================ */
-
-.information-page {
-    background-image: none;
-    background-color: var(--color-primary-faded);
-}
 
 .information-page .main-container {
     padding-top: 5rem;
@@ -994,6 +1006,7 @@ nav .menuHamburger img {
     .maps-container {
         width: 50%;
         margin-bottom: 3.5rem;
+        padding: 1rem;
     }
 
     .maps-container {
@@ -1003,17 +1016,24 @@ nav .menuHamburger img {
     .maps-container::-webkit-scrollbar {
         display: none; /* Safari and Chrome */
     }
+
+    .map-center-cropped {
+        width: 95%;
+        height: 95%;
+        border-radius: 15px;
+        margin: auto;
+    }
 }
 
 /* ============================== Gallery ================================= */
 
 .photos-container {
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    max-height: 35rem;
     margin-bottom: 1.5rem;
-    justify-content: space-around;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: var(--default-shadow);
+    padding: 1rem;
 }
 
 .photos-container a {
@@ -1022,6 +1042,7 @@ nav .menuHamburger img {
     box-shadow: var(--default-shadow);
     margin-bottom: 1.5rem;
     text-decoration: none;
+    margin: 0.5rem;
 }
 
 .photos-container a img {
@@ -1041,17 +1062,11 @@ nav .menuHamburger img {
 }
 
 .photos-header {
-    border-radius: 20px;
     color: var(--color-darkGray);
     display: flex;
     align-items: flex-end;
     font-size: 1.25rem;
-    background-color: white;
-    width: 100%;
-    padding: 0.5rem 0 0.75rem 1rem;
-    margin-bottom: 1rem;
-    box-shadow: var(--default-shadow);
-    max-height: 2.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .photos-header svg {
@@ -1060,10 +1075,26 @@ nav .menuHamburger img {
     margin-left: 1rem;
 }
 
+.photos-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
 @media screen and (min-width: 1200px) {
     .photos-container {
         width: 57.5%;
+        height: 35rem;
         margin-bottom: 3.5rem;
+        overflow-y: scroll;
+    }
+
+    .photos-container a {
+        margin: 0.75rem;
+    }
+
+    .photos-header {
+        margin-bottom: 0.25rem;
     }
 
     .photos-container {
@@ -1108,21 +1139,26 @@ nav .menuHamburger img {
 .tweet-header-photo img {
     object-fit: cover;
     object-position: center;
-    width: 45px;
-    height: 45px;
+    width: 39px;
+    height: 39px;
     border-radius: 100px;
 }
 
 .tweet-header-name {
     font-weight: bold;
     margin-left: 1rem;
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     line-height: 1;
+}
+
+.tweet-content {
+    font-size: 0.85rem;
+    font-weight: 300;
 }
 
 @media screen and (min-width: 1200px) {
     .twitter-container {
-        width: 35%;
+        width: 32.5%;
         margin-bottom: 2.5rem;
     }
 
