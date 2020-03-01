@@ -1125,21 +1125,26 @@ nav .menuHamburger img {
 .tweet-header-photo img {
     object-fit: cover;
     object-position: center;
-    width: 45px;
-    height: 45px;
+    width: 39px;
+    height: 39px;
     border-radius: 100px;
 }
 
 .tweet-header-name {
     font-weight: bold;
     margin-left: 1rem;
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     line-height: 1;
+}
+
+.tweet-content {
+    font-size: 0.85rem;
+    font-weight: 300;
 }
 
 @media screen and (min-width: 1200px) {
     .twitter-container {
-        width: 35%;
+        width: 32.5%;
         margin-bottom: 2.5rem;
     }
 
