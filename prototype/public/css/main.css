@@ -14,8 +14,7 @@
 
 :root {
     --color-primary: #73ccff;
-    --color-primary-faded: #f1faff;
-    --color-softBlue: #f1faff;
+    --color-primary-soft: #f1faff;
     --color-lightGray: #f2f2f2;
     --color-darkGray: #747474;
     --color-gray: #c1c1c1;
@@ -55,7 +54,7 @@ body {
 
 .no-background {
     background-image: none;
-    background-color: var(--color-softBlue);
+    background-color: var(--color-primary-soft);
 }
 
 @media screen and (min-width: 768px) {
@@ -198,7 +197,7 @@ nav .menuHamburger img {
     transition: 0.3s;
 }
 
-.mobileNav #btn_login {
+.mobileNav .btn_login {
     color: var(--color-primary);
     font-weight: 900;
 }
@@ -237,7 +236,7 @@ nav .menuHamburger img {
         color: #222222;
         text-decoration: underline;
     }
-    .computerNav #btn_login {
+    .computerNav .btn_login {
         border-radius: 5rem;
         background-color: var(--color-primary);
         color: var(--color-white);
@@ -257,21 +256,21 @@ nav .menuHamburger img {
     }
 }
 
-/* Main container*/
-
-.main-container {
-    padding-top: 4rem;
-}
-
 /* ============================== User profile ================================= */
+
+.profile-page .main-container,
+.edit-profile-page .main-container {
+    padding-top: 5rem;
+}
 
 .info-bloc {
     background-color: var(--color-white);
     border-radius: 1rem;
-    margin: 2.5rem 0;
+    margin-bottom: 2.5rem;
     padding: 1rem;
     display: flex;
     flex-direction: column;
+    box-shadow: var(--default-shadow);
 }
 
 .line {
@@ -392,6 +391,10 @@ nav .menuHamburger img {
     }
     .city-bloc .city-weather {
         margin-bottom: 0.9rem;
+    }
+
+    .edit-profile-page .info-bloc {
+        margin-top: 3.5rem;
     }
 }
 
@@ -801,11 +804,6 @@ nav .menuHamburger img {
 
    ======================================================================= */
 /* ============================== General ================================ */
-
-.information-page {
-    background-image: none;
-    background-color: var(--color-primary-faded);
-}
 
 .information-page .main-container {
     padding-top: 5rem;
