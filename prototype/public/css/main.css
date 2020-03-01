@@ -123,6 +123,7 @@ h6 {
     height: calc(2rem + (var(--default-paddingTop-mobile) * 2));
     border-radius: 0 0 10px 10px;
     background-color: #ffffff;
+    opacity: 0.9;
     box-shadow: var(--default-shadow);
 }
 
@@ -1037,6 +1038,7 @@ nav .menuHamburger img {
     box-shadow: var(--default-shadow);
     margin-bottom: 1.5rem;
     text-decoration: none;
+    margin: 0.5rem;
 }
 
 .photos-container a img {
@@ -1060,7 +1062,7 @@ nav .menuHamburger img {
     display: flex;
     align-items: flex-end;
     font-size: 1.25rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .photos-header svg {
@@ -1081,6 +1083,14 @@ nav .menuHamburger img {
         height: 35rem;
         margin-bottom: 3.5rem;
         overflow-y: scroll;
+    }
+
+    .photos-container a {
+        margin: 0.75rem;
+    }
+
+    .photos-header {
+        margin-bottom: 0.25rem;
     }
 
     .photos-container {
