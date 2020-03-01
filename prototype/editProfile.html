@@ -1,96 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>TRIPSET - Edit profile</title>
 
-    <title>TRIPSET - Edit profile</title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,300,400&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="public/css/main.css" />
+    </head>
 
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="public/css/main.css" />
-</head>
+    <body class="no-background">
+        <div class="header-container">
+            <header>
+                <div class="menu-background"></div>
 
-<body class="no-background">
-    <div class="header-container">
-        <header>
-            <nav role="navigation">
-                <div class="logo">
-                    <a href="home.html">
-                        <img src="public/images/header/tripset.svg" alt="logo tripset" />
-                    </a>
-                </div>
-
-                <div class="menuHamburger" onclick="openNav()">
-                    <img src="public/images/header/menu hamburger.svg" alt="menu hamburger" />
-                </div>
-
-                <div class="mobileNav">
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                    <a href="#">Home</a>
-                    <a href="#">About</a>
-                    <a href="profile.html">User Test</a>
-                </div>
-
-                <div class="computerNav">
-                    <a href="#">Home</a>
-                    <a href="#">About</a>
-                    <div class="btn_login_logged">
-                        <img src="public/images/icons/icon_profile_coloured.svg" alt="User's pic">
-                        <a id="btn_login" class="username" href="profile.html">
-                            User Test
+                <nav role="navigation">
+                    <div class="logo">
+                        <a href="home.html">
+                            <img
+                                src="public/images/header/tripset.svg"
+                                alt="logo tripset"
+                            />
                         </a>
                     </div>
-                </div>
-            </nav>
-        </header>
-    </div>
 
-    <div class="main-container">
-        <div class="info-bloc ">
-            <form class="edit-profile">
-                <div class="line">
-                    <img src="public/images/icons/icon_profile_coloured.svg">
-                    <input type="file">
-                </div>
-                <div class="line">
-                    <label for="fname">First name :</label>
-                    <input type="text" id="fname" name="fname" placeholder="First name">
-                </div>
-                <div class="line">
-                    <label for="lname">Name :</label>
-                    <input type="text" id="lname" name="lname" placeholder="Name">
-                </div>
-                <div class="line">
-                    <label for="city">City :</label>
-                    <input type="text" id="city" name="city" placeholder="Ciy">
-                </div>
-                <div class="line">
-                    <label for="mail">Mail :</label>
-                    <input type="mail" id="mail" name="mail" placeholder="usertest@test.uk"
-                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required >
-                </div>
-                <div class="buttons">
-                    <input class="blue-button" type="submit" value="Change">
-                    <a href="profile.html">Cancel</a>
-                </div>
-            </form>
-            <div class="pwd">
-                <p>Want to reset your password ?</p><a href="#">Click here</a>
-            </div>
+                    <div class="menuHamburger" onclick="openNav()">
+                        <img
+                            src="public/images/header/menu hamburger.svg"
+                            alt="menu hamburger"
+                        />
+                    </div>
 
+                    <div class="mobileNav">
+                        <a
+                            href="javascript:void(0)"
+                            class="closebtn"
+                            onclick="closeNav()"
+                            >&times;</a
+                        >
+                        <a href="#">Home</a>
+                        <a href="#">About</a>
+                        <a href="profile.html">User Test</a>
+                    </div>
+
+                    <div class="computerNav">
+                        <a href="#">Home</a>
+                        <a href="#">About</a>
+                        <div class="btn_login_logged">
+                            <img
+                                src="public/images/icons/icon_profile_coloured.svg"
+                                alt="User's pic"
+                            />
+                            <a
+                                id="btn_login"
+                                class="username"
+                                href="profile.html"
+                            >
+                                User Test
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </header>
         </div>
 
-    </div>
+        <div class="main-container">
+            <div class="info-bloc ">
+                <form class="edit-profile">
+                    <div class="line">
+                        <img
+                            src="public/images/icons/icon_profile_coloured.svg"
+                        />
+                        <input type="file" />
+                    </div>
+                    <div class="line">
+                        <label for="fname">First name :</label>
+                        <input
+                            type="text"
+                            id="fname"
+                            name="fname"
+                            placeholder="First name"
+                        />
+                    </div>
+                    <div class="line">
+                        <label for="lname">Name :</label>
+                        <input
+                            type="text"
+                            id="lname"
+                            name="lname"
+                            placeholder="Name"
+                        />
+                    </div>
+                    <div class="line">
+                        <label for="city">City :</label>
+                        <input
+                            type="text"
+                            id="city"
+                            name="city"
+                            placeholder="Ciy"
+                        />
+                    </div>
+                    <div class="line">
+                        <label for="mail">Mail :</label>
+                        <input
+                            type="mail"
+                            id="mail"
+                            name="mail"
+                            placeholder="usertest@test.uk"
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                            required
+                        />
+                    </div>
+                    <div class="buttons">
+                        <input
+                            class="blue-button"
+                            type="submit"
+                            value="Change"
+                        />
+                        <a href="profile.html">Cancel</a>
+                    </div>
+                </form>
+                <div class="pwd">
+                    <p>Want to reset your password ?</p>
+                    <a href="#">Click here</a>
+                </div>
+            </div>
+        </div>
 
-
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/js/main.js"></script>
-    <script type="text/javascript" src="public/js/main.js"></script>
-</body>
-
+        <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"
+        ></script>
+        <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/js/main.js"></script>
+        <script type="text/javascript" src="public/js/main.js"></script>
+    </body>
 </html>
