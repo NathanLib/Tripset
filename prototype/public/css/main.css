@@ -4,7 +4,9 @@
 
    ======================================================================= */
 
-*, *::after, *::before {
+*,
+*::after,
+*::before {
     box-sizing: inherit;
     margin: 0;
     padding: 0;
@@ -13,7 +15,7 @@
 :root {
     --color-primary: #73ccff;
     --color-primary-faded: #f1faff;
-    --color-softBlue: #F1FAFF;
+    --color-softBlue: #f1faff;
     --color-lightGray: #f2f2f2;
     --color-darkGray: #747474;
     --color-gray: #c1c1c1;
@@ -374,7 +376,9 @@ nav .menuHamburger img {
         -webkit-transition-property: transform;
         transition-property: transform;
     }
-    .hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+    .hvr-grow:hover,
+    .hvr-grow:focus,
+    .hvr-grow:active {
         -webkit-transform: scale(1.1);
         transform: scale(1.1);
         box-shadow: var(--default-shadow);
@@ -521,7 +525,8 @@ nav .menuHamburger img {
     border-top: solid var(--color-darkGray) 1px;
 }
 
-.dates-details-from, .dates-details-to {
+.dates-details-from,
+.dates-details-to {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -719,7 +724,8 @@ nav .menuHamburger img {
     font-size: 1rem;
 }
 
-.edit-profile input[type="text"], .edit-profile input[type=mail] {
+.edit-profile input[type="text"],
+.edit-profile input[type="mail"] {
     border-radius: 0.2rem;
     border: 1px solid var(--color-darkGray);
     font-size: 1rem;
@@ -772,12 +778,13 @@ nav .menuHamburger img {
 }
 
 @media screen and (min-width: 992px) {
-    .edit-profile .buttons, .pwd {
+    .edit-profile .buttons,
+    .pwd {
         flex-direction: row;
         align-self: center;
         align-items: baseline;
     }
-    .pwd a{
+    .pwd a {
         padding-left: 1rem;
     }
 }
@@ -994,6 +1001,7 @@ nav .menuHamburger img {
     .maps-container {
         width: 50%;
         margin-bottom: 3.5rem;
+        padding: 1rem;
     }
 
     .maps-container {
@@ -1002,6 +1010,13 @@ nav .menuHamburger img {
     }
     .maps-container::-webkit-scrollbar {
         display: none; /* Safari and Chrome */
+    }
+
+    .map-center-cropped {
+        width: 95%;
+        height: 95%;
+        border-radius: 15px;
+        margin: auto;
     }
 }
 
