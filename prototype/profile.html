@@ -1,170 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>TRIPSET - Profile</title>
 
-    <title>TRIPSET - Profile</title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,300,400&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="public/css/main.css" />
+    </head>
 
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="public/css/main.css" />
-</head>
-
-<body class="no-background">
-    <div class="header-container">
-        <header>
-            <nav role="navigation">
-                <div class="logo">
-                    <a href="home.html">
-                        <img src="public/images/header/tripset.svg" alt="logo tripset" />
-                    </a>
-                </div>
-
-                <div class="menuHamburger" onclick="openNav()">
-                    <img src="public/images/header/menu hamburger.svg" alt="menu hamburger" />
-                </div>
-
-                <div class="mobileNav">
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                    <a href="#">Home</a>
-                    <a href="#">About</a>
-                    <a href="profile.html">User Test</a>
-                </div>
-
-                <div class="computerNav">
-                    <a href="#">Home</a>
-                    <a href="#">About</a>
-                    <div class="btn_login_logged">
-                        <img src="public/images/icons/icon_profile_coloured.svg" alt="User's pic">
-                        <a id="btn_login" class="username" href="profile.html">
-                            User Test
+    <body class="no-background">
+        <div class="header-container">
+            <header>
+                <nav role="navigation">
+                    <div class="logo">
+                        <a href="home.html">
+                            <img
+                                src="public/images/header/tripset.svg"
+                                alt="logo tripset"
+                            />
                         </a>
                     </div>
+
+                    <div class="menuHamburger" onclick="openNav()">
+                        <img
+                            src="public/images/header/menu hamburger.svg"
+                            alt="menu hamburger"
+                        />
+                    </div>
+
+                    <div class="mobileNav">
+                        <a
+                            href="javascript:void(0)"
+                            class="closebtn"
+                            onclick="closeNav()"
+                            >&times;</a
+                        >
+                        <a href="#">Home</a>
+                        <a href="#">About</a>
+                        <a href="profile.html">User Test</a>
+                    </div>
+
+                    <div class="computerNav">
+                        <a href="#">Home</a>
+                        <a href="#">About</a>
+                        <div class="btn_login_logged">
+                            <img
+                                src="public/images/icons/icon_profile_coloured.svg"
+                                alt="User's pic"
+                            />
+                            <a
+                                id="btn_login"
+                                class="username"
+                                href="profile.html"
+                            >
+                                User Test
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+        </div>
+
+        <div class="main-container">
+            <div class="info-bloc">
+                <div class="user-details-bloc">
+                    <img
+                        src="public/images/icons/icon_profile_coloured.svg"
+                        alt="User's pic"
+                    />
+                    <div class="user-details">
+                        <p>Name</p>
+                        <p>City</p>
+                    </div>
                 </div>
-            </nav>
-        </header>
-    </div>
-
-    <div class="main-container">
-        <div class="info-bloc">
-            <div class="user-details-bloc">
-                <img src="public/images/icons/icon_profile_coloured.svg" alt="User's pic">
-                <div class="user-details">
-                    <p>Name</p>
-                    <p>City</p>
+                <a href="editProfile.html" class="line edit"
+                    ><img src="public/images/icons/icon_edit.svg" />
+                    <p>Edit profile</p>
+                </a>
+            </div>
+            <div class="info-bloc user-favourites">
+                <div class="line section-title">
+                    <img src="public/images/icons/icon_fav.svg" />
+                    <p>Favourites</p>
+                </div>
+                <div class="liste-city-bloc">
+                    <a class="city-bloc hvr-grow" href="#">
+                        <p class="city-name">City</p>
+                        <div class="line">
+                            <p class="city-temperature">Temperature</p>
+                            <p class="city-weather">Weather</p>
+                        </div>
+                    </a>
+                    <a class="city-bloc hvr-grow" href="#">
+                        <p class="city-name">City</p>
+                        <div class="line">
+                            <p class="city-temperature">Temperature</p>
+                            <p class="city-weather">Weather</p>
+                        </div>
+                    </a>
+                    <a class="city-bloc hvr-grow" href="#">
+                        <p class="city-name">City</p>
+                        <div class="line">
+                            <p class="city-temperature">Temperature</p>
+                            <p class="city-weather">Weather</p>
+                        </div>
+                    </a>
+                    <a class="city-bloc hvr-grow" href="#">
+                        <p class="city-name">City</p>
+                        <div class="line">
+                            <p class="city-temperature">Temperature</p>
+                            <p class="city-weather">Weather</p>
+                        </div>
+                    </a>
                 </div>
             </div>
-            <a href="editProfile.html" class="line edit"><img src="public/images/icons/icon_edit.svg">
-                <p>Edit profile</p>
-            </a>
-        </div>
-        <div class="info-bloc user-favourites">
-            <div class="line section-title">
-                <img src="public/images/icons/icon_favourite.svg">
-                <p>Favourites</p>
-            </div>
-            <div class="liste-city-bloc">
-                <a class="city-bloc hvr-grow" href="#">
-                    <p class="city-name">City</p>
-                    <div class="line">
-                        <p class="city-temperature">Temperature</p>
-                        <p class="city-weather">Weather</p>
-                    </div>
-                </a>
-                <a class="city-bloc hvr-grow" href="#">
-                    <p class="city-name">City</p>
-                    <div class="line">
-                        <p class="city-temperature">Temperature</p>
-                        <p class="city-weather">Weather</p>
-                    </div>
-                </a>
-                <a class="city-bloc hvr-grow" href="#">
-                    <p class="city-name">City</p>
-                    <div class="line">
-                        <p class="city-temperature">Temperature</p>
-                        <p class="city-weather">Weather</p>
-                    </div>
-                </a>
-                <a class="city-bloc hvr-grow" href="#">
-                    <p class="city-name">City</p>
-                    <div class="line">
-                        <p class="city-temperature">Temperature</p>
-                        <p class="city-weather">Weather</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="info-bloc user-historic">
-            <div class="line section-title">
-                <img src="public/images/icons/icon_historic.svg">
-                <p>Historic</p>
-            </div>
-            <div class="liste-city-bloc">
-                <a class="city-bloc hvr-grow" href="#">
-                    <p class="city-name">City</p>
-                    <div class="line">
-                        <p class="city-temperature">Temperature</p>
-                        <p class="city-weather">Weather</p>
-                    </div>
-                </a>
-                <a class="city-bloc hvr-grow" href="#">
-                    <p class="city-name">City</p>
-                    <div class="line">
-                        <p class="city-temperature">Temperature</p>
-                        <p class="city-weather">Weather</p>
-                    </div>
-                </a>
-                <a class="city-bloc hvr-grow" href="#">
-                    <p class="city-name">City</p>
-                    <div class="line">
-                        <p class="city-temperature">Temperature</p>
-                        <p class="city-weather">Weather</p>
-                    </div>
-                </a>
-                <a class="city-bloc hvr-grow" href="#">
-                    <p class="city-name">City</p>
-                    <div class="line">
-                        <p class="city-temperature">Temperature</p>
-                        <p class="city-weather">Weather</p>
-                    </div>
-                </a>
-                <a class="city-bloc hvr-grow" href="#">
-                    <p class="city-name">City</p>
-                    <div class="line">
-                        <p class="city-temperature">Temperature</p>
-                        <p class="city-weather">Weather</p>
-                    </div>
-                </a>
-                <a class="city-bloc hvr-grow" href="#">
-                    <p class="city-name">City</p>
-                    <div class="line">
-                        <p class="city-temperature">Temperature</p>
-                        <p class="city-weather">Weather</p>
-                    </div>
-                </a>
-                <a class="city-bloc hvr-grow" href="#">
-                    <p class="city-name">City</p>
-                    <div class="line">
-                        <p class="city-temperature">Temperature</p>
-                        <p class="city-weather">Weather</p>
-                    </div>
-                </a>
-
-
+            <div class="info-bloc user-historic">
+                <div class="line section-title">
+                    <img src="public/images/icons/icon_location-history.svg" />
+                    <p>Historic</p>
+                </div>
+                <div class="liste-city-bloc">
+                    <a class="city-bloc hvr-grow" href="#">
+                        <p class="city-name">City</p>
+                        <div class="line">
+                            <p class="city-temperature">Temperature</p>
+                            <p class="city-weather">Weather</p>
+                        </div>
+                    </a>
+                    <a class="city-bloc hvr-grow" href="#">
+                        <p class="city-name">City</p>
+                        <div class="line">
+                            <p class="city-temperature">Temperature</p>
+                            <p class="city-weather">Weather</p>
+                        </div>
+                    </a>
+                    <a class="city-bloc hvr-grow" href="#">
+                        <p class="city-name">City</p>
+                        <div class="line">
+                            <p class="city-temperature">Temperature</p>
+                            <p class="city-weather">Weather</p>
+                        </div>
+                    </a>
+                    <a class="city-bloc hvr-grow" href="#">
+                        <p class="city-name">City</p>
+                        <div class="line">
+                            <p class="city-temperature">Temperature</p>
+                            <p class="city-weather">Weather</p>
+                        </div>
+                    </a>
+                    <a class="city-bloc hvr-grow" href="#">
+                        <p class="city-name">City</p>
+                        <div class="line">
+                            <p class="city-temperature">Temperature</p>
+                            <p class="city-weather">Weather</p>
+                        </div>
+                    </a>
+                    <a class="city-bloc hvr-grow" href="#">
+                        <p class="city-name">City</p>
+                        <div class="line">
+                            <p class="city-temperature">Temperature</p>
+                            <p class="city-weather">Weather</p>
+                        </div>
+                    </a>
+                    <a class="city-bloc hvr-grow" href="#">
+                        <p class="city-name">City</p>
+                        <div class="line">
+                            <p class="city-temperature">Temperature</p>
+                            <p class="city-weather">Weather</p>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
 
-    </div>
-
-
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/js/main.js"></script>
-    <script type="text/javascript" src="public/js/main.js"></script>
-</body>
-
+        <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"
+        ></script>
+        <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/js/main.js"></script>
+        <script type="text/javascript" src="public/js/main.js"></script>
+    </body>
 </html>
