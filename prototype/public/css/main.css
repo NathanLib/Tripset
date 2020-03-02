@@ -1385,8 +1385,8 @@ nav .menuHamburger img {
     width: 60%;
     margin: auto;
 }
-input[type="text"],
-input[type="password"] {
+#login input[type="text"],
+#login input[type="password"] {
     width: 100%;
     max-width: 1000px;
     padding: 12px 20px;
