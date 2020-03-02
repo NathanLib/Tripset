@@ -397,65 +397,43 @@ $(function() {
 
 /* ============================= Events ================================== */
 
-/*
-        BIG problem with this function: ask John on Monday
-*/
+var context;
+if (document.body.clientWidth <= 768) {
+    context = "small";
+} else if (
+    768 < document.body.clientWidth &&
+    document.body.clientWidth <= 992
+) {
+    context = "medium";
+} else if (
+    992 < document.body.clientWidth &&
+    document.body.clientWidth <= 1200
+) {
+    context = "large";
+} else if (1200 < document.body.clientWidth) {
+    context = "extra-large";
+}
 
-// $(window).bind("resize", function(e) {
-//     var context;
-//     // run this right away to set context
-
-//     if (document.body.clientWidth <= 768) {
-//         context = "small";
-//     }
-//     if (768 < document.body.clientWidth <= 992) {
-//         context = "medium";
-//     }
-//     if (992 < document.body.clientWidth <= 1200) {
-//         context = "large";
-//     }
-//     if (1200 < document.body.clientWidth) {
-//         context = "extra-large";
-//     }
-
-//     if (document.body.clientWidth <= 768) {
-//         if (context != "small") {
-//             //refresh the page
-//             console.log("small");
-
-//             /* false to get page from cache */
-//             this.location.reload(false);
-//         }
-//     }
-//     if (768 < document.body.clientWidth && document.body.clientWidth <= 992) {
-//         if (context != "medium") {
-//             console.log("medium");
-
-//             /* false to get page from cache */
-//             this.location.reload(false);
-//         }
-//     }
-//     if (992 < document.body.clientWidth && document.body.clientWidth <= 1200) {
-//         if (context != "large") {
-//             console.log("large");
-
-//             /* false to get page from cache */
-//             this.location.reload(false);
-//         }
-//     }
-
-//     // refresh the page only if you're crossing into a context
-//     // that isn't already set
-//     // $(window).resize(function() {
-//     //     if (1200 < document.body.clientWidth) {
-//     //         if (context != "extra-large") {
-//     //             console.log("extra");
-
-//     //             location.reload();
-//     //         }
-//     //     }
-//     // });
-// });
+$(window).bind("resize", function() {
+    if (document.body.clientWidth <= 768 && context != "small") {
+        /* false to get page from cache */
+        this.location.reload(false);
+    } else if (
+        768 < document.body.clientWidth &&
+        document.body.clientWidth <= 992 &&
+        context != "medium"
+    ) {
+        this.location.reload(false);
+    } else if (
+        992 < document.body.clientWidth &&
+        document.body.clientWidth <= 1200 &&
+        context != "large"
+    ) {
+        this.location.reload(false);
+    } else if (1200 < document.body.clientWidth && context != "extra-large") {
+        this.location.reload(false);
+    }
+});
 
 $(function() {
     $(".event").each(function() {
