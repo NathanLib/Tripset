@@ -1179,48 +1179,35 @@ nav .menuHamburger img {
 /* ============================== General ================================ */
 
 #login-page-body {
-    padding: 20px 15px 0;
     background-attachment: fixed;
     background-image: url("../images/background/login_background.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    font-family: "Nunito", sans-serif;
-    font-size: 16px;
-}
-
-@media screen and (min-width: 768px) {
-    html {
-        -ms-text-size-adjust: 125%;
-        -webkit-text-size-adjust: 125%;
-        font-size: 125%;
-    }
-
-    /* body {
-    padding: 50px 150px 0;
-	background-image: url(../images/background/background.svg);} */
-
-    #login-page-body {
-        padding: 50px 150px 0;
-        background-image: url("../images/background/login_background.svg");
-    }
 }
 
 #login {
-    margin: 6rem auto 0 auto;
+    margin: 4rem auto 0 auto;
     background-color: #f2f2f2;
-    width: 60vw;
+    width: 100%;
     height: 50vh;
     min-height: 450px;
     display: flex;
     flex-direction: row;
 }
-#login p {
-    font-family: "Helvetica Neue", Helvetica, Arial, "sans-serif";
+@media screen and (min-width: 992px) {
+    #login {
+        margin: 7rem auto 0 auto;
+    }
 }
+
 .rounded-corners {
-    border-radius: 15px;
+    border-radius: 20px;
 }
+.rounded-corners-max {
+    border-radius: 35px;
+}
+
 .flex {
     display: flex;
 }
@@ -1231,6 +1218,7 @@ nav .menuHamburger img {
     height: 100%;
     width: 100%;
     overflow-y: hidden;
+    box-shadow: var(--default-shadow);
 }
 .login-holder-left {
     width: 20%;
@@ -1269,12 +1257,13 @@ nav .menuHamburger img {
 }
 .login-toggle-holder1 {
     width: 200px;
-    height: 50px;
+    height: 45px;
     flex-direction: row;
     background-color: #ffffff;
     border: solid;
     border-color: #6598bb;
     border-width: 1px;
+    padding: 2px;
 }
 .login-toggle-holder2 {
     margin: 1rem 1rem 0 auto;
@@ -1283,15 +1272,16 @@ nav .menuHamburger img {
     margin: 1rem auto 0 1rem;
 }
 .login-toggle-login {
-    margin: 2px;
     width: 50%;
     height: 100%;
     background-color: #6598bb;
+    padding: 0 5px;
 }
 .login-toggle-signup {
     margin: 2px;
     width: 50%;
     height: 100%;
+    padding: 0 5px;
 }
 .login-toggle-holder1 p {
     text-align: center;
@@ -1312,6 +1302,7 @@ nav .menuHamburger img {
     overflow-y: hidden;
     flex-direction: row;
     display: none;
+    box-shadow: var(--default-shadow);
 }
 .signup-holder-left {
     width: 80%;
@@ -1377,12 +1368,12 @@ nav .menuHamburger img {
 /*Form*/
 #login-form {
     height: 80%;
-    width: 60%;
+    width: 80%;
     margin: auto;
 }
 #signup-form {
     height: 80%;
-    width: 60%;
+    width: 80%;
     margin: auto;
 }
 #login input[type="text"],
@@ -1392,16 +1383,16 @@ nav .menuHamburger img {
     padding: 12px 20px;
     margin: 1rem auto 0 auto;
     display: inline-block;
-    border: solid 1px #ffffff;
+    border: none;
     box-sizing: border-box;
-    box-shadow: -1px 2px 8px 1px grey;
+    box-shadow: var(--default-shadow);
 }
 .button-settings {
     background-color: #87cbfa;
     color: white;
     padding: 10px 0px;
     margin: 15px 0 0 0;
-    border: solid 1px #ffffff;
+    border: none;
     cursor: pointer;
     width: 150px;
 }
@@ -1418,14 +1409,15 @@ nav .menuHamburger img {
     float: right;
 }
 .pw-but {
-    background-color: #87cbfa;
-    color: white;
-    padding: 10px 5px;
-    position: absolute;
-    margin: 1rem 0 0 0.2rem;
-    border: solid 1px #ffffff;
+    margin-top: 10px;
     cursor: pointer;
-    width: auto;
+}
+.pw-but a {
+    color: var(--color-darkGray);
+    text-decoration: underline;
+}
+.pw-but a:hover {
+    color: black;
 }
 #option {
     margin: 10px 0 0 0;
@@ -1440,7 +1432,7 @@ nav .menuHamburger img {
 
 @media screen and (max-width: 992px) {
     #login {
-        width: 90vw;
+        width: 100%;
         height: 80vh;
         flex-direction: row;
     }
@@ -1459,7 +1451,7 @@ nav .menuHamburger img {
         width: 100%;
         height: 80%;
         display: flex;
-        background-size: 400vw;
+        background-size: 175vw;
     }
     .signup-holder-left {
         width: 100%;
@@ -1481,17 +1473,30 @@ nav .menuHamburger img {
     .terms-text {
         font-size: 10px;
     }
-    #login-form {
-        width: 70%;
-        transform: translate(-10%, 10%);
-        margin-right: auto;
-    }
     .pw-but {
-        padding: 10px 5px;
+        padding: 0 5px;
         margin: 1rem 0 0 0.2rem;
         width: auto;
     }
     .mob-but {
         width: 100%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    #login-form {
+        width: 60%;
+    }
+    #signup-form {
+        width: 60%;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    #login-form {
+        width: 45%;
+    }
+    #signup-form {
+        width: 45%;
     }
 }
