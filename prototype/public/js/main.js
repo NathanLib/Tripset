@@ -14,6 +14,7 @@ const isToday = (someDate) => {
 }
 
 /* ============================= Header ================================== */
+
 function openNav() {
     $(".mobileNav").css({
         width: "50vw"
@@ -36,6 +37,7 @@ function closeNav() {
     });
 }
 
+/* Function to make the header disappear when the page is scrolled down*/ 
 $(function() {
     var prevScrollpos = window.pageYOffset;
     window.onscroll = function() {
@@ -421,6 +423,8 @@ function sliceText(element, subclass, length) {
 }
 
 /* ============================= Weather ================================= */
+
+/* Function to add a separator between days (and their forecast) */
 $(function() {
     $(".forecast").each(function() {
         if (document.body.clientWidth <= 768) {
@@ -477,7 +481,7 @@ $(window).bind("resize", function() {
         this.location.reload(false);
     }
 });
-
+/** Function to cut the articles'title if they are too long */
 $(function() {
     $(".event").each(function() {
         if (document.body.clientWidth <= 768) {
@@ -547,8 +551,14 @@ function checkBox() {
 }
 
 
-/**********************/
+/* =======================================================================
 
+                            Edit Profile    
+
+   ======================================================================= */
+
+ /** Function to preview the profile image 
+  * When the server side will be ready, the new image will be download to get the access */
 function readURL(input) {
     if (input.files && input.files[0]) {
       var reader = new FileReader();
