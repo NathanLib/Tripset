@@ -19,7 +19,7 @@ function openNav() {
     $(".mobileNav").css({
         width: "50vw"
     });
-    $(".mobileNav-background").fadeIn(600, function() {
+    $(".mobileNav-background").fadeIn(600, function () {
         $(".mobileNav-background").css({
             display: "block"
         });
@@ -30,17 +30,17 @@ function closeNav() {
     $(".mobileNav").css({
         width: "0"
     });
-    $(".mobileNav-background").fadeOut(600, function() {
+    $(".mobileNav-background").fadeOut(600, function () {
         $(".mobileNav-background").css({
             display: "none"
         });
     });
 }
 
-/* Function to make the header disappear when the page is scrolled down*/ 
-$(function() {
+/* Function to make the header disappear when the page is scrolled down*/
+$(function () {
     var prevScrollpos = window.pageYOffset;
-    window.onscroll = function() {
+    window.onscroll = function () {
         var currentScrollPos = window.pageYOffset;
         if (currentScrollPos > 30) {
             if (prevScrollpos > currentScrollPos) {
@@ -160,7 +160,7 @@ function manageCalendar() {
         createCalendar();
     } else if (isDatesFromCompleted() && !isDatesToCompleted()) {
         var startDate = new Date(yearFrom.val(), monthFrom.val() - 1, dayFrom.val());
-        var endDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate()+7)
+        var endDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() + 7)
 
         checkConsistencyDates(startDate, endDate);
     } else if (isDatesFromCompleted() && isDatesToCompleted()) {
@@ -214,7 +214,7 @@ function isDatesToCompleted() {
 }
 
 function addDates() {
-    $.when(manageCalendar()).done(function() {
+    $.when(manageCalendar()).done(function () {
         if (document.body.clientWidth <= 992) {
             slideSearchContainer("3rem");
         } else if (document.body.clientWidth <= 1600) {
@@ -228,21 +228,21 @@ function addDates() {
 function slideSearchContainer(value) {
     if ($(".dates-details").css("display") == "none") {
         $(".searchbar-container").animate({
-                marginTop: value
-            },
+            marginTop: value
+        },
             700
         );
     } else {
         $(".searchbar-container").animate({
-                marginTop: "12rem"
-            },
+            marginTop: "12rem"
+        },
             700
         );
     }
 }
 
 function displaySubmit() {
-    $("#dates-submit").fadeIn(300, function() {
+    $("#dates-submit").fadeIn(300, function () {
         $(this).css({
             display: "block"
         });
@@ -395,7 +395,7 @@ function addAnimationError(element) {
     element.addClass("wrong-shake");
     element.one(
         "webkitAnimationEnd oanimationend msAnimationEnd animationend",
-        function(e) {
+        function (e) {
             element.delay(200).removeClass("wrong-shake");
         }
     );
@@ -425,8 +425,8 @@ function sliceText(element, subclass, length) {
 /* ============================= Weather ================================= */
 
 /* Function to add a separator between days (and their forecast) */
-$(function() {
-    $(".forecast").each(function() {
+$(function () {
+    $(".forecast").each(function () {
         if (document.body.clientWidth <= 768) {
             sliceText($(this), ".forecast-day", 3);
         }
@@ -434,8 +434,8 @@ $(function() {
         if (
             $(this).html() !=
             $(".forecast")
-            .last()
-            .html()
+                .last()
+                .html()
         ) {
             $('<hr class="weather-separator" />').insertAfter($(this));
         }
@@ -461,7 +461,7 @@ if (document.body.clientWidth <= 768) {
     context = "extra-large";
 }
 
-$(window).bind("resize", function() {
+$(window).bind("resize", function () {
     if (document.body.clientWidth <= 768 && context != "small") {
         /* false to get page from cache */
         this.location.reload(false);
@@ -482,8 +482,8 @@ $(window).bind("resize", function() {
     }
 });
 /** Function to cut the articles'title if they are too long */
-$(function() {
-    $(".event").each(function() {
+$(function () {
+    $(".event").each(function () {
         if (document.body.clientWidth <= 768) {
             eventTitle($(this), 15);
         } else if (document.body.clientWidth > 1200) {
@@ -496,9 +496,9 @@ function eventTitle(element, length) {
     var titreSize = element.find(".event-content-title").text().length;
     var spaceCount =
         element
-        .find(".event-content-title")
-        .text()
-        .split(" ").length - 1;
+            .find(".event-content-title")
+            .text()
+            .split(" ").length - 1;
 
     sliceText(element, ".event-content-title", length);
 
@@ -515,7 +515,7 @@ function eventTitle(element, length) {
 
    ======================================================================= */
 ("use strict");
-$(".js-1").click(function() {
+$(".js-1").click(function () {
     $(".signup-holder")
         .fadeIn(600)
         .css({
@@ -525,7 +525,7 @@ $(".js-1").click(function() {
 });
 
 ("use strict");
-$(".js-2").click(function() {
+$(".js-2").click(function () {
     $(".login-holder").fadeIn(600);
     $(".signup-holder").fadeOut(0);
 });
@@ -557,20 +557,36 @@ function checkBox() {
 
    ======================================================================= */
 
- /** Function to preview the profile image 
-  * When the server side will be ready, the new image will be download to get the access */
+/** Function to preview the profile image 
+ * When the server side will be ready, the new image will be download to get the access */
 function readURL(input) {
     if (input.files && input.files[0]) {
-      var reader = new FileReader();
-      
-      reader.onload = function(e) {
-        $('#profileImg').attr('src', e.target.result);
-      }
-      
-      reader.readAsDataURL(input.files[0]);
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#profileImg').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
     }
-  }
-  
-  $("#newImg").change(function() {
+}
+
+$("#newImg").change(function () {
     readURL(this);
-  });
+});
+
+
+/* =======================================================================
+
+                            Reset Password
+
+   ======================================================================= */
+/*Function to tell the user an email was sent to him*/
+function sendEmail() {
+    let emailSent = document.getElementById("email-sent");
+    if (getComputedStyle(emailSent).display != "none") {
+        emailSent.style.display = "none";
+    } else {
+        emailSent.style.display = "block";
+    }
+}
