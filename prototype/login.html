@@ -1,194 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-        <title>TRIPSET</title>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-        <meta name="description" content="" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TRIPSET</title>
 
-        <link
-            href="https://fonts.googleapis.com/css?family=Nunito:200,300,400&display=swap"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="public/css/main.css" />
-    </head>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <body id="login-page-body">
-        <div class="header-container">
-            <header>
-                <nav role="navigation">
-                    <div class="logo">
-                        <img
-                            src="public/images/header/tripset.svg"
-                            alt="logo tripset"
-                        />
-                    </div>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="public/css/main.css" />
+</head>
 
-                    <div class="menuHamburger" onclick="openNav()">
-                        <img
-                            src="public/images/header/menu hamburger.svg"
-                            alt="menu hamburger"
-                        />
-                    </div>
-
-                    <div class="mobileNav">
-                        <a
-                            href="javascript:void(0)"
-                            class="closebtn"
-                            onclick="closeNav()"
-                            >&times;</a
-                        >
-                        <a href="#">Home</a>
-                        <a href="#">About</a>
-                        <a class="btn_login" href="#">Login</a>
-                    </div>
-                    <div
-                        class="mobileNav-background"
-                        onclick="closeNav()"
-                    ></div>
-
-                    <div class="computerNav">
-                        <a href="#">Home</a>
-                        <a href="#">About</a>
-                        <a class="btn_login" href="#">Login</a>
-                    </div>
-                </nav>
-            </header>
-        </div>
-
-        <div id="login" class="rounded-corners flex">
-            <div class="login-holder rounded-corners flex">
-                <div class="login-holder-left flex"><p>Login</p></div>
-                <div class="login-holder-right flex">
-                    <div class="login-toggle-holder flex">
-                        <div
-                            class="login-toggle-holder1 login-toggle-holder2 flex rounded-corners"
-                        >
-                            <div
-                                class="login-toggle-login flex rounded-corners line-effect1"
-                            >
-                                <p>Login</p>
-                            </div>
-                            <div
-                                button
-                                onClick=""
-                                class="login-toggle-signup flex rounded-corners js-1 line-effect2"
-                            >
-                                <p>Sign Up</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="login-information flex">
-                        <form id="login-form" action="#">
-                            <input
-                                class="uname rounded-corners"
-                                type="text"
-                                placeholder="Enter Username"
-                                name="uname"
-                                required
-                            />
-                            <input
-                                class="psw rounded-corners"
-                                type="password"
-                                placeholder="Enter Password"
-                                name="psw"
-                                required
-                            />
-                            <button
-                                onClick="check(this.form)"
-                                class="button-settings log-but login-button rounded-corners login-button-text"
-                            >
-                                <p>Login</p>
-                            </button>
-                            <a
-                                href="#"
-                                class="pw-but rounded-corners line-effect1"
-                                ><p>Forgot</p></a
-                            >
-                        </form>
-                    </div>
+<body id="login-page-body">
+    <div class="header-container">
+        <header>
+            <nav role="navigation">
+                <div class="logo">
+                    <a href="home.html">
+                        <img src="public/images/header/tripset.svg" alt="logo tripset" />
+                    </a>
                 </div>
+
+                <div class="menuHamburger" onclick="openNav()">
+                    <img src="public/images/header/menu hamburger.svg" alt="menu hamburger" />
+                </div>
+
+                <div class="mobileNav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="home.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a class="btn_login" href="login.html">Login</a>
+                </div>
+                <div class="mobileNav-background" onclick="closeNav()"></div>
+
+                <div class="computerNav">
+                    <a href="home.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a class="btn_login" href="login.html">Login</a>
+                </div>
+            </nav>
+        </header>
+    </div>
+
+    <div id="login" class="rounded-corners flex">
+        <div class="login-holder rounded-corners flex">
+            <div class="login-holder-left flex">
+                <p>Login</p>
             </div>
-            <div class="signup-holder rounded-corners flex">
-                <div class="signup-holder-left flex">
-                    <div class="login-toggle-holder flex">
-                        <div
-                            class="login-toggle-holder1 login-toggle-holder2-2 flex rounded-corners"
-                        >
-                            <div
-                                class="login-toggle-login flex rounded-corners line-effect1"
-                            >
-                                <p>Sign Up</p>
-                            </div>
-                            <div
-                                class="login-toggle-signup flex rounded-corners js-2 line-effect2"
-                            >
-                                <p>Login</p>
-                            </div>
+            <div class="login-holder-right flex">
+                <div class="login-toggle-holder flex">
+                    <div class="login-toggle-holder1 login-toggle-holder2 flex rounded-corners-max">
+                        <div class="login-toggle-login flex rounded-corners-max line-effect1">
+                            <p>Login</p>
+                        </div>
+                        <div button onClick="" class="login-toggle-signup flex rounded-corners-max js-1 line-effect2">
+                            <p>Sign Up</p>
                         </div>
                     </div>
-                    <div class="login-information flex">
-                        <form id="signup-form" action="#">
-                            <input
-                                class="rounded-corners"
-                                type="text"
-                                placeholder="Enter first name"
-                                name="first-name"
-                                required
-                            />
-                            <input
-                                class="rounded-corners"
-                                type="text"
-                                placeholder="Enter last name"
-                                name="last-name"
-                                required
-                            />
-                            <input
-                                class="rounded-corners"
-                                type="text"
-                                placeholder="Enter email address"
-                                name="email"
-                                required
-                            />
-                            <button
-                                onClick="checkBox()"
-                                class="mob-but button-settings log-but rounded-corners login-button-text"
-                                requried
-                            >
-                                <p>Submit</p>
-                            </button>
-                            <input
-                                id="option"
-                                type="checkbox"
-                                name="field"
-                                value="option"
-                                requried
-                            />
-                            <label for="option"
-                                ><span class="terms-text"
-                                    >By checking this box you are agreeing to
-                                    our terms and conditions</span
-                                ></label
-                            >
-                        </form>
-                    </div>
                 </div>
-                <div class="signup-holder-right flex">
-                    <p>Sign Up</p>
+                <div class="login-information flex">
+                    <form id="login-form" action="profile.html">
+                        <input class="uname rounded-corners" type="text" placeholder="Enter Username" name="uname" required />
+                        <input class="psw rounded-corners" type="password" placeholder="Enter Password" name="psw" required />
+                        <div class="pw-but">
+                            <a href="#" class="line-effect1">
+                                Forgot your password ?
+                            </a>
+                        </div>
+                        <button onClick="check(this.form)" class="button-settings log-but login-button rounded-corners login-button-text">
+                            <p>Login</p>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
+        <div class="signup-holder rounded-corners flex">
+            <div class="signup-holder-left flex">
+                <div class="login-toggle-holder flex">
+                    <div class="login-toggle-holder1 login-toggle-holder2-2 flex rounded-corners-max">
+                        <div class="login-toggle-login flex rounded-corners-max line-effect1">
+                            <p>Sign Up</p>
+                        </div>
+                        <div class="login-toggle-signup flex rounded-corners-max js-2 line-effect2">
+                            <p>Login</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="login-information flex">
+                    <form id="signup-form" action="profile.html">
+                        <input class="rounded-corners" type="text" placeholder="Enter first name" name="first-name" required />
+                        <input class="rounded-corners" type="text" placeholder="Enter last name" name="last-name" required />
+                        <input class="rounded-corners" type="text" placeholder="Enter email address" name="email" required />
+                        <button onClick="checkBox()" class="mob-but button-settings log-but rounded-corners login-button-text" requried>
+                            <p>Submit</p>
+                        </button>
+                        <input id="option" type="checkbox" name="field" value="option" requried />
+                        <label for="option"><span class="terms-text">By checking this box you are agreeing to
+                                our terms and conditions</span></label>
+                    </form>
+                </div>
+            </div>
+            <div class="signup-holder-right flex">
+                <p>Sign Up</p>
+            </div>
+        </div>
+    </div>
 
-        <!-- #main-container -->
+    <!-- #main-container -->
 
-        <script
-            src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-            crossorigin="anonymous"
-        ></script>
-        <script src="public/js/main.js"></script>
-    </body>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="public/js/main.js"></script>
+
+    <script type="text/javascript">
+        alert("Username: user" + '\n' + "Password: 123" + '\n' + "(These infos are test sets for the development phase. They will be removed when the database is set up!)")
+    </script>
+</body>
+
 </html>

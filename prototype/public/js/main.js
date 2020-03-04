@@ -6,6 +6,13 @@
 
 const isNull = value => typeof value === "object" && !value;
 
+const isToday = (someDate) => {
+    const today = new Date()
+    return someDate.getDate() == today.getDate() &&
+        someDate.getMonth() == today.getMonth() &&
+        someDate.getFullYear() == today.getFullYear()
+}
+
 /* ============================= Header ================================== */
 function openNav() {
     $(".mobileNav").css({
@@ -67,6 +74,16 @@ var textFrom = $("#dates-text-from");
 var textTo = $("#dates-text-to");
 
 var errorMessage = $(".error-message");
+var today = new Date();
+
+function submitResearch() {
+    if (datesValidation()) {
+        $("#dates-form").submit();
+        $("#location-form").submit();
+    } else {
+        alert("There is an error in the selected dates")
+    }
+}
 
 function createCalendar() {
     var picker = new Litepicker({
@@ -139,16 +156,42 @@ function createCalendarWithRange(startDate, endDate) {
 function manageCalendar() {
     if ($("#litepicker").is(":empty")) {
         createCalendar();
-    } else if (isDatesFromCompleted && isDatesToCompleted) {
-        // -1 because month Integer value representing the month, beginning with 0 for January to 11 for December.
-        var startDate = new Date(
-            yearFrom.val(),
-            monthFrom.val() - 1,
-            dayFrom.val()
-        );
+    } else if (isDatesFromCompleted() && !isDatesToCompleted()) {
+        var startDate = new Date(yearFrom.val(), monthFrom.val() - 1, dayFrom.val());
+        var endDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate()+7)
+
+        checkConsistencyDates(startDate, endDate);
+    } else if (isDatesFromCompleted() && isDatesToCompleted()) {
+        var startDate = new Date(yearFrom.val(), monthFrom.val() - 1, dayFrom.val());
         var endDate = new Date(yearTo.val(), monthTo.val() - 1, dayTo.val());
 
-        createCalendarWithRange(startDate, endDate);
+        if (checkConsistencyDates(startDate, endDate)) {
+            createCalendarWithRange(startDate, endDate);
+        }
+    }
+}
+
+function checkConsistencyDates(startDate, endDate) {
+    console.log(startDate);
+    console.log(endDate);
+    if (startDate >= today && endDate >= startDate) {
+        return true;
+    } else if (startDate <= today) {
+        addAnimationError(dayFrom);
+        addAnimationError(monthFrom);
+        addAnimationError(yearFrom);
+
+        errorMessage.text("The start date must be today or after");
+
+        return false;
+    } else if (endDate < startDate) {
+        addAnimationError(dayTo);
+        addAnimationError(monthTo);
+        addAnimationError(yearTo);
+
+        errorMessage.text("The end date must be after the start date");
+    } else {
+        return false;
     }
 }
 
@@ -182,15 +225,13 @@ function addDates() {
 
 function slideSearchContainer(value) {
     if ($(".dates-details").css("display") == "none") {
-        $(".searchbar-container").animate(
-            {
+        $(".searchbar-container").animate({
                 marginTop: value
             },
             700
         );
     } else {
-        $(".searchbar-container").animate(
-            {
+        $(".searchbar-container").animate({
                 marginTop: "12rem"
             },
             700
@@ -339,7 +380,6 @@ function errorDates(element1, element2, message) {
 
     if (!isNull(element1) && !isNull(element2)) {
         addAnimationError(element1);
-
         addAnimationError(element2);
     } else if (!isNull(element1)) {
         addAnimationError(element1);
@@ -347,6 +387,9 @@ function errorDates(element1, element2, message) {
 }
 
 function addAnimationError(element) {
+    element.removeClass("validated-dates");
+    element.siblings().removeClass("validated-dates");
+
     element.addClass("wrong-shake");
     element.one(
         "webkitAnimationEnd oanimationend msAnimationEnd animationend",
@@ -387,8 +430,8 @@ $(function() {
         if (
             $(this).html() !=
             $(".forecast")
-                .last()
-                .html()
+            .last()
+            .html()
         ) {
             $('<hr class="weather-separator" />').insertAfter($(this));
         }
@@ -397,65 +440,43 @@ $(function() {
 
 /* ============================= Events ================================== */
 
-/*
-        BIG problem with this function: ask John on Monday
-*/
+var context;
+if (document.body.clientWidth <= 768) {
+    context = "small";
+} else if (
+    768 < document.body.clientWidth &&
+    document.body.clientWidth <= 992
+) {
+    context = "medium";
+} else if (
+    992 < document.body.clientWidth &&
+    document.body.clientWidth <= 1200
+) {
+    context = "large";
+} else if (1200 < document.body.clientWidth) {
+    context = "extra-large";
+}
 
-// $(window).bind("resize", function(e) {
-//     var context;
-//     // run this right away to set context
-
-//     if (document.body.clientWidth <= 768) {
-//         context = "small";
-//     }
-//     if (768 < document.body.clientWidth <= 992) {
-//         context = "medium";
-//     }
-//     if (992 < document.body.clientWidth <= 1200) {
-//         context = "large";
-//     }
-//     if (1200 < document.body.clientWidth) {
-//         context = "extra-large";
-//     }
-
-//     if (document.body.clientWidth <= 768) {
-//         if (context != "small") {
-//             //refresh the page
-//             console.log("small");
-
-//             /* false to get page from cache */
-//             this.location.reload(false);
-//         }
-//     }
-//     if (768 < document.body.clientWidth && document.body.clientWidth <= 992) {
-//         if (context != "medium") {
-//             console.log("medium");
-
-//             /* false to get page from cache */
-//             this.location.reload(false);
-//         }
-//     }
-//     if (992 < document.body.clientWidth && document.body.clientWidth <= 1200) {
-//         if (context != "large") {
-//             console.log("large");
-
-//             /* false to get page from cache */
-//             this.location.reload(false);
-//         }
-//     }
-
-//     // refresh the page only if you're crossing into a context
-//     // that isn't already set
-//     // $(window).resize(function() {
-//     //     if (1200 < document.body.clientWidth) {
-//     //         if (context != "extra-large") {
-//     //             console.log("extra");
-
-//     //             location.reload();
-//     //         }
-//     //     }
-//     // });
-// });
+$(window).bind("resize", function() {
+    if (document.body.clientWidth <= 768 && context != "small") {
+        /* false to get page from cache */
+        this.location.reload(false);
+    } else if (
+        768 < document.body.clientWidth &&
+        document.body.clientWidth <= 992 &&
+        context != "medium"
+    ) {
+        this.location.reload(false);
+    } else if (
+        992 < document.body.clientWidth &&
+        document.body.clientWidth <= 1200 &&
+        context != "large"
+    ) {
+        this.location.reload(false);
+    } else if (1200 < document.body.clientWidth && context != "extra-large") {
+        this.location.reload(false);
+    }
+});
 
 $(function() {
     $(".event").each(function() {
@@ -471,9 +492,9 @@ function eventTitle(element, length) {
     var titreSize = element.find(".event-content-title").text().length;
     var spaceCount =
         element
-            .find(".event-content-title")
-            .text()
-            .split(" ").length - 1;
+        .find(".event-content-title")
+        .text()
+        .split(" ").length - 1;
 
     sliceText(element, ".event-content-title", length);
 
