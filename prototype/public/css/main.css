@@ -3,7 +3,6 @@
                                  General
 
    ======================================================================= */
-
 *,
 *::after,
 *::before {
@@ -41,8 +40,7 @@ html {
 }
 
 body {
-    padding: var(--default-paddingTop-mobile) var(--default-paddingLeft-mobile)
-        0;
+    padding: var(--default-paddingTop-mobile) var(--default-paddingLeft-mobile) 0;
     background-attachment: fixed;
     background-image: url(../images/background/backgroundMobile.svg);
     background-position: left bottom;
@@ -53,8 +51,8 @@ body {
 }
 
 .no-background {
-    background-image: none;
     background-color: var(--color-primary-soft);
+    background-image: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -95,7 +93,6 @@ h6 {
 }
 
 /* ============================== HEADER ================================= */
-
 .header-container {
     z-index: 100;
     position: fixed;
@@ -122,8 +119,8 @@ h6 {
     height: calc(2rem + (var(--default-paddingTop-mobile) * 2));
     border-radius: 0 0 10px 10px;
     background-color: #ffffff;
-    opacity: 0.9;
     box-shadow: var(--default-shadow);
+    opacity: 0.9;
 }
 
 @media screen and (min-width: 768px) {
@@ -148,7 +145,6 @@ nav .logo img {
 }
 
 /* The side navigation menu on mobile*/
-
 nav .menuHamburger img {
     width: 1.5rem;
     height: auto;
@@ -210,20 +206,22 @@ nav .menuHamburger img {
 }
 
 /* Navigation menu on computer */
-
 .computerNav {
     display: none;
 }
 
 @media screen and (min-width: 992px) {
+
     .mobileNav,
     .menuHamburger {
         display: none;
     }
+
     .computerNav {
         display: inline-flex;
         align-items: center;
     }
+
     .computerNav a {
         margin-left: 1rem;
         padding: 0.25rem 1.75rem;
@@ -232,44 +230,48 @@ nav .menuHamburger img {
         font-weight: 200;
         text-decoration: none;
     }
+
     .computerNav a:hover {
         color: #222222;
         text-decoration: underline;
     }
+
     .computerNav .btn_login {
         border-radius: 5rem;
         background-color: var(--color-primary);
         color: var(--color-white);
     }
+
     .btn_login_logged {
         display: inline-flex;
     }
+
     .btn_login_logged img {
-        width: 3.5rem;
         position: relative;
         right: -1.5rem;
+        width: 3.5rem;
     }
+
     .computerNav .btn_login_logged .username {
-        margin-left: 0;
         align-self: center;
+        margin-left: 0;
         padding-left: 1.85rem;
     }
 }
 
 /* ============================== User profile ================================= */
-
 .profile-page .main-container,
 .edit-profile-page .main-container {
     padding-top: 5rem;
 }
 
 .info-bloc {
-    background-color: var(--color-white);
-    border-radius: 1rem;
-    margin-bottom: 2.5rem;
-    padding: 1rem;
     display: flex;
     flex-direction: column;
+    margin-bottom: 2.5rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: var(--color-white);
     box-shadow: var(--default-shadow);
 }
 
@@ -279,10 +281,10 @@ nav .menuHamburger img {
 }
 
 .edit {
-    color: var(--color-darkGray);
-    text-align: right;
     align-self: flex-end;
+    color: var(--color-darkGray);
     font-size: small;
+    text-align: right;
 }
 
 .edit:hover {
@@ -295,8 +297,8 @@ nav .menuHamburger img {
 
 .user-details-bloc {
     display: inline-flex;
-    align-self: center;
     align-items: center;
+    align-self: center;
 }
 
 .user-details-bloc img {
@@ -314,20 +316,20 @@ nav .menuHamburger img {
 }
 
 .city-bloc {
-    background-color: var(--color-lightGray);
+    margin: 1rem;
+    padding: 0.8rem;
     border: 1px solid var(--color-darkGray);
     border-radius: 0.5rem;
-    padding: 0.8rem;
+    background-color: var(--color-lightGray);
     color: black;
     text-decoration: none;
-    margin: 1rem;
 }
 
 .city-bloc .city-name {
-    font-size: 1.2rem;
-    text-align: center;
     margin-bottom: 1.2rem;
     border-bottom: 1px solid var(--color-darkGray);
+    font-size: 1.2rem;
+    text-align: center;
 }
 
 .city-bloc .line {
@@ -339,49 +341,56 @@ nav .menuHamburger img {
 }
 
 .section-title {
-    font-size: 1.5rem;
     align-self: center;
     color: var(--color-darkGray);
+    font-size: 1.5rem;
 }
 
 .section-title img {
     width: 2rem;
-    margin-right: 0.5rem;
     max-height: 2.5rem;
+    margin-right: 0.5rem;
 }
 
 @media screen and (min-width: 992px) {
     .section-title {
         align-self: start;
     }
+
     .section-title img {
         margin-left: 1rem;
     }
+
     .liste-city-bloc {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
     }
+
     .city-bloc .city-name {
         border-bottom: none;
     }
+
     .city-bloc .line {
-        align-items: baseline;
         flex-direction: column;
+        align-items: baseline;
     }
+
     .city-bloc .city-weather {
         margin-bottom: 0.9rem;
     }
+
     .hvr-grow {
-        display: inline-block;
-        vertical-align: middle;
         -webkit-transform: perspective(1px) translateZ(0);
-        transform: perspective(1px) translateZ(0);
         -webkit-transition-duration: 0.3s;
-        transition-duration: 0.3s;
         -webkit-transition-property: transform;
+        display: inline-block;
+        transform: perspective(1px) translateZ(0);
+        vertical-align: middle;
+        transition-duration: 0.3s;
         transition-property: transform;
     }
+
     .hvr-grow:hover,
     .hvr-grow:focus,
     .hvr-grow:active {
@@ -389,6 +398,7 @@ nav .menuHamburger img {
         transform: scale(1.1);
         box-shadow: var(--default-shadow);
     }
+
     .city-bloc .city-weather {
         margin-bottom: 0.9rem;
     }
@@ -403,8 +413,10 @@ nav .menuHamburger img {
                                  Home page
 
    ======================================================================= */
-
 /* ============================= Searchbar =============================== */
+.home-page {
+    margin-bottom: 1.5rem;
+}
 
 .searchbar-container {
     width: 100%;
@@ -510,7 +522,6 @@ nav .menuHamburger img {
 }
 
 /* =========================== Dates details ============================= */
-
 .dates-details {
     display: none;
     padding: 0.25rem 0.75rem;
@@ -565,6 +576,7 @@ nav .menuHamburger img {
         margin: auto;
         margin-top: 1rem;
     }
+
     .dates-details form input[type="number"] {
         width: 5rem;
         padding: 0.75rem 1rem;
@@ -636,18 +648,23 @@ nav .menuHamburger img {
     0% {
         transform: translate(15px);
     }
+
     20% {
         transform: translate(-15px);
     }
+
     40% {
         transform: translate(7px);
     }
+
     60% {
         transform: translate(-7px);
     }
+
     80% {
         transform: translate(4px);
     }
+
     100% {
         transform: translate(0px);
     }
@@ -657,18 +674,23 @@ nav .menuHamburger img {
     0% {
         -webkit-transform: translate(15px);
     }
+
     20% {
         -webkit-transform: translate(-15px);
     }
+
     40% {
         -webkit-transform: translate(7px);
     }
+
     60% {
         -webkit-transform: translate(-7px);
     }
+
     80% {
         -webkit-transform: translate(4px);
     }
+
     100% {
         -webkit-transform: translate(0px);
     }
@@ -678,18 +700,23 @@ nav .menuHamburger img {
     0% {
         -moz-transform: translate(15px);
     }
+
     20% {
         -moz-transform: translate(-15px);
     }
+
     40% {
         -moz-transform: translate(7px);
     }
+
     60% {
         -moz-transform: translate(-7px);
     }
+
     80% {
         -moz-transform: translate(4px);
     }
+
     100% {
         -moz-transform: translate(0px);
     }
@@ -699,25 +726,29 @@ nav .menuHamburger img {
     0% {
         -o-transform: translate(15px);
     }
+
     20% {
         -o-transform: translate(-15px);
     }
+
     40% {
         -o-transform: translate(7px);
     }
+
     60% {
         -o-transform: translate(-7px);
     }
+
     80% {
         -o-transform: translate(4px);
     }
+
     100% {
         -o-origin-transform: translate(0px);
     }
 }
 
 /***************************Edit profile*********************************/
-
 .edit-profile {
     display: flex;
     flex-direction: column;
@@ -736,10 +767,10 @@ nav .menuHamburger img {
 
 .edit-profile input[type="text"],
 .edit-profile input[type="mail"] {
-    border-radius: 0.2rem;
-    border: 1px solid var(--color-darkGray);
-    font-size: 1rem;
     padding: 0.2rem;
+    border: 1px solid var(--color-darkGray);
+    border-radius: 0.2rem;
+    font-size: 1rem;
 }
 
 .edit-profile label {
@@ -752,71 +783,77 @@ nav .menuHamburger img {
 }
 
 .edit-profile .buttons {
-    margin: 2rem auto;
     display: flex;
     flex-direction: column;
+    margin: 2rem auto;
     text-align: center;
 }
 
 .blue-button {
-    background-color: var(--color-primary);
+    width: 12rem;
+    margin: auto;
+    padding: 1rem;
     border: 1px solid var(--color-primary);
     border-radius: 0.5rem;
-    margin: auto;
-    width: 12rem;
+    background-color: var(--color-primary);
     color: var(--color-white);
-    padding: 1rem;
     font-size: large;
 }
 
 .edit-profile .buttons a {
-    color: var(--color-darkGray);
     margin: 2rem;
+    color: var(--color-darkGray);
     font-size: small;
     text-decoration: none;
 }
 
 .pwd {
-    text-align: center;
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 
 .pwd a {
-    color: black;
     margin-top: 1rem;
+    color: black;
 }
 
 @media screen and (min-width: 992px) {
+
     .edit-profile .buttons,
     .pwd {
         flex-direction: row;
-        align-self: center;
         align-items: baseline;
+        align-self: center;
     }
+
     .pwd a {
         padding-left: 1rem;
     }
 }
+
 /* =======================================================================
 
                               Information page
 
    ======================================================================= */
 /* ============================== General ================================ */
-
 .information-page .main-container {
-    padding-top: 5rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    padding-top: 5rem;
 }
 
 .animation-zoom-origin {
-    -webkit-transition: all 1s ease; /* Safari and Chrome */
-    -moz-transition: all 1s ease; /* Firefox */
-    -ms-transition: all 1s ease; /* Internet Explorer 9 */
-    -o-transition: all 1s ease; /* Opera */
+    -webkit-transition: all 1s ease;
+    /* Safari and Chrome */
+    -moz-transition: all 1s ease;
+    /* Firefox */
+    -ms-transition: all 1s ease;
+    /* Internet Explorer 9 */
+    -o-transition: all 1s ease;
+    /* Opera */
     transition: all 1s ease;
 }
 
@@ -829,17 +866,16 @@ nav .menuHamburger img {
 }
 
 /* ============================= Forecast ================================ */
-
 .forecast-container {
-    background-color: white;
-    border-radius: 20px;
-    box-shadow: var(--default-shadow);
-    padding: 1rem 0;
     display: flex;
-    overflow-x: scroll;
     justify-content: space-between;
     width: 100%;
     margin-bottom: 1.5rem;
+    padding: 1rem 0;
+    overflow-x: scroll;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: var(--default-shadow);
 }
 
 @media screen and (min-width: 1200px) {
@@ -850,12 +886,12 @@ nav .menuHamburger img {
 }
 
 .forecast {
-    background-color: white;
-    border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 0 1rem;
+    border-radius: 20px;
+    background-color: white;
 }
 
 .forecast-day {
@@ -867,19 +903,20 @@ nav .menuHamburger img {
     align-items: center;
     justify-content: center;
 }
+
 .forecast-icon img {
     max-width: 60px;
     max-height: 60px;
 }
 
 .forecast-temperature span.max-temp {
-    color: var(--color-darkGray);
     padding: 0 1px;
+    color: var(--color-darkGray);
 }
 
 .forecast-temperature span.min-temp {
-    color: var(--color-gray);
     padding: 0 1px;
+    color: var(--color-gray);
 }
 
 .forecast-description {
@@ -887,35 +924,38 @@ nav .menuHamburger img {
 }
 
 .weather-separator {
+    width: 1px;
     border: none;
     border-left: 1px solid var(--color-lightGray);
-    width: 1px;
 }
 
 /* ============================== Events ================================= */
-
 .events-container {
-    background-color: white;
-    border-radius: 20px;
-    box-shadow: var(--default-shadow);
-    padding: 1rem;
-    overflow-y: scroll;
     max-height: 35rem;
     margin-bottom: 1.5rem;
+    padding: 1rem;
+    overflow-y: scroll;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: var(--default-shadow);
 }
 
 .events-container {
-    -ms-overflow-style: none; /* Internet Explorer 10+ */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* Firefox */
 }
+
 .events-container::-webkit-scrollbar {
-    display: none; /* Safari and Chrome */
+    display: none;
+    /* Safari and Chrome */
 }
 
 .events-header {
-    color: var(--color-darkGray);
     display: flex;
     align-items: flex-end;
+    color: var(--color-darkGray);
     font-size: 1.25rem;
 }
 
@@ -926,12 +966,13 @@ nav .menuHamburger img {
 }
 
 .event {
-    background-color: var(--color-lightGray);
-    border-radius: 10px;
-    padding: 0.75rem;
-    padding-bottom: 0.45rem; /* Compensation for the title */
-    margin: 0.75rem 0;
     display: flex;
+    /* Compensation for the title */
+    margin: 0.75rem 0;
+    padding: 0.75rem;
+    padding-bottom: 0.45rem;
+    border-radius: 10px;
+    background-color: var(--color-lightGray);
 }
 
 .event-date {
@@ -941,8 +982,8 @@ nav .menuHamburger img {
 }
 
 .event-date span.event-date-day {
-    font-weight: 900;
     font-size: 1.15rem;
+    font-weight: 900;
 }
 
 .event-date span.event-date-month {
@@ -950,28 +991,28 @@ nav .menuHamburger img {
 }
 
 .event-content {
-    margin: 0 0.75rem;
     height: 80px;
+    margin: 0 0.75rem;
     overflow: hidden;
 }
 
 .event-content .event-content-title {
-    font-weight: 900;
     font-size: 1.15rem;
+    font-weight: 900;
 }
 
 .event-content .event-content-description {
+    overflow: hidden;
     color: var(--color-darkGray);
     font-size: 0.85rem;
     text-align: justify;
-    overflow: hidden;
 }
 
 .event-photo-center-cropped {
+    width: 80px;
+    height: 80px;
     object-fit: cover;
     object-position: center;
-    height: 80px;
-    width: 80px;
     border-radius: 5px;
 }
 
@@ -983,22 +1024,21 @@ nav .menuHamburger img {
 }
 
 /* ================================ Maps ================================= */
-
 .maps-container {
-    background-color: white;
-    border-radius: 20px;
-    box-shadow: var(--default-shadow);
+    display: flex;
     width: 100%;
     max-height: 35rem;
-    display: flex;
     margin-bottom: 1.5rem;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: var(--default-shadow);
 }
 
 .map-center-cropped {
-    object-fit: cover;
-    object-position: center;
     max-width: 100%;
     max-height: 100%;
+    object-fit: cover;
+    object-position: center;
     border-radius: 20px;
 }
 
@@ -1010,63 +1050,66 @@ nav .menuHamburger img {
     }
 
     .maps-container {
-        -ms-overflow-style: none; /* Internet Explorer 10+ */
-        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none;
+        /* Internet Explorer 10+ */
+        scrollbar-width: none;
+        /* Firefox */
     }
+
     .maps-container::-webkit-scrollbar {
-        display: none; /* Safari and Chrome */
+        display: none;
+        /* Safari and Chrome */
     }
 
     .map-center-cropped {
         width: 95%;
         height: 95%;
-        border-radius: 15px;
         margin: auto;
+        border-radius: 15px;
     }
 }
 
 /* ============================== Gallery ================================= */
-
 .photos-container {
     width: 100%;
     margin-bottom: 1.5rem;
+    padding: 1rem;
     border-radius: 20px;
     background-color: white;
     box-shadow: var(--default-shadow);
-    padding: 1rem;
 }
 
 .photos-container a {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: var(--default-shadow);
-    margin-bottom: 1.5rem;
-    text-decoration: none;
     margin: 0.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: var(--default-shadow);
+    text-decoration: none;
 }
 
 .photos-container a img {
+    height: 100px;
+    padding: 0.5rem;
     object-fit: cover;
     object-position: center;
-    height: 100px;
     border-radius: 10px;
-    padding: 0.5rem;
 }
 
 .gallery-photo-name {
-    color: var(--color-darkGray);
-    padding-left: 0.5rem;
     padding-bottom: 0.5rem;
-    text-decoration: none;
+    padding-left: 0.5rem;
+    color: var(--color-darkGray);
     font-size: 0.8rem;
+    text-decoration: none;
 }
 
 .photos-header {
-    color: var(--color-darkGray);
     display: flex;
     align-items: flex-end;
-    font-size: 1.25rem;
     margin-bottom: 0.5rem;
+    color: var(--color-darkGray);
+    font-size: 1.25rem;
 }
 
 .photos-header svg {
@@ -1098,25 +1141,28 @@ nav .menuHamburger img {
     }
 
     .photos-container {
-        -ms-overflow-style: none; /* Internet Explorer 10+ */
-        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none;
+        /* Internet Explorer 10+ */
+        scrollbar-width: none;
+        /* Firefox */
     }
+
     .photos-container::-webkit-scrollbar {
-        display: none; /* Safari and Chrome */
+        display: none;
+        /* Safari and Chrome */
     }
 }
 
 /* ============================== Twitter ================================= */
-
 .twitter-container {
-    background-color: white;
-    border-radius: 20px;
-    box-shadow: var(--default-shadow);
+    width: 100%;
+    max-height: 35rem;
+    margin-bottom: 1.5rem;
     padding: 1rem;
     overflow-y: scroll;
-    max-height: 35rem;
-    width: 100%;
-    margin-bottom: 1.5rem;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: var(--default-shadow);
 }
 
 .twitter-header {
@@ -1125,10 +1171,10 @@ nav .menuHamburger img {
 }
 
 .tweet {
-    background-color: var(--color-lightGray);
-    border-radius: 10px;
-    padding: 0.75rem;
     margin: 0.75rem 0;
+    padding: 0.75rem;
+    border-radius: 10px;
+    background-color: var(--color-lightGray);
 }
 
 .tweet-header {
@@ -1137,17 +1183,17 @@ nav .menuHamburger img {
 }
 
 .tweet-header-photo img {
-    object-fit: cover;
-    object-position: center;
     width: 39px;
     height: 39px;
+    object-fit: cover;
+    object-position: center;
     border-radius: 100px;
 }
 
 .tweet-header-name {
-    font-weight: bold;
     margin-left: 1rem;
     font-size: 1.1rem;
+    font-weight: bold;
     line-height: 1;
 }
 
@@ -1163,11 +1209,15 @@ nav .menuHamburger img {
     }
 
     .twitter-container {
-        -ms-overflow-style: none; /* Internet Explorer 10+ */
-        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none;
+        /* Internet Explorer 10+ */
+        scrollbar-width: none;
+        /* Firefox */
     }
+
     .twitter-container::-webkit-scrollbar {
-        display: none; /* Safari and Chrome */
+        display: none;
+        /* Safari and Chrome */
     }
 }
 
@@ -1177,7 +1227,6 @@ nav .menuHamburger img {
 
    ======================================================================= */
 /* ============================== General ================================ */
-
 #login-page-body {
     background-attachment: fixed;
     background-image: url("../images/background/login_background.svg");
@@ -1187,14 +1236,15 @@ nav .menuHamburger img {
 }
 
 #login {
-    margin: 4rem auto 0 auto;
-    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: row;
     width: 100%;
     height: 50vh;
     min-height: 450px;
-    display: flex;
-    flex-direction: row;
+    margin: 4rem auto 0 auto;
+    background-color: #f2f2f2;
 }
+
 @media screen and (min-width: 992px) {
     #login {
         margin: 7rem auto 0 auto;
@@ -1204,6 +1254,7 @@ nav .menuHamburger img {
 .rounded-corners {
     border-radius: 20px;
 }
+
 .rounded-corners-max {
     border-radius: 35px;
 }
@@ -1213,82 +1264,90 @@ nav .menuHamburger img {
 }
 
 /* =========================== Login section ============================= */
-
 .login-holder {
-    height: 100%;
     width: 100%;
+    height: 100%;
     overflow-y: hidden;
     box-shadow: var(--default-shadow);
 }
+
 .login-holder-left {
     width: 20%;
     height: 100%;
     background-color: #6598bb;
 }
+
 .signup-holder-right p,
 .login-holder-left p {
     margin: auto;
-    text-align: center;
     color: #ffffff;
     font-size: 1.5rem;
     font-weight: 600;
     letter-spacing: 0.08rem;
+    text-align: center;
     text-decoration: underline;
 }
+
 .login-holder-right {
+    flex-direction: column;
     width: 80%;
     height: 100%;
-    flex-direction: column;
-    background-image: linear-gradient(
-            to bottom,
-            rgba(255, 255, 255, 0.6) 0%,
-            rgba(252, 252, 252, 0.7) 100%
-        ),
-        url("../images/background/background.svg");
     background-color: #fcfcfc;
+    background-image: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.6) 0%,
+            rgba(252, 252, 252, 0.7) 100%),
+        url("../images/background/background.svg");
     background-position: bottom left;
     background-repeat: no-repeat;
     background-size: 100vw;
 }
+
 .login-toggle-holder {
     width: 100%;
     height: 20%;
     background-color: none;
 }
+
 .login-toggle-holder1 {
+    flex-direction: row;
     width: 200px;
     height: 45px;
-    flex-direction: row;
-    background-color: #ffffff;
-    border: solid;
-    border-color: #6598bb;
-    border-width: 1px;
     padding: 2px;
+    border: solid;
+    border-width: 1px;
+    border-color: #6598bb;
+    background-color: #ffffff;
 }
+
 .login-toggle-holder2 {
     margin: 1rem 1rem 0 auto;
 }
+
 .login-toggle-holder2-2 {
     margin: 1rem auto 0 1rem;
 }
+
 .login-toggle-login {
     width: 50%;
     height: 100%;
-    background-color: #6598bb;
     padding: 0 5px;
+    background-color: #6598bb;
 }
+
 .login-toggle-signup {
-    margin: 2px;
     width: 50%;
     height: 100%;
+    margin: 2px;
     padding: 0 5px;
 }
+
 .login-toggle-holder1 p {
-    text-align: center;
     margin: auto;
     font-weight: 600;
     letter-spacing: 0.08rem;
+    text-align: center;
 }
+
 .login-information {
     width: 100%;
     height: 80%;
@@ -1297,105 +1356,118 @@ nav .menuHamburger img {
 
 /*SIGNUP SECTION*/
 .signup-holder {
-    height: 100%;
-    width: 100%;
-    overflow-y: hidden;
-    flex-direction: row;
     display: none;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
     box-shadow: var(--default-shadow);
 }
+
 .signup-holder-left {
+    flex-direction: column;
     width: 80%;
     height: 100%;
-    flex-direction: column;
-    background-image: linear-gradient(
-            to bottom,
+    background-image: linear-gradient(to bottom,
             rgba(255, 255, 255, 0.6) 0%,
-            rgba(252, 252, 252, 0.7) 100%
-        ),
+            rgba(252, 252, 252, 0.7) 100%),
         url("../images/background/background.svg");
     background-position: bottom right;
     background-repeat: no-repeat;
     background-size: 100vw;
 }
+
 .signup-holder-left p {
     margin: auto;
-    text-align: center;
     color: #ffffff;
     font-weight: 600;
     letter-spacing: 0.08rem;
+    text-align: center;
 }
+
 .signup-holder-right {
+    flex-direction: column;
     width: 20%;
     height: 100%;
     background-color: #6598bb;
-    flex-direction: column;
 }
+
 .login-toggle-holder1 p {
     font-size: 1rem;
 }
+
 /*Underline text Effect*/
 .line-effect1 p::after {
-    content: "";
     display: block;
     width: 0;
     height: 2px;
     background: #fff;
+    content: "";
     transition: width 0.3s;
 }
+
 .line-effect1 p:hover::after {
     width: 100%;
     transition: width 0.3s;
 }
+
 .line-effect2 p::after {
-    content: "";
     display: block;
     width: 0;
     height: 2px;
     background: #6598bb;
+    content: "";
     transition: width 0.3s;
 }
+
 .line-effect2 p:hover::after {
     width: 100%;
     transition: width 0.3s;
 }
+
 .login-toggle-login p {
     color: #ffffff;
 }
+
 .login-toggle-signup p {
     color: #6598bb;
 }
+
 /*Form*/
 #login-form {
-    height: 80%;
     width: 80%;
+    height: 80%;
     margin: auto;
 }
+
 #signup-form {
-    height: 80%;
     width: 80%;
+    height: 80%;
     margin: auto;
 }
+
 #login input[type="text"],
 #login input[type="password"] {
+    box-sizing: border-box;
+    display: inline-block;
     width: 100%;
     max-width: 1000px;
-    padding: 12px 20px;
     margin: 1rem auto 0 auto;
-    display: inline-block;
+    padding: 12px 20px;
     border: none;
-    box-sizing: border-box;
     box-shadow: var(--default-shadow);
 }
+
 .button-settings {
+    width: 150px;
+    margin: 15px 0 0 0;
+    padding: 10px 0px;
+    border: none;
     background-color: #87cbfa;
     color: white;
-    padding: 10px 0px;
-    margin: 15px 0 0 0;
-    border: none;
     cursor: pointer;
-    width: 150px;
 }
+
 .button-settings:hover {
     background-color: #6598bb;
 }
@@ -1405,79 +1477,97 @@ nav .menuHamburger img {
     font-weight: 600;
     letter-spacing: 0.08rem;
 }
+
 .log-but {
     float: right;
 }
+
 .pw-but {
     margin-top: 10px;
     cursor: pointer;
 }
+
 .pw-but a {
     color: var(--color-darkGray);
     text-decoration: underline;
 }
+
 .pw-but a:hover {
     color: black;
 }
+
 #option {
     margin: 10px 0 0 0;
 }
+
 .login-information a {
-    text-decoration: none;
     font-style: none;
+    text-decoration: none;
 }
+
 .terms-text {
     font-size: 12px;
 }
 
 @media screen and (max-width: 992px) {
     #login {
+        flex-direction: row;
         width: 100%;
         height: 80vh;
-        flex-direction: row;
     }
+
     .login-holder {
         flex-direction: column;
     }
+
     .signup-holder {
         flex-direction: column;
     }
+
     .login-holder-left {
+        display: flex;
         width: 100%;
         height: 20%;
-        display: flex;
     }
+
     .login-holder-right {
+        display: flex;
         width: 100%;
         height: 80%;
-        display: flex;
         background-size: 175vw;
     }
+
     .signup-holder-left {
+        display: flex;
         width: 100%;
         height: 80%;
-        display: flex;
         background-size: 300vw;
     }
+
     .signup-holder-right {
+        display: flex;
         width: 100%;
         height: 20%;
-        display: flex;
     }
+
     .login-toggle-holder2-2 {
         margin: auto;
     }
+
     .login-toggle-holder1 {
         margin: auto;
     }
+
     .terms-text {
         font-size: 10px;
     }
+
     .pw-but {
-        padding: 0 5px;
-        margin: 1rem 0 0 0.2rem;
         width: auto;
+        margin: 1rem 0 0 0.2rem;
+        padding: 0 5px;
     }
+
     .mob-but {
         width: 100%;
     }
@@ -1487,6 +1577,7 @@ nav .menuHamburger img {
     #login-form {
         width: 60%;
     }
+
     #signup-form {
         width: 60%;
     }
@@ -1496,6 +1587,7 @@ nav .menuHamburger img {
     #login-form {
         width: 45%;
     }
+
     #signup-form {
         width: 45%;
     }
