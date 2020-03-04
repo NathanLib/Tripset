@@ -1,717 +1,499 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-        <title>TRIPSET</title>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-        <meta name="description" content="" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TRIPSET</title>
 
-        <link
-            href="https://fonts.googleapis.com/css?family=Nunito:200,300,400&display=swap"
-            rel="stylesheet"
-        />
-        <link
-            href="public/vendors/lightbox/css/lightbox.css"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="public/css/main.css" />
-    </head>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <body class="information-page no-background">
-        <div class="header-container" id="header-container">
-            <header>
-                <div class="menu-background"></div>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400&display=swap" rel="stylesheet" />
+    <link href="public/vendors/lightbox/css/lightbox.css" rel="stylesheet" />
+    <link rel="stylesheet" href="public/css/main.css" />
+</head>
 
-                <nav role="navigation">
-                    <div class="logo">
-                        <img
-                            src="public/images/header/tripset.svg"
-                            alt="logo tripset"
-                        />
-                    </div>
+<body class="information-page no-background">
+    <div class="header-container" id="header-container">
+        <header>
+            <div class="menu-background"></div>
 
-                    <div class="menuHamburger" onclick="openNav()">
-                        <img
-                            src="public/images/header/menu hamburger.svg"
-                            alt="menu hamburger"
-                        />
-                    </div>
-
-                    <div class="mobileNav">
-                        <a
-                            href="javascript:void(0)"
-                            class="closebtn"
-                            onclick="closeNav()"
-                            >&times;</a
-                        >
-                        <a href="#">Home</a>
-                        <a href="#">About</a>
-                        <a class="btn_login" href="#">Login</a>
-                    </div>
-                    <div
-                        class="mobileNav-background"
-                        onclick="closeNav()"
-                    ></div>
-
-                    <div class="computerNav">
-                        <a href="#">Home</a>
-                        <a href="#">About</a>
-                        <a class="btn_login" href="#">Login</a>
-                    </div>
-                </nav>
-            </header>
-        </div>
-
-        <div class="main-container">
-            <!-- All icons are from: https://www.amcharts.com/free-animated-svg-weather-icons/ -->
-            <section class="forecast-container">
-                <!-- I duplicated the code for the 7 days of the week, 
-                    but once the back-end part is done, 
-                    it will be possible to create a loop to avoid redundant code. -->
-                <div class="forecast" id="forecast-monday">
-                    <div class="forecast-day">Monday</div>
-                    <div class="forecast-icon animation-zoom-origin">
-                        <img
-                            src="public/images/icons/Weather/cloudy-day-2.svg"
-                            alt="Weather cloudy-day-2"
-                        />
-                    </div>
-                    <div class="forecast-temperature">
-                        <span class="max-temp">7&#176;</span>
-                        <span class="min-temp">3&#176;</span>
-                    </div>
-                    <div class="forecast-description">Cloudy</div>
+            <nav role="navigation">
+                <div class="logo">
+                    <img src="public/images/header/tripset.svg" alt="logo tripset" />
                 </div>
 
-                <div class="forecast" id="forecast-tuesday">
-                    <div class="forecast-day">Tuesday</div>
-                    <div class="forecast-icon animation-zoom-origin">
-                        <img
-                            src="public/images/icons/Weather/rainy-3.svg"
-                            alt="Weather rainy-3"
-                        />
-                    </div>
-                    <div class="forecast-temperature">
-                        <span class="max-temp">7&#176;</span>
-                        <span class="min-temp">1&#176;</span>
-                    </div>
-                    <div class="forecast-description">Rainy</div>
+                <div class="menuHamburger" onclick="openNav()">
+                    <img src="public/images/header/menu hamburger.svg" alt="menu hamburger" />
                 </div>
 
-                <div class="forecast" id="forecast-wednesday">
-                    <div class="forecast-day">Wednesday</div>
-                    <div class="forecast-icon animation-zoom-origin">
-                        <img
-                            src="public/images/icons/Weather/snowy-5.svg"
-                            alt="Weather snowy-5"
-                        />
-                    </div>
-                    <div class="forecast-temperature">
-                        <span class="max-temp">1&#176;</span>
-                        <span class="min-temp">-3&#176;</span>
-                    </div>
-                    <div class="forecast-description">Snowy</div>
+                <div class="mobileNav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="#">Home</a>
+                    <a href="#">About</a>
+                    <a class="btn_login" href="#">Login</a>
                 </div>
+                <div class="mobileNav-background" onclick="closeNav()"></div>
 
-                <div class="forecast" id="forecast-thursday">
-                    <div class="forecast-day">Thursday</div>
-                    <div class="forecast-icon animation-zoom-origin">
-                        <img
-                            src="public/images/icons/Weather/day.svg"
-                            alt="Weather day"
-                        />
-                    </div>
-                    <div class="forecast-temperature">
-                        <span class="max-temp">4&#176;</span>
-                        <span class="min-temp">2&#176;</span>
-                    </div>
-                    <div class="forecast-description">Sunny</div>
+                <div class="computerNav">
+                    <a href="#">Home</a>
+                    <a href="#">About</a>
+                    <a class="btn_login" href="#">Login</a>
                 </div>
-                <div class="forecast" id="forecast-friday">
-                    <div class="forecast-day">Friday</div>
-                    <div class="forecast-icon animation-zoom-origin">
-                        <img
-                            src="public/images/icons/Weather/cloudy.svg"
-                            alt="Weather cloudy"
-                        />
-                    </div>
-                    <div class="forecast-temperature">
-                        <span class="max-temp">5&#176;</span>
-                        <span class="min-temp">4&#176;</span>
-                    </div>
-                    <div class="forecast-description">Cloudy</div>
-                </div>
+            </nav>
+        </header>
+    </div>
 
-                <div class="forecast" id="forecast-saturday">
-                    <div class="forecast-day">Saturday</div>
-                    <div class="forecast-icon animation-zoom-origin">
-                        <img
-                            src="public/images/icons/Weather/thunder.svg"
-                            alt="Weather thunder"
-                        />
-                    </div>
-                    <div class="forecast-temperature">
-                        <span class="max-temp">7&#176;</span>
-                        <span class="min-temp">6&#176;</span>
-                    </div>
-                    <div class="forecast-description">Thunder</div>
+    <div class="main-container">
+        <!-- All icons are from: https://www.amcharts.com/free-animated-svg-weather-icons/ -->
+        <section class="forecast-container">
+            <!-- I duplicated the code for the 7 days of the week,
+                    but once the back-end part is done,
+                    it will be possible to create a loop to avoid redundant code.
+                    The same goes for all other sections of this page.
+                    All content will be obtained through the server or an API.-->
+            <div class="forecast" id="forecast-monday">
+                <div class="forecast-day">Monday</div>
+                <div class="forecast-icon animation-zoom-origin">
+                    <img src="public/images/icons/Weather/cloudy-day-2.svg" alt="Weather cloudy-day-2" />
                 </div>
-
-                <div class="forecast" id="forecast-sunday">
-                    <div class="forecast-day">Sunday</div>
-                    <div class="forecast-icon animation-zoom-origin">
-                        <img
-                            src="public/images/icons/Weather/cloudy-night-1.svg"
-                            alt="Weather cloudy-night-1"
-                        />
-                    </div>
-                    <div class="forecast-temperature">
-                        <span class="max-temp">3&#176;</span>
-                        <span class="min-temp">-1&#176;</span>
-                    </div>
-                    <div class="forecast-description">Cloudy Night</div>
+                <div class="forecast-temperature">
+                    <span class="max-temp">7&#176;</span>
+                    <span class="min-temp">3&#176;</span>
                 </div>
-            </section>
+                <div class="forecast-description">Cloudy</div>
+            </div>
 
-            <section class="events-container">
-                <div class="events-header">
-                    Some events in the vicinity
-                    <svg
-                        version="1.1"
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        x="0px"
-                        y="0px"
-                        width="85.9px"
-                        height="90px"
-                        viewBox="0 0 85.9 90"
-                        style="enable-background:new 0 0 85.9 90;"
-                        xml:space="preserve"
-                    >
-                        <style type="text/css">
-                            .icEv0 {
-                                fill: #73ccff;
-                            }
-                        </style>
-                        <defs></defs>
-                        <g>
-                            <path
-                                class="icEv0"
-                                d="M25.8,21.2l1.6,2.4c1.3-0.8,1.7-2,1.9-3c0.1-0.4,0.1-0.9,0.2-1.3c0.1-1.2,0.2-1.7,0.8-2.1
+            <div class="forecast" id="forecast-tuesday">
+                <div class="forecast-day">Tuesday</div>
+                <div class="forecast-icon animation-zoom-origin">
+                    <img src="public/images/icons/Weather/rainy-3.svg" alt="Weather rainy-3" />
+                </div>
+                <div class="forecast-temperature">
+                    <span class="max-temp">7&#176;</span>
+                    <span class="min-temp">1&#176;</span>
+                </div>
+                <div class="forecast-description">Rainy</div>
+            </div>
+
+            <div class="forecast" id="forecast-wednesday">
+                <div class="forecast-day">Wednesday</div>
+                <div class="forecast-icon animation-zoom-origin">
+                    <img src="public/images/icons/Weather/snowy-5.svg" alt="Weather snowy-5" />
+                </div>
+                <div class="forecast-temperature">
+                    <span class="max-temp">1&#176;</span>
+                    <span class="min-temp">-3&#176;</span>
+                </div>
+                <div class="forecast-description">Snowy</div>
+            </div>
+
+            <div class="forecast" id="forecast-thursday">
+                <div class="forecast-day">Thursday</div>
+                <div class="forecast-icon animation-zoom-origin">
+                    <img src="public/images/icons/Weather/day.svg" alt="Weather day" />
+                </div>
+                <div class="forecast-temperature">
+                    <span class="max-temp">4&#176;</span>
+                    <span class="min-temp">2&#176;</span>
+                </div>
+                <div class="forecast-description">Sunny</div>
+            </div>
+            <div class="forecast" id="forecast-friday">
+                <div class="forecast-day">Friday</div>
+                <div class="forecast-icon animation-zoom-origin">
+                    <img src="public/images/icons/Weather/cloudy.svg" alt="Weather cloudy" />
+                </div>
+                <div class="forecast-temperature">
+                    <span class="max-temp">5&#176;</span>
+                    <span class="min-temp">4&#176;</span>
+                </div>
+                <div class="forecast-description">Cloudy</div>
+            </div>
+
+            <div class="forecast" id="forecast-saturday">
+                <div class="forecast-day">Saturday</div>
+                <div class="forecast-icon animation-zoom-origin">
+                    <img src="public/images/icons/Weather/thunder.svg" alt="Weather thunder" />
+                </div>
+                <div class="forecast-temperature">
+                    <span class="max-temp">7&#176;</span>
+                    <span class="min-temp">6&#176;</span>
+                </div>
+                <div class="forecast-description">Thunder</div>
+            </div>
+
+            <div class="forecast" id="forecast-sunday">
+                <div class="forecast-day">Sunday</div>
+                <div class="forecast-icon animation-zoom-origin">
+                    <img src="public/images/icons/Weather/cloudy-night-1.svg" alt="Weather cloudy-night-1" />
+                </div>
+                <div class="forecast-temperature">
+                    <span class="max-temp">3&#176;</span>
+                    <span class="min-temp">-1&#176;</span>
+                </div>
+                <div class="forecast-description">Cloudy Night</div>
+            </div>
+        </section>
+
+        <section class="events-container">
+            <div class="events-header">
+                Some events in the vicinity
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="85.9px" height="90px" viewBox="0 0 85.9 90" style="enable-background:new 0 0 85.9 90;" xml:space="preserve">
+                    <style type="text/css">
+                        .icEv0 {
+                            fill: #73ccff;
+                        }
+                    </style>
+                    <defs></defs>
+                    <g>
+                        <path class="icEv0" d="M25.8,21.2l1.6,2.4c1.3-0.8,1.7-2,1.9-3c0.1-0.4,0.1-0.9,0.2-1.3c0.1-1.2,0.2-1.7,0.8-2.1
 		c0.6-0.4,1.1-0.3,2.2,0.1c0.4,0.1,0.8,0.2,1.2,0.3c1,0.2,2.2,0.2,3.5-0.6c1.3-0.8,1.7-2,1.9-3c0.1-0.4,0.1-0.9,0.2-1.3
 		c0.1-1.2,0.2-1.7,0.8-2.1c0.6-0.4,1.1-0.3,2.2,0.1c0.4,0.1,0.8,0.2,1.2,0.3c1,0.2,2.2,0.2,3.5-0.6L45.4,8c-0.6,0.4-1.1,0.3-2.2-0.1
 		c-1.2-0.4-2.9-0.9-4.7,0.3c-1.8,1.2-1.9,3-2,4.3c-0.1,1.2-0.2,1.7-0.8,2.1c-0.6,0.4-1.1,0.3-2.2-0.1c-1.2-0.4-2.9-0.9-4.7,0.3
-		c-1.8,1.2-1.9,3-2,4.3C26.4,20.3,26.3,20.8,25.8,21.2z"
-                            />
-                            <path
-                                class="icEv0"
-                                d="M63.4,19c0.4-0.1,0.9-0.2,1.2-0.4c1.2-0.4,1.6-0.5,2.2-0.1c0.6,0.4,0.7,0.9,0.8,2.1c0,0.4,0.1,0.8,0.2,1.3
+		c-1.8,1.2-1.9,3-2,4.3C26.4,20.3,26.3,20.8,25.8,21.2z" />
+                        <path class="icEv0" d="M63.4,19c0.4-0.1,0.9-0.2,1.2-0.4c1.2-0.4,1.6-0.5,2.2-0.1c0.6,0.4,0.7,0.9,0.8,2.1c0,0.4,0.1,0.8,0.2,1.3
 		c0.2,1,0.7,2.2,1.9,3s2.5,0.8,3.5,0.6c0.4-0.1,0.9-0.2,1.2-0.4c1.2-0.4,1.6-0.5,2.2-0.1c0.6,0.4,0.7,0.9,0.8,2.1
 		c0,0.4,0.1,0.8,0.2,1.3c0.2,1,0.7,2.2,1.9,3l1.6-2.4c-0.6-0.4-0.7-0.9-0.8-2.1c-0.1-1.3-0.3-3.1-2.1-4.2c-1.8-1.2-3.5-0.6-4.7-0.2
 		c-1.2,0.4-1.6,0.5-2.2,0.1c-0.6-0.4-0.7-0.9-0.8-2.1c-0.1-1.3-0.3-3.1-2.1-4.2c-1.8-1.2-3.5-0.6-4.7-0.2c-1.2,0.4-1.6,0.5-2.2,0.1
-		l-1.6,2.4C61.2,19.2,62.4,19.2,63.4,19z"
-                            />
-                            <path
-                                class="icEv0"
-                                d="M73.5,3.3c0.4,0.4,1.1,0.4,1.5,0c0.4-0.4,0.4-1.1,0-1.5l-1.5-1.5C73.3,0.1,73,0,72.8,0c-0.3,0-0.5,0.1-0.7,0.3
-		S71.7,0.8,71.7,1s0.1,0.5,0.3,0.7L73.5,3.3z"
-                            />
-                            <path
-                                class="icEv0"
-                                d="M78.3,8c0.4,0.4,1.1,0.4,1.5,0C79.9,7.8,80,7.6,80,7.3s-0.1-0.5-0.3-0.7L78.2,5c-0.2-0.2-0.5-0.3-0.7-0.3
-		S76.9,4.8,76.7,5s-0.3,0.5-0.3,0.7s0.1,0.5,0.3,0.7L78.3,8z"
-                            />
-                            <path
-                                class="icEv0"
-                                d="M74.3,4.7c-0.3,0-0.5,0.1-0.7,0.3L72,6.5c-0.4,0.4-0.4,1.1,0,1.5c0.4,0.4,1.1,0.4,1.5,0L75,6.5
-		c0.4-0.4,0.4-1.1,0-1.5C74.8,4.8,74.5,4.7,74.3,4.7z"
-                            />
-                            <path
-                                class="icEv0"
-                                d="M78.2,3.3l1.5-1.5C79.9,1.6,80,1.3,80,1s-0.1-0.5-0.3-0.7C79.5,0.1,79.3,0,79,0s-0.5,0.1-0.7,0.3l-1.5,1.5
-		c-0.2,0.2-0.3,0.5-0.3,0.7s0.1,0.5,0.3,0.7C77.1,3.7,77.8,3.7,78.2,3.3z"
-                            />
-                            <path
-                                class="icEv0"
-                                d="M5,16.7c0.4,0.4,1.1,0.4,1.5,0s0.4-1.1,0-1.5L5,13.7c-0.2-0.2-0.5-0.3-0.7-0.3c-0.3,0-0.5,0.1-0.7,0.3
-		c-0.4,0.4-0.4,1.1,0,1.5L5,16.7z"
-                            />
-                            <path
-                                class="icEv0"
-                                d="M9.7,21.4c0.4,0.4,1.1,0.4,1.5,0c0.2-0.2,0.3-0.5,0.3-0.7c0-0.3-0.1-0.5-0.3-0.7l-1.5-1.5
-		c-0.2-0.2-0.5-0.3-0.7-0.3s-0.5,0.1-0.7,0.3c-0.4,0.4-0.4,1.1,0,1.5L9.7,21.4z"
-                            />
-                            <path
-                                class="icEv0"
-                                d="M5,21.4l1.5-1.5c0.4-0.4,0.4-1.1,0-1.5c-0.2-0.2-0.5-0.3-0.7-0.3c-0.3,0-0.5,0.1-0.7,0.3l-1.5,1.5
-		c-0.4,0.4-0.4,1.1,0,1.5C3.9,21.8,4.6,21.8,5,21.4z"
-                            />
-                            <path
-                                class="icEv0"
-                                d="M9.7,16.7l1.5-1.5c0.2-0.2,0.3-0.5,0.3-0.7c0-0.3-0.1-0.5-0.3-0.7s-0.5-0.3-0.7-0.3c-0.3,0-0.5,0.1-0.7,0.3
-		l-1.5,1.5c-0.4,0.4-0.4,1.1,0,1.5C8.6,17.1,9.3,17.1,9.7,16.7z"
-                            />
-                            <path
-                                class="icEv0"
-                                d="M21.5,11.3c2.8,0,5.1-2.3,5.1-5.1S24.3,1,21.5,1s-5.1,2.3-5.1,5.1C16.3,9,18.6,11.3,21.5,11.3z M21.5,3.9
-		c1.2,0,2.3,1,2.3,2.3s-1,2.3-2.3,2.3c-1.2,0-2.3-1-2.3-2.3C19.2,4.9,20.2,3.9,21.5,3.9z"
-                            />
-                            <g>
-                                <path
-                                    class="icEv0"
-                                    d="M66.3,62.9c0.3-4.2-3-8.5-7-9.5c-5.1-1.1-10.3-1.7-15.5-1.7c-5.2,0-10.4,0.6-15.5,1.7c-4.1,1-7.3,5.3-7.1,9.5
-			c0.3,4.4,0.7,8.9,1,13.5c0.5,6.2,5.5,12,11.2,13c3.5,0.5,6.9,0.8,10.4,0.8s6.9-0.3,10.3-0.7c5.7-1,10.8-6.8,11.2-13
-			C65.7,71.7,66,67.2,66.3,62.9z"
-                                />
-                                <path
-                                    class="icEv0"
-                                    d="M43.8,48.5c6.4,0,11.6-5.2,11.6-11.6s-5.2-11.6-11.6-11.6s-11.6,5.2-11.6,11.6C32.2,43.3,37.4,48.5,43.8,48.5
-			z"
-                                />
-                                <path
-                                    class="icEv0"
-                                    d="M19.4,76.5c-0.3-4.6-0.7-9-1-13.5c-0.1-1.4,0.1-2.8,0.5-4.1c0.2-0.7,0.5-1.3,0.8-1.9c-0.7,0-1.3-0.1-2-0.1h0
-			c-4,0-8,0.4-11.9,1.3c-3.4,0.8-6,4.3-5.8,7.7c0.3,3.4,0.5,6.8,0.8,10.3c0.4,4.9,4.4,9.6,8.9,10.3c2.7,0.4,5.4,0.6,8,0.6
-			c2,0,4.1-0.1,6.2-0.3c-0.5-0.6-1-1.2-1.4-1.8C20.7,82.5,19.6,79.6,19.4,76.5z"
-                                />
-                                <path
-                                    class="icEv0"
-                                    d="M17.7,54.1c5,0,9.1-4.1,9.1-9.1s-4.1-9.1-9.1-9.1S8.6,40,8.6,45S12.7,54.1,17.7,54.1z"
-                                />
-                                <path
-                                    class="icEv0"
-                                    d="M68.7,69.9c-0.2,2.2-0.3,4.4-0.5,6.6c-0.2,3.1-1.4,6.1-3.1,8.6c-0.2,0.3-0.4,0.6-0.7,0.9
-			c1.6,0.1,3.1,0.2,4.7,0.2c2.6,0,5.3-0.2,7.8-0.6c4.2-0.7,7.8-4.9,8.1-9.5c0.3-3.5,0.5-6.9,0.8-10.3c0.2-3-2.1-6-5-6.7
-			c-3.9-0.8-8.4-1.3-12.3-1.3c0.5,1.6,0.7,3.5,0.7,5.2c0,0.4-0.1,0.9-0.1,1.3"
-                                />
-                                <path
-                                    class="icEv0"
-                                    d="M63.1,51.9c0.5,0.3,1.1,0.7,1.6,1.1c1.3,0.7,2.8,1.2,4.4,1.2c5,0,9.1-4.1,9.1-9.1s-4.1-9.1-9.1-9.1
-			S60,40,60,45C60,47.8,61.2,50.2,63.1,51.9z"
-                                />
-                            </g>
-                        </g>
-                    </svg>
-                </div>
-
-                <div class="events">
-                    <div class="event" id="event1">
-                        <div class="event-date">
-                            <span class="event-date-day">1</span>
-                            <span class="event-date-month">Mar</span>
-                        </div>
-                        <div class="event-content">
-                            <div class="event-content-title">
-                                The Jungle Book
-                            </div>
-                            <div class="event-content-description">
-                                We are so excited for Mirror and the Light we
-                                are hosting a very special reading party in
-                                honour of Hilary Mantel's bloody, glittering
-                                world of the Tudors! Join us for a complimentary
-                                glass of wine and discussion of Wolf Hall, Bring
-                                Up the Bodies and share your theories on the
-                                third instalment in this marvellous trilogy!
-                            </div>
-                        </div>
-                        <div class="event-photo">
-                            <img
-                                class="event-photo-center-cropped"
-                                src="public/images/events/example1.jpg"
-                                alt="Example event-photo"
-                            />
-                        </div>
-                    </div>
-
-                    <div class="event" id="event2">
-                        <div class="event-date">
-                            <span class="event-date-day">4</span>
-                            <span class="event-date-month">Mar</span>
-                        </div>
-                        <div class="event-content">
-                            <div class="event-content-title">
-                                Digital Love presents Eddie Halliwell
-                            </div>
-                            <div class="event-content-description">
-                                Eddie Halliwell will headline the Tunnels on
-                                Saturday 29th February. Any remaining tickets
-                                will sell out fast. Eddie Halliwell Bio: Eddie
-                                Halliwell has been electrifying dancefloors all
-                                over the...
-                            </div>
-                        </div>
-                        <div class="event-photo">
-                            <img
-                                class="event-photo-center-cropped"
-                                src="public/images/events/example2.jpg"
-                                alt="Example event-photo"
-                            />
-                        </div>
-                    </div>
-
-                    <div class="event" id="event3">
-                        <div class="event-date">
-                            <span class="event-date-day">12</span>
-                            <span class="event-date-month">Mar</span>
-                        </div>
-                        <div class="event-content">
-                            <div class="event-content-title">The 1975</div>
-                            <div class="event-content-description">
-                                We are so excited for Mirror and the Light we
-                                are hosting a very special reading party in
-                                honour of Hilary Mantel's bloody, glittering
-                                world of the Tudors! Join us for a complimentary
-                                glass of wine and discussion of Wolf Hall, Bring
-                                Up the Bodies and share your theories on the
-                                third instalment in this marvellous trilogy!
-                            </div>
-                        </div>
-                        <div class="event-photo">
-                            <img
-                                class="event-photo-center-cropped"
-                                src="public/images/events/example3.jpg"
-                                alt="Example event-photo"
-                            />
-                        </div>
-                    </div>
-
-                    <div class="event" id="event4">
-                        <div class="event-date">
-                            <span class="event-date-day">17</span>
-                            <span class="event-date-month">Mar</span>
-                        </div>
-                        <div class="event-content">
-                            <div class="event-content-title">
-                                The Jungle Book
-                            </div>
-                            <div class="event-content-description">
-                                We are so excited for Mirror and the Light we
-                                are hosting a very special reading party in
-                                honour of Hilary Mantel's bloody, glittering
-                                world of the Tudors! Join us for a complimentary
-                                glass of wine and discussion of Wolf Hall, Bring
-                                Up the Bodies and share your theories on the
-                                third instalment in this marvellous trilogy!
-                            </div>
-                        </div>
-                        <div class="event-photo">
-                            <img
-                                class="event-photo-center-cropped"
-                                src="public/images/events/example1.jpg"
-                                alt="Example event-photo"
-                            />
-                        </div>
-                    </div>
-
-                    <div class="event" id="event5">
-                        <div class="event-date">
-                            <span class="event-date-day">23</span>
-                            <span class="event-date-month">Mar</span>
-                        </div>
-                        <div class="event-content">
-                            <div class="event-content-title">
-                                Indoor Outdoor Street Party
-                            </div>
-                            <div class="event-content-description">
-                                Discover more details about Indoor Outdoor
-                                Street Party in Aberdeen including contact
-                                details, dates and times as well as ticket
-                                information.
-                            </div>
-                        </div>
-                        <div class="event-photo">
-                            <img
-                                class="event-photo-center-cropped"
-                                src="public/images/events/example2.jpg"
-                                alt="Example event-photo"
-                            />
-                        </div>
-                    </div>
-
-                    <div class="event" id="event6">
-                        <div class="event-date">
-                            <span class="event-date-day">29</span>
-                            <span class="event-date-month">Mar</span>
-                        </div>
-                        <div class="event-content">
-                            <div class="event-content-title">
-                                Aberdeen Restaurant Week
-                            </div>
-                            <div class="event-content-description">
-                                Save the date, #ARW2020 is back! Location:
-                                Aberdeen City Centre - your favourite
-                                restaurants right in the heart of the Granite
-                                City!Due to popular demand Aberdeen Restaurant
-                                Week returns this...
-                            </div>
-                        </div>
-                        <div class="event-photo-event-photo">
-                            <img
-                                class="event-photo-center-cropped"
-                                src="public/images/events/example3.jpg"
-                                alt="Example event-photo"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="maps-container">
-                <img
-                    class="map-center-cropped"
-                    src="public/images/maps/example.png"
-                    alt="example maps"
-                />
-            </section>
-
-            <section class="photos-container">
-                <div class="photos-header">
-                    Some photos of the city
-                    <svg
-                        version="1.1"
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        x="0px"
-                        y="0px"
-                        width="100px"
-                        height="75.4px"
-                        viewBox="0 0 100 75.4"
-                        style="enable-background:new 0 0 100 75.4;"
-                        xml:space="preserve"
-                    >
-                        <style type="text/css">
-                            .icPhoto {
-                                fill: #73ccff;
-                            }
-                        </style>
-                        <defs></defs>
+		l-1.6,2.4C61.2,19.2,62.4,19.2,63.4,19z" />
+                        <path class="icEv0" d="M73.5,3.3c0.4,0.4,1.1,0.4,1.5,0c0.4-0.4,0.4-1.1,0-1.5l-1.5-1.5C73.3,0.1,73,0,72.8,0c-0.3,0-0.5,0.1-0.7,0.3
+		S71.7,0.8,71.7,1s0.1,0.5,0.3,0.7L73.5,3.3z" />
+                        <path class="icEv0" d="M78.3,8c0.4,0.4,1.1,0.4,1.5,0C79.9,7.8,80,7.6,80,7.3s-0.1-0.5-0.3-0.7L78.2,5c-0.2-0.2-0.5-0.3-0.7-0.3
+		S76.9,4.8,76.7,5s-0.3,0.5-0.3,0.7s0.1,0.5,0.3,0.7L78.3,8z" />
+                        <path class="icEv0" d="M74.3,4.7c-0.3,0-0.5,0.1-0.7,0.3L72,6.5c-0.4,0.4-0.4,1.1,0,1.5c0.4,0.4,1.1,0.4,1.5,0L75,6.5
+		c0.4-0.4,0.4-1.1,0-1.5C74.8,4.8,74.5,4.7,74.3,4.7z" />
+                        <path class="icEv0" d="M78.2,3.3l1.5-1.5C79.9,1.6,80,1.3,80,1s-0.1-0.5-0.3-0.7C79.5,0.1,79.3,0,79,0s-0.5,0.1-0.7,0.3l-1.5,1.5
+		c-0.2,0.2-0.3,0.5-0.3,0.7s0.1,0.5,0.3,0.7C77.1,3.7,77.8,3.7,78.2,3.3z" />
+                        <path class="icEv0" d="M5,16.7c0.4,0.4,1.1,0.4,1.5,0s0.4-1.1,0-1.5L5,13.7c-0.2-0.2-0.5-0.3-0.7-0.3c-0.3,0-0.5,0.1-0.7,0.3
+		c-0.4,0.4-0.4,1.1,0,1.5L5,16.7z" />
+                        <path class="icEv0" d="M9.7,21.4c0.4,0.4,1.1,0.4,1.5,0c0.2-0.2,0.3-0.5,0.3-0.7c0-0.3-0.1-0.5-0.3-0.7l-1.5-1.5
+		c-0.2-0.2-0.5-0.3-0.7-0.3s-0.5,0.1-0.7,0.3c-0.4,0.4-0.4,1.1,0,1.5L9.7,21.4z" />
+                        <path class="icEv0" d="M5,21.4l1.5-1.5c0.4-0.4,0.4-1.1,0-1.5c-0.2-0.2-0.5-0.3-0.7-0.3c-0.3,0-0.5,0.1-0.7,0.3l-1.5,1.5
+		c-0.4,0.4-0.4,1.1,0,1.5C3.9,21.8,4.6,21.8,5,21.4z" />
+                        <path class="icEv0" d="M9.7,16.7l1.5-1.5c0.2-0.2,0.3-0.5,0.3-0.7c0-0.3-0.1-0.5-0.3-0.7s-0.5-0.3-0.7-0.3c-0.3,0-0.5,0.1-0.7,0.3
+		l-1.5,1.5c-0.4,0.4-0.4,1.1,0,1.5C8.6,17.1,9.3,17.1,9.7,16.7z" />
+                        <path class="icEv0" d="M21.5,11.3c2.8,0,5.1-2.3,5.1-5.1S24.3,1,21.5,1s-5.1,2.3-5.1,5.1C16.3,9,18.6,11.3,21.5,11.3z M21.5,3.9
+		c1.2,0,2.3,1,2.3,2.3s-1,2.3-2.3,2.3c-1.2,0-2.3-1-2.3-2.3C19.2,4.9,20.2,3.9,21.5,3.9z" />
                         <g>
-                            <path
-                                class="icPhoto"
-                                d="M28.2,26.4c-3.6,0-6.6,2.9-6.6,6.6c0,3.6,2.9,6.6,6.6,6.6s6.6-2.9,6.6-6.6C34.8,29.3,31.8,26.4,28.2,26.4
+                            <path class="icEv0" d="M66.3,62.9c0.3-4.2-3-8.5-7-9.5c-5.1-1.1-10.3-1.7-15.5-1.7c-5.2,0-10.4,0.6-15.5,1.7c-4.1,1-7.3,5.3-7.1,9.5
+			c0.3,4.4,0.7,8.9,1,13.5c0.5,6.2,5.5,12,11.2,13c3.5,0.5,6.9,0.8,10.4,0.8s6.9-0.3,10.3-0.7c5.7-1,10.8-6.8,11.2-13
+			C65.7,71.7,66,67.2,66.3,62.9z" />
+                            <path class="icEv0" d="M43.8,48.5c6.4,0,11.6-5.2,11.6-11.6s-5.2-11.6-11.6-11.6s-11.6,5.2-11.6,11.6C32.2,43.3,37.4,48.5,43.8,48.5
+			z" />
+                            <path class="icEv0" d="M19.4,76.5c-0.3-4.6-0.7-9-1-13.5c-0.1-1.4,0.1-2.8,0.5-4.1c0.2-0.7,0.5-1.3,0.8-1.9c-0.7,0-1.3-0.1-2-0.1h0
+			c-4,0-8,0.4-11.9,1.3c-3.4,0.8-6,4.3-5.8,7.7c0.3,3.4,0.5,6.8,0.8,10.3c0.4,4.9,4.4,9.6,8.9,10.3c2.7,0.4,5.4,0.6,8,0.6
+			c2,0,4.1-0.1,6.2-0.3c-0.5-0.6-1-1.2-1.4-1.8C20.7,82.5,19.6,79.6,19.4,76.5z" />
+                            <path class="icEv0" d="M17.7,54.1c5,0,9.1-4.1,9.1-9.1s-4.1-9.1-9.1-9.1S8.6,40,8.6,45S12.7,54.1,17.7,54.1z" />
+                            <path class="icEv0" d="M68.7,69.9c-0.2,2.2-0.3,4.4-0.5,6.6c-0.2,3.1-1.4,6.1-3.1,8.6c-0.2,0.3-0.4,0.6-0.7,0.9
+			c1.6,0.1,3.1,0.2,4.7,0.2c2.6,0,5.3-0.2,7.8-0.6c4.2-0.7,7.8-4.9,8.1-9.5c0.3-3.5,0.5-6.9,0.8-10.3c0.2-3-2.1-6-5-6.7
+			c-3.9-0.8-8.4-1.3-12.3-1.3c0.5,1.6,0.7,3.5,0.7,5.2c0,0.4-0.1,0.9-0.1,1.3" />
+                            <path class="icEv0" d="M63.1,51.9c0.5,0.3,1.1,0.7,1.6,1.1c1.3,0.7,2.8,1.2,4.4,1.2c5,0,9.1-4.1,9.1-9.1s-4.1-9.1-9.1-9.1
+			S60,40,60,45C60,47.8,61.2,50.2,63.1,51.9z" />
+                        </g>
+                    </g>
+                </svg>
+            </div>
+
+            <div class="events">
+                <div class="event" id="event1">
+                    <div class="event-date">
+                        <span class="event-date-day">1</span>
+                        <span class="event-date-month">Mar</span>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-content-title">
+                            The Jungle Book
+                        </div>
+                        <div class="event-content-description">
+                            We are so excited for Mirror and the Light we
+                            are hosting a very special reading party in
+                            honour of Hilary Mantel's bloody, glittering
+                            world of the Tudors! Join us for a complimentary
+                            glass of wine and discussion of Wolf Hall, Bring
+                            Up the Bodies and share your theories on the
+                            third instalment in this marvellous trilogy!
+                        </div>
+                    </div>
+                    <div class="event-photo">
+                        <img class="event-photo-center-cropped" src="public/images/events/example1.jpg" alt="Example event-photo" />
+                    </div>
+                </div>
+
+                <div class="event" id="event2">
+                    <div class="event-date">
+                        <span class="event-date-day">4</span>
+                        <span class="event-date-month">Mar</span>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-content-title">
+                            Digital Love presents Eddie Halliwell
+                        </div>
+                        <div class="event-content-description">
+                            Eddie Halliwell will headline the Tunnels on
+                            Saturday 29th February. Any remaining tickets
+                            will sell out fast. Eddie Halliwell Bio: Eddie
+                            Halliwell has been electrifying dancefloors all
+                            over the...
+                        </div>
+                    </div>
+                    <div class="event-photo">
+                        <img class="event-photo-center-cropped" src="public/images/events/example2.jpg" alt="Example event-photo" />
+                    </div>
+                </div>
+
+                <div class="event" id="event3">
+                    <div class="event-date">
+                        <span class="event-date-day">12</span>
+                        <span class="event-date-month">Mar</span>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-content-title">The 1975</div>
+                        <div class="event-content-description">
+                            We are so excited for Mirror and the Light we
+                            are hosting a very special reading party in
+                            honour of Hilary Mantel's bloody, glittering
+                            world of the Tudors! Join us for a complimentary
+                            glass of wine and discussion of Wolf Hall, Bring
+                            Up the Bodies and share your theories on the
+                            third instalment in this marvellous trilogy!
+                        </div>
+                    </div>
+                    <div class="event-photo">
+                        <img class="event-photo-center-cropped" src="public/images/events/example3.jpg" alt="Example event-photo" />
+                    </div>
+                </div>
+
+                <div class="event" id="event4">
+                    <div class="event-date">
+                        <span class="event-date-day">17</span>
+                        <span class="event-date-month">Mar</span>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-content-title">
+                            The Jungle Book
+                        </div>
+                        <div class="event-content-description">
+                            We are so excited for Mirror and the Light we
+                            are hosting a very special reading party in
+                            honour of Hilary Mantel's bloody, glittering
+                            world of the Tudors! Join us for a complimentary
+                            glass of wine and discussion of Wolf Hall, Bring
+                            Up the Bodies and share your theories on the
+                            third instalment in this marvellous trilogy!
+                        </div>
+                    </div>
+                    <div class="event-photo">
+                        <img class="event-photo-center-cropped" src="public/images/events/example1.jpg" alt="Example event-photo" />
+                    </div>
+                </div>
+
+                <div class="event" id="event5">
+                    <div class="event-date">
+                        <span class="event-date-day">23</span>
+                        <span class="event-date-month">Mar</span>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-content-title">
+                            Indoor Outdoor Street Party
+                        </div>
+                        <div class="event-content-description">
+                            Discover more details about Indoor Outdoor
+                            Street Party in Aberdeen including contact
+                            details, dates and times as well as ticket
+                            information.
+                        </div>
+                    </div>
+                    <div class="event-photo">
+                        <img class="event-photo-center-cropped" src="public/images/events/example2.jpg" alt="Example event-photo" />
+                    </div>
+                </div>
+
+                <div class="event" id="event6">
+                    <div class="event-date">
+                        <span class="event-date-day">29</span>
+                        <span class="event-date-month">Mar</span>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-content-title">
+                            Aberdeen Restaurant Week
+                        </div>
+                        <div class="event-content-description">
+                            Save the date, #ARW2020 is back! Location:
+                            Aberdeen City Centre - your favourite
+                            restaurants right in the heart of the Granite
+                            City!Due to popular demand Aberdeen Restaurant
+                            Week returns this...
+                        </div>
+                    </div>
+                    <div class="event-photo-event-photo">
+                        <img class="event-photo-center-cropped" src="public/images/events/example3.jpg" alt="Example event-photo" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="maps-container">
+            <img class="map-center-cropped" src="public/images/maps/example.png" alt="example maps" />
+        </section>
+
+        <section class="photos-container">
+            <div class="photos-header">
+                Some photos of the city
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="75.4px" viewBox="0 0 100 75.4" style="enable-background:new 0 0 100 75.4;" xml:space="preserve">
+                    <style type="text/css">
+                        .icPhoto {
+                            fill: #73ccff;
+                        }
+                    </style>
+                    <defs></defs>
+                    <g>
+                        <path class="icPhoto" d="M28.2,26.4c-3.6,0-6.6,2.9-6.6,6.6c0,3.6,2.9,6.6,6.6,6.6s6.6-2.9,6.6-6.6C34.8,29.3,31.8,26.4,28.2,26.4
                             L28.2,26.4z M78.2,10.5H10.7C4.8,10.5,0,15.3,0,21.2v43.5c0,5.9,4.8,10.7,10.7,10.7h67.6c5.9,0,10.7-4.8,10.7-10.7V21.2
                             C88.9,15.3,84.1,10.5,78.2,10.5L78.2,10.5z M83.6,64.7c0,2.9-2.4,5.3-5.3,5.3h-0.8c-0.2-0.9-0.5-1.8-1-2.7L58.6,36.6
                             c-2.4-4.2-6.4-4.2-8.9,0L35.6,61l-3.8-6.3c-2.5-4.2-6.6-4.2-9.1,0l-7.6,12.8c-0.5,0.8-0.8,1.7-1,2.6h-3.5c-2.9,0-5.3-2.4-5.3-5.3
-                            c0,0,0,0,0-0.1V21.2c0-2.9,2.4-5.3,5.3-5.3h67.6c2.9,0,5.3,2.4,5.3,5.3L83.6,64.7L83.6,64.7z"
-                            />
-                            <path
-                                class="icPhoto"
-                                d="M88.8,0H27.7c-4.9,0-9.3,3.3-10.7,8H23c1.1-1.5,2.8-2.4,4.6-2.4h61.1c3.1,0,5.7,2.5,5.7,5.7v44.5
-                            c0,1.9-1,3.7-2.7,4.8c0,1.8,0,3.9,0,6c4.8-1.4,8.2-5.7,8.2-10.8V11.2C100,5,95,0,88.8,0z"
-                            />
-                        </g>
-                    </svg>
-                </div>
+                            c0,0,0,0,0-0.1V21.2c0-2.9,2.4-5.3,5.3-5.3h67.6c2.9,0,5.3,2.4,5.3,5.3L83.6,64.7L83.6,64.7z" />
+                        <path class="icPhoto" d="M88.8,0H27.7c-4.9,0-9.3,3.3-10.7,8H23c1.1-1.5,2.8-2.4,4.6-2.4h61.1c3.1,0,5.7,2.5,5.7,5.7v44.5
+                            c0,1.9-1,3.7-2.7,4.8c0,1.8,0,3.9,0,6c4.8-1.4,8.2-5.7,8.2-10.8V11.2C100,5,95,0,88.8,0z" />
+                    </g>
+                </svg>
+            </div>
 
-                <div class="photos-content">
-                    <a
-                        href="public/images/gallery/example1.jpg"
-                        data-lightbox="city-photos"
-                        data-title="Click on the edges to navigate between images"
-                    >
-                        <img
-                            src="public/images/gallery/example1.jpg"
-                            alt="example1"
-                        />
-                        <p class="gallery-photo-name">Example 1</p>
-                    </a>
-                    <a
-                        href="public/images/gallery/example2.jpg"
-                        data-lightbox="city-photos"
-                    >
-                        <img
-                            src="public/images/gallery/example2.jpg"
-                            alt="example2"
-                        />
-                        <p class="gallery-photo-name">Example 2</p>
-                    </a>
-                    <a
-                        href="public/images/gallery/example3.jpg"
-                        data-lightbox="city-photos"
-                    >
-                        <img
-                            src="public/images/gallery/example3.jpg"
-                            alt="example3"
-                        />
-                        <p class="gallery-photo-name">Example 3</p>
-                    </a>
-                    <a
-                        href="public/images/gallery/example4.jpg"
-                        data-lightbox="city-photos"
-                    >
-                        <img
-                            src="public/images/gallery/example4.jpg"
-                            alt="example4"
-                        />
-                        <p class="gallery-photo-name">Example 4</p>
-                    </a>
-                    <a
-                        href="public/images/gallery/example5.jpg"
-                        data-lightbox="city-photos"
-                    >
-                        <img
-                            src="public/images/gallery/example5.jpg"
-                            alt="example5"
-                        />
-                        <p class="gallery-photo-name">Example 5</p>
-                    </a>
-                    <a
-                        href="public/images/gallery/example6.jpg"
-                        data-lightbox="city-photos"
-                    >
-                        <img
-                            src="public/images/gallery/example6.jpg"
-                            alt="example6"
-                        />
-                        <p class="gallery-photo-name">Example 6</p>
-                    </a>
-                    <a
-                        href="public/images/gallery/example7.jpg"
-                        data-lightbox="city-photos"
-                    >
-                        <img
-                            src="public/images/gallery/example7.jpg"
-                            alt="example7"
-                        />
-                        <p class="gallery-photo-name">Example 7</p>
-                    </a>
-                    <a
-                        href="public/images/gallery/example8.jpg"
-                        data-lightbox="city-photos"
-                    >
-                        <img
-                            src="public/images/gallery/example8.jpg"
-                            alt="example8"
-                        />
-                        <p class="gallery-photo-name">Example 8</p>
-                    </a>
-                    <a
-                        href="public/images/gallery/example9.jpg"
-                        data-lightbox="city-photos"
-                    >
-                        <img
-                            src="public/images/gallery/example9.jpg"
-                            alt="example9"
-                        />
-                        <p class="gallery-photo-name">Example 9</p>
-                    </a>
-                </div>
-            </section>
+            <div class="photos-content">
+                <a href="public/images/gallery/example1.jpg" data-lightbox="city-photos" data-title="Click on the edges to navigate between images">
+                    <img src="public/images/gallery/example1.jpg" alt="example1" />
+                    <p class="gallery-photo-name">Example 1</p>
+                </a>
+                <a href="public/images/gallery/example2.jpg" data-lightbox="city-photos">
+                    <img src="public/images/gallery/example2.jpg" alt="example2" />
+                    <p class="gallery-photo-name">Example 2</p>
+                </a>
+                <a href="public/images/gallery/example3.jpg" data-lightbox="city-photos">
+                    <img src="public/images/gallery/example3.jpg" alt="example3" />
+                    <p class="gallery-photo-name">Example 3</p>
+                </a>
+                <a href="public/images/gallery/example4.jpg" data-lightbox="city-photos">
+                    <img src="public/images/gallery/example4.jpg" alt="example4" />
+                    <p class="gallery-photo-name">Example 4</p>
+                </a>
+                <a href="public/images/gallery/example5.jpg" data-lightbox="city-photos">
+                    <img src="public/images/gallery/example5.jpg" alt="example5" />
+                    <p class="gallery-photo-name">Example 5</p>
+                </a>
+                <a href="public/images/gallery/example6.jpg" data-lightbox="city-photos">
+                    <img src="public/images/gallery/example6.jpg" alt="example6" />
+                    <p class="gallery-photo-name">Example 6</p>
+                </a>
+                <a href="public/images/gallery/example7.jpg" data-lightbox="city-photos">
+                    <img src="public/images/gallery/example7.jpg" alt="example7" />
+                    <p class="gallery-photo-name">Example 7</p>
+                </a>
+                <a href="public/images/gallery/example8.jpg" data-lightbox="city-photos">
+                    <img src="public/images/gallery/example8.jpg" alt="example8" />
+                    <p class="gallery-photo-name">Example 8</p>
+                </a>
+                <a href="public/images/gallery/example9.jpg" data-lightbox="city-photos">
+                    <img src="public/images/gallery/example9.jpg" alt="example9" />
+                    <p class="gallery-photo-name">Example 9</p>
+                </a>
+            </div>
+        </section>
 
-            <section class="twitter-container">
-                <div class="twitter-header">
-                    Lastest popular tweets
-                </div>
+        <section class="twitter-container">
+            <div class="twitter-header">
+                Lastest popular tweets
+            </div>
 
-                <div class="tweet">
-                    <div class="tweet-header">
-                        <div class="tweet-header-photo">
-                            <img
-                                src="public/images/icons/icon-twitter.svg"
-                                alt="icon-twitter"
-                            />
-                        </div>
-                        <div class="tweet-header-name">
-                            Tom Cruise
-                        </div>
+            <div class="tweet">
+                <div class="tweet-header">
+                    <div class="tweet-header-photo">
+                        <img src="public/images/icons/icon-twitter.svg" alt="icon-twitter" />
                     </div>
-                    <div class="tweet-content">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Error harum blanditiis ut nihil eum amet a laboriosam.
+                    <div class="tweet-header-name">
+                        Tom Cruise
                     </div>
                 </div>
+                <div class="tweet-content">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Error harum blanditiis ut nihil eum amet a laboriosam.
+                </div>
+            </div>
 
-                <div class="tweet">
-                    <div class="tweet-header">
-                        <div class="tweet-header-photo">
-                            <img
-                                src="public/images/icons/icon-twitter.svg"
-                                alt="icon-twitter"
-                            />
-                        </div>
-                        <div class="tweet-header-name">
-                            Tom Cruise
-                        </div>
+            <div class="tweet">
+                <div class="tweet-header">
+                    <div class="tweet-header-photo">
+                        <img src="public/images/icons/icon-twitter.svg" alt="icon-twitter" />
                     </div>
-                    <div class="tweet-content">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Error harum blanditiis ut nihil eum amet a laboriosam.
+                    <div class="tweet-header-name">
+                        Tom Cruise
                     </div>
                 </div>
+                <div class="tweet-content">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Error harum blanditiis ut nihil eum amet a laboriosam.
+                </div>
+            </div>
 
-                <div class="tweet">
-                    <div class="tweet-header">
-                        <div class="tweet-header-photo">
-                            <img
-                                src="public/images/icons/icon-twitter.svg"
-                                alt="icon-twitter"
-                            />
-                        </div>
-                        <div class="tweet-header-name">
-                            Tom Cruise
-                        </div>
+            <div class="tweet">
+                <div class="tweet-header">
+                    <div class="tweet-header-photo">
+                        <img src="public/images/icons/icon-twitter.svg" alt="icon-twitter" />
                     </div>
-                    <div class="tweet-content">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Error harum blanditiis ut nihil eum amet a laboriosam.
+                    <div class="tweet-header-name">
+                        Tom Cruise
                     </div>
                 </div>
+                <div class="tweet-content">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Error harum blanditiis ut nihil eum amet a laboriosam.
+                </div>
+            </div>
 
-                <div class="tweet">
-                    <div class="tweet-header">
-                        <div class="tweet-header-photo">
-                            <img
-                                src="public/images/icons/icon-twitter.svg"
-                                alt="icon-twitter"
-                            />
-                        </div>
-                        <div class="tweet-header-name">
-                            Tom Cruise
-                        </div>
+            <div class="tweet">
+                <div class="tweet-header">
+                    <div class="tweet-header-photo">
+                        <img src="public/images/icons/icon-twitter.svg" alt="icon-twitter" />
                     </div>
-                    <div class="tweet-content">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Error harum blanditiis ut nihil eum amet a laboriosam.
+                    <div class="tweet-header-name">
+                        Tom Cruise
                     </div>
                 </div>
+                <div class="tweet-content">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Error harum blanditiis ut nihil eum amet a laboriosam.
+                </div>
+            </div>
 
-                <div class="tweet">
-                    <div class="tweet-header">
-                        <div class="tweet-header-photo">
-                            <img
-                                src="public/images/icons/icon-twitter.svg"
-                                alt="icon-twitter"
-                            />
-                        </div>
-                        <div class="tweet-header-name">
-                            Tom Cruise
-                        </div>
+            <div class="tweet">
+                <div class="tweet-header">
+                    <div class="tweet-header-photo">
+                        <img src="public/images/icons/icon-twitter.svg" alt="icon-twitter" />
                     </div>
-                    <div class="tweet-content">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Error harum blanditiis ut nihil eum amet a laboriosam.
+                    <div class="tweet-header-name">
+                        Tom Cruise
                     </div>
                 </div>
-            </section>
-        </div>
-        <!-- #main-container -->
+                <div class="tweet-content">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Error harum blanditiis ut nihil eum amet a laboriosam.
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- #main-container -->
 
-        <script
-            src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-            crossorigin="anonymous"
-        ></script>
-        <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/js/main.js"></script>
 
-        <!-- 
+    <!--
             Copyright (c) 2015 Lokesh Dhakar
             https://lokeshdhakar.com/projects/lightbox2/
         -->
-        <script src="public/vendors/lightbox/js/lightbox.js"></script>
+    <script src="public/vendors/lightbox/js/lightbox.js"></script>
 
-        <script type="text/javascript" src="public/js/main.js"></script>
-    </body>
+    <script type="text/javascript" src="public/js/main.js"></script>
+</body>
+
 </html>
