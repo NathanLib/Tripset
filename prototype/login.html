@@ -19,7 +19,9 @@
         <header>
             <nav role="navigation">
                 <div class="logo">
-                    <img src="public/images/header/tripset.svg" alt="logo tripset" />
+                    <a href="home.html">
+                        <img src="public/images/header/tripset.svg" alt="logo tripset" />
+                    </a>
                 </div>
 
                 <div class="menuHamburger" onclick="openNav()">
@@ -28,16 +30,16 @@
 
                 <div class="mobileNav">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                    <a href="#">Home</a>
-                    <a href="#">About</a>
-                    <a class="btn_login" href="#">Login</a>
+                    <a href="home.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a class="btn_login" href="login.html">Login</a>
                 </div>
                 <div class="mobileNav-background" onclick="closeNav()"></div>
 
                 <div class="computerNav">
-                    <a href="#">Home</a>
-                    <a href="#">About</a>
-                    <a class="btn_login" href="#">Login</a>
+                    <a href="home.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a class="btn_login" href="login.html">Login</a>
                 </div>
             </nav>
         </header>
@@ -60,7 +62,7 @@
                     </div>
                 </div>
                 <div class="login-information flex">
-                    <form id="login-form" action="#">
+                    <form id="login-form" action="profile.html">
                         <input class="uname rounded-corners" type="text" placeholder="Enter Username" name="uname" required />
                         <input class="psw rounded-corners" type="password" placeholder="Enter Password" name="psw" required />
                         <div class="pw-but">
@@ -88,7 +90,7 @@
                     </div>
                 </div>
                 <div class="login-information flex">
-                    <form id="signup-form" action="#">
+                    <form id="signup-form" action="profile.html">
                         <input class="rounded-corners" type="text" placeholder="Enter first name" name="first-name" required />
                         <input class="rounded-corners" type="text" placeholder="Enter last name" name="last-name" required />
                         <input class="rounded-corners" type="text" placeholder="Enter email address" name="email" required />
@@ -111,6 +113,10 @@
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="public/js/main.js"></script>
+
+    <script type="text/javascript">
+        alert("Username: user" + '\n' + "Password: 123" + '\n' + "(These infos are test sets for the development phase. They will be removed when the database is set up!)")
+    </script>
 </body>
 
 </html>
