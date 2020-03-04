@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="public/css/main.css" />
 </head>
 
-<body>
+<body class="home-page">
     <div class="header-container" id="header-container">
         <header>
             <div class="menu-background"></div>
@@ -50,7 +50,9 @@
     <div class="main-container">
         <div class="searchbar-container">
             <div class="searchbar">
-                <input class="searchbar-input" type="text" name="searchbar-input" placeholder="Enter your destination" oninput="displaySubmit()" value="" />
+                <form id="location-form" action="information.html" method="post">
+                    <input class="searchbar-input" type="text" name="searchbar-input" placeholder="Enter your destination" oninput="displaySubmit()" value="" />
+                </form>
                 <div class="searchbar-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
                         <path id="Icon_material-search" data-name="Icon material-search"
@@ -78,30 +80,30 @@
 
             <div class="dates-details">
                 <hr id="dates-form-separator" />
-                <!-- Use method="POST" -->
-                <form action="" id="dates-form" class="dates-form" method="">
+
+                <form id="dates-form" class="dates-form" method="post" action="#">
                     <div class="dates-inputs">
                         <div>
                             <p class="dates-text" id="dates-text-from">
                                 From:
                             </p>
                             <div class="dates-details-from">
-                                <input type="number" id="dayFrom" oninput="manageCalendar()" onchange="datesValidation(this)" placeholder="Day" name="dayFrom" value="" min="1" max="31" maxlength="2" />
+                                <input type="number" id="dayFrom" onchange="datesValidation()" placeholder="Day" name="dayFrom" value="" min="1" max="31" maxlength="2" />
                                 <span> / </span>
-                                <input type="number" id="monthFrom" oninput="manageCalendar()" onchange="datesValidation()" placeholder="Month" name="monthFrom" value="" min="1" max="12" maxlength="2" />
+                                <input type="number" id="monthFrom" onchange="datesValidation()" placeholder="Month" name="monthFrom" value="" min="1" max="12" maxlength="2" />
                                 <span> / </span>
-                                <input type="number" id="yearFrom" oninput="manageCalendar()" onchange="datesValidation()" placeholder="Year" name="yearFrom" value="" min="1950" max="2050" maxlength="4" />
+                                <input type="number" id="yearFrom" onchange="datesValidation(); manageCalendar()" placeholder="Year" name="yearFrom" value="" min="1950" max="2050" maxlength="4" />
                             </div>
                         </div>
 
                         <div>
                             <p class="dates-text" id="dates-text-to">To:</p>
                             <div class="dates-details-to">
-                                <input type="number" id="dayTo" oninput="manageCalendar()" onchange="datesValidation()" placeholder="Day" name="dayTo" value="" min="1" max="31" maxlength="2" />
+                                <input type="number" id="dayTo" onchange="datesValidation()" placeholder="Day" name="dayTo" value="" min="1" max="31" maxlength="2" />
                                 <span> / </span>
-                                <input type="number" id="monthTo" oninput="manageCalendar()" onchange="datesValidation()" placeholder="Month" name="monthTo" value="" min="1" max="12" maxlength="2" />
+                                <input type="number" id="monthTo" onchange="datesValidation()" placeholder="Month" name="monthTo" value="" min="1" max="12" maxlength="2" />
                                 <span> / </span>
-                                <input type="number" id="yearTo" oninput="manageCalendar()" onchange="datesValidation()" placeholder="Year" name="yearTo" value="" min="1950" max="2050" maxlength="4" />
+                                <input type="number" id="yearTo" onchange="datesValidation(); manageCalendar()" placeholder="Year" name="yearTo" value="" min="1950" max="2050" maxlength="4" />
                             </div>
                         </div>
 
@@ -112,8 +114,7 @@
                 </form>
             </div>
 
-            <!-- Use type="submit" -->
-            <button id="dates-submit" onsubmit="return datesValidation()" type="">
+            <button id="dates-submit" onclick="submitResearch()">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="38.586" height="38.586" viewBox="0 0 38.586 38.586">
                     <defs>
                         <filter id="Icon_awesome-arrow-down" x="2.025" y="2.861" width="33.944" height="34.358" filterUnits="userSpaceOnUse">

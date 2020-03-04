@@ -6,6 +6,13 @@
 
 const isNull = value => typeof value === "object" && !value;
 
+const isToday = (someDate) => {
+    const today = new Date()
+    return someDate.getDate() == today.getDate() &&
+        someDate.getMonth() == today.getMonth() &&
+        someDate.getFullYear() == today.getFullYear()
+}
+
 /* ============================= Header ================================== */
 function openNav() {
     $(".mobileNav").css({
@@ -67,6 +74,16 @@ var textFrom = $("#dates-text-from");
 var textTo = $("#dates-text-to");
 
 var errorMessage = $(".error-message");
+var today = new Date();
+
+function submitResearch() {
+    if (datesValidation()) {
+        $("#dates-form").submit();
+        $("#location-form").submit();
+    } else {
+        alert("There is an error in the selected dates")
+    }
+}
 
 function createCalendar() {
     var picker = new Litepicker({
@@ -139,16 +156,42 @@ function createCalendarWithRange(startDate, endDate) {
 function manageCalendar() {
     if ($("#litepicker").is(":empty")) {
         createCalendar();
-    } else if (isDatesFromCompleted && isDatesToCompleted) {
-        // -1 because month Integer value representing the month, beginning with 0 for January to 11 for December.
-        var startDate = new Date(
-            yearFrom.val(),
-            monthFrom.val() - 1,
-            dayFrom.val()
-        );
+    } else if (isDatesFromCompleted() && !isDatesToCompleted()) {
+        var startDate = new Date(yearFrom.val(), monthFrom.val() - 1, dayFrom.val());
+        var endDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate()+7)
+
+        checkConsistencyDates(startDate, endDate);
+    } else if (isDatesFromCompleted() && isDatesToCompleted()) {
+        var startDate = new Date(yearFrom.val(), monthFrom.val() - 1, dayFrom.val());
         var endDate = new Date(yearTo.val(), monthTo.val() - 1, dayTo.val());
 
-        createCalendarWithRange(startDate, endDate);
+        if (checkConsistencyDates(startDate, endDate)) {
+            createCalendarWithRange(startDate, endDate);
+        }
+    }
+}
+
+function checkConsistencyDates(startDate, endDate) {
+    console.log(startDate);
+    console.log(endDate);
+    if (startDate >= today && endDate >= startDate) {
+        return true;
+    } else if (startDate <= today) {
+        addAnimationError(dayFrom);
+        addAnimationError(monthFrom);
+        addAnimationError(yearFrom);
+
+        errorMessage.text("The start date must be today or after");
+
+        return false;
+    } else if (endDate < startDate) {
+        addAnimationError(dayTo);
+        addAnimationError(monthTo);
+        addAnimationError(yearTo);
+
+        errorMessage.text("The end date must be after the start date");
+    } else {
+        return false;
     }
 }
 
@@ -182,15 +225,13 @@ function addDates() {
 
 function slideSearchContainer(value) {
     if ($(".dates-details").css("display") == "none") {
-        $(".searchbar-container").animate(
-            {
+        $(".searchbar-container").animate({
                 marginTop: value
             },
             700
         );
     } else {
-        $(".searchbar-container").animate(
-            {
+        $(".searchbar-container").animate({
                 marginTop: "12rem"
             },
             700
@@ -339,7 +380,6 @@ function errorDates(element1, element2, message) {
 
     if (!isNull(element1) && !isNull(element2)) {
         addAnimationError(element1);
-
         addAnimationError(element2);
     } else if (!isNull(element1)) {
         addAnimationError(element1);
@@ -347,6 +387,9 @@ function errorDates(element1, element2, message) {
 }
 
 function addAnimationError(element) {
+    element.removeClass("validated-dates");
+    element.siblings().removeClass("validated-dates");
+
     element.addClass("wrong-shake");
     element.one(
         "webkitAnimationEnd oanimationend msAnimationEnd animationend",
@@ -387,8 +430,8 @@ $(function() {
         if (
             $(this).html() !=
             $(".forecast")
-                .last()
-                .html()
+            .last()
+            .html()
         ) {
             $('<hr class="weather-separator" />').insertAfter($(this));
         }
@@ -449,9 +492,9 @@ function eventTitle(element, length) {
     var titreSize = element.find(".event-content-title").text().length;
     var spaceCount =
         element
-            .find(".event-content-title")
-            .text()
-            .split(" ").length - 1;
+        .find(".event-content-title")
+        .text()
+        .split(" ").length - 1;
 
     sliceText(element, ".event-content-title", length);
 

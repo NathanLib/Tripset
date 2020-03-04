@@ -414,6 +414,10 @@ nav .menuHamburger img {
 
    ======================================================================= */
 /* ============================= Searchbar =============================== */
+.home-page {
+    margin-bottom: 1.5rem;
+}
+
 .searchbar-container {
     width: 100%;
     height: auto;
