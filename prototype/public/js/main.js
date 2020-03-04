@@ -480,7 +480,7 @@ $(window).bind("resize", function() {
 
 $(function() {
     $(".event").each(function() {
-        if (document.body.clientWidth <= 500) {
+        if (document.body.clientWidth <= 768) {
             eventTitle($(this), 15);
         } else if (document.body.clientWidth > 1200) {
             eventTitle($(this), 20);
