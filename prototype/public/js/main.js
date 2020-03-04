@@ -524,3 +524,22 @@ function checkBox() {
         alert("You didn't agree to our terms :(");
     }
 }
+
+
+/**********************/
+
+function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      
+      reader.onload = function(e) {
+        $('#profileImg').attr('src', e.target.result);
+      }
+      
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  
+  $("#newImg").change(function() {
+    readURL(this);
+  });

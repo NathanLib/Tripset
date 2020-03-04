@@ -4,9 +4,7 @@
 
    ======================================================================= */
 
-*,
-*::after,
-*::before {
+*, *::after, *::before {
     box-sizing: inherit;
     margin: 0;
     padding: 0;
@@ -41,8 +39,7 @@ html {
 }
 
 body {
-    padding: var(--default-paddingTop-mobile) var(--default-paddingLeft-mobile)
-        0;
+    padding: var(--default-paddingTop-mobile) var(--default-paddingLeft-mobile) 0;
     background-attachment: fixed;
     background-image: url(../images/background/backgroundMobile.svg);
     background-position: left bottom;
@@ -216,8 +213,7 @@ nav .menuHamburger img {
 }
 
 @media screen and (min-width: 992px) {
-    .mobileNav,
-    .menuHamburger {
+    .mobileNav, .menuHamburger {
         display: none;
     }
     .computerNav {
@@ -258,8 +254,7 @@ nav .menuHamburger img {
 
 /* ============================== User profile ================================= */
 
-.profile-page .main-container,
-.edit-profile-page .main-container {
+.profile-page .main-container, .edit-profile-page .main-container {
     padding-top: 5rem;
 }
 
@@ -382,9 +377,7 @@ nav .menuHamburger img {
         -webkit-transition-property: transform;
         transition-property: transform;
     }
-    .hvr-grow:hover,
-    .hvr-grow:focus,
-    .hvr-grow:active {
+    .hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
         -webkit-transform: scale(1.1);
         transform: scale(1.1);
         box-shadow: var(--default-shadow);
@@ -392,7 +385,6 @@ nav .menuHamburger img {
     .city-bloc .city-weather {
         margin-bottom: 0.9rem;
     }
-
     .edit-profile-page .info-bloc {
         margin-top: 3.5rem;
     }
@@ -535,8 +527,7 @@ nav .menuHamburger img {
     border-top: solid var(--color-darkGray) 1px;
 }
 
-.dates-details-from,
-.dates-details-to {
+.dates-details-from, .dates-details-to {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -553,8 +544,7 @@ nav .menuHamburger img {
     text-align: center;
 }
 
-.dates-details form input[type="number"]::-webkit-inner-spin-button,
-.dates-details form input[type="number"]::-webkit-outer-spin-button {
+.dates-details form input[type="number"]::-webkit-inner-spin-button, .dates-details form input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
@@ -716,7 +706,11 @@ nav .menuHamburger img {
     }
 }
 
-/***************************Edit profile*********************************/
+/***************************
+
+Edit profile
+
+*********************************/
 
 .edit-profile {
     display: flex;
@@ -725,8 +719,10 @@ nav .menuHamburger img {
 }
 
 .edit-profile img {
-    width: 4rem;
-    padding-right: 1rem;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 3rem;
+    margin: 1rem 2rem 1rem 0;
 }
 
 .edit-profile .line:first-child {
@@ -734,8 +730,7 @@ nav .menuHamburger img {
     font-size: 1rem;
 }
 
-.edit-profile input[type="text"],
-.edit-profile input[type="mail"] {
+.edit-profile input[type="text"], .edit-profile input[type="mail"] {
     border-radius: 0.2rem;
     border: 1px solid var(--color-darkGray);
     font-size: 1rem;
@@ -787,9 +782,16 @@ nav .menuHamburger img {
     margin-top: 1rem;
 }
 
+/* .edit-profile img {
+    object-fit: cover;
+    object-position: center;
+    width: 39px;
+    height: 39px;
+    border-radius: 100px;
+} */
+
 @media screen and (min-width: 992px) {
-    .edit-profile .buttons,
-    .pwd {
+    .edit-profile .buttons, .pwd {
         flex-direction: row;
         align-self: center;
         align-items: baseline;
@@ -798,11 +800,13 @@ nav .menuHamburger img {
         padding-left: 1rem;
     }
 }
+
 /* =======================================================================
 
                               Information page
 
    ======================================================================= */
+
 /* ============================== General ================================ */
 
 .information-page .main-container {
@@ -813,10 +817,14 @@ nav .menuHamburger img {
 }
 
 .animation-zoom-origin {
-    -webkit-transition: all 1s ease; /* Safari and Chrome */
-    -moz-transition: all 1s ease; /* Firefox */
-    -ms-transition: all 1s ease; /* Internet Explorer 9 */
-    -o-transition: all 1s ease; /* Opera */
+    -webkit-transition: all 1s ease;
+    /* Safari and Chrome */
+    -moz-transition: all 1s ease;
+    /* Firefox */
+    -ms-transition: all 1s ease;
+    /* Internet Explorer 9 */
+    -o-transition: all 1s ease;
+    /* Opera */
     transition: all 1s ease;
 }
 
@@ -867,6 +875,7 @@ nav .menuHamburger img {
     align-items: center;
     justify-content: center;
 }
+
 .forecast-icon img {
     max-width: 60px;
     max-height: 60px;
@@ -905,11 +914,15 @@ nav .menuHamburger img {
 }
 
 .events-container {
-    -ms-overflow-style: none; /* Internet Explorer 10+ */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* Firefox */
 }
+
 .events-container::-webkit-scrollbar {
-    display: none; /* Safari and Chrome */
+    display: none;
+    /* Safari and Chrome */
 }
 
 .events-header {
@@ -929,7 +942,8 @@ nav .menuHamburger img {
     background-color: var(--color-lightGray);
     border-radius: 10px;
     padding: 0.75rem;
-    padding-bottom: 0.45rem; /* Compensation for the title */
+    padding-bottom: 0.45rem;
+    /* Compensation for the title */
     margin: 0.75rem 0;
     display: flex;
 }
@@ -1008,15 +1022,16 @@ nav .menuHamburger img {
         margin-bottom: 3.5rem;
         padding: 1rem;
     }
-
     .maps-container {
-        -ms-overflow-style: none; /* Internet Explorer 10+ */
-        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none;
+        /* Internet Explorer 10+ */
+        scrollbar-width: none;
+        /* Firefox */
     }
     .maps-container::-webkit-scrollbar {
-        display: none; /* Safari and Chrome */
+        display: none;
+        /* Safari and Chrome */
     }
-
     .map-center-cropped {
         width: 95%;
         height: 95%;
@@ -1088,21 +1103,21 @@ nav .menuHamburger img {
         margin-bottom: 3.5rem;
         overflow-y: scroll;
     }
-
     .photos-container a {
         margin: 0.75rem;
     }
-
     .photos-header {
         margin-bottom: 0.25rem;
     }
-
     .photos-container {
-        -ms-overflow-style: none; /* Internet Explorer 10+ */
-        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none;
+        /* Internet Explorer 10+ */
+        scrollbar-width: none;
+        /* Firefox */
     }
     .photos-container::-webkit-scrollbar {
-        display: none; /* Safari and Chrome */
+        display: none;
+        /* Safari and Chrome */
     }
 }
 
@@ -1161,13 +1176,15 @@ nav .menuHamburger img {
         width: 32.5%;
         margin-bottom: 2.5rem;
     }
-
     .twitter-container {
-        -ms-overflow-style: none; /* Internet Explorer 10+ */
-        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none;
+        /* Internet Explorer 10+ */
+        scrollbar-width: none;
+        /* Firefox */
     }
     .twitter-container::-webkit-scrollbar {
-        display: none; /* Safari and Chrome */
+        display: none;
+        /* Safari and Chrome */
     }
 }
 
@@ -1176,6 +1193,7 @@ nav .menuHamburger img {
                                 Login page
 
    ======================================================================= */
+
 /* ============================== General ================================ */
 
 #login-page-body {
@@ -1195,11 +1213,9 @@ nav .menuHamburger img {
         -webkit-text-size-adjust: 125%;
         font-size: 125%;
     }
-
     /* body {
     padding: 50px 150px 0;
 	background-image: url(../images/background/background.svg);} */
-
     #login-page-body {
         padding: 50px 150px 0;
         background-image: url("../images/background/login_background.svg");
@@ -1215,12 +1231,15 @@ nav .menuHamburger img {
     display: flex;
     flex-direction: row;
 }
+
 #login p {
     font-family: "Helvetica Neue", Helvetica, Arial, "sans-serif";
 }
+
 .rounded-corners {
     border-radius: 15px;
 }
+
 .flex {
     display: flex;
 }
@@ -1232,13 +1251,14 @@ nav .menuHamburger img {
     width: 100%;
     overflow-y: hidden;
 }
+
 .login-holder-left {
     width: 20%;
     height: 100%;
     background-color: #6598bb;
 }
-.signup-holder-right p,
-.login-holder-left p {
+
+.signup-holder-right p, .login-holder-left p {
     margin: auto;
     text-align: center;
     color: #ffffff;
@@ -1247,26 +1267,24 @@ nav .menuHamburger img {
     letter-spacing: 0.08rem;
     text-decoration: underline;
 }
+
 .login-holder-right {
     width: 80%;
     height: 100%;
     flex-direction: column;
-    background-image: linear-gradient(
-            to bottom,
-            rgba(255, 255, 255, 0.6) 0%,
-            rgba(252, 252, 252, 0.7) 100%
-        ),
-        url("../images/background/background.svg");
+    background-image: linear-gradient( to bottom, rgba(255, 255, 255, 0.6) 0%, rgba(252, 252, 252, 0.7) 100%), url("../images/background/background.svg");
     background-color: #fcfcfc;
     background-position: bottom left;
     background-repeat: no-repeat;
     background-size: 100vw;
 }
+
 .login-toggle-holder {
     width: 100%;
     height: 20%;
     background-color: none;
 }
+
 .login-toggle-holder1 {
     width: 200px;
     height: 50px;
@@ -1276,29 +1294,35 @@ nav .menuHamburger img {
     border-color: #6598bb;
     border-width: 1px;
 }
+
 .login-toggle-holder2 {
     margin: 1rem 1rem 0 auto;
 }
+
 .login-toggle-holder2-2 {
     margin: 1rem auto 0 1rem;
 }
+
 .login-toggle-login {
     margin: 2px;
     width: 50%;
     height: 100%;
     background-color: #6598bb;
 }
+
 .login-toggle-signup {
     margin: 2px;
     width: 50%;
     height: 100%;
 }
+
 .login-toggle-holder1 p {
     text-align: center;
     margin: auto;
     font-weight: 600;
     letter-spacing: 0.08rem;
 }
+
 .login-information {
     width: 100%;
     height: 80%;
@@ -1306,6 +1330,7 @@ nav .menuHamburger img {
 }
 
 /*SIGNUP SECTION*/
+
 .signup-holder {
     height: 100%;
     width: 100%;
@@ -1313,20 +1338,17 @@ nav .menuHamburger img {
     flex-direction: row;
     display: none;
 }
+
 .signup-holder-left {
     width: 80%;
     height: 100%;
     flex-direction: column;
-    background-image: linear-gradient(
-            to bottom,
-            rgba(255, 255, 255, 0.6) 0%,
-            rgba(252, 252, 252, 0.7) 100%
-        ),
-        url("../images/background/background.svg");
+    background-image: linear-gradient( to bottom, rgba(255, 255, 255, 0.6) 0%, rgba(252, 252, 252, 0.7) 100%), url("../images/background/background.svg");
     background-position: bottom right;
     background-repeat: no-repeat;
     background-size: 100vw;
 }
+
 .signup-holder-left p {
     margin: auto;
     text-align: center;
@@ -1334,16 +1356,20 @@ nav .menuHamburger img {
     font-weight: 600;
     letter-spacing: 0.08rem;
 }
+
 .signup-holder-right {
     width: 20%;
     height: 100%;
     background-color: #6598bb;
     flex-direction: column;
 }
+
 .login-toggle-holder1 p {
     font-size: 1rem;
 }
+
 /*Underline text Effect*/
+
 .line-effect1 p::after {
     content: "";
     display: block;
@@ -1352,10 +1378,12 @@ nav .menuHamburger img {
     background: #fff;
     transition: width 0.3s;
 }
+
 .line-effect1 p:hover::after {
     width: 100%;
     transition: width 0.3s;
 }
+
 .line-effect2 p::after {
     content: "";
     display: block;
@@ -1364,29 +1392,35 @@ nav .menuHamburger img {
     background: #6598bb;
     transition: width 0.3s;
 }
+
 .line-effect2 p:hover::after {
     width: 100%;
     transition: width 0.3s;
 }
+
 .login-toggle-login p {
     color: #ffffff;
 }
+
 .login-toggle-signup p {
     color: #6598bb;
 }
+
 /*Form*/
+
 #login-form {
     height: 80%;
     width: 60%;
     margin: auto;
 }
+
 #signup-form {
     height: 80%;
     width: 60%;
     margin: auto;
 }
-#login input[type="text"],
-#login input[type="password"] {
+
+#login input[type="text"], #login input[type="password"] {
     width: 100%;
     max-width: 1000px;
     padding: 12px 20px;
@@ -1396,6 +1430,7 @@ nav .menuHamburger img {
     box-sizing: border-box;
     box-shadow: -1px 2px 8px 1px grey;
 }
+
 .button-settings {
     background-color: #87cbfa;
     color: white;
@@ -1405,6 +1440,7 @@ nav .menuHamburger img {
     cursor: pointer;
     width: 150px;
 }
+
 .button-settings:hover {
     background-color: #6598bb;
 }
@@ -1414,9 +1450,11 @@ nav .menuHamburger img {
     font-weight: 600;
     letter-spacing: 0.08rem;
 }
+
 .log-but {
     float: right;
 }
+
 .pw-but {
     background-color: #87cbfa;
     color: white;
@@ -1427,13 +1465,16 @@ nav .menuHamburger img {
     cursor: pointer;
     width: auto;
 }
+
 #option {
     margin: 10px 0 0 0;
 }
+
 .login-information a {
     text-decoration: none;
     font-style: none;
 }
+
 .terms-text {
     font-size: 12px;
 }
