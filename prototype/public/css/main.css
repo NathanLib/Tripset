@@ -982,14 +982,6 @@ nav .menuHamburger img {
 }
 
 @media screen and (min-width: 768px) {
-    html {
-        -ms-text-size-adjust: 125%;
-        -webkit-text-size-adjust: 125%;
-        font-size: 125%;
-    }
-    /* body {
-    padding: 50px 150px 0;
-	background-image: url(../images/background/background.svg);} */
     #login-page-body {
         padding: 50px 150px 0;
         background-image: url("../images/background/login_background.svg");
