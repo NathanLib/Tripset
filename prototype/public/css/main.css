@@ -4,7 +4,9 @@
 
    ======================================================================= */
 
-*, *::after, *::before {
+*,
+*::after,
+*::before {
     box-sizing: inherit;
     margin: 0;
     padding: 0;
@@ -17,6 +19,7 @@
     --color-darkGray: #747474;
     --color-gray: #c1c1c1;
     --color-white: #ffffff;
+    --color-navyBlue: #6598bb;
     --color-wrong: #ff4d4d;
     --color-validated: #c1e0c1;
     --default-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
@@ -39,7 +42,8 @@ html {
 }
 
 body {
-    padding: var(--default-paddingTop-mobile) var(--default-paddingLeft-mobile) 0;
+    padding: var(--default-paddingTop-mobile) var(--default-paddingLeft-mobile)
+        0;
     background-attachment: fixed;
     background-image: url(../images/background/backgroundMobile.svg);
     background-position: left bottom;
@@ -213,7 +217,8 @@ nav .menuHamburger img {
 }
 
 @media screen and (min-width: 992px) {
-    .mobileNav, .menuHamburger {
+    .mobileNav,
+    .menuHamburger {
         display: none;
     }
     .computerNav {
@@ -397,7 +402,8 @@ nav .menuHamburger img {
     border-top: solid var(--color-darkGray) 1px;
 }
 
-.dates-details-from, .dates-details-to {
+.dates-details-from,
+.dates-details-to {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -414,7 +420,8 @@ nav .menuHamburger img {
     text-align: center;
 }
 
-.dates-details form input[type="number"]::-webkit-inner-spin-button, .dates-details form input[type="number"]::-webkit-outer-spin-button {
+.dates-details form input[type="number"]::-webkit-inner-spin-button,
+.dates-details form input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
@@ -1035,7 +1042,8 @@ nav .menuHamburger img {
     background-color: #6598bb;
 }
 
-.signup-holder-right p, .login-holder-left p {
+.signup-holder-right p,
+.login-holder-left p {
     margin: auto;
     color: #ffffff;
     font-size: 1.5rem;
@@ -1050,7 +1058,12 @@ nav .menuHamburger img {
     width: 80%;
     height: 100%;
     flex-direction: column;
-    background-image: linear-gradient( to bottom, rgba(255, 255, 255, 0.6) 0%, rgba(252, 252, 252, 0.7) 100%), url("../images/background/background.svg");
+    background-image: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.6) 0%,
+            rgba(252, 252, 252, 0.7) 100%
+        ),
+        url("../images/background/background.svg");
     background-color: #fcfcfc;
     background-position: bottom left;
     background-repeat: no-repeat;
@@ -1125,7 +1138,12 @@ nav .menuHamburger img {
     width: 80%;
     height: 100%;
     flex-direction: column;
-    background-image: linear-gradient( to bottom, rgba(255, 255, 255, 0.6) 0%, rgba(252, 252, 252, 0.7) 100%), url("../images/background/background.svg");
+    background-image: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.6) 0%,
+            rgba(252, 252, 252, 0.7) 100%
+        ),
+        url("../images/background/background.svg");
     background-position: bottom right;
     background-repeat: no-repeat;
     background-size: 100vw;
@@ -1202,7 +1220,8 @@ nav .menuHamburger img {
     margin: auto;
 }
 
-#login input[type="text"], #login input[type="password"] {
+#login input[type="text"],
+#login input[type="password"] {
     box-sizing: border-box;
     display: inline-block;
     width: 100%;
@@ -1341,7 +1360,8 @@ nav .menuHamburger img {
 
    ======================================================================= */
 
-.profile-page .main-container, .edit-profile-page .main-container {
+.profile-page .main-container,
+.edit-profile-page .main-container {
     padding-top: 5rem;
 }
 
@@ -1464,7 +1484,9 @@ nav .menuHamburger img {
         transition-duration: 0.3s;
         transition-property: transform;
     }
-    .hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+    .hvr-grow:hover,
+    .hvr-grow:focus,
+    .hvr-grow:active {
         -webkit-transform: scale(1.1);
         transform: scale(1.1);
         box-shadow: var(--default-shadow);
@@ -1501,7 +1523,8 @@ nav .menuHamburger img {
     font-size: 1rem;
 }
 
-.edit-profile input[type="text"], .edit-profile input[type="mail"] {
+.edit-profile input[type="text"],
+.edit-profile input[type="mail"] {
     padding: 0.2rem;
     border: 1px solid var(--color-darkGray);
     border-radius: 0.2rem;
@@ -1554,7 +1577,8 @@ nav .menuHamburger img {
 }
 
 @media screen and (min-width: 992px) {
-    .edit-profile .buttons, .pwd {
+    .edit-profile .buttons,
+    .pwd {
         flex-direction: row;
         align-items: baseline;
         align-self: center;
@@ -1597,6 +1621,49 @@ nav .menuHamburger img {
     margin: 3rem auto;
     width: 6rem;
 }
-.reset-pwd #email-sent{
+.reset-pwd #email-sent {
     display: none;
+}
+
+/* ======================================================================= 
+ 
+                                About page 
+ 
+   ======================================================================= */
+#about-holder {
+    margin: 6rem auto 0 auto;
+    background-color: var(--color-navyBlue);
+    opacity: 0.9;
+    box-shadow: var(--default-shadow);
+    width: auto;
+    max-width: 1000px;
+    height: auto;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+}
+
+#about-holder h1,
+#about-holder h3 {
+    color: var(--color-white);
+}
+
+#about-holder h1 {
+    text-align: center;
+}
+
+#about-holder h2 {
+    margin: 0.7rem 0 0.5rem 0.5rem;
+    color: #282828;
+}
+
+#about-holder h3 {
+    margin: 0.05rem 0.3rem 1rem 0.8rem;
+}
+
+@media screen and (max-width: 492px) {
+    #about-holder {
+        min-height: 630px;
+    }
 }
