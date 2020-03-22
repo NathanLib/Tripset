@@ -1,147 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>TRIPSET</title>
 
-    <title>TRIPSET</title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,300,400&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="public/css/main.css" />
+    </head>
 
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="public/css/main.css" />
-</head>
+    <body class="home-page">
+        <div class="header-container" id="header-container">
+            <header>
+                <div class="menu-background"></div>
 
-<body class="home-page">
-    <div class="header-container" id="header-container">
-        <header>
-            <div class="menu-background"></div>
+                <nav role="navigation">
+                    <div class="logo">
+                        <a href="home.html">
+                            <img
+                                src="public/images/header/tripset.svg"
+                                alt="logo tripset"
+                            />
+                        </a>
+                    </div>
 
-            <nav role="navigation">
-                <div class="logo">
-                    <a href="home.html">
-                        <img src="public/images/header/tripset.svg" alt="logo tripset" />
-                    </a>
-                </div>
+                    <div class="menuHamburger" onclick="openNav()">
+                        <img
+                            src="public/images/header/menu-hamburger.svg"
+                            alt="menu hamburger"
+                        />
+                    </div>
 
-                <div class="menuHamburger" onclick="openNav()">
-                    <img src="public/images/header/menu-hamburger.svg" alt="menu hamburger" />
-                </div>
+                    <div class="mobileNav">
+                        <a
+                            href="javascript:void(0)"
+                            class="closebtn"
+                            onclick="closeNav()"
+                            >&times;</a
+                        >
+                        <a href="home.html">Home</a>
+                        <a href="about.html">About</a>
+                        <a class="btn_login" href="login.html">Login</a>
+                    </div>
+                    <div
+                        class="mobileNav-background"
+                        onclick="closeNav()"
+                    ></div>
 
-                <div class="mobileNav">
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                    <a href="home.html">Home</a>
-                    <a href="about.html">About</a>
-                    <a class="btn_login" href="login.html">Login</a>
-                </div>
-                <div class="mobileNav-background" onclick="closeNav()"></div>
+                    <div class="computerNav">
+                        <a href="home.html">Home</a>
+                        <a href="about.html">About</a>
+                        <a class="btn_login" href="login.html">Login</a>
+                    </div>
+                </nav>
+            </header>
+        </div>
 
-                <div class="computerNav">
-                    <a href="home.html">Home</a>
-                    <a href="about.html">About</a>
-                    <a class="btn_login" href="login.html">Login</a>
-                </div>
-            </nav>
-        </header>
-    </div>
-
-    <div class="main-container">
-        <div class="searchbar-container">
-            <div class="searchbar">
-                <form id="location-form" action="information.html" method="post">
-                    <input class="searchbar-input" type="text" name="searchbar-input" placeholder="Enter your destination" oninput="displaySubmit()" value="" />
-                </form>
-                <div class="searchbar-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
-                        <path id="Icon_material-search" data-name="Icon material-search"
-                            d="M25.941,23.368H24.586l-.48-.463a11.166,11.166,0,1,0-1.2,1.2l.463.48v1.355L31.944,34.5,34.5,31.944Zm-10.292,0a7.719,7.719,0,1,1,7.719-7.719A7.708,7.708,0,0,1,15.649,23.368Z" transform="translate(-4.5 -4.5)"
-                            fill="#747474" />
-                    </svg>
-                </div>
-                <div class="searchbar-date-container" onclick="addDates()">
-                    <div class="date-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33.875" viewBox="0 0 33 33.875">
-                            <g id="Group_26" data-name="Group 26" transform="translate(-589 -332.8)">
-                                <path id="Path_418" data-name="Path 418"
-                                    d="M617.666,337.651h-2.028V334.4a1.193,1.193,0,0,0-2.386-.048v3.3l-6.361-.4V334a1.193,1.193,0,0,0-2.385-.048v3.3l-6.759.4V334.4a1.193,1.193,0,0,0-2.386-.048v3.3h-2.028A4.344,4.344,0,0,0,589,341.985v20.357a4.344,4.344,0,0,0,4.334,4.334h24.333A4.349,4.349,0,0,0,622,362.341V341.985A4.346,4.346,0,0,0,617.666,337.651Zm1.948,24.611a2.036,2.036,0,0,1-2.028,2.028H593.413a2.031,2.031,0,0,1-2.028-2.028V347.988h28.229Zm0-16.659H591.385v-3.936a2.036,2.036,0,0,1,2.028-2.028h1.948v1.543a1.193,1.193,0,0,0,2.386.048v-1.59h6.759v1.543a1.193,1.193,0,0,0,2.385.048v-1.59h6.361v1.543a1.193,1.193,0,0,0,2.386.048v-1.59h1.948a2.034,2.034,0,0,1,2.028,2.028Z"
-                                    fill="#747474" />
-                            </g>
+        <div class="main-container">
+            <div class="searchbar-container">
+                <div class="searchbar">
+                    <form
+                        id="location-form"
+                        action="information.html"
+                        method="post"
+                    >
+                        <input
+                            class="searchbar-input"
+                            type="text"
+                            name="searchbar-input"
+                            placeholder="Enter your destination"
+                            oninput="displaySubmit()"
+                            value=""
+                        />
+                    </form>
+                    <div class="searchbar-icon">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="30"
+                            height="30"
+                            viewBox="0 0 30 30"
+                        >
+                            <path
+                                id="Icon_material-search"
+                                data-name="Icon material-search"
+                                d="M25.941,23.368H24.586l-.48-.463a11.166,11.166,0,1,0-1.2,1.2l.463.48v1.355L31.944,34.5,34.5,31.944Zm-10.292,0a7.719,7.719,0,1,1,7.719-7.719A7.708,7.708,0,0,1,15.649,23.368Z"
+                                transform="translate(-4.5 -4.5)"
+                                fill="#747474"
+                            />
                         </svg>
                     </div>
-                    <div class="date-text">
-                        Add dates
+                    <div class="searchbar-date-container" onclick="addDates()">
+                        <div class="date-icon">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="33"
+                                height="33.875"
+                                viewBox="0 0 33 33.875"
+                            >
+                                <g
+                                    id="Group_26"
+                                    data-name="Group 26"
+                                    transform="translate(-589 -332.8)"
+                                >
+                                    <path
+                                        id="Path_418"
+                                        data-name="Path 418"
+                                        d="M617.666,337.651h-2.028V334.4a1.193,1.193,0,0,0-2.386-.048v3.3l-6.361-.4V334a1.193,1.193,0,0,0-2.385-.048v3.3l-6.759.4V334.4a1.193,1.193,0,0,0-2.386-.048v3.3h-2.028A4.344,4.344,0,0,0,589,341.985v20.357a4.344,4.344,0,0,0,4.334,4.334h24.333A4.349,4.349,0,0,0,622,362.341V341.985A4.346,4.346,0,0,0,617.666,337.651Zm1.948,24.611a2.036,2.036,0,0,1-2.028,2.028H593.413a2.031,2.031,0,0,1-2.028-2.028V347.988h28.229Zm0-16.659H591.385v-3.936a2.036,2.036,0,0,1,2.028-2.028h1.948v1.543a1.193,1.193,0,0,0,2.386.048v-1.59h6.759v1.543a1.193,1.193,0,0,0,2.385.048v-1.59h6.361v1.543a1.193,1.193,0,0,0,2.386.048v-1.59h1.948a2.034,2.034,0,0,1,2.028,2.028Z"
+                                        fill="#747474"
+                                    />
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="date-text">
+                            Add dates
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- =============================================================== -->
+                <!-- =============================================================== -->
 
-            <div class="dates-details">
-                <hr id="dates-form-separator" />
+                <div class="dates-details">
+                    <hr id="dates-form-separator" />
 
-                <form id="dates-form" class="dates-form" method="post" action="#">
-                    <div class="dates-inputs">
-                        <div>
-                            <p class="dates-text" id="dates-text-from">
-                                From:
-                            </p>
-                            <div class="dates-details-from">
-                                <input type="number" id="dayFrom" onchange="datesValidation()" placeholder="Day" name="dayFrom" value="" min="1" max="31" maxlength="2" />
-                                <span> / </span>
-                                <input type="number" id="monthFrom" onchange="datesValidation()" placeholder="Month" name="monthFrom" value="" min="1" max="12" maxlength="2" />
-                                <span> / </span>
-                                <input type="number" id="yearFrom" onchange="datesValidation(); manageCalendar()" placeholder="Year" name="yearFrom" value="" min="1950" max="2050" maxlength="4" />
+                    <form
+                        id="dates-form"
+                        class="dates-form"
+                        method="post"
+                        action="#"
+                    >
+                        <div class="dates-inputs">
+                            <div>
+                                <p class="dates-text" id="dates-text-from">
+                                    From:
+                                </p>
+                                <div class="dates-details-from">
+                                    <input
+                                        type="date"
+                                        name="input-dates-from"
+                                        id="input-dates-from"
+                                    />
+                                </div>
                             </div>
+
+                            <div>
+                                <p class="dates-text" id="dates-text-to">To:</p>
+                                <div class="dates-details-to">
+                                    <input
+                                        type="date"
+                                        name="input-dates-to"
+                                        id="input-dates-to"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="error-message"></div>
                         </div>
 
-                        <div>
-                            <p class="dates-text" id="dates-text-to">To:</p>
-                            <div class="dates-details-to">
-                                <input type="number" id="dayTo" onchange="datesValidation()" placeholder="Day" name="dayTo" value="" min="1" max="31" maxlength="2" />
-                                <span> / </span>
-                                <input type="number" id="monthTo" onchange="datesValidation()" placeholder="Month" name="monthTo" value="" min="1" max="12" maxlength="2" />
-                                <span> / </span>
-                                <input type="number" id="yearTo" onchange="datesValidation(); manageCalendar()" placeholder="Year" name="yearTo" value="" min="1950" max="2050" maxlength="4" />
-                            </div>
-                        </div>
+                        <div id="litepicker" class="dates-picker"></div>
+                    </form>
+                </div>
 
-                        <div class="error-message"></div>
-                    </div>
-
-                    <div id="litepicker" class="dates-picker"></div>
-                </form>
-            </div>
-
-            <button id="dates-submit" onclick="submitResearch()">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="38.586" height="38.586" viewBox="0 0 38.586 38.586">
-                    <defs>
-                        <filter id="Icon_awesome-arrow-down" x="2.025" y="2.861" width="33.944" height="34.358" filterUnits="userSpaceOnUse">
-                            <feOffset dy="1" input="SourceAlpha" />
-                            <feGaussianBlur stdDeviation="3" result="blur" />
-                            <feFlood flood-color="#202124" flood-opacity="0.161" />
-                            <feComposite operator="in" in2="blur" />
-                            <feComposite in="SourceGraphic" />
-                        </filter>
-                    </defs>
-                    <g id="Group_41" data-name="Group 41" transform="translate(-932 -724)">
-                        <circle id="Ellipse_66" data-name="Ellipse 66" cx="19.293" cy="19.293" r="19.293" transform="translate(932 724)" fill="#73ccff" />
-                        <g transform="matrix(1, 0, 0, 1, 932, 724)" filter="url(#Icon_awesome-arrow-down)">
-                            <path id="Icon_awesome-arrow-down-2" data-name="Icon awesome-arrow-down"
-                                d="M15.273,9.205l.811.811a.873.873,0,0,1,0,1.238l-7.094,7.1a.873.873,0,0,1-1.238,0l-7.1-7.1a.873.873,0,0,1,0-1.238l.811-.811a.877.877,0,0,1,1.252.015l4.191,4.4V3.126a.874.874,0,0,1,.876-.876H8.953a.874.874,0,0,1,.876.876V13.619l4.191-4.4a.871.871,0,0,1,1.252-.015Z"
-                                transform="translate(10.63 8.61)" fill="#fff" />
+                <button id="dates-submit" onclick="submitResearch()">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        width="38.586"
+                        height="38.586"
+                        viewBox="0 0 38.586 38.586"
+                    >
+                        <defs>
+                            <filter
+                                id="Icon_awesome-arrow-down"
+                                x="2.025"
+                                y="2.861"
+                                width="33.944"
+                                height="34.358"
+                                filterUnits="userSpaceOnUse"
+                            >
+                                <feOffset dy="1" input="SourceAlpha" />
+                                <feGaussianBlur
+                                    stdDeviation="3"
+                                    result="blur"
+                                />
+                                <feFlood
+                                    flood-color="#202124"
+                                    flood-opacity="0.161"
+                                />
+                                <feComposite operator="in" in2="blur" />
+                                <feComposite in="SourceGraphic" />
+                            </filter>
+                        </defs>
+                        <g
+                            id="Group_41"
+                            data-name="Group 41"
+                            transform="translate(-932 -724)"
+                        >
+                            <circle
+                                id="Ellipse_66"
+                                data-name="Ellipse 66"
+                                cx="19.293"
+                                cy="19.293"
+                                r="19.293"
+                                transform="translate(932 724)"
+                                fill="#73ccff"
+                            />
+                            <g
+                                transform="matrix(1, 0, 0, 1, 932, 724)"
+                                filter="url(#Icon_awesome-arrow-down)"
+                            >
+                                <path
+                                    id="Icon_awesome-arrow-down-2"
+                                    data-name="Icon awesome-arrow-down"
+                                    d="M15.273,9.205l.811.811a.873.873,0,0,1,0,1.238l-7.094,7.1a.873.873,0,0,1-1.238,0l-7.1-7.1a.873.873,0,0,1,0-1.238l.811-.811a.877.877,0,0,1,1.252.015l4.191,4.4V3.126a.874.874,0,0,1,.876-.876H8.953a.874.874,0,0,1,.876.876V13.619l4.191-4.4a.871.871,0,0,1,1.252-.015Z"
+                                    transform="translate(10.63 8.61)"
+                                    fill="#fff"
+                                />
+                            </g>
                         </g>
-                    </g>
-                </svg>
-            </button>
+                    </svg>
+                </button>
+            </div>
         </div>
-    </div>
-    <!-- #main-container -->
+        <!-- #main-container -->
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/js/main.js"></script>
-    <script type="text/javascript" src="public/js/main.js"></script>
-</body>
-
+        <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"
+        ></script>
+        <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/js/main.js"></script>
+        <script type="text/javascript" src="public/js/main.js"></script>
+    </body>
 </html>
