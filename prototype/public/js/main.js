@@ -77,7 +77,9 @@ $(function() {
     });
 
     $("#input-dates-from, #input-dates-to").change(function() {
-        manageCalendar();
+        if (datesValidation()) {
+            manageCalendar();
+        }
     });
 });
 
@@ -168,12 +170,8 @@ function displaySubmit() {
 }
 
 function submitResearch() {
-    // if (datesValidation()) {
     $("#dates-form").submit();
     $("#location-form").submit();
-    // } else {
-    //     alert("There is an error in the selected dates");
-    // }
 }
 
 function manageCalendar() {
@@ -241,141 +239,120 @@ function isDatesToCompleted() {
 }
 
 function datesValidation() {
-    var dayFrom_val = dayFrom.val();
-    var monthFrom_val = monthFrom.val();
-    var yearFrom_val = yearFrom.val();
+    var datesFrom_val = new Date(datesFrom.val());
+    var datesTo_val = new Date(datesTo.val());
 
-    var dayTo_val = dayTo.val();
-    var monthTo_val = monthTo.val();
-    var yearTo_val = yearTo.val();
-
-    if (
-        !checkDates(
-            dayFrom_val,
-            monthFrom_val,
-            yearFrom_val,
-            dayFrom,
-            monthFrom,
-            yearFrom
-        )
-    ) {
+    if (!checkDates(datesFrom_val, datesFrom)) {
         return false;
     } else {
-        validatedDates(
-            dayFrom_val,
-            monthFrom_val,
-            yearFrom_val,
-            dayFrom,
-            monthFrom,
-            yearFrom
-        );
+        validatedDates(datesFrom_val, datesFrom);
     }
 
-    if (
-        !checkDates(dayTo_val, monthTo_val, yearTo_val, dayTo, monthTo, yearTo)
-    ) {
+    if (!checkDates(datesTo_val, datesTo)) {
         return false;
     } else {
-        validatedDates(
-            dayTo_val,
-            monthTo_val,
-            yearTo_val,
-            dayTo,
-            monthTo,
-            yearTo
-        );
+        validatedDates(datesTo_val, datesTo);
     }
 
     errorMessage.text("");
     return true;
 }
 
-function checkDates(day_val, month_val, year_val, day, month, year) {
-    if (checkDays(day_val, day)) {
+function checkDates(date_val, date) {
+    if (checkDays(date_val, date)) {
         return false;
-    } else if (checkMonth30(day_val, month_val, day, month)) {
+    } else if (checkMonth30(date_val, date)) {
         return false;
-    } else if (checkMonthLeap(day_val, month_val, year_val, day, month)) {
+    } else if (checkMonthLeap(date_val, date)) {
         return false;
     }
 
-    if (checkMonth(month_val, month)) {
+    if (checkMonth(date_val, date)) {
         return false;
     }
-    if (checkYear(year_val, year)) {
+    if (checkYear(date_val, date)) {
         return false;
     }
 
     return true;
 }
 
-function checkDays(day_val, day) {
-    if ((day_val > 31 || day_val < 1) && day_val != "") {
+function checkDays(date_val, date) {
+    if (
+        (date_val.getDate() > 31 || date_val.getDate() < 1) &&
+        date_val.getDate() != ""
+    ) {
         var message = "This day doesn't exist";
 
-        errorDates(day, null, message);
+        errorDates(date, message);
         return true;
     }
     return false;
 }
 
-function checkMonth(month_val, month) {
-    if ((month_val > 12 || month_val < 1) && month_val != "") {
-        var message = "This is not the time to invent a month :)";
-
-        errorDates(month, null, message);
-        return true;
-    }
-    return false;
-}
-
-function checkMonth30(day_val, month_val, day, month) {
+function checkMonth(date_val, date) {
     if (
-        (month_val == 4 ||
-            month_val == 6 ||
-            month_val == 9 ||
-            month_val == 11) &&
-        day_val >= 31 &&
-        day_val != "" &&
-        month_val != ""
+        (date_val.getMonth() > 12 || date_val.getMonth() < 1) &&
+        date_val.getMonth() != ""
+    ) {
+        var message = "This is not the time to invent a month :)";
+        errorDates(date, message);
+
+        return true;
+    }
+    return false;
+}
+
+function checkMonth30(date_val, date) {
+    if (
+        (date_val.getMonth() == 4 ||
+            date_val.getMonth() == 6 ||
+            date_val.getMonth() == 9 ||
+            date_val.getMonth() == 11) &&
+        date_val.getDate() >= 31 &&
+        date_val.getDate() != "" &&
+        date_val.getMonth() != ""
     ) {
         var message = "There's only 30 days in this month!";
-        errorDates(day, month, message);
+        errorDates(date, message);
+
         return true;
     }
     return false;
 }
 
-function checkMonthLeap(day_val, month_val, year_val, day, month) {
-    if (month_val == 2 && month_val != "") {
+function checkMonthLeap(date_val, date) {
+    if (date_val.getMonth() == 2 && date_val.getMonth() != "") {
         var isleap =
-            year_val % 4 == 0 && (year_val % 100 != 0 || year_val % 400 == 0);
+            date_val.getFullYear() % 4 == 0 &&
+            (date_val.getFullYear() % 100 != 0 ||
+                date_val.getFullYear() % 400 == 0);
 
-        if (day_val > 29 || (day_val == 29 && !isleap)) {
+        if (date_val.getDate() > 29 || (date_val.getDate() == 29 && !isleap)) {
             var message = "There is no such day!";
-            errorDates(day, month, message);
+            errorDates(date, message);
             return true;
         }
     }
 }
 
-function checkYear(year_val, year) {
-    if ((year_val > 2050 || year_val < 1950) && year_val != "") {
+function checkYear(date_val, date) {
+    if (
+        (date_val.getFullYear() > 2050 || date_val.getFullYear() < 2000) &&
+        date_val.getFullYear() != ""
+    ) {
         var message = "You're looking a little too far for us here, sorry!";
+        errorDates(date, message);
 
-        errorDates(year, null, message);
         return true;
     }
 }
 
-function errorDates(element1, element2, message) {
+function errorDates(element, message) {
     errorMessage.text(message);
 
-    if (!isNull(element1) && !isNull(element2)) {
-        addAnimationError(element1);
-        addAnimationError(element2);
-    } else if (!isNull(element1)) {
-        addAnimationError(element1);
+    if (!isNull(element)) {
+        addAnimationError(element);
     }
 }
 
@@ -390,11 +367,13 @@ function addAnimationError(element) {
     );
 }
 
-function validatedDates(day_val, month_val, year_val, day, month, year) {
-    if (day_val != "" && month_val != "" && year_val != "") {
-        day.addClass("validated-dates");
-        month.addClass("validated-dates");
-        year.addClass("validated-dates");
+function validatedDates(date_val, date) {
+    if (
+        date_val.getDate() != "" &&
+        date_val.getMonth() != "" &&
+        date_val.getFullYear() != ""
+    ) {
+        date.addClass("validated-dates");
     }
 }
 
