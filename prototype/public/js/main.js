@@ -6,15 +6,6 @@
 
 const isNull = value => typeof value === "object" && !value;
 
-const isToday = someDate => {
-    const today = new Date();
-    return (
-        someDate.getDate() == today.getDate() &&
-        someDate.getMonth() == today.getMonth() &&
-        someDate.getFullYear() == today.getFullYear()
-    );
-};
-
 /* ============================= Header ================================== */
 
 function openNav() {
@@ -67,151 +58,30 @@ $(function() {
 
 /* ================== Searchbar - Dates details ======================= */
 
+var textFrom = $("#dates-text-from");
+var textTo = $("#dates-text-to");
+
+var errorMessage = $(".error-message");
+var today = new Date();
+
+var datesFrom = $("#input-dates-from");
+var datesTo = $("#input-dates-to");
+
 $(function() {
-    var textFrom = $("#dates-text-from");
-    var textTo = $("#dates-text-to");
-
-    var errorMessage = $(".error-message");
-    var today = new Date();
-
     $("#dates-submit").click(function() {
         submitResearch();
     });
 
-    $("#input-dates-from").change(function() {
-        console.log($(this).val());
-        // $(this).val("2020-03-19");
+    $(".searchbar-date-container").click(function() {
+        addDatesContainer();
+    });
+
+    $("#input-dates-from, #input-dates-to").change(function() {
+        manageCalendar();
     });
 });
 
-function submitResearch() {
-    // if (datesValidation()) {
-    $("#dates-form").submit();
-    $("#location-form").submit();
-    // } else {
-    //     alert("There is an error in the selected dates");
-    // }
-}
-
-function createCalendar() {
-    var picker = new Litepicker({
-        element: document.getElementById("litepicker"),
-        format: "YYYY-MM-DD",
-        singleMode: false,
-        allowRepick: true,
-        inlineMode: true,
-        numberOfMonths: 2,
-        numberOfColumns: 2,
-        minDate: new Date(),
-        autoApply: true,
-        showTooltip: false,
-        showWeekNumbers: true,
-        onSelect: (date1, date2) => {
-            $("#input-dates-from").val(date1.format("YYYY-MM-DD"));
-            $("#input-dates-to").val(date2.format("YYYY-MM-DD"));
-        }
-    });
-}
-
-function createCalendarWithRange(startDate, endDate) {
-    $("#litepicker")
-        .children()
-        .remove();
-
-    var picker = new Litepicker({
-        element: document.getElementById("litepicker"),
-        format: "YYYY-MM-DD",
-        singleMode: false,
-        allowRepick: true,
-        inlineMode: true,
-        numberOfMonths: 2,
-        numberOfColumns: 2,
-        minDate: new Date(),
-        autoApply: true,
-        showTooltip: false,
-        showWeekNumbers: true,
-
-        startDate: startDate,
-        endDate: endDate,
-
-        onSelect: (date1, date2) => {
-            $("#input-dates-from").val(date1.format("YYYY-MM-DD"));
-            $("#input-dates-to").val(date2.format("YYYY-MM-DD"));
-        }
-    });
-}
-
-function manageCalendar() {
-    if ($("#litepicker").is(":empty")) {
-        createCalendar();
-    } else if (isDatesFromCompleted() && !isDatesToCompleted()) {
-        var startDate = new Date(
-            yearFrom.val(),
-            monthFrom.val() - 1,
-            dayFrom.val()
-        );
-        var endDate = new Date(
-            startDate.getFullYear(),
-            startDate.getMonth(),
-            startDate.getDate() + 7
-        );
-
-        checkConsistencyDates(startDate, endDate);
-    } else if (isDatesFromCompleted() && isDatesToCompleted()) {
-        var startDate = new Date(
-            yearFrom.val(),
-            monthFrom.val() - 1,
-            dayFrom.val()
-        );
-        var endDate = new Date(yearTo.val(), monthTo.val() - 1, dayTo.val());
-
-        if (checkConsistencyDates(startDate, endDate)) {
-            createCalendarWithRange(startDate, endDate);
-        }
-    }
-}
-
-function checkConsistencyDates(startDate, endDate) {
-    console.log(startDate);
-    console.log(endDate);
-    if (startDate >= today && endDate >= startDate) {
-        return true;
-    } else if (startDate <= today) {
-        addAnimationError(dayFrom);
-        addAnimationError(monthFrom);
-        addAnimationError(yearFrom);
-
-        errorMessage.text("The start date must be today or after");
-
-        return false;
-    } else if (endDate < startDate) {
-        addAnimationError(dayTo);
-        addAnimationError(monthTo);
-        addAnimationError(yearTo);
-
-        errorMessage.text("The end date must be after the start date");
-    } else {
-        return false;
-    }
-}
-
-function isDatesFromCompleted() {
-    if (dayFrom.val() != "" && monthFrom.val() != "" && yearFrom.val() != "") {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-function isDatesToCompleted() {
-    if (dayTo.val() != "" && monthTo.val() != "" && yearTo.val() != "") {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-function addDates() {
+function addDatesContainer() {
     $.when(manageCalendar()).done(function() {
         if (document.body.clientWidth <= 992) {
             slideSearchContainer("3rem");
@@ -241,12 +111,133 @@ function slideSearchContainer(value) {
     }
 }
 
+function createCalendar() {
+    var picker = new Litepicker({
+        element: document.getElementById("litepicker"),
+        format: "YYYY-MM-DD",
+        singleMode: false,
+        allowRepick: true,
+        inlineMode: true,
+        numberOfMonths: 2,
+        numberOfColumns: 2,
+        minDate: new Date(),
+        autoApply: true,
+        showTooltip: false,
+        showWeekNumbers: true,
+        onSelect: (date1, date2) => {
+            datesFrom.val(date1.format("YYYY-MM-DD"));
+            datesTo.val(date2.format("YYYY-MM-DD"));
+        }
+    });
+}
+
+function createCalendarWithRange(startDate, endDate) {
+    $("#litepicker")
+        .children()
+        .remove();
+
+    var picker = new Litepicker({
+        element: document.getElementById("litepicker"),
+        format: "YYYY-MM-DD",
+        singleMode: false,
+        allowRepick: true,
+        inlineMode: true,
+        numberOfMonths: 2,
+        numberOfColumns: 2,
+        minDate: new Date(),
+        autoApply: true,
+        showTooltip: false,
+        showWeekNumbers: true,
+
+        startDate: startDate,
+        endDate: endDate,
+
+        onSelect: (date1, date2) => {
+            datesFrom.val(date1.format("YYYY-MM-DD"));
+            datesTo.val(date2.format("YYYY-MM-DD"));
+        }
+    });
+}
+
 function displaySubmit() {
     $("#dates-submit").fadeIn(300, function() {
         $(this).css({
             display: "block"
         });
     });
+}
+
+function submitResearch() {
+    // if (datesValidation()) {
+    $("#dates-form").submit();
+    $("#location-form").submit();
+    // } else {
+    //     alert("There is an error in the selected dates");
+    // }
+}
+
+function manageCalendar() {
+    if ($("#litepicker").is(":empty")) {
+        createCalendar();
+    } else if (isDatesFromCompleted() && !isDatesToCompleted()) {
+        var startDate = new Date(datesFrom.val());
+
+        var endDate = new Date(
+            startDate.getFullYear(),
+            startDate.getMonth(),
+            startDate.getDate() + 7
+        );
+
+        if (checkConsistencyDates(startDate, endDate)) {
+            datesFrom.addClass("validated-dates");
+            errorMessage.text("");
+
+            createCalendarWithRange(startDate, endDate);
+        }
+    } else if (isDatesFromCompleted() && isDatesToCompleted()) {
+        var startDate = new Date(datesFrom.val());
+        var endDate = new Date(datesTo.val());
+
+        if (checkConsistencyDates(startDate, endDate)) {
+            datesFrom.addClass("validated-dates");
+            datesTo.addClass("validated-dates");
+            errorMessage.text("");
+
+            createCalendarWithRange(startDate, endDate);
+        }
+    }
+}
+
+function checkConsistencyDates(startDate, endDate) {
+    if (startDate >= today && endDate >= startDate) {
+        return true;
+    } else if (startDate <= today) {
+        addAnimationError(datesFrom);
+        errorMessage.text("The start date must be today or after");
+        return false;
+    } else if (endDate < startDate) {
+        addAnimationError(datesTo);
+        errorMessage.text("The end date must be after the start date");
+        return false;
+    } else {
+        return false;
+    }
+}
+
+function isDatesFromCompleted() {
+    if (datesFrom.val() != "") {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function isDatesToCompleted() {
+    if (datesTo.val() != "") {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 function datesValidation() {
@@ -390,8 +381,6 @@ function errorDates(element1, element2, message) {
 
 function addAnimationError(element) {
     element.removeClass("validated-dates");
-    element.siblings().removeClass("validated-dates");
-
     element.addClass("wrong-shake");
     element.one(
         "webkitAnimationEnd oanimationend msAnimationEnd animationend",
