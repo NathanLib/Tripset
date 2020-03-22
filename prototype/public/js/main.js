@@ -67,31 +67,36 @@ $(function() {
 
 /* ================== Searchbar - Dates details ======================= */
 
-var dayFrom = $("#dayFrom");
-var monthFrom = $("#monthFrom");
-var yearFrom = $("#yearFrom");
-var dayTo = $("#dayTo");
-var monthTo = $("#monthTo");
-var yearTo = $("#yearTo");
+$(function() {
+    var textFrom = $("#dates-text-from");
+    var textTo = $("#dates-text-to");
 
-var textFrom = $("#dates-text-from");
-var textTo = $("#dates-text-to");
+    var errorMessage = $(".error-message");
+    var today = new Date();
 
-var errorMessage = $(".error-message");
-var today = new Date();
+    $("#dates-submit").click(function() {
+        submitResearch();
+    });
+
+    $("#input-dates-from").change(function() {
+        console.log($(this).val());
+        // $(this).val("2020-03-19");
+    });
+});
 
 function submitResearch() {
-    if (datesValidation()) {
-        $("#dates-form").submit();
-        $("#location-form").submit();
-    } else {
-        alert("There is an error in the selected dates");
-    }
+    // if (datesValidation()) {
+    $("#dates-form").submit();
+    $("#location-form").submit();
+    // } else {
+    //     alert("There is an error in the selected dates");
+    // }
 }
 
 function createCalendar() {
     var picker = new Litepicker({
         element: document.getElementById("litepicker"),
+        format: "YYYY-MM-DD",
         singleMode: false,
         allowRepick: true,
         inlineMode: true,
@@ -102,19 +107,8 @@ function createCalendar() {
         showTooltip: false,
         showWeekNumbers: true,
         onSelect: (date1, date2) => {
-            dayFrom.html(date1.format("DD"));
-            dayFrom.val(date1.format("DD"));
-            monthFrom.html(date1.format("MM"));
-            monthFrom.val(date1.format("MM"));
-            yearFrom.html(date1.format("YYYY"));
-            yearFrom.val(date1.format("YYYY"));
-
-            dayTo.html(date2.format("DD"));
-            dayTo.val(date2.format("DD"));
-            monthTo.html(date2.format("MM"));
-            monthTo.val(date2.format("MM"));
-            yearTo.html(date2.format("YYYY"));
-            yearTo.val(date2.format("YYYY"));
+            $("#input-dates-from").val(date1.format("YYYY-MM-DD"));
+            $("#input-dates-to").val(date2.format("YYYY-MM-DD"));
         }
     });
 }
@@ -126,6 +120,7 @@ function createCalendarWithRange(startDate, endDate) {
 
     var picker = new Litepicker({
         element: document.getElementById("litepicker"),
+        format: "YYYY-MM-DD",
         singleMode: false,
         allowRepick: true,
         inlineMode: true,
@@ -140,19 +135,8 @@ function createCalendarWithRange(startDate, endDate) {
         endDate: endDate,
 
         onSelect: (date1, date2) => {
-            dayFrom.html(date1.format("DD"));
-            dayFrom.val(date1.format("DD"));
-            monthFrom.html(date1.format("MM"));
-            monthFrom.val(date1.format("MM"));
-            yearFrom.html(date1.format("YYYY"));
-            yearFrom.val(date1.format("YYYY"));
-
-            dayTo.html(date2.format("DD"));
-            dayTo.val(date2.format("DD"));
-            monthTo.html(date2.format("MM"));
-            monthTo.val(date2.format("MM"));
-            yearTo.html(date2.format("YYYY"));
-            yearTo.val(date2.format("YYYY"));
+            $("#input-dates-from").val(date1.format("YYYY-MM-DD"));
+            $("#input-dates-to").val(date2.format("YYYY-MM-DD"));
         }
     });
 }

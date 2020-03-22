@@ -410,20 +410,12 @@ nav .menuHamburger img {
     width: 100%;
 }
 
-.dates-details form input[type="number"] {
-    width: 3rem;
-    margin: 0.25rem 0.5rem;
+.dates-details form input[type="date"] {
     padding: 1rem 1.25rem;
     border: 0;
+    width: 100%;
     border-radius: 10px;
     background-color: var(--color-lightGray);
-    text-align: center;
-}
-
-.dates-details form input[type="number"]::-webkit-inner-spin-button,
-.dates-details form input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
 }
 
 @media screen and (min-width: 992px) {
@@ -432,15 +424,8 @@ nav .menuHamburger img {
         margin: auto;
         margin-top: 1rem;
     }
-    .dates-details form input[type="number"] {
-        width: 5rem;
+    .dates-details form input[type="date"] {
         padding: 0.75rem 1rem;
-    }
-}
-
-@media screen and (min-width: 1600px) {
-    .dates-details form input[type="number"] {
-        width: 2rem;
     }
 }
 
