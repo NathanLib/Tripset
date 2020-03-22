@@ -67,6 +67,8 @@ var today = new Date();
 var datesFrom = $("#input-dates-from");
 var datesTo = $("#input-dates-to");
 
+// PROBLEME DE VERIFICATION LORS DE LA SAISIE A LA MAIN
+
 $(function() {
     $("#dates-submit").click(function() {
         submitResearch();

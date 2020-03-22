@@ -429,6 +429,12 @@ nav .menuHamburger img {
     }
 }
 
+@media screen and (min-width: 1600px) {
+    .dates-inputs {
+        margin-right: 0.5rem;
+    }
+}
+
 .dates-text {
     margin-top: 0.75rem;
     margin-bottom: 0.25rem;
