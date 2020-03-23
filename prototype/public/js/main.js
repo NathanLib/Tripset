@@ -6,6 +6,13 @@
 
 const isNull = value => typeof value === "object" && !value;
 
+var isSafari =
+    navigator.vendor &&
+    navigator.vendor.indexOf("Apple") > -1 &&
+    navigator.userAgent &&
+    navigator.userAgent.indexOf("CriOS") == -1 &&
+    navigator.userAgent.indexOf("FxiOS") == -1;
+
 /* ============================= Header ================================== */
 
 function openNav() {
@@ -58,9 +65,6 @@ $(function() {
 
 /* ================== Searchbar - Dates details ======================= */
 
-var textFrom = $("#dates-text-from");
-var textTo = $("#dates-text-to");
-
 var errorMessage = $(".error-message");
 var today = new Date();
 
@@ -79,6 +83,13 @@ $(function() {
     $("#input-dates-from, #input-dates-to").change(function() {
         manageCalendar();
     });
+
+    if (isSafari) {
+        $("#input-dates-from, #input-dates-to").attr(
+            "placeholder",
+            "yyyy-mm-dd"
+        );
+    }
 });
 
 function addDatesContainer() {
@@ -239,12 +250,13 @@ function isDatesToCompleted() {
 }
 
 function datesValidation() {
-    var datesFrom_val = new Date(datesFrom.val());
-    var datesTo_val = new Date(datesTo.val());
+    if (datesFrom.val() == "") {
+        console.log(true);
+    }
 
-    console.log(datesFrom_val);
+    if (datesFrom.val() != "") {
+        var datesFrom_val = new Date(datesFrom.val());
 
-    if (datesFrom_val != "") {
         if (!checkDates(datesFrom_val, datesFrom)) {
             return false;
         } else {
@@ -252,10 +264,13 @@ function datesValidation() {
         }
     }
 
-    if (!checkDates(datesTo_val, datesTo)) {
-        return false;
-    } else {
-        validatedDates(datesTo_val, datesTo);
+    if (datesTo.val() != "") {
+        var datesTo_val = new Date(datesTo.val());
+        if (!checkDates(datesTo_val, datesTo)) {
+            return false;
+        } else {
+            validatedDates(datesTo_val, datesTo);
+        }
     }
 
     errorMessage.text("");
