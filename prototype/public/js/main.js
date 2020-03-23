@@ -67,8 +67,6 @@ var today = new Date();
 var datesFrom = $("#input-dates-from");
 var datesTo = $("#input-dates-to");
 
-// PROBLEME DE VERIFICATION LORS DE LA SAISIE A LA MAIN
-
 $(function() {
     $("#dates-submit").click(function() {
         submitResearch();
@@ -79,9 +77,7 @@ $(function() {
     });
 
     $("#input-dates-from, #input-dates-to").change(function() {
-        if (datesValidation()) {
-            manageCalendar();
-        }
+        manageCalendar();
     });
 });
 
@@ -172,8 +168,10 @@ function displaySubmit() {
 }
 
 function submitResearch() {
-    $("#dates-form").submit();
-    $("#location-form").submit();
+    if (datesValidation()) {
+        $("#dates-form").submit();
+        $("#location-form").submit();
+    }
 }
 
 function manageCalendar() {
@@ -244,10 +242,14 @@ function datesValidation() {
     var datesFrom_val = new Date(datesFrom.val());
     var datesTo_val = new Date(datesTo.val());
 
-    if (!checkDates(datesFrom_val, datesFrom)) {
-        return false;
-    } else {
-        validatedDates(datesFrom_val, datesFrom);
+    console.log(datesFrom_val);
+
+    if (datesFrom_val != "") {
+        if (!checkDates(datesFrom_val, datesFrom)) {
+            return false;
+        } else {
+            validatedDates(datesFrom_val, datesFrom);
+        }
     }
 
     if (!checkDates(datesTo_val, datesTo)) {
