@@ -1633,10 +1633,10 @@ nav .menuHamburger img {
  
    ======================================================================= */
 #about-holder {
-    margin: 6rem auto 0 auto;
-    background-color: var(--color-navyBlue);
+    margin: 6rem auto 1.5rem auto;
+    background-color: var(--color-white);
     opacity: 0.9;
-    box-shadow: var(--default-shadow);
+    box-shadow: 0 10px 20px #ccc;
     width: auto;
     max-width: 1000px;
     height: auto;
@@ -1644,11 +1644,17 @@ nav .menuHamburger img {
     display: flex;
     flex-direction: column;
     border-radius: 30px;
+    padding: 0.5rem 1rem;
+}
+
+#about-holder h1 {
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 #about-holder h1,
 #about-holder h3 {
-    color: var(--color-white);
+    color: var(--color-navyBlue);
 }
 
 #about-holder h1 {
@@ -1657,7 +1663,7 @@ nav .menuHamburger img {
 
 #about-holder h2 {
     margin: 0.7rem 0 0.5rem 0.5rem;
-    color: #282828;
+    color: var(--color-darkGray);
 }
 
 #about-holder h3 {
