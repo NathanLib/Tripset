@@ -405,11 +405,11 @@ function validatedDates(date_val, date) {
 
    ======================================================================= */
 
-function sliceText(element, subclass, length) {
-    var text = $.trim(element.find(subclass).html());
+function sliceText(element, length) {
+    var text = $.trim(element.html());
 
     var textSliced = text.slice(0, length);
-    element.find(subclass).text(textSliced);
+    element.text(textSliced);
 }
 
 /* ============================= Weather ================================= */
@@ -418,7 +418,7 @@ function sliceText(element, subclass, length) {
 $(function() {
     $(".forecast").each(function() {
         if (document.body.clientWidth <= 768) {
-            sliceText($(this), ".forecast-day", 3);
+            sliceText($(this).find(".forecast-day"), 3);
         }
 
         if (
@@ -434,69 +434,40 @@ $(function() {
 
 /* ============================= Events ================================== */
 
-var context;
-if (document.body.clientWidth <= 768) {
-    context = "small";
-} else if (
-    768 < document.body.clientWidth &&
-    document.body.clientWidth <= 992
-) {
-    context = "medium";
-} else if (
-    992 < document.body.clientWidth &&
-    document.body.clientWidth <= 1200
-) {
-    context = "large";
-} else if (1200 < document.body.clientWidth) {
-    context = "extra-large";
-}
+var allTitles = [];
+
+$(function() {
+    $(".event-content-title").each(function() {
+        allTitles.push($.trim($(this).text()));
+    });
+
+    cutTitle();
+});
 
 $(window).bind("resize", function() {
-    if (document.body.clientWidth <= 768 && context != "small") {
-        /* false to get page from cache */
-        this.location.reload(false);
-    } else if (
-        768 < document.body.clientWidth &&
-        document.body.clientWidth <= 992 &&
-        context != "medium"
-    ) {
-        this.location.reload(false);
-    } else if (
-        992 < document.body.clientWidth &&
-        document.body.clientWidth <= 1200 &&
-        context != "large"
-    ) {
-        this.location.reload(false);
-    } else if (1200 < document.body.clientWidth && context != "extra-large") {
-        this.location.reload(false);
-    }
+    cutTitle();
 });
+
 /** Function to cut the articles'title if they are too long */
-$(function() {
-    $(".event").each(function() {
-        if (document.body.clientWidth <= 768) {
-            eventTitle($(this), 15);
-        } else if (document.body.clientWidth > 1200) {
-            eventTitle($(this), 20);
+function cutTitle() {
+    $(".event-content-title").each(function(index) {
+        var titleSize = $.trim($(this).text()).length;
+        var containerWidth = $(this).width();
+        var possibleNumberOfCharacters = Math.floor(containerWidth / 10);
+
+        console.log(titleSize + "  " + possibleNumberOfCharacters);
+
+        if (titleSize <= possibleNumberOfCharacters + 2) {
+            $(this).text(allTitles[index]);
+        } else {
+            titleEllipsis($(this), possibleNumberOfCharacters - 1, index);
         }
     });
-});
+}
 
-function eventTitle(element, length) {
-    var titreSize = element.find(".event-content-title").text().length;
-    var spaceCount =
-        element
-            .find(".event-content-title")
-            .text()
-            .split(" ").length - 1;
-
-    sliceText(element, ".event-content-title", length);
-
-    if (titreSize > length + spaceCount) {
-        element
-            .find(".event-content-title")
-            .text(element.find(".event-content-title").text() + "...");
-    }
+function titleEllipsis(element, length, index) {
+    var textSliced = allTitles[index].slice(0, length) + "...";
+    element.text(textSliced);
 }
 
 /* =======================================================================
