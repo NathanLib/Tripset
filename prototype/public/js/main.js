@@ -6,6 +6,9 @@
 
 const isNull = value => typeof value === "object" && !value;
 
+// Safari does not support datetime inputs so this variable allows to detect
+// if the user is on this browser in order to tell him which date format he
+// has to enter in the inputs.
 var isSafari =
     navigator.vendor &&
     navigator.vendor.indexOf("Apple") > -1 &&
@@ -17,7 +20,7 @@ var isSafari =
 
 function openNav() {
     $(".mobileNav").css({
-        width: "50vw"
+        width: "200px"
     });
     $(".mobileNav-background").fadeIn(600, function() {
         $(".mobileNav-background").css({
