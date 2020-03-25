@@ -1,0 +1,15 @@
+{
+  "name": "final",
+  "version": "1.0.0",
+  "description": "Your final site code should go in here",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "NathanLib",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

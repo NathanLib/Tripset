@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+        <title>TRIPSET</title>
+
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,300,400&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="public/css/main.css" />
+    </head>
+
+    <body>
+        <div class="header-container" id="header-container">
+            <header>
+                <div class="menu-background"></div>
+
+                <nav role="navigation">
+                    <div class="logo">
+                        <img
+                            src="public/images/header/tripset.svg"
+                            alt="logo tripset"
+                        />
+                    </div>
+
+                    <div class="menuHamburger" onclick="openNav()">
+                        <img
+                            src="public/images/header/menu-hamburger.svg"
+                            alt="menu hamburger"
+                        />
+                    </div>
+
+                    <div class="mobileNav">
+                        <a
+                            href="javascript:void(0)"
+                            class="closebtn"
+                            onclick="closeNav()"
+                            >&times;</a
+                        >
+                        <a href="home.html">Home</a>
+                        <a href="about.html">About</a>
+                        <a class="btn_login" href="login.html">Login</a>
+                    </div>
+                    <div
+                        class="mobileNav-background"
+                        onclick="closeNav()"
+                    ></div>
+
+                    <div class="computerNav">
+                        <a href="home.html">Home</a>
+                        <a href="about.html">About</a>
+                        <a class="btn_login" href="login.html">Login</a>
+                    </div>
+                </nav>
+            </header>
+        </div>
+
+        <div id="about-holder">
+            <h1>About</h1>
+            <h2>Why Our Clients Choose Us</h2>
+            <h3>
+                We deliver real time data services for weather, events and news
+                on user desired destinations on a global scale
+            </h3>
+
+            <h2>How Does It Work</h2>
+            <h3>
+                Enter in your destination of choice into the search bar with
+                your desired dates to display an array of data including weather
+                forecasts, event information and local news
+            </h3>
+
+            <h2>A User Tailored Experience</h2>
+            <h3>
+                By creating a login, users can retrieve previously searched
+                locations and favourite them for quicker access in the future
+            </h3>
+        </div>
+
+        <!-- #main-container -->
+
+        <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"
+        ></script>
+        <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/js/main.js"></script>
+        <script type="text/javascript" src="public/js/main.js"></script>
+    </body>
+</html>
