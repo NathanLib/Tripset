@@ -1,6 +1,7 @@
 const express = require("express");
 const session = require("express-session");
 const bodyParser = require("body-parser");
+
 const app = express();
 
 app.use(
@@ -19,3 +20,6 @@ app.use(
 );
 
 app.set("view engine", "ejs");
+
+app.listen(8080);
+console.log("listening on 8080");
