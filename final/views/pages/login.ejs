@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('../partials/head') %>
+    </head>
+
+    <body id="login-page-body">
+        <div class="header-container">
+            <header>
+                <%- include('../partials/header') %>
+            </header>
+        </div>
+
+        <div id="login" class="rounded-corners flex">
+            <div class="login-holder rounded-corners flex">
+                <div class="login-holder-left flex">
+                    <p>Login</p>
+                </div>
+                <div class="login-holder-right flex">
+                    <div class="login-toggle-holder flex">
+                        <div
+                            class="login-toggle-holder1 login-toggle-holder2 flex rounded-corners-max"
+                        >
+                            <div
+                                class="login-toggle-login flex rounded-corners-max line-effect1"
+                            >
+                                <p>Login</p>
+                            </div>
+                            <div
+                                button
+                                onClick=""
+                                class="login-toggle-signup flex rounded-corners-max js-1 line-effect2"
+                            >
+                                <p>Sign Up</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="login-information flex">
+                        <form id="login-form" action="/profile">
+                            <input
+                                class="uname rounded-corners"
+                                type="text"
+                                placeholder="Enter Username"
+                                name="uname"
+                                required
+                            />
+                            <input
+                                class="psw rounded-corners"
+                                type="password"
+                                placeholder="Enter Password"
+                                name="psw"
+                                required
+                            />
+                            <div class="pw-but">
+                                <a href="/resetPwd" class="line-effect1">
+                                    Forgot your password ? Click here
+                                </a>
+                            </div>
+                            <button
+                                onClick="check(this.form)"
+                                class="button-settings log-but login-button rounded-corners login-button-text"
+                            >
+                                <p>Login</p>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="signup-holder rounded-corners flex">
+                <div class="signup-holder-left flex">
+                    <div class="login-toggle-holder flex">
+                        <div
+                            class="login-toggle-holder1 login-toggle-holder2-2 flex rounded-corners-max"
+                        >
+                            <div
+                                class="login-toggle-login flex rounded-corners-max line-effect1"
+                            >
+                                <p>Sign Up</p>
+                            </div>
+                            <div
+                                class="login-toggle-signup flex rounded-corners-max js-2 line-effect2"
+                            >
+                                <p>Login</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="login-information flex">
+                        <form id="signup-form" action="/profile">
+                            <input
+                                class="rounded-corners"
+                                type="text"
+                                placeholder="Enter first name"
+                                name="first-name"
+                                required
+                            />
+                            <input
+                                class="rounded-corners"
+                                type="text"
+                                placeholder="Enter last name"
+                                name="last-name"
+                                required
+                            />
+                            <input
+                                class="rounded-corners"
+                                type="text"
+                                placeholder="Enter email address"
+                                name="email"
+                                required
+                            />
+                            <button
+                                onClick="checkBox()"
+                                class="mob-but button-settings log-but rounded-corners login-button-text"
+                                requried
+                            >
+                                <p>Submit</p>
+                            </button>
+                            <input
+                                id="option"
+                                type="checkbox"
+                                name="field"
+                                value="option"
+                                requried
+                            />
+                            <label for="option"
+                                ><span class="terms-text"
+                                    >By checking this box you are agreeing to
+                                    our terms and conditions</span
+                                ></label
+                            >
+                        </form>
+                    </div>
+                </div>
+                <div class="signup-holder-right flex">
+                    <p>Sign Up</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- #main-container -->
+
+        <footer>
+            <%- include('../partials/footer') %>
+
+            <script type="text/javascript">
+                alert(
+                    "Username: user" +
+                        "\n" +
+                        "Password: 123" +
+                        "\n" +
+                        "(These infos are test sets for the development phase. They will be removed when the database is set up!)"
+                );
+            </script>
+        </footer>
+    </body>
+</html>
