@@ -1,9 +1,16 @@
-const express = require("express"); //npm install express
+const express = require("express");
 const session = require("express-session");
 const bodyParser = require("body-parser");
 const app = express();
 
-app.use(session({ secret: "example" }));
+app.use(
+    session({
+        secret: "nC0@#1pM/-0qA1+é",
+        name: "Tripset",
+        resave: true,
+        saveUninitialized: true
+    })
+);
 
 app.use(
     bodyParser.urlencoded({
