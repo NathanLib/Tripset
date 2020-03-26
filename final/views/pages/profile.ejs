@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('../partials/head') %>
+    </head>
+
+    <body class="profile-page no-background">
+        <div class="header-container">
+            <header>
+                <%- include('../partials/header-connected') %>
+            </header>
+        </div>
+
+        <div class="main-container">
+            <div class="info-bloc">
+                <div class="user-details-bloc">
+                    <img
+                        src="/images/icons/icon_profile_coloured.svg"
+                        alt="User's pic"
+                    />
+                    <div class="user-details">
+                        <p>Name</p>
+                        <p>City</p>
+                    </div>
+                </div>
+                <a href="/editProfile" class="line edit"
+                    ><img src="/images/icons/icon_edit.svg" />
+                    <p>Edit profile</p>
+                </a>
+            </div>
+            <div class="info-bloc user-favourites">
+                <div class="line section-title">
+                    <img src="/images/icons/icon_fav.svg" />
+                    <p>Favourites</p>
+                </div>
+                <div class="liste-city-bloc">
+                    <a class="city-bloc hvr-grow" href="/information">
+                        <p class="city-name">City</p>
+                        <div class="line">
+                            <p class="city-temperature">Temperature</p>
+                            <p class="city-weather">Weather</p>
+                        </div>
+                    </a>
+                    <a class="city-bloc hvr-grow" href="/information">
+                        <p class="city-name">City</p>
+                        <div class="line">
+                            <p class="city-temperature">Temperature</p>
+                            <p class="city-weather">Weather</p>
+                        </div>
+                    </a>
+                    <a class="city-bloc hvr-grow" href="/information">
+                        <p class="city-name">City</p>
+                        <div class="line">
+                            <p class="city-temperature">Temperature</p>
+                            <p class="city-weather">Weather</p>
+                        </div>
+                    </a>
+                    <a class="city-bloc hvr-grow" href="/information">
+                        <p class="city-name">City</p>
+                        <div class="line">
+                            <p class="city-temperature">Temperature</p>
+                            <p class="city-weather">Weather</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="info-bloc user-historic">
+                <div class="line section-title">
+                    <img src="/images/icons/icon_location-history.svg" />
+                    <p>Historic</p>
+                </div>
+                <div class="liste-city-bloc">
+                    <a class="city-bloc hvr-grow" href="/information">
+                        <p class="city-name">City</p>
+                        <div class="line">
+                            <p class="city-temperature">Temperature</p>
+                            <p class="city-weather">Weather</p>
+                        </div>
+                    </a>
+                    <a class="city-bloc hvr-grow" href="/information">
+                        <p class="city-name">City</p>
+                        <div class="line">
+                            <p class="city-temperature">Temperature</p>
+                            <p class="city-weather">Weather</p>
+                        </div>
+                    </a>
+                    <a class="city-bloc hvr-grow" href="/information">
+                        <p class="city-name">City</p>
+                        <div class="line">
+                            <p class="city-temperature">Temperature</p>
+                            <p class="city-weather">Weather</p>
+                        </div>
+                    </a>
+                    <a class="city-bloc hvr-grow" href="/information">
+                        <p class="city-name">City</p>
+                        <div class="line">
+                            <p class="city-temperature">Temperature</p>
+                            <p class="city-weather">Weather</p>
+                        </div>
+                    </a>
+                    <a class="city-bloc hvr-grow" href="/information">
+                        <p class="city-name">City</p>
+                        <div class="line">
+                            <p class="city-temperature">Temperature</p>
+                            <p class="city-weather">Weather</p>
+                        </div>
+                    </a>
+                    <a class="city-bloc hvr-grow" href="/information">
+                        <p class="city-name">City</p>
+                        <div class="line">
+                            <p class="city-temperature">Temperature</p>
+                            <p class="city-weather">Weather</p>
+                        </div>
+                    </a>
+                    <a class="city-bloc hvr-grow" href="/information">
+                        <p class="city-name">City</p>
+                        <div class="line">
+                            <p class="city-temperature">Temperature</p>
+                            <p class="city-weather">Weather</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <%- include('../partials/footer') %>
+        </footer>
+    </body>
+</html>

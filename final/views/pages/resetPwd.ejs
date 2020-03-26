@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('../partials/head') %>
+    </head>
+
+    <body class="information-page no-background">
+        <div class="header-container" id="header-container">
+            <header>
+                <%- include('../partials/header') %>
+            </header>
+        </div>
+
+        <div class="main-container">
+            <div class="info-bloc bloc-reset-pwd">
+                <form class="reset-pwd">
+                    <p>Forgot your password? Enter your email address :</p>
+                    <input
+                        type="mail"
+                        placeholder="usertest@test.uk"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                        required
+                    />
+                    <input
+                        type="submit"
+                        class="blue-button"
+                        value="Send"
+                        onclick="sendEmail()"
+                    />
+                    <p id="email-sent">
+                        An email was sent to you. Remember to check your spam ;)
+                    </p>
+                </form>
+            </div>
+        </div>
+        <!-- #main-container -->
+
+        <footer>
+            <%- include('../partials/footer') %>
+        </footer>
+    </body>
+</html>

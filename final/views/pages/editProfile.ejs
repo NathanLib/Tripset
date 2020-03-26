@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('../partials/head') %>
+    </head>
+
+    <body class="edit-profile-page no-background">
+        <div class="header-container">
+            <header>
+                <%- include('../partials/header-connected') %>
+            </header>
+        </div>
+
+        <div class="main-container">
+            <div class="info-bloc ">
+                <form class="edit-profile">
+                    <div class="line">
+                        <img
+                            id="profileImg"
+                            src="/images/icons/icon_profile_coloured.svg"
+                        />
+                        <input
+                            id="newImg"
+                            type="file"
+                            accept="image/png,image/gif,image/jpeg"
+                        />
+                    </div>
+                    <div class="line">
+                        <label for="fname">First name :</label>
+                        <input
+                            type="text"
+                            id="fname"
+                            name="fname"
+                            placeholder="First name"
+                        />
+                    </div>
+                    <div class="line">
+                        <label for="lname">Name :</label>
+                        <input
+                            type="text"
+                            id="lname"
+                            name="lname"
+                            placeholder="Name"
+                        />
+                    </div>
+                    <div class="line">
+                        <label for="city">City :</label>
+                        <input
+                            type="text"
+                            id="city"
+                            name="city"
+                            placeholder="Ciy"
+                        />
+                    </div>
+                    <div class="line">
+                        <label for="mail">Mail :</label>
+                        <input
+                            type="mail"
+                            id="mail"
+                            name="mail"
+                            placeholder="usertest@test.uk"
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                        />
+                    </div>
+                    <div class="buttons">
+                        <input
+                            class="blue-button"
+                            type="submit"
+                            value="Change"
+                        />
+                        <a href="/profile">Cancel</a>
+                    </div>
+                </form>
+                <div class="pwd">
+                    <p>Want to reset your password ?</p>
+                    <a href="/resetPwd">Click here</a>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <%- include('../partials/footer') %>
+        </footer>
+    </body>
+</html>
