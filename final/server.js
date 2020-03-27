@@ -1,3 +1,5 @@
+const MongoClient = require("mongodb").MongoClient;
+const url = "mongodb://localhost:27017/tripset";
 const express = require("express");
 const session = require("express-session");
 const bodyParser = require("body-parser");
@@ -24,7 +26,21 @@ app.use(
 
 app.set("view engine", "ejs");
 
-//Creates a Root Route
+MongoClient.connect(url, function(err, database) {
+    if (err) throw err;
+    db = database;
+    //Starts the Express server with a callback
+    app.listen(port, function(err) {
+        if (!err) {
+            console.log("Server is running at port", port);
+        } else {
+            console.log(JSON.stringify(err));
+        }
+    });
+});
+
+//*************************** GET ROUTES ***************************
+
 app.get("/", function(req, res) {
     res.render("pages/home");
 });
@@ -57,11 +73,4 @@ app.get("/resetPwd", function(req, res) {
     res.render("pages/resetPwd");
 });
 
-//Starts the Express server with a callback
-app.listen(port, function(err) {
-    if (!err) {
-        console.log("Server is running at port", port);
-    } else {
-        console.log(JSON.stringify(err));
-    }
-});
+// /*************************** POST ROUTES **************************
