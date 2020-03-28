@@ -494,10 +494,10 @@ $(".js-2").click(function() {
 ("use strict");
 
 function check(form) {
-    if (form.uname.value == "user" && form.psw.value == "123") {
+    if (form.email.value == "admin@gmail.com" && form.psw.value == "admin") {
         alert("Welcome User");
     } else {
-        alert("The username or password didn't match");
+        alert("The email or password didn't match");
     }
 }
 

@@ -1,0 +1,22 @@
+{
+    "_id": 1,
+    "name": {
+        "first": "admin",
+        "last": "admin"
+    },
+    "login": {
+        "email": "admin@gmail.com",
+        "password": "admin"
+    },
+    "favourites": ["Paris", "Sydney", "New-York", "Aberdeen"],
+    "historic": [
+        "London",
+        "Singapore",
+        "Bangkok",
+        "Dubai",
+        "Singapore",
+        "Tokyo",
+        "Istanbul",
+        "Seoul"
+    ]
+}

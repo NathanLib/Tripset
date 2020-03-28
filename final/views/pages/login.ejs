@@ -38,10 +38,10 @@
                     <div class="login-information flex">
                         <form id="login-form" action="/profile">
                             <input
-                                class="uname rounded-corners"
-                                type="text"
-                                placeholder="Enter Username"
-                                name="uname"
+                                class="email rounded-corners"
+                                type="email"
+                                placeholder="Enter your email address"
+                                name="email"
                                 required
                             />
                             <input
@@ -107,6 +107,13 @@
                                 name="email"
                                 required
                             />
+                            <input
+                                class="rounded-corners"
+                                type="password"
+                                placeholder="Choose a password"
+                                name="password"
+                                required
+                            />
                             <button
                                 onClick="checkBox()"
                                 class="mob-but button-settings log-but rounded-corners login-button-text"
@@ -143,9 +150,9 @@
 
             <script type="text/javascript">
                 alert(
-                    "Username: user" +
+                    "Email: admin@gmail.com" +
                         "\n" +
-                        "Password: 123" +
+                        "Password: admin" +
                         "\n" +
                         "(These infos are test sets for the development phase. They will be removed when the database is set up!)"
                 );

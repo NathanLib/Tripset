@@ -26,7 +26,7 @@ app.use(
 
 app.set("view engine", "ejs");
 
-MongoClient.connect(url, function(err, database) {
+MongoClient.connect(url, { useNewUrlParser: true }, function(err, database) {
     if (err) throw err;
     db = database;
     //Starts the Express server with a callback

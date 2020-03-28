@@ -1216,7 +1216,7 @@ nav .menuHamburger img {
     margin: auto;
 }
 
-#login input[type="text"],
+#login input[type="email"],
 #login input[type="password"] {
     box-sizing: border-box;
     display: inline-block;
@@ -1404,6 +1404,11 @@ nav .menuHamburger img {
 .user-details {
     padding-left: 0.5rem;
     font-size: large;
+}
+
+.profile-lastName {
+    font-weight: 700;
+    font-size: 1.25rem;
 }
 
 .liste-city-bloc {
