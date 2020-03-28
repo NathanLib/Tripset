@@ -1217,6 +1217,7 @@ nav .menuHamburger img {
 }
 
 #login input[type="email"],
+#login input[type="text"],
 #login input[type="password"] {
     box-sizing: border-box;
     display: inline-block;

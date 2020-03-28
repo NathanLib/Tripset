@@ -493,14 +493,6 @@ $(".js-2").click(function() {
 
 ("use strict");
 
-function check(form) {
-    if (form.email.value == "admin@gmail.com" && form.psw.value == "admin") {
-        alert("Welcome User");
-    } else {
-        alert("The email or password didn't match");
-    }
-}
-
 function checkBox() {
     if ($("#option").is(":checked")) {
         alert("Thanks for joining us!");

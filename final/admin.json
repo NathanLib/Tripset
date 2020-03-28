@@ -1,12 +1,11 @@
 {
-    "_id": 1,
     "name": {
         "first": "admin",
         "last": "admin"
     },
     "login": {
         "email": "admin@gmail.com",
-        "password": "admin"
+        "password": "$2b$10$R4sqje9I4dtj82ml9jSvjOjplKNOlMLpo8A/OV8WeNisOSEaV/HKG"
     },
     "favourites": ["Paris", "Sydney", "New-York", "Aberdeen"],
     "historic": [
