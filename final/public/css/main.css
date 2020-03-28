@@ -1377,19 +1377,36 @@ nav .menuHamburger img {
     align-items: center;
 }
 
-.edit {
-    align-self: flex-end;
+.profile-actions {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.logout {
+    align-self: flex-start;
     color: var(--color-darkGray);
-    font-size: small;
+    font-size: 0.85rem;
     text-align: right;
 }
 
+.edit {
+    align-self: flex-end;
+    color: var(--color-darkGray);
+    font-size: 0.85rem;
+    text-align: right;
+}
+
+.logout:hover,
 .edit:hover {
     color: black;
 }
 
+.logout img,
 .edit img {
     width: 1rem;
+    color: var(--color-darkGray);
+    margin-right: 7px;
 }
 
 .user-details-bloc {
