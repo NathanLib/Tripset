@@ -16,6 +16,7 @@
     --color-navyBlue: #6598bb;
     --color-wrong: #ff4d4d;
     --color-validated: #c1e0c1;
+    --color-darkValidated: #82b082;
     --default-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
     /* Change date picker color */
     --litepickerDayIsStartBg: #73ccff !important;
@@ -1282,6 +1283,10 @@ nav .menuHamburger img {
 
 .login-error {
     color: var(--color-wrong);
+}
+
+.login-validation {
+    color: var(--color-darkValidated);
 }
 
 @media screen and (max-width: 992px) {

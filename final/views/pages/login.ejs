@@ -37,9 +37,13 @@
                     </div>
                     <div class="login-information flex">
                         <form id="login-form" action="/dologin" method="POST">
-                            <% if(locals.message) { %>
+                            <% if(locals.messageError) { %>
                             <p class="login-error">
-                                <%= message %>
+                                <%= messageError %>
+                            </p>
+                            <% } else if(locals.messageValidation) { %>
+                            <p class="login-validation">
+                                <%= messageValidation %>
                             </p>
                             <% } %>
                             <input
@@ -89,7 +93,12 @@
                         </div>
                     </div>
                     <div class="login-information flex">
-                        <form id="signup-form" action="/dosignup" method="POST">
+                        <form
+                            id="signup-form"
+                            action="/dosignup"
+                            method="POST"
+                            onsubmit="return checkBox()"
+                        >
                             <input
                                 class="rounded-corners"
                                 type="text"
@@ -119,9 +128,7 @@
                                 required
                             />
                             <button
-                                onClick="checkBox()"
                                 class="mob-but button-settings log-but rounded-corners login-button-text"
-                                requried
                             >
                                 <p>Submit</p>
                             </button>
@@ -130,7 +137,7 @@
                                 type="checkbox"
                                 name="field"
                                 value="option"
-                                requried
+                                required
                             />
                             <label for="option"
                                 ><span class="terms-text"

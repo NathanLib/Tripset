@@ -495,7 +495,6 @@ $(".js-2").click(function() {
 
 function checkBox() {
     if ($("#option").is(":checked")) {
-        alert("Thanks for joining us!");
         $(".signup-holder").fadeOut(0);
         $(".login-holder").fadeIn(600);
     } else {

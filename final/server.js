@@ -64,8 +64,11 @@ app.get("/login", function(req, res) {
     if (req.session.loginError) {
         var message = req.session.loginError;
         delete req.session.loginError;
-
-        res.render("pages/login", { message: message });
+        res.render("pages/login", { messageError: message });
+    } else if (req.session.loginValidation) {
+        var message = req.session.loginValidation;
+        delete req.session.loginValidation;
+        res.render("pages/login", { messageValidation: message });
     } else {
         res.render("pages/login");
     }
@@ -89,8 +92,6 @@ app.get("/profile", function(req, res) {
             });
         }
     );
-
-    res.render("pages/profile");
 });
 
 app.get("/editProfile", function(req, res) {
@@ -195,6 +196,8 @@ app.post("/dosignup", function(req, res) {
                 if (err) throw err;
                 console.log("Saved to database");
                 //when complete redirect to the login page
+                req.session.loginValidation =
+                    "Your profile has been created successfully, please login now";
                 res.redirect("/login");
             });
         } else {
