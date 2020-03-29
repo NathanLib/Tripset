@@ -61,14 +61,44 @@ app.get("/information", function(req, res) {
 });
 
 app.get("/login", function(req, res) {
-    res.render("pages/login");
+    if (req.session.loginError) {
+        var message = req.session.loginError;
+        delete req.session.loginError;
+
+        res.render("pages/login", { message: message });
+    } else {
+        res.render("pages/login");
+    }
 });
 
 app.get("/profile", function(req, res) {
+    if (!req.session.loggedin) {
+        res.redirect("/login");
+        return;
+    }
+
+    db.collection("profiles").findOne(
+        {
+            "login.email": req.session.email
+        },
+        function(err, result) {
+            if (err) throw err;
+            //finally we just send the result to the user page as "user"
+            res.render("pages/profile", {
+                user: result
+            });
+        }
+    );
+
     res.render("pages/profile");
 });
 
 app.get("/editProfile", function(req, res) {
+    if (!req.session.loggedin) {
+        res.redirect("/login");
+        return;
+    }
+
     res.render("pages/editProfile");
 });
 
@@ -80,9 +110,7 @@ app.get("/resetPwd", function(req, res) {
 //it sets our session.loggedin to false and then redirects the user to the login
 app.get("/logout", function(req, res) {
     req.session.loggedin = false;
-    console.log(req.session);
     req.session.destroy();
-    console.log(req.session);
     res.redirect("/");
 });
 
@@ -102,6 +130,7 @@ app.post("/dologin", function(req, res) {
 
         //if there is no result, redirect the user back to the login system as that email must not exist
         if (!result) {
+            req.session.loginError = "This email doesn't exist";
             res.redirect("/login");
             return;
         }
@@ -112,18 +141,25 @@ app.post("/dologin", function(req, res) {
         //if there is a result then check the password, if the password is correct set session loggedin to true and send the user to the index
         if (hash == result.login.password) {
             req.session.loggedin = true;
-            req.session.email = result.login.email;
+            req.session.user = {
+                first: result.name.first,
+                last: result.name.last,
+                email: result.login.email
+            };
+            console.log(req.session);
 
             res.redirect("/profile");
         }
         //otherwise send them back to login
         else {
+            req.session.loginError = "This user doesn't exist";
             res.redirect("/login");
         }
     });
 });
 
 app.post("/dosignup", function(req, res) {
+    var email = req.body.email;
     var pword = req.body.password;
 
     //encrypt the password from the form before inserting it with database
@@ -135,18 +171,35 @@ app.post("/dosignup", function(req, res) {
             last: req.body.lastname
         },
         login: {
-            email: req.body.email,
+            email: email,
             password: hash
         },
         favourites: [],
-        historic: []
+        historic: [],
+        registered: Date()
     };
 
-    //once created we just run the data string against the database and all our new data will be saved
-    db.collection("profiles").insertOne(datatostore, function(err, result) {
-        if (err) throw err;
-        console.log("Saved to database");
-        //when complete redirect to the login page
-        res.redirect("/login");
+    //we chech if the email of the new user is not already saved in our database
+    db.collection("profiles").findOne({ "login.email": email }, function(
+        err,
+        result
+    ) {
+        if (err) throw err; //if there is an error, throw the error
+        //if there is no result, we can continue the process
+        if (!result) {
+            //once created we just run the data string against the database and all our new data will be saved
+            db.collection("profiles").insertOne(datatostore, function(
+                err,
+                result
+            ) {
+                if (err) throw err;
+                console.log("Saved to database");
+                //when complete redirect to the login page
+                res.redirect("/login");
+            });
+        } else {
+            req.session.loginError = "This email is already used";
+            res.redirect("/login");
+        }
     });
 });

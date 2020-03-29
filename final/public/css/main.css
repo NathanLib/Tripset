@@ -1280,6 +1280,10 @@ nav .menuHamburger img {
     font-size: 12px;
 }
 
+.login-error {
+    color: var(--color-wrong);
+}
+
 @media screen and (max-width: 992px) {
     #login {
         flex-direction: row;

@@ -37,6 +37,11 @@
                     </div>
                     <div class="login-information flex">
                         <form id="login-form" action="/dologin" method="POST">
+                            <% if(locals.message) { %>
+                            <p class="login-error">
+                                <%= message %>
+                            </p>
+                            <% } %>
                             <input
                                 class="email rounded-corners"
                                 type="email"
@@ -146,16 +151,6 @@
 
         <footer>
             <%- include('../partials/footer') %>
-
-            <script type="text/javascript">
-                alert(
-                    "Email: admin@gmail.com" +
-                        "\n" +
-                        "Password: admin" +
-                        "\n" +
-                        "(These infos are test sets for the development phase. They will be removed when the database is set up!)"
-                );
-            </script>
         </footer>
     </body>
 </html>
