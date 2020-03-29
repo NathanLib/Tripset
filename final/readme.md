@@ -1,2 +1,4 @@
 # Final Site Folder
-Your final site code should go in here
+
+# Import JSON file to database
+mongoimport --db tripset --collection profiles --drop --file admin.json --jsonArray
