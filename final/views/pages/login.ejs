@@ -36,7 +36,16 @@
                         </div>
                     </div>
                     <div class="login-information flex">
-                        <form id="login-form" action="/profile">
+                        <form id="login-form" action="/dologin" method="POST">
+                            <% if(locals.messageError) { %>
+                            <p class="login-error">
+                                <%= messageError %>
+                            </p>
+                            <% } else if(locals.messageValidation) { %>
+                            <p class="login-validation">
+                                <%= messageValidation %>
+                            </p>
+                            <% } %>
                             <input
                                 class="email rounded-corners"
                                 type="email"
@@ -48,7 +57,7 @@
                                 class="psw rounded-corners"
                                 type="password"
                                 placeholder="Enter Password"
-                                name="psw"
+                                name="password"
                                 required
                             />
                             <div class="pw-but">
@@ -57,7 +66,6 @@
                                 </a>
                             </div>
                             <button
-                                onClick="check(this.form)"
                                 class="button-settings log-but login-button rounded-corners login-button-text"
                             >
                                 <p>Login</p>
@@ -85,24 +93,29 @@
                         </div>
                     </div>
                     <div class="login-information flex">
-                        <form id="signup-form" action="/profile">
+                        <form
+                            id="signup-form"
+                            action="/dosignup"
+                            method="POST"
+                            onsubmit="return checkBox()"
+                        >
                             <input
                                 class="rounded-corners"
                                 type="text"
                                 placeholder="Enter first name"
-                                name="first-name"
+                                name="firstname"
                                 required
                             />
                             <input
                                 class="rounded-corners"
                                 type="text"
                                 placeholder="Enter last name"
-                                name="last-name"
+                                name="lastname"
                                 required
                             />
                             <input
                                 class="rounded-corners"
-                                type="text"
+                                type="email"
                                 placeholder="Enter email address"
                                 name="email"
                                 required
@@ -115,9 +128,7 @@
                                 required
                             />
                             <button
-                                onClick="checkBox()"
                                 class="mob-but button-settings log-but rounded-corners login-button-text"
-                                requried
                             >
                                 <p>Submit</p>
                             </button>
@@ -126,7 +137,7 @@
                                 type="checkbox"
                                 name="field"
                                 value="option"
-                                requried
+                                required
                             />
                             <label for="option"
                                 ><span class="terms-text"
@@ -147,16 +158,6 @@
 
         <footer>
             <%- include('../partials/footer') %>
-
-            <script type="text/javascript">
-                alert(
-                    "Email: admin@gmail.com" +
-                        "\n" +
-                        "Password: admin" +
-                        "\n" +
-                        "(These infos are test sets for the development phase. They will be removed when the database is set up!)"
-                );
-            </script>
         </footer>
     </body>
 </html>
