@@ -27,6 +27,13 @@ app.use(
     })
 );
 
+// These lines allow the session variables to be used directly in the pages
+//  USE : <%= session.myVar %>
+app.use(function(request, response, next) {
+    response.locals.session = request.session;
+    next();
+});
+
 app.set("view engine", "ejs");
 
 MongoClient.connect(url, { useNewUrlParser: true }, function(err, client) {
@@ -147,7 +154,6 @@ app.post("/dologin", function(req, res) {
                 last: result.name.last,
                 email: result.login.email
             };
-            console.log(req.session);
 
             res.redirect("/profile");
         }

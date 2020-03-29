@@ -18,7 +18,7 @@
         <a href="/home">Home</a>
         <a href="/about">About</a>
         <a href="/profile" class="btn_login">
-            User&nbsp;Test
+            <%= session.user.first %>&nbsp;<%= session.user.last %>
         </a>
     </div>
 
@@ -31,7 +31,7 @@
                 alt="User's pic"
             />
             <a class="btn_login username" href="/profile">
-                User&nbsp;Test
+                <%= session.user.first %>&nbsp;<%= session.user.last %>
             </a>
         </div>
     </div>
