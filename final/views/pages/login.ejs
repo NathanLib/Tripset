@@ -6,6 +6,11 @@
 
     <body id="login-page-body">
         <div class="header-container">
+            <% if (session.loggedin) { %>
+            <header>
+                <%- include('../partials/header-connected') %>
+            </header>
+            <% } else { %>
             <header>
                 <%- include('../partials/header') %>
             </header>

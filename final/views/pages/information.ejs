@@ -6,9 +6,15 @@
 
     <body class="information-page no-background">
         <div class="header-container" id="header-container">
+            <% if (session.loggedin) { %>
+            <header>
+                <%- include('../partials/header-connected') %>
+            </header>
+            <% } else { %>
             <header>
                 <%- include('../partials/header') %>
             </header>
+            <% } %>
         </div>
 
         <div class="main-container">
