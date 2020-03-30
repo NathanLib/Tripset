@@ -89,7 +89,7 @@ app.get("/profile", function(req, res) {
 
     db.collection("profiles").findOne(
         {
-            "login.email": req.session.email
+            "login.email": req.session.user.email
         },
         function(err, result) {
             if (err) throw err;
@@ -107,7 +107,20 @@ app.get("/editProfile", function(req, res) {
         return;
     }
 
-    res.render("pages/editProfile");
+    db.collection("profiles").findOne(
+        {
+            "login.email": req.session.user.email
+        },
+        function(err, result) {
+            if (err) throw err;
+            //finally we just send the result to the user page as "user"
+            console.log(result);
+
+            res.render("pages/editProfile", {
+                user: result
+            });
+        }
+    );
 });
 
 app.get("/resetPwd", function(req, res) {

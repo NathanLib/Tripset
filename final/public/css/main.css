@@ -1552,7 +1552,7 @@ nav .menuHamburger img {
 }
 
 .edit-profile input[type="text"],
-.edit-profile input[type="mail"] {
+.edit-profile input[type="email"] {
     padding: 0.2rem;
     border: 1px solid var(--color-darkGray);
     border-radius: 0.2rem;
