@@ -27,6 +27,13 @@ app.use(
     })
 );
 
+// These lines allow the session variables to be used directly in the pages
+//  USE : <%= session.myVar %>
+app.use(function(request, response, next) {
+    response.locals.session = request.session;
+    next();
+});
+
 app.set("view engine", "ejs");
 
 MongoClient.connect(url, { useNewUrlParser: true }, function(err, client) {
@@ -82,7 +89,7 @@ app.get("/profile", function(req, res) {
 
     db.collection("profiles").findOne(
         {
-            "login.email": req.session.email
+            "login.email": req.session.user.email
         },
         function(err, result) {
             if (err) throw err;
@@ -100,7 +107,20 @@ app.get("/editProfile", function(req, res) {
         return;
     }
 
-    res.render("pages/editProfile");
+    db.collection("profiles").findOne(
+        {
+            "login.email": req.session.user.email
+        },
+        function(err, result) {
+            if (err) throw err;
+            //finally we just send the result to the user page as "user"
+            console.log(result);
+
+            res.render("pages/editProfile", {
+                user: result
+            });
+        }
+    );
 });
 
 app.get("/resetPwd", function(req, res) {
@@ -147,7 +167,6 @@ app.post("/dologin", function(req, res) {
                 last: result.name.last,
                 email: result.login.email
             };
-            console.log(req.session);
 
             res.redirect("/profile");
         }

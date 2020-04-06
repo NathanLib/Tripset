@@ -29,28 +29,31 @@
                         <label for="fname">First name :</label>
                         <input
                             type="text"
-                            id="fname"
-                            name="fname"
+                            id="fistname"
+                            name="firstname"
                             placeholder="First name"
+                            value="<%= user.name.first%>"
                         />
                     </div>
                     <div class="line">
                         <label for="lname">Last Name :</label>
                         <input
                             type="text"
-                            id="lname"
-                            name="lname"
-                            placeholder="Name"
+                            id="lastname"
+                            name="lastname"
+                            placeholder="Last Name"
+                            value="<%= user.name.last%>"
                         />
                     </div>
                     <div class="line">
                         <label for="mail">Mail :</label>
                         <input
-                            type="mail"
-                            id="mail"
-                            name="mail"
+                            type="email"
+                            id="email"
+                            name="email"
                             placeholder="usertest@test.uk"
                             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                            value="<%= user.login.email%>"
                         />
                     </div>
                     <div class="buttons">
@@ -63,7 +66,7 @@
                     </div>
                 </form>
                 <div class="pwd">
-                    <p>Want to reset your password ?</p>
+                    <p>Want to change your password ?</p>
                     <a href="/resetPwd">Click here</a>
                 </div>
             </div>

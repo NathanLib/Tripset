@@ -6,9 +6,15 @@
 
     <body id="login-page-body">
         <div class="header-container">
+            <% if (session.loggedin) { %>
+            <header>
+                <%- include('../partials/header-connected') %>
+            </header>
+            <% } else { %>
             <header>
                 <%- include('../partials/header') %>
             </header>
+            <% } %>
         </div>
 
         <div id="login" class="rounded-corners flex">
@@ -27,8 +33,6 @@
                                 <p>Login</p>
                             </div>
                             <div
-                                button
-                                onClick=""
                                 class="login-toggle-signup flex rounded-corners-max js-1 line-effect2"
                             >
                                 <p>Sign Up</p>

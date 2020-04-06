@@ -19,8 +19,10 @@
                         alt="User's pic"
                     />
                     <div class="user-details">
-                        <p>Name</p>
-                        <p class="profile-lastName">Last Name</p>
+                        <p><%= session.user.first %></p>
+                        <p class="profile-lastName">
+                            <%= session.user.last %>
+                        </p>
                     </div>
                 </div>
                 <div class="profile-actions">
