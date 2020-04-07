@@ -1,6 +1,6 @@
 # Welcome to Tripset!
 
-In order to make the project work properly, some preliminary manipulations are necessary - we apologize for this inconvenience. 
+In order to make the project work properly on **CODIO**, some preliminary manipulations are necessary - we apologize for this inconvenience. 
 
 ## Step One
 Edit the file **package.json**
