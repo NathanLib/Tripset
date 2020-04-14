@@ -371,8 +371,12 @@ nav .menuHamburger img {
     cursor: pointer;
 }
 
-#match-list hr:last-child {
+#match-list {
     display: none;
+}
+
+#match-list hr:last-child {
+    visibility: hidden;
 }
 
 .search-match {
@@ -383,6 +387,7 @@ nav .menuHamburger img {
 .search-match:hover {
     cursor: pointer;
     background-color: var(--color-primary-soft);
+    border-radius: 8px;
 }
 
 .search-match-name {
@@ -399,7 +404,7 @@ nav .menuHamburger img {
 
 .search-match-coord {
     color: var(--color-gray);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
 }
 
 .search-match-id {

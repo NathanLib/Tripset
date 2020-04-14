@@ -3,8 +3,7 @@ const matchList = document.getElementById("match-list");
 
 // Search data in json and filter it
 const searchCities = async (searchText) => {
-    // const res = await fetch("../data/city.list.min.json");
-    const res = await fetch("../data/sample_cities.json");
+    const res = await fetch("../data/city.list.min.json");
     const cities = await res.json();
 
     // Get matches to current text input
@@ -33,12 +32,12 @@ const outputHtml = (matches) => {
                     return `<div class="search-match">
                         <p>
                             <span class="search-match-name">${match.name}</span>
-                            <span class="search-match-state">(${match.state})</span>
+                            <span class="search-match-state"> (${match.state})</span>
                             <span class="search-match-country">, ${match.country}</span>
                         </p>
                         <p>
                             <span class="search-match-coord">
-                                lon: ${match.coord.lon}, lat: ${match.coord.lat}
+                                Lon: ${match.coord.lon}, Lat: ${match.coord.lat}
                             </span>
                         </p>
                         <span class="search-match-id">${match.id}</span>
@@ -52,7 +51,7 @@ const outputHtml = (matches) => {
                         </p>
                         <p>
                             <span class="search-match-coord">
-                                lon: ${match.coord.lon}, lat: ${match.coord.lat}
+                                Lon: ${match.coord.lon}, Lat: ${match.coord.lat}
                             </span>
                         </p>
                         <span class="search-match-id">${match.id}</span>

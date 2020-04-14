@@ -93,6 +93,22 @@ $(function () {
             "yyyy-mm-dd"
         );
     }
+
+    $("#search_term").on("focus", function () {
+        $("#match-list").css("display", "block");
+    });
+
+    $("#match-list").on("click", ".search-match", function () {
+        var id = $(this).find(".search-match-id").text();
+        var name = $(this).find(".search-match-name").text();
+        var country = $(this).find(".search-match-country").text();
+        var state = $(this).find(".search-match-state").text();
+
+        $("#search_term").data("id", id);
+        $("#search_term").val(name + state + country);
+
+        $("#match-list").css("display", "none");
+    });
 });
 
 function addDatesContainer() {
