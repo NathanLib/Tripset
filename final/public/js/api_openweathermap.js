@@ -1,5 +1,6 @@
 var input = $("#search_term");
 var search_btn = $("#dates-submit");
+var availableModels = [];
 
 search_btn.click(function () {
     fetch(
