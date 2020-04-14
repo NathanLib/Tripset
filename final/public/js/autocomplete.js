@@ -3,6 +3,7 @@ const matchList = document.getElementById("match-list");
 
 // Search data in json and filter it
 const searchCities = async (searchText) => {
+    // const res = await fetch("../data/city.list.min.json");
     const res = await fetch("../data/sample_cities.json");
     const cities = await res.json();
 
@@ -21,27 +22,37 @@ const searchCities = async (searchText) => {
     outputHtml(matches);
 };
 
+search.addEventListener("input", () => searchCities(search.value));
+
 // Show results in HTML
 const outputHtml = (matches) => {
     if (matches.length > 0) {
         const html = matches
-            .map(
-                (match) => `
-                <div>
-                    <h4>${match.name}, ${match.country}</h4>
-                </div>`
-            )
+            .map((match) => {
+                if (match.state != "") {
+                    return `<div>
+                        <p>
+                            ${match.name} (${match.state}), ${match.country}
+                        </p>
+                        <span class="match-coord">
+                            ${match.coord.lon}, ${match.coord.lat}
+                        </span>
+                        <span class="match-id">${match.id}</span>
+                    </div>`;
+                } else {
+                    return `<div>
+                        <p>
+                            ${match.name}, ${match.country}
+                        </p>
+                        <span class="match-coord">
+                            ${match.coord.lon}, ${match.coord.lat}
+                        </span>
+                        <span class="match-id">${match.id}</span>
+                    </div>`;
+                }
+            })
             .join("");
 
         matchList.innerHTML = html;
     }
 };
-
-search.addEventListener("input", () => searchCities(search.value));
-
-// $.getJSON(
-//     "https://raw.githubusercontent.com/lutangar/cities.json/master/cities.json",
-//     function (result) {
-//         // console.log(result);
-//     }
-// );
