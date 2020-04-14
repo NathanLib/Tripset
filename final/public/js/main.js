@@ -4,7 +4,7 @@
 
    ======================================================================= */
 
-const isNull = value => typeof value === "object" && !value;
+const isNull = (value) => typeof value === "object" && !value;
 
 // Safari does not support datetime inputs so this variable allows to detect
 // if the user is on this browser in order to tell him which date format he
@@ -20,30 +20,30 @@ var isSafari =
 
 function openNav() {
     $(".mobileNav").css({
-        width: "200px"
+        width: "200px",
     });
-    $(".mobileNav-background").fadeIn(600, function() {
+    $(".mobileNav-background").fadeIn(600, function () {
         $(".mobileNav-background").css({
-            display: "block"
+            display: "block",
         });
     });
 }
 
 function closeNav() {
     $(".mobileNav").css({
-        width: "0"
+        width: "0",
     });
-    $(".mobileNav-background").fadeOut(600, function() {
+    $(".mobileNav-background").fadeOut(600, function () {
         $(".mobileNav-background").css({
-            display: "none"
+            display: "none",
         });
     });
 }
 
 /* Function to make the header disappear when the page is scrolled down*/
-$(function() {
+$(function () {
     var prevScrollpos = window.pageYOffset;
-    window.onscroll = function() {
+    window.onscroll = function () {
         var currentScrollPos = window.pageYOffset;
         if (currentScrollPos > 30) {
             if (prevScrollpos > currentScrollPos) {
@@ -74,16 +74,16 @@ var today = new Date();
 var datesFrom = $("#input-dates-from");
 var datesTo = $("#input-dates-to");
 
-$(function() {
-    $("#dates-submit").click(function() {
+$(function () {
+    $("#dates-submit").click(function () {
         submitResearch();
     });
 
-    $(".searchbar-date-container").click(function() {
+    $(".searchbar-date-container").click(function () {
         addDatesContainer();
     });
 
-    $("#input-dates-from, #input-dates-to").change(function() {
+    $("#input-dates-from, #input-dates-to").change(function () {
         manageCalendar();
     });
 
@@ -96,7 +96,7 @@ $(function() {
 });
 
 function addDatesContainer() {
-    $.when(manageCalendar()).done(function() {
+    $.when(manageCalendar()).done(function () {
         if (document.body.clientWidth <= 992) {
             slideSearchContainer("3rem");
         } else if (document.body.clientWidth <= 1600) {
@@ -111,14 +111,14 @@ function slideSearchContainer(value) {
     if ($(".dates-details").css("display") == "none") {
         $(".searchbar-container").animate(
             {
-                marginTop: value
+                marginTop: value,
             },
             700
         );
     } else {
         $(".searchbar-container").animate(
             {
-                marginTop: "12rem"
+                marginTop: "12rem",
             },
             700
         );
@@ -141,14 +141,12 @@ function createCalendar() {
         onSelect: (date1, date2) => {
             datesFrom.val(date1.format("YYYY-MM-DD"));
             datesTo.val(date2.format("YYYY-MM-DD"));
-        }
+        },
     });
 }
 
 function createCalendarWithRange(startDate, endDate) {
-    $("#litepicker")
-        .children()
-        .remove();
+    $("#litepicker").children().remove();
 
     var picker = new Litepicker({
         element: document.getElementById("litepicker"),
@@ -169,22 +167,22 @@ function createCalendarWithRange(startDate, endDate) {
         onSelect: (date1, date2) => {
             datesFrom.val(date1.format("YYYY-MM-DD"));
             datesTo.val(date2.format("YYYY-MM-DD"));
-        }
+        },
     });
 }
 
 function displaySubmit() {
-    $("#dates-submit").fadeIn(300, function() {
+    $("#dates-submit").fadeIn(300, function () {
         $(this).css({
-            display: "block"
+            display: "block",
         });
     });
 }
 
 function submitResearch() {
     if (datesValidation()) {
-        $("#dates-form").submit();
-        $("#location-form").submit();
+        // $("#dates-form").submit();
+        // $("#location-form").submit();
     }
 }
 
@@ -253,10 +251,6 @@ function isDatesToCompleted() {
 }
 
 function datesValidation() {
-    if (datesFrom.val() == "") {
-        console.log(true);
-    }
-
     if (datesFrom.val() != "") {
         var datesFrom_val = new Date(datesFrom.val());
 
@@ -383,7 +377,7 @@ function addAnimationError(element) {
     element.addClass("wrong-shake");
     element.one(
         "webkitAnimationEnd oanimationend msAnimationEnd animationend",
-        function(e) {
+        function (e) {
             element.delay(200).removeClass("wrong-shake");
         }
     );
@@ -415,18 +409,13 @@ function sliceText(element, length) {
 /* ============================= Weather ================================= */
 
 /* Function to add a separator between days (and their forecast) */
-$(function() {
-    $(".forecast").each(function() {
+$(function () {
+    $(".forecast").each(function () {
         if (document.body.clientWidth <= 768) {
             sliceText($(this).find(".forecast-day"), 3);
         }
 
-        if (
-            $(this).html() !=
-            $(".forecast")
-                .last()
-                .html()
-        ) {
+        if ($(this).html() != $(".forecast").last().html()) {
             $('<hr class="weather-separator" />').insertAfter($(this));
         }
     });
@@ -436,21 +425,21 @@ $(function() {
 
 var allTitles = [];
 
-$(function() {
-    $(".event-content-title").each(function() {
+$(function () {
+    $(".event-content-title").each(function () {
         allTitles.push($.trim($(this).text()));
     });
 
     cutTitle();
 });
 
-$(window).bind("resize", function() {
+$(window).bind("resize", function () {
     cutTitle();
 });
 
 /** Function to cut the articles'title if they are too long */
 function cutTitle() {
-    $(".event-content-title").each(function(index) {
+    $(".event-content-title").each(function (index) {
         var titleSize = $.trim($(this).text()).length;
         var containerWidth = $(this).width();
         var possibleNumberOfCharacters = Math.floor(containerWidth / 10);
@@ -476,17 +465,15 @@ function titleEllipsis(element, length, index) {
 
    ======================================================================= */
 ("use strict");
-$(".js-1").click(function() {
-    $(".signup-holder")
-        .fadeIn(600)
-        .css({
-            display: "flex"
-        });
+$(".js-1").click(function () {
+    $(".signup-holder").fadeIn(600).css({
+        display: "flex",
+    });
     $(".login-holder").fadeOut(0);
 });
 
 ("use strict");
-$(".js-2").click(function() {
+$(".js-2").click(function () {
     $(".login-holder").fadeIn(600);
     $(".signup-holder").fadeOut(0);
 });
@@ -514,7 +501,7 @@ function readURL(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
 
-        reader.onload = function(e) {
+        reader.onload = function (e) {
             $("#profileImg").attr("src", e.target.result);
         };
 
@@ -522,7 +509,7 @@ function readURL(input) {
     }
 }
 
-$("#newImg").change(function() {
+$("#newImg").change(function () {
     readURL(this);
 });
 
