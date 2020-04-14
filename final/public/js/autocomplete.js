@@ -30,29 +30,38 @@ const outputHtml = (matches) => {
         const html = matches
             .map((match) => {
                 if (match.state != "") {
-                    return `<div>
+                    return `<div class="search-match">
                         <p>
-                            ${match.name} (${match.state}), ${match.country}
+                            <span class="search-match-name">${match.name}</span>
+                            <span class="search-match-state">(${match.state})</span>
+                            <span class="search-match-country">, ${match.country}</span>
                         </p>
-                        <span class="match-coord">
-                            ${match.coord.lon}, ${match.coord.lat}
-                        </span>
-                        <span class="match-id">${match.id}</span>
-                    </div>`;
+                        <p>
+                            <span class="search-match-coord">
+                                lon: ${match.coord.lon}, lat: ${match.coord.lat}
+                            </span>
+                        </p>
+                        <span class="search-match-id">${match.id}</span>
+                    </div>
+                    <hr class="search-match-separator">`;
                 } else {
-                    return `<div>
+                    return `<div class="search-match">
                         <p>
-                            ${match.name}, ${match.country}
+                            <span class="search-match-name">${match.name}</span>
+                            <span class="search-match-country">, ${match.country}</span>
                         </p>
-                        <span class="match-coord">
-                            ${match.coord.lon}, ${match.coord.lat}
-                        </span>
-                        <span class="match-id">${match.id}</span>
-                    </div>`;
+                        <p>
+                            <span class="search-match-coord">
+                                lon: ${match.coord.lon}, lat: ${match.coord.lat}
+                            </span>
+                        </p>
+                        <span class="search-match-id">${match.id}</span>
+                    </div>
+                    <hr class="search-match-separator">`;
                 }
             })
             .join("");
 
-        matchList.innerHTML = html;
+        matchList.innerHTML = '<hr class="search-match-separator">' + html;
     }
 };

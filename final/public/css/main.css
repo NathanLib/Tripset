@@ -371,6 +371,48 @@ nav .menuHamburger img {
     cursor: pointer;
 }
 
+#match-list hr:last-child {
+    display: none;
+}
+
+.search-match {
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0;
+}
+
+.search-match:hover {
+    cursor: pointer;
+    background-color: var(--color-primary-soft);
+}
+
+.search-match-name {
+    color: var(--color-darkGray);
+}
+
+.search-match-state {
+    color: var(--color-gray);
+}
+
+.search-match-country {
+    color: var(--color-navyBlue);
+}
+
+.search-match-coord {
+    color: var(--color-gray);
+    font-size: 0.85rem;
+}
+
+.search-match-id {
+    display: none;
+}
+
+.search-match-separator {
+    border-top: solid 1px var(--color-gray);
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+}
+
 /* =========================== Dates details ============================= */
 
 .dates-details {
