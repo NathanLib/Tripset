@@ -96,6 +96,10 @@ $(function () {
 
     $("#search_term").on("focus", function () {
         $("#match-list").css("display", "block");
+
+        if ($(".dates-details").css("display") != "none") {
+            addDatesContainer();
+        }
     });
 
     $("#match-list").on("click", ".search-match", function () {
@@ -117,6 +121,10 @@ function addDatesContainer() {
             slideSearchContainer("3rem");
         } else if (document.body.clientWidth <= 1600) {
             slideSearchContainer("5.5rem");
+        }
+
+        if ($("#match-list").html() != "") {
+            $("#match-list").html("");
         }
 
         $(".dates-details").slideToggle(700);
@@ -459,8 +467,6 @@ function cutTitle() {
         var titleSize = $.trim($(this).text()).length;
         var containerWidth = $(this).width();
         var possibleNumberOfCharacters = Math.floor(containerWidth / 10);
-
-        console.log(titleSize + "  " + possibleNumberOfCharacters);
 
         if (titleSize <= possibleNumberOfCharacters + 2) {
             $(this).text(allTitles[index]);
