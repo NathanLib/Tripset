@@ -104,11 +104,15 @@ $(function () {
 
     $("#match-list").on("click", ".search-match", function () {
         var id = $(this).find(".search-match-id").text();
+        var lon = $(this).find(".search-match-coord-lon").text();
+        var lat = $(this).find(".search-match-coord-lat").text();
         var name = $(this).find(".search-match-name").text();
         var country = $(this).find(".search-match-country").text();
         var state = $(this).find(".search-match-state").text();
 
         $("#search_term").data("id", id);
+        $("#search_term").data("lon", lon);
+        $("#search_term").data("lat", lat);
         $("#search_term").val(name + state + country);
 
         $("#match-list").css("display", "none");
@@ -205,8 +209,8 @@ function displaySubmit() {
 
 function submitResearch() {
     if (datesValidation()) {
-        $("#dates-form").submit();
-        $("#location-form").submit();
+        // $("#dates-form").submit();
+        // $("#location-form").submit();
 
         $(".lds-ring").css("display", "inline-block");
     }

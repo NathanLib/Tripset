@@ -226,4 +226,7 @@ app.post("/dosignup", function (req, res) {
     });
 });
 
-app.post("/getinformation", function (req, res) {});
+app.post("/getinformation", function (req, res) {
+    req.session.forecast = forecast;
+    res.redirect("/information");
+});

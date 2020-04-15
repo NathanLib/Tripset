@@ -37,7 +37,10 @@ const outputHtml = (matches) => {
                         </p>
                         <p>
                             <span class="search-match-coord">
-                                Lon: ${match.coord.lon}, Lat: ${match.coord.lat}
+                                Lon: 
+                                <span class="search-match-coord-lon">${match.coord.lon}</span>
+                                , Lat: 
+                                <span class="search-match-coord-lat">${match.coord.lat}</span>
                             </span>
                         </p>
                         <span class="search-match-id">${match.id}</span>
@@ -51,7 +54,10 @@ const outputHtml = (matches) => {
                         </p>
                         <p>
                             <span class="search-match-coord">
-                                Lon: ${match.coord.lon}, Lat: ${match.coord.lat}
+                                Lon: 
+                                <span class="search-match-coord-lon">${match.coord.lon}</span>
+                                , Lat: 
+                                <span class="search-match-coord-lat">${match.coord.lat}</span>
                             </span>
                         </p>
                         <span class="search-match-id">${match.id}</span>
