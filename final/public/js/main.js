@@ -205,8 +205,10 @@ function displaySubmit() {
 
 function submitResearch() {
     if (datesValidation()) {
-        // $("#dates-form").submit();
-        // $("#location-form").submit();
+        $("#dates-form").submit();
+        $("#location-form").submit();
+
+        $(".lds-ring").css("display", "inline-block");
     }
 }
 
