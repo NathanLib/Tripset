@@ -227,6 +227,10 @@ app.post("/dosignup", function (req, res) {
 });
 
 app.post("/getinformation", function (req, res) {
-    req.session.forecast = forecast;
+    console.log(req.body);
+    // var city = {
+    //     id: req.body.searchbar-input
+
+    // }
     res.redirect("/information");
 });

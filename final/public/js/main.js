@@ -110,9 +110,7 @@ $(function () {
         var country = $(this).find(".search-match-country").text();
         var state = $(this).find(".search-match-state").text();
 
-        $("#search_term").data("id", id);
-        $("#search_term").data("lon", lon);
-        $("#search_term").data("lat", lat);
+        $("#search_term_information").val(id + "," + lat + "," + lon);
         $("#search_term").val(name + state + country);
 
         $("#match-list").css("display", "none");
@@ -153,6 +151,16 @@ function slideSearchContainer(value) {
     }
 }
 
+function getMonth(date) {
+    var month = date.getMonth() + 1;
+    return month < 10 ? "0" + month : "" + month;
+}
+
+function getDate(date) {
+    var date = date.getDate();
+    return date < 10 ? "0" + date : "" + date;
+}
+
 function createCalendar() {
     var picker = new Litepicker({
         element: document.getElementById("litepicker"),
@@ -166,9 +174,23 @@ function createCalendar() {
         autoApply: true,
         showTooltip: false,
         showWeekNumbers: true,
+
         onSelect: (date1, date2) => {
-            datesFrom.val(date1.format("YYYY-MM-DD"));
-            datesTo.val(date2.format("YYYY-MM-DD"));
+            var startDate =
+                date1.getFullYear() +
+                "-" +
+                getMonth(date1) +
+                "-" +
+                getDate(date1);
+
+            var endDate =
+                date2.getFullYear() +
+                "-" +
+                getMonth(date2) +
+                "-" +
+                getDate(date2);
+            datesFrom.val(startDate);
+            datesTo.val(endDate);
         },
     });
 }
@@ -193,8 +215,21 @@ function createCalendarWithRange(startDate, endDate) {
         endDate: endDate,
 
         onSelect: (date1, date2) => {
-            datesFrom.val(date1.format("YYYY-MM-DD"));
-            datesTo.val(date2.format("YYYY-MM-DD"));
+            var startDate =
+                date1.getFullYear() +
+                "-" +
+                getMonth(date1) +
+                "-" +
+                getDate(date1);
+
+            var endDate =
+                date2.getFullYear() +
+                "-" +
+                getMonth(date2) +
+                "-" +
+                getDate(date2);
+            datesFrom.val(startDate);
+            datesTo.val(endDate);
         },
     });
 }
@@ -209,10 +244,8 @@ function displaySubmit() {
 
 function submitResearch() {
     if (datesValidation()) {
-        // $("#dates-form").submit();
-        // $("#location-form").submit();
-
-        $(".lds-ring").css("display", "inline-block");
+        $("#location-form").submit();
+        // $(".lds-ring").css("display", "inline-block");
     }
 }
 

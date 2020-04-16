@@ -310,6 +310,10 @@ nav .menuHamburger img {
     color: var(--color-darkGray);
 }
 
+.searchbar .searchbar-input-information {
+    display: none;
+}
+
 .searchbar .searchbar-date-container {
     display: flex;
     position: absolute;
@@ -464,19 +468,6 @@ nav .menuHamburger img {
     padding: 0.25rem 0.75rem;
 }
 
-.dates-form {
-    display: flex;
-    flex-direction: column;
-}
-
-@media screen and (min-width: 1600px) {
-    .dates-form {
-        flex-direction: row;
-        align-items: baseline;
-        justify-content: space-between;
-    }
-}
-
 #dates-form-separator {
     width: 95%;
     margin: 0 auto;
@@ -491,7 +482,7 @@ nav .menuHamburger img {
     width: 100%;
 }
 
-.dates-details form input[type="date"] {
+.dates-details input[type="date"] {
     padding: 1rem 1.25rem;
     border: 0;
     width: 100%;
