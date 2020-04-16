@@ -25,10 +25,27 @@
                 </h3>
                 <% if(session.information.dates.start != "") { %>
                 <p>
-                    <span>From: </span><%= session.information.dates.start %>
-                    <span>, To: </span><%= session.information.dates.end %>
+                    From:
+                    <span class="city-dates-from"
+                        ><%= session.information.dates.start %></span
+                    >
+                    , To:
+                    <span class="city-dates-to"
+                        ><%= session.information.dates.end %></span
+                    >
                 </p>
                 <% } %>
+                <p class="city-hidden-data">
+                    <span id="city-hidden-id">
+                        <%= session.information.city.country %>
+                    </span>
+                    <span id="city-hidden-coord-lat">
+                        <%= session.information.city.coord.lat %>
+                    </span>
+                    <span id="city-hidden-coord-lon">
+                        <%= session.information.city.coord.lon %>
+                    </span>
+                </p>
             </section>
             <!-- All icons are from: https://www.amcharts.com/free-animated-svg-weather-icons/ -->
             <section class="forecast-container">
