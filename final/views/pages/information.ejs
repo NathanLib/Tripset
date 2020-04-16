@@ -18,6 +18,18 @@
         </div>
 
         <div class="main-container">
+            <section class="city-container">
+                <h3>
+                    <%= session.information.city.name %>,
+                    <span><%= session.information.city.country %></span>
+                </h3>
+                <% if(session.information.dates.start != "") { %>
+                <p>
+                    <span>From: </span><%= session.information.dates.start %>
+                    <span>, To: </span><%= session.information.dates.end %>
+                </p>
+                <% } %>
+            </section>
             <!-- All icons are from: https://www.amcharts.com/free-animated-svg-weather-icons/ -->
             <section class="forecast-container">
                 <!-- I duplicated the code for the 7 days of the week,
@@ -142,7 +154,7 @@
                         width="85.9px"
                         height="90px"
                         viewBox="0 0 85.9 90"
-                        style="enable-background:new 0 0 85.9 90;"
+                        style="enable-background: new 0 0 85.9 90;"
                         xml:space="preserve"
                     >
                         <style type="text/css">
@@ -433,7 +445,7 @@
                         width="100px"
                         height="75.4px"
                         viewBox="0 0 100 75.4"
-                        style="enable-background:new 0 0 100 75.4;"
+                        style="enable-background: new 0 0 100 75.4;"
                         xml:space="preserve"
                     >
                         <style type="text/css">
@@ -655,6 +667,10 @@
 
         <footer>
             <%- include('../partials/footer') %>
+            <script
+                type="text/javascript"
+                src="/js/api_openweathermap.js"
+            ></script>
         </footer>
     </body>
 </html>

@@ -64,6 +64,11 @@ app.get("/about", function (req, res) {
 });
 
 app.get("/information", function (req, res) {
+    if (!req.session.information) {
+        res.redirect("/home");
+        return;
+    }
+
     res.render("pages/information");
 });
 
@@ -244,8 +249,10 @@ app.post("/getinformation", function (req, res) {
         end: req.body.inputDatesTo,
     };
 
-    console.log(city);
-    console.log(dates);
+    req.session.information = {
+        city: city,
+        dates: dates,
+    };
 
     res.redirect("/information");
 });
