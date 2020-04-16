@@ -75,9 +75,7 @@ var datesFrom = $("#input-dates-from");
 var datesTo = $("#input-dates-to");
 
 $(function () {
-    $("#dates-submit").click(function () {
-        submitResearch();
-    });
+    // $(".lds-ring").css("display", "inline-block");
 
     $(".searchbar-date-container").click(function () {
         addDatesContainer();
@@ -112,10 +110,20 @@ $(function () {
 
         $("#search_term_information").val(id + "," + lat + "," + lon);
         $("#search_term").val(name + state + country);
+        $("#search_term").data("id", id);
 
         $("#match-list").css("display", "none");
     });
 });
+
+function validateForm() {
+    if (datesValidation() && $("#search_term").data("id") != "") {
+        return true;
+    } else {
+        alert("Please select one city in the list");
+        return false;
+    }
+}
 
 function addDatesContainer() {
     $.when(manageCalendar()).done(function () {
@@ -240,13 +248,6 @@ function displaySubmit() {
             display: "block",
         });
     });
-}
-
-function submitResearch() {
-    if (datesValidation()) {
-        $("#location-form").submit();
-        // $(".lds-ring").css("display", "inline-block");
-    }
 }
 
 function manageCalendar() {

@@ -227,10 +227,25 @@ app.post("/dosignup", function (req, res) {
 });
 
 app.post("/getinformation", function (req, res) {
-    console.log(req.body);
-    // var city = {
-    //     id: req.body.searchbar-input
+    var city_name = req.body.searchbarInput.split(",");
+    var city_info = req.body.searchbarInputInformation.split(",");
 
-    // }
+    var city = {
+        id: city_info[0],
+        name: city_name[0],
+        country: city_name[1].trim(),
+        coord: {
+            lat: city_info[1],
+            lon: city_info[2],
+        },
+    };
+    var dates = {
+        start: req.body.inputDatesFrom,
+        end: req.body.inputDatesTo,
+    };
+
+    console.log(city);
+    console.log(dates);
+
     res.redirect("/information");
 });

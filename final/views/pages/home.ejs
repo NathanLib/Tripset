@@ -19,7 +19,12 @@
 
         <div class="main-container">
             <div class="searchbar-container">
-                <form id="location-form" method="POST" action="/getinformation">
+                <form
+                    id="location-form"
+                    method="POST"
+                    action="/getinformation"
+                    onsubmit="return validateForm()"
+                >
                     <div class="searchbar">
                         <input
                             id="search_term"
@@ -30,6 +35,7 @@
                             oninput="displaySubmit()"
                             autocomplete="off"
                             value=""
+                            data-id=""
                         />
                         <input
                             type="text"
@@ -96,7 +102,7 @@
                                 <div class="dates-details-from">
                                     <input
                                         type="date"
-                                        name="input-dates-from"
+                                        name="inputDatesFrom"
                                         id="input-dates-from"
                                         value=""
                                     />
@@ -108,7 +114,7 @@
                                 <div class="dates-details-to">
                                     <input
                                         type="date"
-                                        name="input-dates-to"
+                                        name="inputDatesTo"
                                         id="input-dates-to"
                                         value=""
                                     />
@@ -123,7 +129,7 @@
 
                     <div id="match-list"></div>
 
-                    <button id="dates-submit">
+                    <button id="dates-submit" type="submit">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink"
