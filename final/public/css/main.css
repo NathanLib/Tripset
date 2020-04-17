@@ -502,8 +502,8 @@ nav .menuHamburger img {
 }
 
 @media screen and (min-width: 1600px) {
-    .dates-inputs {
-        margin-right: 0.5rem;
+    .dates-details-1600 {
+        display: flex;
     }
 }
 
