@@ -1,28 +1,41 @@
 var lat = $("#city-hidden-coord-lat").text().trim();
 var lon = $("#city-hidden-coord-lon").text().trim();
-var from = $(".city-dates-from").text().trim().split("-");
-var to = $(".city-dates-to").text().trim().split("-");
-var today = new Date();
+
 var parameter = "";
 var forecast = [];
-var count_days = 0;
-var count_days_from_today = 0;
+
+var from = $(".city-dates-from").text().trim().split("-");
+var to = $(".city-dates-to").text().trim().split("-");
+
+var today = new Date();
+var days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+];
+
+var today_plus_four = new Date();
+var today_plus_seven = new Date();
+
+var duration = 0;
+var nb_days_from_today = 0;
+
+if (from.length == 3 && to.length == 3) {
+    var from_date = new Date(from[0], from[1] - 1, from[2]);
+    var to_date = new Date(to[0], to[1] - 1, to[2]);
+
+    nb_days_from_today = from_date.getDate() - today.getDate();
+    duration = to_date.getDate() - from_date.getDate() + 1;
+
+    today_plus_four.setDate(today.getDate() + 4);
+    today_plus_seven.setDate(today.getDate() + 7);
+}
 
 $(function () {
-    if (from.length == 3 && to.length == 3) {
-        var from_date = new Date(from[0], from[1] - 1, from[2]);
-        var to_date = new Date(to[0], to[1] - 1, to[2]);
-
-        today.setDate(today.getDate() + 7);
-        if (to_date <= today) {
-            count_days = to_date.getDate() - from_date.getDate() + 1;
-            console.log(count_days);
-            today.setDate(today.getDate() - 7);
-            count_days_from_today = from_date.getDate() - today.getDate();
-            console.log(count_days_from_today);
-        }
-    }
-
     parameter = "lat=" + lat + "&lon=" + lon;
 
     $.getJSON(
@@ -31,7 +44,6 @@ $(function () {
             "&units=metric" +
             "&appid=1cbf3ff50f97de871e10b1a6e7e2bd51",
         function (result) {
-            console.log(result);
             result.daily.forEach(function (day) {
                 var data = {
                     temp: {
@@ -47,7 +59,115 @@ $(function () {
                 forecast.push(data);
             });
         }
-    ).then(function () {
-        console.log(forecast);
-    });
+    )
+        .then(function () {
+            displayWeather(getSlicedForecast());
+        })
+        .then(function () {
+            var children = $(".forecast-container .forecast");
+            if (children.length <= 5) {
+                $(".forecast-container").css("justify-content", "space-evenly");
+            }
+
+            $(".forecast-container")
+                .find(".forecast")
+                .each(function () {
+                    /* Function to add a separator between days (and their forecast) */
+                    if (document.body.clientWidth <= 768) {
+                        sliceText($(this).find(".forecast-day"), 3);
+                    }
+
+                    if ($(this).html() != $(".forecast").last().html()) {
+                        $('<hr class="weather-separator" />').insertAfter(
+                            $(this)
+                        );
+                    }
+                });
+        });
 });
+
+function getSlicedForecast() {
+    if (to_date <= today_plus_seven) {
+        return forecast.slice(
+            nb_days_from_today,
+            nb_days_from_today + duration
+        );
+    } else if (from_date <= today_plus_four) {
+        return forecast.slice(nb_days_from_today);
+    } else {
+        return forecast;
+    }
+}
+
+function displayWeather(slicedForecast) {
+    slicedForecast.forEach((forecast, index) => {
+        console.log(forecast);
+
+        if (from_date != undefined) {
+            var dayName = days[(from_date.getDay() + index) % 7];
+        } else {
+            var dayName = days[(today.getDay() + index) % 7];
+        }
+
+        let div_forecast = $("<div>");
+        div_forecast.attr("class", "forecast");
+        div_forecast.attr("id", "forecast-" + dayName.toLowerCase());
+
+        let div_forecast_day = $("<div>");
+        div_forecast_day.attr("class", "forecast-day");
+        div_forecast_day.text(dayName);
+
+        let div_forecast_icon = $("<div>");
+        div_forecast_icon.attr("class", "forecast-icon");
+        div_forecast_icon.attr("class", "animation-zoom-origin");
+
+        let img_forecast_icon = $("<img>");
+        img_forecast_icon.attr("src", getSrcImg());
+
+        var lastslashindex = getSrcImg().lastIndexOf("/");
+        var alt = getSrcImg()
+            .substring(lastslashindex + 1)
+            .replace(".svg", "");
+
+        img_forecast_icon.attr("alt", alt);
+
+        let div_forecast_temperature = $("<div>");
+        div_forecast_temperature.attr("class", "forecast-temperature");
+
+        let span_max_temp = $("<span>");
+        span_max_temp.attr("class", "max-temp");
+        span_max_temp.text(Math.floor(forecast.temp.max) + "\xB0");
+
+        let span_min_temp = $("<span>");
+        span_min_temp.attr("class", "min-temp");
+        span_min_temp.text(Math.floor(forecast.temp.min) + "\xB0");
+
+        let div_forecast_description = $("<div>");
+        div_forecast_description.attr("class", "forecast-description");
+        div_forecast_description.text(forecast.weather.description);
+
+        div_forecast.append(div_forecast_day);
+
+        div_forecast_icon.append(img_forecast_icon);
+        div_forecast.append(div_forecast_icon);
+
+        div_forecast_temperature.append(span_max_temp);
+        div_forecast_temperature.append(span_min_temp);
+        div_forecast.append(div_forecast_temperature);
+
+        div_forecast.append(div_forecast_description);
+
+        $(".forecast-container").append(div_forecast);
+    });
+}
+
+function getSrcImg() {
+    return "/images/icons/Weather/cloudy-day-2.svg";
+}
+
+function sliceText(element, length) {
+    var text = $.trim(element.html());
+
+    var textSliced = text.slice(0, length);
+    element.text(textSliced);
+}

@@ -463,28 +463,6 @@ function validatedDates(date_val, date) {
 
    ======================================================================= */
 
-function sliceText(element, length) {
-    var text = $.trim(element.html());
-
-    var textSliced = text.slice(0, length);
-    element.text(textSliced);
-}
-
-/* ============================= Weather ================================= */
-
-/* Function to add a separator between days (and their forecast) */
-$(function () {
-    $(".forecast").each(function () {
-        if (document.body.clientWidth <= 768) {
-            sliceText($(this).find(".forecast-day"), 3);
-        }
-
-        if ($(this).html() != $(".forecast").last().html()) {
-            $('<hr class="weather-separator" />').insertAfter($(this));
-        }
-    });
-});
-
 /* ============================= Events ================================== */
 
 var allTitles = [];

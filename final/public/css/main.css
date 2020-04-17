@@ -751,6 +751,8 @@ nav .menuHamburger img {
     padding: 0 1rem;
     border-radius: 20px;
     background-color: white;
+    max-width: 125px;
+    text-align: center;
 }
 
 .forecast-day {
@@ -776,10 +778,19 @@ nav .menuHamburger img {
 .forecast-temperature span.min-temp {
     padding: 0 1px;
     color: var(--color-gray);
+    font-size: 0.9rem;
+    margin-left: 4px;
 }
 
 .forecast-description {
     display: none;
+}
+
+@media screen and (min-width: 1200px) {
+    .forecast-description {
+        display: inline-block;
+        color: var(--color-navyBlue);
+    }
 }
 
 .weather-separator {
