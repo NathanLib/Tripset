@@ -556,6 +556,19 @@ nav .menuHamburger img {
     text-align: center;
 }
 
+.error-message-weather {
+    color: var(--color-wrong);
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 1200px) {
+    .error-message-weather {
+        margin-top: -3rem;
+        margin-bottom: 3rem;
+    }
+}
+
 .wrong-shake {
     -webkit-animation: wrong_shake 0.5s 1 linear;
     -moz-animation: wrong_shake 0.5s 1 linear;

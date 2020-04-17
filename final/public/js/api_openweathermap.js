@@ -88,13 +88,24 @@ $(function () {
 
 function getSlicedForecast() {
     if (to_date <= today_plus_seven) {
+        $(".error-message-weather").text("");
         return forecast.slice(
             nb_days_from_today,
             nb_days_from_today + duration
         );
     } else if (from_date <= today_plus_four) {
+        $(".error-message-weather").text(
+            "As Tripset uses a free API to get the forecast," +
+                " we aren't able to show you more than " +
+                forecast.slice(nb_days_from_today).length +
+                " days after your starting date."
+        );
         return forecast.slice(nb_days_from_today);
     } else {
+        $(".error-message-weather").text(
+            "As Tripset uses a free API to get the forecast," +
+                " we are able to show you only 8 days in advance from today."
+        );
         return forecast;
     }
 }
