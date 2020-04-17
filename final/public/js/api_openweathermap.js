@@ -101,8 +101,6 @@ function getSlicedForecast() {
 
 function displayWeather(slicedForecast) {
     slicedForecast.forEach((forecast, index) => {
-        console.log(forecast);
-
         if (from_date != undefined) {
             var dayName = days[(from_date.getDay() + index) % 7];
         } else {
@@ -122,10 +120,10 @@ function displayWeather(slicedForecast) {
         div_forecast_icon.attr("class", "animation-zoom-origin");
 
         let img_forecast_icon = $("<img>");
-        img_forecast_icon.attr("src", getSrcImg());
+        img_forecast_icon.attr("src", getSrcImg(forecast.weather.id));
 
-        var lastslashindex = getSrcImg().lastIndexOf("/");
-        var alt = getSrcImg()
+        var lastslashindex = getSrcImg(forecast.weather.id).lastIndexOf("/");
+        var alt = getSrcImg(forecast.weather.id)
             .substring(lastslashindex + 1)
             .replace(".svg", "");
 
@@ -144,7 +142,7 @@ function displayWeather(slicedForecast) {
 
         let div_forecast_description = $("<div>");
         div_forecast_description.attr("class", "forecast-description");
-        div_forecast_description.text(forecast.weather.description);
+        div_forecast_description.text(forecast.weather.main);
 
         div_forecast.append(div_forecast_day);
 
@@ -161,8 +159,59 @@ function displayWeather(slicedForecast) {
     });
 }
 
-function getSrcImg() {
-    return "/images/icons/Weather/cloudy-day-2.svg";
+function getSrcImg(id) {
+    switch (true) {
+        case id >= 200 && id < 300:
+            var url = "/images/icons/Weather/thunder.svg";
+            break;
+        case id >= 300 && id < 400:
+            var url = "/images/icons/Weather/rainy-7.svg";
+            break;
+        case id == 500:
+            var url = "/images/icons/Weather/rainy-4.svg";
+            break;
+        case id == 501:
+            var url = "/images/icons/Weather/rainy-5.svg";
+            break;
+        case id >= 502 && id <= 504:
+            var url = "/images/icons/Weather/rainy-6.svg";
+            break;
+        case id == 511:
+            var url = "/images/icons/Weather/snowy-4.svg";
+            break;
+        case id >= 520 && id < 600:
+            var url = "/images/icons/Weather/rainy-6.svg";
+            break;
+        case id == 600:
+            var url = "/images/icons/Weather/snowy-4.svg";
+            break;
+        case id == 601:
+            var url = "/images/icons/Weather/snowy-5.svg";
+            break;
+        case id >= 602 && id < 700:
+            var url = "/images/icons/Weather/snowy-6.svg";
+            break;
+        case id >= 700 && id < 800:
+            var url = "/images/icons/Weather/cloudy.svg";
+            break;
+        case id == 800:
+            var url = "/images/icons/Weather/day.svg";
+            break;
+        case id == 801:
+            var url = "/images/icons/Weather/cloudy-day-2.svg";
+            break;
+        case id == 802:
+            url = "/images/icons/Weather/cloudy-day-3.svg";
+            break;
+        case id >= 803 && id < 850:
+            var url = "/images/icons/Weather/cloudy.svg";
+            break;
+        default:
+            var url = "/images/icons/Weather/weather.svg";
+            break;
+    }
+
+    return url;
 }
 
 function sliceText(element, length) {
