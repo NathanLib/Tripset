@@ -17,30 +17,30 @@ app.use(
         secret: "nC0@#1pM/-0qA1+é",
         name: "Tripset",
         resave: true,
-        saveUninitialized: true
+        saveUninitialized: true,
     })
 );
 
 app.use(
     bodyParser.urlencoded({
-        extended: true
+        extended: true,
     })
 );
 
 // These lines allow the session variables to be used directly in the pages
 //  USE : <%= session.myVar %>
-app.use(function(request, response, next) {
+app.use(function (request, response, next) {
     response.locals.session = request.session;
     next();
 });
 
 app.set("view engine", "ejs");
 
-MongoClient.connect(url, { useNewUrlParser: true }, function(err, client) {
+MongoClient.connect(url, { useNewUrlParser: true }, function (err, client) {
     if (err) throw err;
     db = client.db(dbName);
     //Starts the Express server
-    app.listen(port, function(err) {
+    app.listen(port, function (err) {
         if (!err) {
             console.log("Server is running at port", port);
         } else {
@@ -51,23 +51,28 @@ MongoClient.connect(url, { useNewUrlParser: true }, function(err, client) {
 
 //*************************** GET ROUTES ***************************
 
-app.get("/", function(req, res) {
+app.get("/", function (req, res) {
     res.render("pages/home");
 });
 
-app.get("/home", function(req, res) {
+app.get("/home", function (req, res) {
     res.render("pages/home");
 });
 
-app.get("/about", function(req, res) {
+app.get("/about", function (req, res) {
     res.render("pages/about");
 });
 
-app.get("/information", function(req, res) {
+app.get("/information", function (req, res) {
+    if (!req.session.information) {
+        res.redirect("/home");
+        return;
+    }
+
     res.render("pages/information");
 });
 
-app.get("/login", function(req, res) {
+app.get("/login", function (req, res) {
     if (req.session.loginError) {
         var message = req.session.loginError;
         delete req.session.loginError;
@@ -81,7 +86,7 @@ app.get("/login", function(req, res) {
     }
 });
 
-app.get("/profile", function(req, res) {
+app.get("/profile", function (req, res) {
     if (!req.session.loggedin) {
         res.redirect("/login");
         return;
@@ -89,19 +94,19 @@ app.get("/profile", function(req, res) {
 
     db.collection("profiles").findOne(
         {
-            "login.email": req.session.user.email
+            "login.email": req.session.user.email,
         },
-        function(err, result) {
+        function (err, result) {
             if (err) throw err;
             //finally we just send the result to the user page as "user"
             res.render("pages/profile", {
-                user: result
+                user: result,
             });
         }
     );
 });
 
-app.get("/editProfile", function(req, res) {
+app.get("/editProfile", function (req, res) {
     if (!req.session.loggedin) {
         res.redirect("/login");
         return;
@@ -109,27 +114,27 @@ app.get("/editProfile", function(req, res) {
 
     db.collection("profiles").findOne(
         {
-            "login.email": req.session.user.email
+            "login.email": req.session.user.email,
         },
-        function(err, result) {
+        function (err, result) {
             if (err) throw err;
             //finally we just send the result to the user page as "user"
             console.log(result);
 
             res.render("pages/editProfile", {
-                user: result
+                user: result,
             });
         }
     );
 });
 
-app.get("/resetPwd", function(req, res) {
+app.get("/resetPwd", function (req, res) {
     res.render("pages/resetPwd");
 });
 
 //logout route cause the page to Logout.
 //it sets our session.loggedin to false and then redirects the user to the login
-app.get("/logout", function(req, res) {
+app.get("/logout", function (req, res) {
     req.session.loggedin = false;
     req.session.destroy();
     res.redirect("/");
@@ -139,11 +144,11 @@ app.get("/logout", function(req, res) {
 
 // the dologin route detasl with the data from the login screen.
 // the post variables, username and password ceom from the form on the login page.
-app.post("/dologin", function(req, res) {
+app.post("/dologin", function (req, res) {
     var email = req.body.email;
     var pword = req.body.password;
 
-    db.collection("profiles").findOne({ "login.email": email }, function(
+    db.collection("profiles").findOne({ "login.email": email }, function (
         err,
         result
     ) {
@@ -165,7 +170,7 @@ app.post("/dologin", function(req, res) {
             req.session.user = {
                 first: result.name.first,
                 last: result.name.last,
-                email: result.login.email
+                email: result.login.email,
             };
 
             res.redirect("/profile");
@@ -178,7 +183,7 @@ app.post("/dologin", function(req, res) {
     });
 });
 
-app.post("/dosignup", function(req, res) {
+app.post("/dosignup", function (req, res) {
     var email = req.body.email;
     var pword = req.body.password;
 
@@ -188,19 +193,19 @@ app.post("/dosignup", function(req, res) {
     var datatostore = {
         name: {
             first: req.body.firstname,
-            last: req.body.lastname
+            last: req.body.lastname,
         },
         login: {
             email: email,
-            password: hash
+            password: hash,
         },
         favourites: [],
         historic: [],
-        registered: Date()
+        registered: Date(),
     };
 
     //we chech if the email of the new user is not already saved in our database
-    db.collection("profiles").findOne({ "login.email": email }, function(
+    db.collection("profiles").findOne({ "login.email": email }, function (
         err,
         result
     ) {
@@ -208,7 +213,7 @@ app.post("/dosignup", function(req, res) {
         //if there is no result, we can continue the process
         if (!result) {
             //once created we just run the data string against the database and all our new data will be saved
-            db.collection("profiles").insertOne(datatostore, function(
+            db.collection("profiles").insertOne(datatostore, function (
                 err,
                 result
             ) {
@@ -224,4 +229,30 @@ app.post("/dosignup", function(req, res) {
             res.redirect("/login");
         }
     });
+});
+
+app.post("/getinformation", function (req, res) {
+    var city_name = req.body.searchbarInput.split(",");
+    var city_info = req.body.searchbarInputInformation.split(",");
+
+    var city = {
+        id: city_info[0],
+        name: city_name[0],
+        country: city_name[1].trim(),
+        coord: {
+            lat: city_info[1],
+            lon: city_info[2],
+        },
+    };
+    var dates = {
+        start: req.body.inputDatesFrom,
+        end: req.body.inputDatesTo,
+    };
+
+    req.session.information = {
+        city: city,
+        dates: dates,
+    };
+
+    res.redirect("/information");
 });

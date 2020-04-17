@@ -310,6 +310,10 @@ nav .menuHamburger img {
     color: var(--color-darkGray);
 }
 
+.searchbar .searchbar-input-information {
+    display: none;
+}
+
 .searchbar .searchbar-date-container {
     display: flex;
     position: absolute;
@@ -363,12 +367,98 @@ nav .menuHamburger img {
     display: none;
     position: absolute;
     left: 50%;
-    margin-top: 1rem;
+    margin-top: calc(1rem + 5px);
     margin-bottom: 1rem;
     transform: translateX(-50%);
     border: 0;
     background: none;
     cursor: pointer;
+    outline: none;
+}
+
+.lds-ring {
+    display: none;
+    position: absolute;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    transform: translateX(-50%);
+}
+.lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 7px solid var(--color-primary);
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: var(--color-primary) transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#match-list {
+    display: none;
+}
+
+#match-list hr:last-child {
+    visibility: hidden;
+}
+
+.search-match {
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0;
+}
+
+.search-match:hover {
+    cursor: pointer;
+    background-color: var(--color-primary-soft);
+    border-radius: 8px;
+}
+
+.search-match-name {
+    color: var(--color-darkGray);
+}
+
+.search-match-state {
+    color: var(--color-gray);
+}
+
+.search-match-country {
+    color: var(--color-navyBlue);
+}
+
+.search-match-coord {
+    color: var(--color-gray);
+    font-size: 0.8rem;
+}
+
+.search-match-id {
+    display: none;
+}
+
+.search-match-separator {
+    border-top: solid 1px var(--color-gray);
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
 }
 
 /* =========================== Dates details ============================= */
@@ -376,19 +466,6 @@ nav .menuHamburger img {
 .dates-details {
     display: none;
     padding: 0.25rem 0.75rem;
-}
-
-.dates-form {
-    display: flex;
-    flex-direction: column;
-}
-
-@media screen and (min-width: 1600px) {
-    .dates-form {
-        flex-direction: row;
-        align-items: baseline;
-        justify-content: space-between;
-    }
 }
 
 #dates-form-separator {
@@ -405,7 +482,7 @@ nav .menuHamburger img {
     width: 100%;
 }
 
-.dates-details form input[type="date"] {
+.dates-details input[type="date"] {
     padding: 1rem 1.25rem;
     border: 0;
     width: 100%;
@@ -425,8 +502,8 @@ nav .menuHamburger img {
 }
 
 @media screen and (min-width: 1600px) {
-    .dates-inputs {
-        margin-right: 0.5rem;
+    .dates-details-1600 {
+        display: flex;
     }
 }
 
@@ -477,6 +554,19 @@ nav .menuHamburger img {
     margin-top: 1rem;
     color: var(--color-wrong);
     text-align: center;
+}
+
+.error-message-weather {
+    color: var(--color-wrong);
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 1200px) {
+    .error-message-weather {
+        margin-top: -3rem;
+        margin-bottom: 3rem;
+    }
 }
 
 .wrong-shake {
@@ -608,6 +698,37 @@ nav .menuHamburger img {
     transform: scale(1.2);
 }
 
+/* =============================== City ================================== */
+
+.city-container {
+    margin-bottom: 1rem;
+}
+
+.city-container h3 {
+    color: #333;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.city-container h3 span {
+    color: var(--color-navyBlue);
+    font-weight: 300;
+}
+
+.city-container p {
+    color: var(--color-darkGray);
+    margin: 0.5rem 0 0 0;
+    font-weight: 900;
+}
+
+.city-container p span {
+    font-weight: 300;
+}
+
+.city-container .city-hidden-data {
+    display: none;
+}
+
 /* ============================= Forecast ================================ */
 
 .forecast-container {
@@ -643,6 +764,8 @@ nav .menuHamburger img {
     padding: 0 1rem;
     border-radius: 20px;
     background-color: white;
+    max-width: 125px;
+    text-align: center;
 }
 
 .forecast-day {
@@ -668,10 +791,19 @@ nav .menuHamburger img {
 .forecast-temperature span.min-temp {
     padding: 0 1px;
     color: var(--color-gray);
+    font-size: 0.9rem;
+    margin-left: 4px;
 }
 
 .forecast-description {
     display: none;
+}
+
+@media screen and (min-width: 1200px) {
+    .forecast-description {
+        display: inline-block;
+        color: var(--color-navyBlue);
+    }
 }
 
 .weather-separator {
