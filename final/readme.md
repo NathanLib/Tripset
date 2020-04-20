@@ -18,7 +18,7 @@ The packages.json file contains a list of all the packages required to run our p
 NPM can read this and install all the required packages for us!
 
 ## Step Three
-Type *(all as one line)* the following command: **mongoimport --db profiles --collection people --drop --file admin.json**
+Type *(all as one line)* the following command: **mongoimport --db tripset --collection profiles --drop --file admin.json**
 
 This command will delete all the data contained in the **"profiles"** collection and add only one **Admin** account.
 This account does not have any particular privilege but will allow you to test the login system without having to create an account, as well as pre-filled data for the **Profile page**.
