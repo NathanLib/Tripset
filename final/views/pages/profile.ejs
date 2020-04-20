@@ -42,34 +42,27 @@
                     <p>Favourites</p>
                 </div>
                 <div class="liste-city-bloc">
+                    <% user.favourites.forEach(function(fav) { %>
                     <a class="city-bloc hvr-grow" href="/information">
+                        <p class="city-name"><%= fav.city.name %></p>
+                        <div class="line">
+                            <p class="city-temperature">
+                                <%= fav.weather.temp %>
+                            </p>
+                            <p class="city-weather">
+                                <%= fav.weather.desc %>
+                            </p>
+                        </div>
+                    </a>
+                    <% }); %>
+
+                    <!-- <a class="city-bloc hvr-grow" href="/information">
                         <p class="city-name">City</p>
                         <div class="line">
                             <p class="city-temperature">Temperature</p>
                             <p class="city-weather">Weather</p>
                         </div>
-                    </a>
-                    <a class="city-bloc hvr-grow" href="/information">
-                        <p class="city-name">City</p>
-                        <div class="line">
-                            <p class="city-temperature">Temperature</p>
-                            <p class="city-weather">Weather</p>
-                        </div>
-                    </a>
-                    <a class="city-bloc hvr-grow" href="/information">
-                        <p class="city-name">City</p>
-                        <div class="line">
-                            <p class="city-temperature">Temperature</p>
-                            <p class="city-weather">Weather</p>
-                        </div>
-                    </a>
-                    <a class="city-bloc hvr-grow" href="/information">
-                        <p class="city-name">City</p>
-                        <div class="line">
-                            <p class="city-temperature">Temperature</p>
-                            <p class="city-weather">Weather</p>
-                        </div>
-                    </a>
+                    </a> -->
                 </div>
             </div>
             <div class="info-bloc user-historic">

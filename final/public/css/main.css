@@ -1604,6 +1604,9 @@ nav .menuHamburger img {
     border-bottom: 1px solid var(--color-darkGray);
     font-size: 1.2rem;
     text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .city-bloc .line {
@@ -1640,6 +1643,8 @@ nav .menuHamburger img {
     }
     .city-bloc .city-name {
         border-bottom: none;
+        width: 120px;
+        text-align: left;
     }
     .city-bloc .line {
         flex-direction: column;

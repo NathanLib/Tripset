@@ -283,7 +283,7 @@ app.post("/dofav", function (req, res) {
     db.collection("profiles").findOne(
         {
             "login.email": req.session.user.email,
-            "favourites.city.id": req.session.information.city.id,
+            "favorites.city.id": req.session.information.city.id,
         },
         function (err, result) {
             if (err) throw err; //if there is an error, throw the error
