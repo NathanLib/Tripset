@@ -729,6 +729,13 @@ nav .menuHamburger img {
     display: none;
 }
 
+.link-save-favourite {
+    color: var(--color-darkGray);
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: small;
+}
+
 /* ============================= Forecast ================================ */
 
 .forecast-container {
