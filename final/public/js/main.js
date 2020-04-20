@@ -580,3 +580,7 @@ $(".city-bloc").css("background-color", function () {
     var random_color = colors[Math.floor(Math.random() * colors.length)];
     return random_color;
 });
+
+$(".city-bloc").click(function () {
+    $(this).submit();
+});

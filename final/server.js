@@ -242,8 +242,8 @@ app.post("/getinformation", function (req, res) {
     var city_info = req.body.searchbarInputInformation.split(",");
 
     var city = {
-        id: city_info[0],
-        name: city_name[0],
+        id: city_info[0].trim(),
+        name: city_name[0].trim(),
         country: city_name[1].trim(),
         coord: {
             lat: city_info[1],
@@ -283,10 +283,11 @@ app.post("/dofav", function (req, res) {
     db.collection("profiles").findOne(
         {
             "login.email": req.session.user.email,
-            "favorites.city.id": req.session.information.city.id,
+            "favourites.city.id": req.session.information.city.id,
         },
         function (err, result) {
             if (err) throw err; //if there is an error, throw the error
+
             //if there is no result, we can continue the process
             if (!result) {
                 db.collection("profiles").updateOne(
@@ -307,4 +308,29 @@ app.post("/dofav", function (req, res) {
             }
         }
     );
+});
+
+app.post("/selectFav", function (req, res) {
+    var city_info = req.body.inputFavCityInfo.split(",");
+
+    var city = {
+        id: city_info[0].trim(),
+        name: city_info[1].trim(),
+        country: city_info[2].trim(),
+        coord: {
+            lat: city_info[3].trim(),
+            lon: city_info[4].trim(),
+        },
+    };
+    var dates = {
+        start: "",
+        end: "",
+    };
+
+    req.session.information = {
+        city: city,
+        dates: dates,
+    };
+
+    res.redirect("/information");
 });

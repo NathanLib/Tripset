@@ -737,6 +737,8 @@ nav .menuHamburger img {
     text-decoration: underline;
     cursor: pointer;
     font-size: small;
+    background: transparent;
+    border: 0;
 }
 .error-message-fav {
     color: var(--color-wrong) !important;
@@ -1597,6 +1599,7 @@ nav .menuHamburger img {
     background-color: var(--color-lightGray);
     color: black;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .city-bloc .city-name {
@@ -1615,6 +1618,15 @@ nav .menuHamburger img {
 
 .city-bloc .city-temperature {
     flex: 1;
+}
+
+.city-temperature,
+.city-weather {
+    color: #333;
+}
+
+.fav-city-info {
+    display: none;
 }
 
 .section-title {

@@ -43,7 +43,11 @@
                 </div>
                 <div class="liste-city-bloc">
                     <% user.favourites.forEach(function(fav) { %>
-                    <a class="city-bloc hvr-grow" href="/information">
+                    <form
+                        class="city-bloc hvr-grow"
+                        action="/selectfav"
+                        method="POST"
+                    >
                         <p class="city-name"><%= fav.city.name %></p>
                         <div class="line">
                             <p class="city-temperature">
@@ -52,17 +56,21 @@
                             <p class="city-weather">
                                 <%= fav.weather.desc %>
                             </p>
+                            <input
+                                class="fav-city-info"
+                                name="inputFavCityInfo"
+                                type="text"
+                                value="
+                                <%-fav.city.id %>,
+                                <%-fav.city.name %>,
+                                <%-fav.city.country %>,
+                                <%-fav.city.coord.lat %>,
+                                <%- fav.city.coord.lon %>
+                                "
+                            />
                         </div>
-                    </a>
+                    </form>
                     <% }); %>
-
-                    <!-- <a class="city-bloc hvr-grow" href="/information">
-                        <p class="city-name">City</p>
-                        <div class="line">
-                            <p class="city-temperature">Temperature</p>
-                            <p class="city-weather">Weather</p>
-                        </div>
-                    </a> -->
                 </div>
             </div>
             <div class="info-bloc user-historic">
