@@ -7,7 +7,53 @@
         "email": "admin@gmail.com",
         "password": "$2b$10$YJ6Y1PnM4KQzPyAr3gjj3eAuebh96fUcWheQFPXMI6efMhborq/W6"
     },
-    "favourites": ["Paris", "Sydney", "New-York", "Aberdeen"],
+    "favourites": [
+        {
+            "city": {
+                "id": "5128581",
+                "name": "New York City (NY)",
+                "country": "US",
+                "coord": {
+                    "lat": "40.714272",
+                    "lon": "-74.005966"
+                }
+            },
+            "weather": {
+                "temp": "13°",
+                "desc": "Clear"
+            }
+        },
+        {
+            "city": {
+                "id": "2998286",
+                "name": "Limoges",
+                "country": "FR",
+                "coord": {
+                    "lat": "45.831532",
+                    "lon": "1.2578"
+                }
+            },
+            "weather": {
+                "temp": "17°",
+                "desc": "Rain"
+            }
+        },
+        {
+            "city": {
+                "id": "2657832",
+                "name": "Aberdeen",
+                "country": "GB",
+                "coord": {
+                    "lat": "57.143688",
+                    "lon": "-2.09814"
+                }
+            },
+            "weather": {
+                "temp": "11°",
+                "desc": "Clear"
+            }
+        }
+    ],
     "historic": [
         "London",
         "Singapore",

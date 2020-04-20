@@ -729,10 +729,17 @@ nav .menuHamburger img {
     display: none;
 }
 
+.input-info-save-favourite {
+    display: none;
+}
 .link-save-favourite {
     color: var(--color-darkGray);
     text-decoration: underline;
     cursor: pointer;
+    font-size: small;
+}
+.error-message-fav {
+    color: var(--color-wrong) !important;
     font-size: small;
 }
 

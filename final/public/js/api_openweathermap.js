@@ -83,6 +83,16 @@ $(function () {
                         );
                     }
                 });
+
+            var current_temp = $(".forecast-container")
+                .find(".forecast:first-child .max-temp")
+                .text();
+            var current_description = $(".forecast-container")
+                .find(".forecast:first-child .forecast-description")
+                .text();
+            $(".input-info-save-favourite").val(
+                current_temp + "," + current_description
+            );
         });
 });
 
