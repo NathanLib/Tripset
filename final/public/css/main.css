@@ -729,6 +729,22 @@ nav .menuHamburger img {
     display: none;
 }
 
+.input-info-save-favourite {
+    display: none;
+}
+.link-save-favourite {
+    color: var(--color-darkGray);
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: small;
+    background: transparent;
+    border: 0;
+}
+.error-message-fav {
+    color: var(--color-wrong) !important;
+    font-size: small;
+}
+
 /* ============================= Forecast ================================ */
 
 .forecast-container {
@@ -1583,6 +1599,7 @@ nav .menuHamburger img {
     background-color: var(--color-lightGray);
     color: black;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .city-bloc .city-name {
@@ -1590,6 +1607,9 @@ nav .menuHamburger img {
     border-bottom: 1px solid var(--color-darkGray);
     font-size: 1.2rem;
     text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .city-bloc .line {
@@ -1598,6 +1618,15 @@ nav .menuHamburger img {
 
 .city-bloc .city-temperature {
     flex: 1;
+}
+
+.city-temperature,
+.city-weather {
+    color: #333;
+}
+
+.fav-city-info {
+    display: none;
 }
 
 .section-title {
@@ -1626,6 +1655,8 @@ nav .menuHamburger img {
     }
     .city-bloc .city-name {
         border-bottom: none;
+        width: 120px;
+        text-align: left;
     }
     .city-bloc .line {
         flex-direction: column;

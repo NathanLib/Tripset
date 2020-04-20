@@ -567,3 +567,20 @@ function sendEmail() {
         emailSent.style.display = "block";
     }
 }
+
+/* =======================================================================
+
+                            Profile page
+
+   ======================================================================= */
+
+var colors = ["#f1faff", "#fff1fa", "#fafff1", "#f1f3ff", "#f1fffd", "#fff6f1"];
+
+$(".city-bloc").css("background-color", function () {
+    var random_color = colors[Math.floor(Math.random() * colors.length)];
+    return random_color;
+});
+
+$(".city-bloc").click(function () {
+    $(this).submit();
+});

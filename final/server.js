@@ -69,7 +69,13 @@ app.get("/information", function (req, res) {
         return;
     }
 
-    res.render("pages/information");
+    if (req.session.favError) {
+        var message = req.session.favError;
+        delete req.session.favError;
+        res.render("pages/information", { messageFavError: message });
+    } else {
+        res.render("pages/information");
+    }
 });
 
 app.get("/login", function (req, res) {
@@ -236,8 +242,8 @@ app.post("/getinformation", function (req, res) {
     var city_info = req.body.searchbarInputInformation.split(",");
 
     var city = {
-        id: city_info[0],
-        name: city_name[0],
+        id: city_info[0].trim(),
+        name: city_name[0].trim(),
         country: city_name[1].trim(),
         coord: {
             lat: city_info[1],
@@ -247,6 +253,78 @@ app.post("/getinformation", function (req, res) {
     var dates = {
         start: req.body.inputDatesFrom,
         end: req.body.inputDatesTo,
+    };
+
+    req.session.information = {
+        city: city,
+        dates: dates,
+    };
+
+    res.redirect("/information");
+});
+
+app.post("/dofav", function (req, res) {
+    if (!req.session.loggedin) {
+        res.redirect("/login");
+        return;
+    }
+
+    var current_weather = req.body.inputInfoSaveFavourite.split(",");
+
+    var new_fav = {
+        city: req.session.information.city,
+        weather: {
+            temp: current_weather[0],
+            desc: current_weather[1],
+        },
+    };
+
+    // we chech if the city is not already in the user favourite
+    db.collection("profiles").findOne(
+        {
+            "login.email": req.session.user.email,
+            "favourites.city.id": req.session.information.city.id,
+        },
+        function (err, result) {
+            if (err) throw err; //if there is an error, throw the error
+
+            //if there is no result, we can continue the process
+            if (!result) {
+                db.collection("profiles").updateOne(
+                    { "login.email": req.session.user.email },
+                    { $push: { favourites: new_fav } },
+                    function (err, result) {
+                        if (err) throw err;
+                        console.log("Saved to database");
+
+                        //when complete redirect to the profile page
+                        res.redirect("/profile");
+                    }
+                );
+            } else {
+                req.session.favError =
+                    "This city is already in your favourites";
+                res.redirect("/information");
+            }
+        }
+    );
+});
+
+app.post("/selectFav", function (req, res) {
+    var city_info = req.body.inputFavCityInfo.split(",");
+
+    var city = {
+        id: city_info[0].trim(),
+        name: city_info[1].trim(),
+        country: city_info[2].trim(),
+        coord: {
+            lat: city_info[3].trim(),
+            lon: city_info[4].trim(),
+        },
+    };
+    var dates = {
+        start: "",
+        end: "",
     };
 
     req.session.information = {

@@ -46,6 +46,24 @@
                         <%= session.information.city.coord.lon %>
                     </span>
                 </p>
+
+                <form action="/dofav" method="post">
+                    <input
+                        class="input-info-save-favourite"
+                        name="inputInfoSaveFavourite"
+                        type="text"
+                        value=""
+                    />
+                    <button class="link-save-favourite" type="submit">
+                        Save this city to your favourite
+                    </button>
+
+                    <% if(locals.messageFavError) { %>
+                    <p class="error-message-fav">
+                        <%= messageFavError %>
+                    </p>
+                    <% } %>
+                </form>
             </section>
             <!-- All icons are from: https://www.amcharts.com/free-animated-svg-weather-icons/ -->
             <section
