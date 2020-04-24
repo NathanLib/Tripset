@@ -9,59 +9,87 @@
     },
     "favourites": [
         {
-            "city": {
-                "id": "5128581",
-                "name": "New York City (NY)",
-                "country": "US",
-                "coord": {
-                    "lat": "40.714272",
-                    "lon": "-74.005966"
-                }
-            },
-            "weather": {
-                "temp": "13°",
-                "desc": "Clear"
+            "id": "5128581",
+            "name": "New York City (NY)",
+            "country": "US",
+            "coord": {
+                "lat": "40.714272",
+                "lon": "-74.005966"
             }
         },
         {
-            "city": {
-                "id": "2998286",
-                "name": "Limoges",
-                "country": "FR",
-                "coord": {
-                    "lat": "45.831532",
-                    "lon": "1.2578"
-                }
-            },
-            "weather": {
-                "temp": "17°",
-                "desc": "Rain"
+            "id": "2998286",
+            "name": "Limoges",
+            "country": "FR",
+            "coord": {
+                "lat": "45.831532",
+                "lon": "1.2578"
             }
         },
         {
-            "city": {
-                "id": "2657832",
-                "name": "Aberdeen",
-                "country": "GB",
-                "coord": {
-                    "lat": "57.143688",
-                    "lon": "-2.09814"
-                }
-            },
-            "weather": {
-                "temp": "11°",
-                "desc": "Clear"
+            "id": "2657832",
+            "name": "Aberdeen",
+            "country": "GB",
+            "coord": {
+                "lat": "57.143688",
+                "lon": "-2.09814"
             }
         }
     ],
     "historic": [
-        "London",
-        "Singapore",
-        "Bangkok",
-        "Dubai",
-        "Singapore",
-        "Tokyo",
-        "Istanbul",
-        "Seoul"
+        {
+            "id": "5128581",
+            "name": "New York City (NY)",
+            "country": "US",
+            "coord": {
+                "lat": "40.714272",
+                "lon": "-74.005966"
+            }
+        },
+        {
+            "id": "2998286",
+            "name": "Limoges",
+            "country": "FR",
+            "coord": {
+                "lat": "45.831532",
+                "lon": "1.2578"
+            }
+        },
+        {
+            "id": "2657832",
+            "name": "Aberdeen",
+            "country": "GB",
+            "coord": {
+                "lat": "57.143688",
+                "lon": "-2.09814"
+            }
+        },
+        {
+            "id": "2995469",
+            "name": "Marseille",
+            "country": "FR",
+            "coord": {
+                "lat": "43.296951",
+                "lon": "5.38107"
+            }
+        },
+        {
+            "id": "2996944",
+            "name": "Lyon",
+            "country": "FR",
+            "coord": {
+                "lat": "45.748459",
+                "lon": "4.84671"
+            }
+        },
+        {
+            "id": "5368361",
+            "name": "Los Angeles (CA)",
+            "country": "US",
+            "coord": {
+                "lat": "34.052231",
+                "lon": "-118.243683"
+            }
+        }
     ]
 }

@@ -26,13 +26,13 @@
                 <% if(session.information.dates.start != "") { %>
                 <p>
                     From:
-                    <span class="city-dates-from"
-                        ><%= session.information.dates.start %></span
-                    >
+                    <span class="city-dates-from">
+                        <%= session.information.dates.start %>
+                    </span>
                     , To:
-                    <span class="city-dates-to"
-                        ><%= session.information.dates.end %></span
-                    >
+                    <span class="city-dates-to">
+                        <%= session.information.dates.end %>
+                    </span>
                 </p>
                 <% } %>
                 <p class="city-hidden-data">
@@ -47,13 +47,12 @@
                     </span>
                 </p>
 
-                <form action="/dofav" method="post">
-                    <input
-                        class="input-info-save-favourite"
-                        name="inputInfoSaveFavourite"
-                        type="text"
-                        value=""
-                    />
+                <form
+                    id="formFavCity"
+                    name="formFavCity"
+                    action="/dofav"
+                    method="post"
+                >
                     <button class="link-save-favourite" type="submit">
                         Save this city to your favourite
                     </button>
@@ -601,6 +600,12 @@
                 type="text/javascript"
                 src="/js/api_openweathermap.js"
             ></script>
+
+            <% if (locals.favSubmit) { %>
+            <script>
+                document.formFavCity.submit();
+            </script>
+            <% } %>
         </footer>
     </body>
 </html>
