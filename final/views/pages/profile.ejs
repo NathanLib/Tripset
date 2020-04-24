@@ -45,27 +45,33 @@
                     <% user.favourites.forEach(function(fav) { %>
                     <form
                         class="city-bloc hvr-grow"
-                        action="/selectfav"
+                        action="/selectCity"
                         method="POST"
                     >
-                        <p class="city-name"><%= fav.city.name %></p>
+                        <p class="city-name"><%= fav.name %></p>
                         <div class="line">
-                            <p class="city-temperature">
-                                <%= fav.weather.temp %>
+                            <p class="fav-coord">
+                                Lon:
+                                <span class="fav-coord-lon">
+                                    <%= fav.coord.lon %>
+                                </span>
                             </p>
-                            <p class="city-weather">
-                                <%= fav.weather.desc %>
+                            <p class="fav-coord">
+                                Lat:
+                                <span class="historic-coord-lat">
+                                    <%= fav.coord.lat %>
+                                </span>
                             </p>
                             <input
                                 class="fav-city-info"
-                                name="inputFavCityInfo"
+                                name="inputCityInfo"
                                 type="text"
                                 value="
-                                <%-fav.city.id %>,
-                                <%-fav.city.name %>,
-                                <%-fav.city.country %>,
-                                <%-fav.city.coord.lat %>,
-                                <%- fav.city.coord.lon %>
+                                <%-fav.id %>,
+                                <%-fav.name %>,
+                                <%-fav.country %>,
+                                <%-fav.coord.lat %>,
+                                <%-fav.coord.lon %>
                                 "
                             />
                         </div>
@@ -79,55 +85,46 @@
                     <p>Historic</p>
                 </div>
                 <div class="liste-city-bloc">
-                    <a class="city-bloc hvr-grow" href="/information">
-                        <p class="city-name">City</p>
+                    <% user.historic.reverse().forEach(function(hist) { %>
+                    <form
+                        class="city-bloc hvr-grow"
+                        action="/selectCity"
+                        method="POST"
+                    >
+                        <p class="city-name">
+                            <%= hist.name %>,
+                            <span class="historic-country">
+                                <%= hist.country%>
+                            </span>
+                        </p>
                         <div class="line">
-                            <p class="city-temperature">Temperature</p>
-                            <p class="city-weather">Weather</p>
+                            <p class="historic-coord">
+                                Lon:
+                                <span class="historic-coord-lon">
+                                    <%= hist.coord.lon %>
+                                </span>
+                            </p>
+                            <p class="historic-coord">
+                                Lat:
+                                <span class="historic-coord-lat">
+                                    <%= hist.coord.lat %>
+                                </span>
+                            </p>
+                            <input
+                                class="historic-city-info"
+                                name="inputCityInfo"
+                                type="text"
+                                value="
+                                <%-hist.id %>,
+                                <%-hist.name %>,
+                                <%-hist.country %>,
+                                <%-hist.coord.lat %>,
+                                <%-hist.coord.lon %>
+                                "
+                            />
                         </div>
-                    </a>
-                    <a class="city-bloc hvr-grow" href="/information">
-                        <p class="city-name">City</p>
-                        <div class="line">
-                            <p class="city-temperature">Temperature</p>
-                            <p class="city-weather">Weather</p>
-                        </div>
-                    </a>
-                    <a class="city-bloc hvr-grow" href="/information">
-                        <p class="city-name">City</p>
-                        <div class="line">
-                            <p class="city-temperature">Temperature</p>
-                            <p class="city-weather">Weather</p>
-                        </div>
-                    </a>
-                    <a class="city-bloc hvr-grow" href="/information">
-                        <p class="city-name">City</p>
-                        <div class="line">
-                            <p class="city-temperature">Temperature</p>
-                            <p class="city-weather">Weather</p>
-                        </div>
-                    </a>
-                    <a class="city-bloc hvr-grow" href="/information">
-                        <p class="city-name">City</p>
-                        <div class="line">
-                            <p class="city-temperature">Temperature</p>
-                            <p class="city-weather">Weather</p>
-                        </div>
-                    </a>
-                    <a class="city-bloc hvr-grow" href="/information">
-                        <p class="city-name">City</p>
-                        <div class="line">
-                            <p class="city-temperature">Temperature</p>
-                            <p class="city-weather">Weather</p>
-                        </div>
-                    </a>
-                    <a class="city-bloc hvr-grow" href="/information">
-                        <p class="city-name">City</p>
-                        <div class="line">
-                            <p class="city-temperature">Temperature</p>
-                            <p class="city-weather">Weather</p>
-                        </div>
-                    </a>
+                    </form>
+                    <% }); %>
                 </div>
             </div>
         </div>

@@ -10,6 +10,8 @@ const salt = "$2b$10$YJ6Y1PnM4KQzPyAr3gjj3e";
 const app = express();
 const port = 8080;
 
+var isFromFav = false;
+
 app.use(express.static(__dirname + "/public"));
 
 app.use(
@@ -69,13 +71,23 @@ app.get("/information", function (req, res) {
         return;
     }
 
+    var message;
+    var favSubmit = false;
+
     if (req.session.favError) {
-        var message = req.session.favError;
+        message = req.session.favError;
         delete req.session.favError;
-        res.render("pages/information", { messageFavError: message });
-    } else {
-        res.render("pages/information");
     }
+
+    if (isFromFav) {
+        favSubmit = true;
+        isFromFav = false;
+    }
+
+    res.render("pages/information", {
+        messageFavError: message,
+        favSubmit: favSubmit,
+    });
 });
 
 app.get("/login", function (req, res) {
@@ -179,7 +191,11 @@ app.post("/dologin", function (req, res) {
                 email: result.login.email,
             };
 
-            res.redirect("/profile");
+            if (isFromFav) {
+                res.redirect("/information");
+            } else {
+                res.redirect("/profile");
+            }
         }
         //otherwise send them back to login
         else {
@@ -260,30 +276,88 @@ app.post("/getinformation", function (req, res) {
         dates: dates,
     };
 
+    // we add the city in the user's historic only if the user is already logged in
+    if (req.session.loggedin) {
+        // we chech if the city is not already in the user historic
+        db.collection("profiles").findOne(
+            {
+                "login.email": req.session.user.email,
+                "historic.id": req.session.information.city.id,
+            },
+            function (err, result) {
+                if (err) throw err; //if there is an error, throw the error
+
+                //if there is no result, we can continue the process
+                if (!result) {
+                    db.collection("profiles").updateOne(
+                        {
+                            "login.email": req.session.user.email,
+                        },
+                        {
+                            $push: {
+                                historic: {
+                                    $each: [city],
+                                    $slice: -8,
+                                },
+                            },
+                        },
+                        function (err, result) {
+                            if (err) throw err;
+                        }
+                    );
+                } else {
+                    db.collection("profiles").updateOne(
+                        {
+                            "login.email": req.session.user.email,
+                        },
+                        {
+                            $pull: {
+                                historic: { id: city.id },
+                            },
+                        },
+                        function (err, result) {
+                            if (err) throw err;
+                        }
+                    );
+
+                    db.collection("profiles").updateOne(
+                        {
+                            "login.email": req.session.user.email,
+                        },
+                        {
+                            $push: {
+                                historic: {
+                                    $each: [city],
+                                    $slice: -8,
+                                },
+                            },
+                        },
+                        function (err, result) {
+                            if (err) throw err;
+                        }
+                    );
+                }
+            }
+        );
+    }
+
     res.redirect("/information");
 });
 
 app.post("/dofav", function (req, res) {
     if (!req.session.loggedin) {
+        isFromFav = true;
         res.redirect("/login");
         return;
     }
 
-    var current_weather = req.body.inputInfoSaveFavourite.split(",");
-
-    var new_fav = {
-        city: req.session.information.city,
-        weather: {
-            temp: current_weather[0],
-            desc: current_weather[1],
-        },
-    };
+    var new_fav = req.session.information.city;
 
     // we chech if the city is not already in the user favourite
     db.collection("profiles").findOne(
         {
             "login.email": req.session.user.email,
-            "favourites.city.id": req.session.information.city.id,
+            "favourites.id": req.session.information.city.id,
         },
         function (err, result) {
             if (err) throw err; //if there is an error, throw the error
@@ -310,8 +384,8 @@ app.post("/dofav", function (req, res) {
     );
 });
 
-app.post("/selectFav", function (req, res) {
-    var city_info = req.body.inputFavCityInfo.split(",");
+app.post("/selectCity", function (req, res) {
+    var city_info = req.body.inputCityInfo.split(",");
 
     var city = {
         id: city_info[0].trim(),

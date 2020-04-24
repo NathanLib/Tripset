@@ -558,6 +558,7 @@ nav .menuHamburger img {
 
 .error-message-weather {
     color: var(--color-wrong);
+    font-size: small;
     margin-top: -1rem;
     margin-bottom: 1rem;
 }
@@ -1614,19 +1615,39 @@ nav .menuHamburger img {
 
 .city-bloc .line {
     display: flex;
+    justify-content: center;
 }
 
 .city-bloc .city-temperature {
     flex: 1;
 }
 
-.city-temperature,
-.city-weather {
-    color: #333;
+.fav-city-info,
+.historic-city-info {
+    display: none;
 }
 
-.fav-city-info {
-    display: none;
+.historic-country {
+    color: var(--color-navyBlue);
+}
+
+.fav-coord,
+.historic-coord {
+    color: var(--color-darkGray);
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.fav-coord-lat,
+.fav-coord-lon,
+.historic-coord-lat,
+.historic-coord-lon {
+    font-weight: lighter;
+}
+
+.fav-coord-lon,
+.historic-coord-lon {
+    margin-right: 10px;
 }
 
 .section-title {
