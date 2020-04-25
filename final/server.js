@@ -6,6 +6,7 @@ const session = require("express-session");
 const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
 const salt = "$2b$10$YJ6Y1PnM4KQzPyAr3gjj3e";
+const Twitter = require("twitter");
 
 const app = express();
 const port = 8080;
@@ -51,7 +52,32 @@ MongoClient.connect(url, { useNewUrlParser: true }, function (err, client) {
     });
 });
 
+var client = new Twitter({
+    consumer_key: "Q2t0rbujnceDbvJgBHwxjAQmq",
+    consumer_secret: "qnHhBe3Xr86HF2kQI4QWat1FjFIBla5W5GLfpzdBRK5AngdFfY",
+    access_token_key: "4851224529-8Rtqhj93HCKAL2jXcQ8kgyaSUBqRSjY9js6ZXxU",
+    access_token_secret: "8vxJgfRmobMCWmT7b3MzwC7OeeSUmiLUpVhOGuoMlNZpm",
+});
+
 //*************************** GET ROUTES ***************************
+app.get("/tweets", function (req, res) {
+    var params = {
+        screen_name: "nasa",
+        trim_user: true,
+        exclude_replies: true,
+        include_rts: false,
+        count: 5,
+    };
+
+    client.get("statuses/user_timeline", params, function (error, tweets, res) {
+        if (!error) {
+            console.log({ tweets });
+            console.log(tweets[0].text);
+        } else {
+            console.log({ error });
+        }
+    });
+});
 
 app.get("/", function (req, res) {
     res.render("pages/home");
