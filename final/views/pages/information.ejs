@@ -497,7 +497,6 @@
             </section>
 
             <% if (locals.tweets) { %>
-            <p><%= tweets %></p>
             <section class="twitter-container">
                 <div class="twitter-header">
                     Lastest popular tweets about your city
@@ -507,17 +506,24 @@
                     <div class="tweet-header">
                         <div class="tweet-header-photo">
                             <img
-                                src="/images/icons/icon-twitter.svg"
+                                src="<%- tweet.user.image %>"
                                 alt="icon-twitter"
                             />
                         </div>
-                        <div class="tweet-header-name">
-                            Tom Cruise
+                        <div class="tweet-header-user">
+                            <div class="tweet-header-name">
+                                <%= tweet.user.name %>
+                            </div>
+                            <div class="tweet-header-screenname">
+                                @<%= tweet.user.screen_name %>
+                            </div>
                         </div>
                     </div>
                     <div class="tweet-content">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Error harum blanditiis ut nihil eum amet a laboriosam.
+                        <%= tweet.text %>
+                        <a href="<%- tweet.link %>" target="_blank">
+                            <%= tweet.link %>
+                        </a>
                     </div>
                 </div>
                 <% }); %>

@@ -90,6 +90,8 @@ $(function () {
             "placeholder",
             "yyyy-mm-dd"
         );
+
+        $(".searchbar-container").css("margin-top", "20rem");
     }
 
     $("#search_term").on("focus", function () {
@@ -150,9 +152,11 @@ function slideSearchContainer(value) {
             700
         );
     } else {
+        var marginTop_value = "12rem";
+        isSafari ? (marginTop_value = "20rem") : (marginTop_value = "12rem");
         $(".searchbar-container").animate(
             {
-                marginTop: "12rem",
+                marginTop: marginTop_value,
             },
             700
         );

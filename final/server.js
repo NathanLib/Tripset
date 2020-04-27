@@ -116,17 +116,11 @@ app.get("/information", function (req, res) {
 
     var message;
     var favSubmit = false;
-
     var tweets = [];
-
     var country = req.session.information.city.name
         .replace(/ *\([^)]*\) */g, "")
         .replace(/\s+/g, "");
-
-    var lang = req.session.information.city.country.toLowerCase();
-    var params = "(#" + country + ") min_faves:300 lang:" + lang;
-
-    console.log(params);
+    var params = "(#" + country + ") min_faves:300 lang:en";
 
     if (req.session.favError) {
         message = req.session.favError;
@@ -146,8 +140,6 @@ app.get("/information", function (req, res) {
             console.log("caught error", err.stack);
         })
         .then(function (result) {
-            console.log(result);
-
             result.data.statuses.forEach(function (data) {
                 tweet = {
                     user: {
@@ -155,11 +147,11 @@ app.get("/information", function (req, res) {
                         screen_name: data.user.screen_name,
                         image: data.user.profile_image_url_https,
                     },
-                    text: data.text,
+                    text: data.text.replace(/(?:https?|ftp):\/\/[\n\S]+/g, ""),
+                    link: data.text.match(/(?:https?|ftp):\/\/[\n\S]+/g),
                 };
 
                 tweets.push(tweet);
-                console.log(tweet);
             });
 
             res.render("pages/information", {
