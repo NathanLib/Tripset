@@ -61,13 +61,39 @@ var twit = new Twit({
 
 //*************************** GET ROUTES ***************************
 app.get("/tweets", function (req, res) {
-    twit.get(
-        "search/tweets",
-        { q: "banana since:2011-07-11", count: 3 },
-        function (err, data, response) {
-            console.log(data);
-        }
-    );
+    var tweets = [];
+
+    var newyork = "NewYork";
+    var lang = "en";
+    var params = "(#" + newyork + ") min_faves:300 lang:" + lang;
+
+    console.log(params);
+
+    twit.get("search/tweets", {
+        q: params,
+        count: 8,
+    })
+        .catch(function (err) {
+            console.log("caught error", err.stack);
+        })
+        .then(function (result) {
+            result.data.statuses.forEach(function (data) {
+                tweet = {
+                    user: {
+                        name: data.user.name,
+                        screen_name: data.user.screen_name,
+                        image: data.user.profile_image_url_https,
+                    },
+                    text: data.text,
+                };
+
+                tweets.push(tweet);
+            });
+
+            console.log(tweets);
+
+            res.send(tweets);
+        });
 });
 
 app.get("/", function (req, res) {
@@ -91,6 +117,17 @@ app.get("/information", function (req, res) {
     var message;
     var favSubmit = false;
 
+    var tweets = [];
+
+    var country = req.session.information.city.name
+        .replace(/ *\([^)]*\) */g, "")
+        .replace(/\s+/g, "");
+
+    var lang = req.session.information.city.country.toLowerCase();
+    var params = "(#" + country + ") min_faves:300 lang:" + lang;
+
+    console.log(params);
+
     if (req.session.favError) {
         message = req.session.favError;
         delete req.session.favError;
@@ -101,10 +138,36 @@ app.get("/information", function (req, res) {
         isFromFav = false;
     }
 
-    res.render("pages/information", {
-        messageFavError: message,
-        favSubmit: favSubmit,
-    });
+    twit.get("search/tweets", {
+        q: params,
+        count: 8,
+    })
+        .catch(function (err) {
+            console.log("caught error", err.stack);
+        })
+        .then(function (result) {
+            console.log(result);
+
+            result.data.statuses.forEach(function (data) {
+                tweet = {
+                    user: {
+                        name: data.user.name,
+                        screen_name: data.user.screen_name,
+                        image: data.user.profile_image_url_https,
+                    },
+                    text: data.text,
+                };
+
+                tweets.push(tweet);
+                console.log(tweet);
+            });
+
+            res.render("pages/information", {
+                messageFavError: message,
+                favSubmit: favSubmit,
+                tweets: tweets,
+            });
+        });
 });
 
 app.get("/login", function (req, res) {

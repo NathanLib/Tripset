@@ -3,7 +3,10 @@ const matchList = document.getElementById("match-list");
 
 // Search data in json and filter it
 const searchCities = async (searchText) => {
-    const res = await fetch("../data/city.list.min.json");
+    // const res = await fetch("../data/city.list.min.json");
+    const res = await fetch(
+        "https://raw.githubusercontent.com/CM2104-DynamicWebDevelopment/cm2104-group-web-app-half-stack/master/final/public/data/city.list.min.json?token=AI36MRKVTTRFNY6ANSXDHX26V7MFG"
+    );
     const cities = await res.json();
 
     // Get matches to current text input

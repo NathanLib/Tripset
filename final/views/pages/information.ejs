@@ -496,11 +496,13 @@
                 </div>
             </section>
 
+            <% if (locals.tweets) { %>
+            <p><%= tweets %></p>
             <section class="twitter-container">
                 <div class="twitter-header">
-                    Lastest popular tweets
+                    Lastest popular tweets about your city
                 </div>
-
+                <% tweets.forEach(function(tweet) { %>
                 <div class="tweet">
                     <div class="tweet-header">
                         <div class="tweet-header-photo">
@@ -518,79 +520,9 @@
                         Error harum blanditiis ut nihil eum amet a laboriosam.
                     </div>
                 </div>
-
-                <div class="tweet">
-                    <div class="tweet-header">
-                        <div class="tweet-header-photo">
-                            <img
-                                src="/images/icons/icon-twitter.svg"
-                                alt="icon-twitter"
-                            />
-                        </div>
-                        <div class="tweet-header-name">
-                            Tom Cruise
-                        </div>
-                    </div>
-                    <div class="tweet-content">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Error harum blanditiis ut nihil eum amet a laboriosam.
-                    </div>
-                </div>
-
-                <div class="tweet">
-                    <div class="tweet-header">
-                        <div class="tweet-header-photo">
-                            <img
-                                src="/images/icons/icon-twitter.svg"
-                                alt="icon-twitter"
-                            />
-                        </div>
-                        <div class="tweet-header-name">
-                            Tom Cruise
-                        </div>
-                    </div>
-                    <div class="tweet-content">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Error harum blanditiis ut nihil eum amet a laboriosam.
-                    </div>
-                </div>
-
-                <div class="tweet">
-                    <div class="tweet-header">
-                        <div class="tweet-header-photo">
-                            <img
-                                src="/images/icons/icon-twitter.svg"
-                                alt="icon-twitter"
-                            />
-                        </div>
-                        <div class="tweet-header-name">
-                            Tom Cruise
-                        </div>
-                    </div>
-                    <div class="tweet-content">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Error harum blanditiis ut nihil eum amet a laboriosam.
-                    </div>
-                </div>
-
-                <div class="tweet">
-                    <div class="tweet-header">
-                        <div class="tweet-header-photo">
-                            <img
-                                src="/images/icons/icon-twitter.svg"
-                                alt="icon-twitter"
-                            />
-                        </div>
-                        <div class="tweet-header-name">
-                            Tom Cruise
-                        </div>
-                    </div>
-                    <div class="tweet-content">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Error harum blanditiis ut nihil eum amet a laboriosam.
-                    </div>
-                </div>
+                <% }); %>
             </section>
+            <% } %>
         </div>
         <!-- #main-container -->
 
