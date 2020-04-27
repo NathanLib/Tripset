@@ -6,6 +6,7 @@ const session = require("express-session");
 const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
 const salt = "$2b$10$YJ6Y1PnM4KQzPyAr3gjj3e";
+var Twit = require("twit");
 
 const app = express();
 const port = 8080;
@@ -51,7 +52,49 @@ MongoClient.connect(url, { useNewUrlParser: true }, function (err, client) {
     });
 });
 
+var twit = new Twit({
+    consumer_key: "Q2t0rbujnceDbvJgBHwxjAQmq",
+    consumer_secret: "qnHhBe3Xr86HF2kQI4QWat1FjFIBla5W5GLfpzdBRK5AngdFfY",
+    access_token: "4851224529-8Rtqhj93HCKAL2jXcQ8kgyaSUBqRSjY9js6ZXxU",
+    access_token_secret: "8vxJgfRmobMCWmT7b3MzwC7OeeSUmiLUpVhOGuoMlNZpm",
+});
+
 //*************************** GET ROUTES ***************************
+app.get("/tweets", function (req, res) {
+    var tweets = [];
+
+    var newyork = "NewYork";
+    var lang = "en";
+    var params = "(#" + newyork + ") min_faves:300 lang:" + lang;
+
+    console.log(params);
+
+    twit.get("search/tweets", {
+        q: params,
+        count: 8,
+    })
+        .catch(function (err) {
+            console.log("caught error", err.stack);
+        })
+        .then(function (result) {
+            result.data.statuses.forEach(function (data) {
+                tweet = {
+                    user: {
+                        name: data.user.name,
+                        screen_name: data.user.screen_name,
+                        image: data.user.profile_image_url_https,
+                    },
+                    text: data.text,
+                };
+
+                tweets.push(tweet);
+            });
+
+            console.log(tweets);
+
+            res.send(tweets);
+        });
+});
 
 app.get("/", function (req, res) {
     res.render("pages/home");
@@ -74,6 +117,17 @@ app.get("/information", function (req, res) {
     var message;
     var favSubmit = false;
 
+    var tweets = [];
+
+    var country = req.session.information.city.name
+        .replace(/ *\([^)]*\) */g, "")
+        .replace(/\s+/g, "");
+
+    var lang = req.session.information.city.country.toLowerCase();
+    var params = "(#" + country + ") min_faves:300 lang:" + lang;
+
+    console.log(params);
+
     if (req.session.favError) {
         message = req.session.favError;
         delete req.session.favError;
@@ -84,10 +138,36 @@ app.get("/information", function (req, res) {
         isFromFav = false;
     }
 
-    res.render("pages/information", {
-        messageFavError: message,
-        favSubmit: favSubmit,
-    });
+    twit.get("search/tweets", {
+        q: params,
+        count: 8,
+    })
+        .catch(function (err) {
+            console.log("caught error", err.stack);
+        })
+        .then(function (result) {
+            console.log(result);
+
+            result.data.statuses.forEach(function (data) {
+                tweet = {
+                    user: {
+                        name: data.user.name,
+                        screen_name: data.user.screen_name,
+                        image: data.user.profile_image_url_https,
+                    },
+                    text: data.text,
+                };
+
+                tweets.push(tweet);
+                console.log(tweet);
+            });
+
+            res.render("pages/information", {
+                messageFavError: message,
+                favSubmit: favSubmit,
+                tweets: tweets,
+            });
+        });
 });
 
 app.get("/login", function (req, res) {
@@ -156,6 +236,11 @@ app.get("/logout", function (req, res) {
     req.session.loggedin = false;
     req.session.destroy();
     res.redirect("/");
+});
+
+app.get("*", function (req, res) {
+    // everything else
+    res.render("pages/home");
 });
 
 //*************************** POST ROUTES **************************
