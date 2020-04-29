@@ -1,3 +1,4 @@
+
 # Welcome to Tripset!
 
 In order to make the project work properly on **CODIO**, some preliminary manipulations are necessary - we apologize for this inconvenience. 
@@ -25,9 +26,18 @@ This command will delete all the data contained in the **"profiles"** collection
 This account does not have any particular privilege but will allow you to test the login system without having to create an account, as well as pre-filled data for the **Profile page**.
 If the database and the collection have not been created yet, don't worry, this command will take care of it! 🤩 
 
+To use this account: <br/>
+**login:** admin@gmail.com <br/>
+**password:** Admin 
+
+
 ## Step Four
 Type **npm start**  and enjoy our website!
 
-## 
+<br/>
+<br/>
 
 -- **Tripset team**                           
+                                              
+
+
