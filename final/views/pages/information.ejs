@@ -74,7 +74,7 @@
                 class="forecast-container"
                 id="forecast-container"
             ></section>
-            <p class="error-message-weather"></p>
+            <div class="error-message-weather"></div>
 
             <section class="events-container">
                 <div class="events-header">
@@ -406,19 +406,7 @@
                     </svg>
                 </div>
 
-                <div class="photos-content">
-                    <!-- <a
-                        href="/images/gallery/example1.jpg"
-                        data-lightbox="city-photos"
-                        data-title="Click on the edges to navigate between images"
-                    >
-                        <img
-                            src="/images/gallery/example1.jpg"
-                            alt="example1"
-                        />
-                        <p class="gallery-photo-name">Example 1</p>
-                    </a> -->
-                </div>
+                <div class="photos-content"></div>
             </section>
 
             <% if (locals.tweets) { %>
@@ -465,6 +453,7 @@
             ></script>
 
             <script type="text/javascript" src="/js/api_pixabay.js"></script>
+            <script src="/vendors/lightbox/js/lightbox.js"></script>
 
             <% if (locals.favSubmit) { %>
             <script>

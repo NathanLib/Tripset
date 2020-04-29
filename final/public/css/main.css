@@ -561,12 +561,12 @@ nav .menuHamburger img {
     font-size: small;
     margin-top: -1rem;
     margin-bottom: 1rem;
+    width: 100%;
 }
 
 @media screen and (min-width: 1200px) {
     .error-message-weather {
         margin-top: -3rem;
-        margin-bottom: 3rem;
     }
 }
 
