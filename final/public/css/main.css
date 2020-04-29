@@ -267,7 +267,7 @@ nav .menuHamburger img {
 .searchbar-container {
     width: 100%;
     height: auto;
-    margin: 12rem auto 0 auto;
+    margin: 35vh auto 0 auto;
     border-radius: 20px;
     background-color: var(--color-white);
     box-shadow: var(--default-shadow);

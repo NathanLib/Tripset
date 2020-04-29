@@ -155,9 +155,9 @@ function addDatesContainer() {
     $.when(manageCalendar()).done(function () {
         // Depending on the size of the screen, the value of the animation changes
         if (document.body.clientWidth <= 992) {
-            slideSearchContainer("3rem");
+            slideSearchContainer("8vh");
         } else if (document.body.clientWidth <= 1600) {
-            slideSearchContainer("5.5rem");
+            slideSearchContainer("12vh");
         }
 
         // if the date container is displayed, the suggestion list disappears.
@@ -182,14 +182,9 @@ function slideSearchContainer(value) {
             700
         );
     } else {
-        // As the rem (based on pixels) does not represent the same thing on the different supports,
-        // we improve the rendering by taking into account the case of Safari
-        // which degraded everything.
-        var marginTop_value = "12rem";
-        isSafari ? (marginTop_value = "20rem") : (marginTop_value = "12rem");
         $(".searchbar-container").animate(
             {
-                marginTop: marginTop_value,
+                marginTop: "35vh",
             },
             700
         );
