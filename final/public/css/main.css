@@ -711,7 +711,7 @@ nav .menuHamburger img {
     margin: 0;
 }
 
-.city-container h3 span {
+.city-container h3 span.city-country {
     color: var(--color-navyBlue);
     font-weight: 300;
 }
@@ -980,28 +980,25 @@ nav .menuHamburger img {
 }
 
 .photos-container a {
+    display: flex;
+    flex-direction: column;
     margin: 0.5rem;
     margin-bottom: 1.5rem;
+    padding: 0.5rem;
     border-radius: 10px;
     background-color: white;
     box-shadow: var(--default-shadow);
     text-decoration: none;
+    color: var(--color-darkGray);
+    font-size: 0.8rem;
 }
 
 .photos-container a img {
     height: 100px;
-    padding: 0.5rem;
+    margin-bottom: 0.5rem;
     object-fit: cover;
     object-position: center;
     border-radius: 10px;
-}
-
-.gallery-photo-name {
-    padding-bottom: 0.5rem;
-    padding-left: 0.5rem;
-    color: var(--color-darkGray);
-    font-size: 0.8rem;
-    text-decoration: none;
 }
 
 .photos-header {

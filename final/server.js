@@ -389,6 +389,7 @@ app.post("/getinformation", function (req, res) {
                 if (!result) {
                     // Update the historic of the logged user
                     // $slice allows to have a " rolling " array with only 8 entries
+                    // (use negative value for the last items)
                     db.collection("profiles").updateOne(
                         {
                             "login.email": req.session.user.email,

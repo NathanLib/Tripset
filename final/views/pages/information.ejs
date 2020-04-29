@@ -20,8 +20,13 @@
         <div class="main-container">
             <section class="city-container">
                 <h3>
-                    <%= session.information.city.name %>,
-                    <span><%= session.information.city.country %></span>
+                    <span class="city-name">
+                        <%= session.information.city.name %>
+                    </span>
+                    ,
+                    <span class="city-country">
+                        <%= session.information.city.country %>
+                    </span>
                 </h3>
                 <% if(session.information.dates.start != "") { %>
                 <p>
@@ -402,7 +407,7 @@
                 </div>
 
                 <div class="photos-content">
-                    <a
+                    <!-- <a
                         href="/images/gallery/example1.jpg"
                         data-lightbox="city-photos"
                         data-title="Click on the edges to navigate between images"
@@ -412,87 +417,7 @@
                             alt="example1"
                         />
                         <p class="gallery-photo-name">Example 1</p>
-                    </a>
-                    <a
-                        href="/images/gallery/example2.jpg"
-                        data-lightbox="city-photos"
-                    >
-                        <img
-                            src="/images/gallery/example2.jpg"
-                            alt="example2"
-                        />
-                        <p class="gallery-photo-name">Example 2</p>
-                    </a>
-                    <a
-                        href="/images/gallery/example3.jpg"
-                        data-lightbox="city-photos"
-                    >
-                        <img
-                            src="/images/gallery/example3.jpg"
-                            alt="example3"
-                        />
-                        <p class="gallery-photo-name">Example 3</p>
-                    </a>
-                    <a
-                        href="/images/gallery/example4.jpg"
-                        data-lightbox="city-photos"
-                    >
-                        <img
-                            src="/images/gallery/example4.jpg"
-                            alt="example4"
-                        />
-                        <p class="gallery-photo-name">Example 4</p>
-                    </a>
-                    <a
-                        href="/images/gallery/example5.jpg"
-                        data-lightbox="city-photos"
-                    >
-                        <img
-                            src="/images/gallery/example5.jpg"
-                            alt="example5"
-                        />
-                        <p class="gallery-photo-name">Example 5</p>
-                    </a>
-                    <a
-                        href="/images/gallery/example6.jpg"
-                        data-lightbox="city-photos"
-                    >
-                        <img
-                            src="/images/gallery/example6.jpg"
-                            alt="example6"
-                        />
-                        <p class="gallery-photo-name">Example 6</p>
-                    </a>
-                    <a
-                        href="/images/gallery/example7.jpg"
-                        data-lightbox="city-photos"
-                    >
-                        <img
-                            src="/images/gallery/example7.jpg"
-                            alt="example7"
-                        />
-                        <p class="gallery-photo-name">Example 7</p>
-                    </a>
-                    <a
-                        href="/images/gallery/example8.jpg"
-                        data-lightbox="city-photos"
-                    >
-                        <img
-                            src="/images/gallery/example8.jpg"
-                            alt="example8"
-                        />
-                        <p class="gallery-photo-name">Example 8</p>
-                    </a>
-                    <a
-                        href="/images/gallery/example9.jpg"
-                        data-lightbox="city-photos"
-                    >
-                        <img
-                            src="/images/gallery/example9.jpg"
-                            alt="example9"
-                        />
-                        <p class="gallery-photo-name">Example 9</p>
-                    </a>
+                    </a> -->
                 </div>
             </section>
 
@@ -539,7 +464,7 @@
                 src="/js/api_openweathermap.js"
             ></script>
 
-            <script type="text/javascript" src="/js/api_twitter.js"></script>
+            <script type="text/javascript" src="/js/api_pixabay.js"></script>
 
             <% if (locals.favSubmit) { %>
             <script>
