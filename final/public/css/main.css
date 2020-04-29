@@ -526,6 +526,14 @@ nav .menuHamburger img {
     width: 100%;
 }
 
+.warning-message-placeholders {
+    color: var(--color-wrong);
+    font-size: small;
+    margin-top: -1rem;
+    margin-bottom: 0.5rem;
+    width: 100%;
+}
+
 @media screen and (min-width: 1200px) {
     .error-message-weather {
         margin-top: -3rem;
@@ -1698,11 +1706,17 @@ nav .menuHamburger img {
 }
 
 .edit-profile input[type="text"],
-.edit-profile input[type="email"] {
+.edit-profile input[type="email"],
+.edit-profile input[type="password"] {
     padding: 0.2rem;
     border: 1px solid var(--color-darkGray);
     border-radius: 0.2rem;
     font-size: 1rem;
+}
+
+.edit-profile input[type="password"]::placeholder {
+    font-size: 0.85rem;
+    color: var(--color-darkGray);
 }
 
 .edit-profile label {
@@ -1730,6 +1744,7 @@ nav .menuHamburger img {
     background-color: var(--color-primary);
     color: var(--color-white);
     font-size: large;
+    cursor: pointer;
 }
 
 .edit-profile .buttons a {

@@ -343,6 +343,7 @@ app.post("/dosignup", function (req, res) {
     });
 });
 
+// Prepare all information about the selected city before sending them to the page
 app.post("/getinformation", function (req, res) {
     // Retrieve the information about the city in the different inputs of the main page
     var city_name = req.body.searchbarInput.split(",");
@@ -532,6 +533,68 @@ app.post("/selectCity", function (req, res) {
     };
 
     res.redirect("/information");
+});
+
+// Method to updating user account information
+app.post("/updateprofile", function (req, res) {
+    // if the user is not logged in,
+    // we redirect him to the login page
+    if (!req.session.loggedin) {
+        res.redirect("/login");
+        return;
+    }
+
+    // First, we retrieve the information entered on the page
+    var firstname = req.body.firstname;
+    var lastname = req.body.lastname;
+    var email = req.body.email;
+    var password = req.body.password;
+
+    // We start by updating the main information of the account.
+    db.collection("profiles").updateOne(
+        {
+            "login.email": req.session.user.email,
+        },
+        {
+            $set: {
+                name: {
+                    first: firstname,
+                    last: lastname,
+                },
+                "login.email": email,
+            },
+        },
+        function (err, result) {
+            if (err) throw err;
+        }
+    );
+
+    // If the user has entered a new password,
+    // we encrypt it and send it to the database to replace the old one.
+    if (password != "") {
+        const hash = bcrypt.hashSync(password, salt);
+
+        db.collection("profiles").updateOne(
+            {
+                "login.email": req.session.user.email,
+            },
+            {
+                $set: {
+                    "login.password": hash,
+                },
+            },
+            function (err, result) {
+                if (err) throw err;
+            }
+        );
+    }
+
+    // To directly update the information on the different pages,
+    // the session variable is destroyed and the user is asked to reconnect.
+    req.session.loggedin = false;
+    req.session.destroy;
+    req.session.loginValidation = "To update the new data, please reconnect!";
+    res.redirect("/login");
 });
 
 // Avoid to get error if someone write a page that doesn't exist
