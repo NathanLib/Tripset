@@ -961,9 +961,6 @@ nav .menuHamburger img {
         /* Safari and Chrome */
     }
     .map-center-cropped {
-        width: 95%;
-        height: 95%;
-        margin: auto;
         border-radius: 15px;
     }
 }
