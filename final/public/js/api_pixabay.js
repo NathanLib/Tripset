@@ -16,8 +16,6 @@ var URL =
 
 $.getJSON(URL, function (data) {
     if (parseInt(data.totalHits) > 0) {
-        console.log(data);
-
         $.each(data.hits.slice(10), function (i, hit) {
             var photo = {
                 largeImageURL: hit.largeImageURL,
@@ -31,13 +29,9 @@ $.getJSON(URL, function (data) {
     } else {
         console.log("No hits");
     }
-})
-    .then(function () {
-        displayPhotos(photos);
-    })
-    .then(function () {
-        console.log($(".photos-content a"));
-    });
+}).then(function () {
+    displayPhotos(photos);
+});
 
 function displayPhotos(photos) {
     photos.forEach((photo) => {
@@ -45,8 +39,9 @@ function displayPhotos(photos) {
         let a_city = $("<a>");
         // Add attribute (href, data) to the node
         a_city.attr("href", photo.largeImageURL);
-        a_city.attr("data-title", photo.tags);
         a_city.attr("data-lightbox", "city-photos");
+
+        a_city.attr("data-title", photo.tags + " (" + photo.pageURL + ")");
 
         let img_city = $("<img>");
         img_city.attr("src", photo.previewURL);
