@@ -1,14 +1,37 @@
+// Parameters and required package for the database
 const MongoClient = require("mongodb").MongoClient;
 const url = "mongodb://localhost:27017/tripset";
 const dbName = "tripset";
+
+// Required packages for the server
 const express = require("express");
 const session = require("express-session");
+
+// Required package to read information from the input
 const bodyParser = require("body-parser");
+
+// Parameters and required package to encrypt password
 const bcrypt = require("bcrypt");
 const salt = "$2b$10$YJ6Y1PnM4KQzPyAr3gjj3e";
 
-var Twit = require("twit");
+// Parameters and required package to upload and store profile photo
+const multer = require("multer");
+const fs = require("fs");
+// Set storage to the user picture
+var storage = multer.diskStorage({
+    destination: function (req, file, callback) {
+        callback(null, "public/images/uploads");
+    },
+    filename: function (req, file, callback) {
+        callback(null, file.originalname);
+    },
+});
+var upload = multer({ storage: storage });
 
+// Required package to get tweets from Twitter
+const Twit = require("twit");
+
+// Parameters for the server
 const app = express();
 const port = 8080;
 
@@ -270,6 +293,7 @@ app.post("/dologin", function (req, res) {
                 first: result.name.first,
                 last: result.name.last,
                 email: result.login.email,
+                picture: result.picture,
             };
 
             // The redirection differs depending on the page the user comes from
@@ -536,7 +560,7 @@ app.post("/selectCity", function (req, res) {
 });
 
 // Method to updating user account information
-app.post("/updateprofile", function (req, res) {
+app.post("/updateprofile", upload.single("newImg"), function (req, res, next) {
     // if the user is not logged in,
     // we redirect him to the login page
     if (!req.session.loggedin) {
@@ -549,6 +573,7 @@ app.post("/updateprofile", function (req, res) {
     var lastname = req.body.lastname;
     var email = req.body.email;
     var password = req.body.password;
+    var image = req.file;
 
     // We start by updating the main information of the account.
     db.collection("profiles").updateOne(
@@ -581,6 +606,27 @@ app.post("/updateprofile", function (req, res) {
             {
                 $set: {
                     "login.password": hash,
+                },
+            },
+            function (err, result) {
+                if (err) throw err;
+            }
+        );
+    }
+
+    // If the user has selected a new picture,
+    // we add it to the database
+    if (image && typeof image != "undefined") {
+        // We create a new path with the name of the image
+        var path = "/images/uploads/" + image.originalname;
+
+        db.collection("profiles").updateOne(
+            {
+                "login.email": req.session.user.email,
+            },
+            {
+                $set: {
+                    picture: path,
                 },
             },
             function (err, result) {

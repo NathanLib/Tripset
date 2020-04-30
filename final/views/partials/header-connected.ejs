@@ -27,10 +27,7 @@
         <a href="/home">Home</a>
         <a href="/about">About</a>
         <div class="btn_login_logged">
-            <img
-                src="/images/icons/icon_profile_coloured.svg"
-                alt="User's pic"
-            />
+            <img src="<%= session.user.picture %>" alt="User's pic" />
             <a class="btn_login username" href="/profile">
                 <%= session.user.first %>&nbsp;<%= session.user.last %>
             </a>
