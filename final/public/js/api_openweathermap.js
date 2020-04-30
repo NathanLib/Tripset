@@ -237,6 +237,8 @@ function displayWeather(slicedForecast) {
 /* **********************************************************
 Function to set the right url of the weather animation 
 according to the id retrieved with the API
+
+All icons are from: https://www.amcharts.com/free-animated-svg-weather-icons/ 
 ********************************************************** */
 function getSrcImg(id) {
     switch (true) {

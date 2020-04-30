@@ -18,6 +18,7 @@
         </div>
 
         <div class="main-container">
+            <!-- Section containing all the information about the chosen city -->
             <section class="city-container">
                 <h3>
                     <span class="city-name">
@@ -40,6 +41,8 @@
                     </span>
                 </p>
                 <% } %>
+                <!-- Information not displayed on the page (display: none) 
+                    but allowing to retrieve it on the js files. -->
                 <p class="city-hidden-data">
                     <span id="city-hidden-id">
                         <%= session.information.city.country %>
@@ -52,6 +55,7 @@
                     </span>
                 </p>
 
+                <!-- Form to add the city to the user's favorites -->
                 <form
                     id="formFavCity"
                     name="formFavCity"
@@ -70,13 +74,18 @@
                 </form>
             </section>
 
-            <!-- All icons are from: https://www.amcharts.com/free-animated-svg-weather-icons/ -->
+            <!-- Section displaying the weather forecast  -->
+            <!-- All elements will be created 
+                and displayed dynamically in Javascript -->
             <section
                 class="forecast-container"
                 id="forecast-container"
             ></section>
             <div class="error-message-weather"></div>
 
+            <!-- Section displaying the photos  -->
+            <!-- All elements will be created 
+                and displayed dynamically in Javascript -->
             <section class="photos-container">
                 <div class="photos-header">
                     Some photos of the city
@@ -89,6 +98,7 @@
                 <div class="photos-content"></div>
             </section>
 
+            <!-- Section displaying the tweets about the city  -->
             <% if (locals.tweets) { %>
             <section class="twitter-container">
                 <!-- We check that there are at least 2 tweets to display
@@ -131,10 +141,12 @@
             </section>
             <% } %>
 
+            <!-- Warning message for the following two sections that are only placeholders -->
             <div class="warning-message-placeholders">
                 The next two sections (events and maps) are only placeholders,
                 which could not be implemented due to lack of time.
             </div>
+            <!-- Section displaying events around the selected city (function not implemented) -->
             <section class="events-container">
                 <div class="events-header">
                     Some events in the vicinity
@@ -306,6 +318,7 @@
                 </div>
             </section>
 
+            <!-- Section displaying a map of the selected city (function not implemented) -->
             <section class="maps-container">
                 <img
                     class="map-center-cropped"
@@ -318,6 +331,8 @@
 
         <footer>
             <%- include('../partials/footer') %>
+
+            <!-- Calling specific scripts to this page -->
             <script
                 type="text/javascript"
                 src="/js/api_openweathermap.js"

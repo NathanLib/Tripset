@@ -12,6 +12,7 @@
         </div>
 
         <div class="main-container">
+            <!-- Section containing the user's main information -->
             <div class="info-bloc">
                 <div class="user-details-bloc">
                     <img src="<%= session.user.picture %>" alt="User's pic" />
@@ -33,6 +34,8 @@
                     </a>
                 </div>
             </div>
+
+            <!-- Section containing the user's favorite cities -->
             <div class="info-bloc user-favourites">
                 <div class="line section-title">
                     <img src="/images/icons/icon_fav.svg" />
@@ -59,6 +62,9 @@
                                     <%= fav.coord.lat %>
                                 </span>
                             </p>
+                            <!-- Hidden information of the city allowing to click on it 
+                                and to launch a research about this city
+                                (with the form "/selectcity") -->
                             <input
                                 class="fav-city-info"
                                 name="inputCityInfo"
@@ -76,12 +82,16 @@
                     <% }); %>
                 </div>
             </div>
+
+            <!-- Section containing cities in the user history -->
             <div class="info-bloc user-historic">
                 <div class="line section-title">
                     <img src="/images/icons/icon_location-history.svg" />
                     <p>Historic</p>
                 </div>
                 <div class="liste-city-bloc">
+                    <!-- We use the reverse() function to display 
+                        the last cities visited first in the list -->
                     <% user.historic.reverse().forEach(function(hist) { %>
                     <form
                         class="city-bloc hvr-grow"
@@ -107,6 +117,9 @@
                                     <%= hist.coord.lat %>
                                 </span>
                             </p>
+                            <!-- Hidden information of the city allowing to click on it 
+                                and to launch a research about this city
+                                (with the form "/selectcity") -->
                             <input
                                 class="historic-city-info"
                                 name="inputCityInfo"

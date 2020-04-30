@@ -1,3 +1,5 @@
+// We retrieve the name of the city on the html page
+// and we remove all the information that we don't want in the string.
 var city_name = $(".city-name")
     .text()
     .trim()
@@ -6,6 +8,7 @@ var city_name = $(".city-name")
 
 var photos = [];
 
+// Creating parameters for the API
 var API_KEY = "7964577-4c82fb711d4b3cb0335bf6120";
 var URL =
     "https://pixabay.com/api/?key=" +
