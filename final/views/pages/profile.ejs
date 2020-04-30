@@ -14,10 +14,7 @@
         <div class="main-container">
             <div class="info-bloc">
                 <div class="user-details-bloc">
-                    <img
-                        src="/images/icons/icon_profile_coloured.svg"
-                        alt="User's pic"
-                    />
+                    <img src="<%= session.user.picture %>" alt="User's pic" />
                     <div class="user-details">
                         <p><%= session.user.first %></p>
                         <p class="profile-lastName">

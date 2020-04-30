@@ -8,6 +8,7 @@
             "email": "admin@gmail.com",
             "password": "$2b$10$YJ6Y1PnM4KQzPyAr3gjj3eAuebh96fUcWheQFPXMI6efMhborq/W6"
         },
+        "picture": "images/uploads/icon_profile_coloured.svg",
         "favourites": [
             {
                 "id": "5128581",

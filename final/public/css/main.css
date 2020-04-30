@@ -243,6 +243,9 @@ nav .menuHamburger img {
     .btn_login_logged img {
         position: relative;
         right: -1.5rem;
+        object-fit: cover;
+        border-radius: 50%;
+        height: 3.5rem;
         width: 3.5rem;
     }
     .computerNav .btn_login_logged .username {
@@ -1544,7 +1547,10 @@ nav .menuHamburger img {
 }
 
 .user-details-bloc img {
-    width: 4rem;
+    object-fit: cover;
+    border-radius: 50%;
+    height: 5rem;
+    width: 5rem;
 }
 
 .user-details {
@@ -1694,10 +1700,15 @@ nav .menuHamburger img {
 }
 
 .edit-profile img {
-    width: 5rem;
-    height: 5rem;
-    border-radius: 3rem;
     margin: 1rem 2rem 1rem 0;
+    object-fit: cover;
+    border-radius: 50%;
+    height: 5rem;
+    width: 5rem;
+}
+
+.edit-profile #newImg {
+    max-width: 225px;
 }
 
 .edit-profile .line:first-child {

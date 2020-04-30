@@ -17,17 +17,18 @@
                     class="edit-profile"
                     method="POST"
                     action="/updateprofile"
+                    enctype="multipart/form-data"
                 >
                     <div class="line">
                         <img
                             id="profileImg"
-                            src="/images/icons/icon_profile_coloured.svg"
+                            src="<%= session.user.picture %>"
                         />
                         <input
                             id="newImg"
                             name="newImg"
                             type="file"
-                            accept="image/png,image/gif,image/jpeg"
+                            accept="image/png,image/jpeg"
                         />
                     </div>
                     <div class="line">
