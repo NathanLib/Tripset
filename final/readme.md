@@ -20,6 +20,10 @@ Pretty easy but very important!
 The packages.json file contains a list of all the packages required to run our project.
 NPM can read this and install all the required packages for us!
 
+*You can ignore the message :* <br/>
+"found 2 high severity vulnerabilities <br/> run `npm audit fix` to fix them, or `npm audit` for details" <br/>
+*This comes from the version selected for MongoDB. However, if you are using the latest version, CODIO cannot launch the application!*
+
 ## Step Three
 Type *(all as one line)* the following command: <br/>
 **mongoimport --db tripset --collection profiles --drop --file admin.json --jsonArray**
@@ -35,10 +39,6 @@ To use this account: <br/>
 
 ## Step Four
 Type **npm start**  and enjoy our website!
-
-*You can ignore the message :* <br/>
-"found 2 high severity vulnerabilities <br/> run `npm audit fix` to fix them, or `npm audit` for details" <br/>
-*This comes from the version selected for MongoDB. However, if you are using the latest version, CODIO cannot launch the application!*
 
 <br/>
 <br/>
