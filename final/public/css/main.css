@@ -489,6 +489,10 @@ nav .menuHamburger img {
     max-width: 100% !important;
 }
 
+.litepicker .container__main {
+    max-width: 100% !important;
+}
+
 .litepicker .container__months {
     -webkit-box-shadow: none !important;
     justify-content: center !important;

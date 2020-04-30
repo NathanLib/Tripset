@@ -223,6 +223,7 @@ function createCalendar() {
         autoApply: true,
         showTooltip: false,
         showWeekNumbers: true,
+        mobileFriendly: true,
 
         onSelect: (date1, date2) => {
             var startDate =
@@ -264,6 +265,7 @@ function createCalendarWithRange(startDate, endDate) {
         autoApply: true,
         showTooltip: false,
         showWeekNumbers: true,
+        mobileFriendly: true,
 
         startDate: startDate,
         endDate: endDate,
