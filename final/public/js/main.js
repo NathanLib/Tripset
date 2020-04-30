@@ -603,7 +603,7 @@ function cutTitle() {
         // (based on pixels)
         var possibleNumberOfCharacters = Math.floor(containerWidth / 10);
 
-        if (titleSize <= possibleNumberOfCharacters + 2) {
+        if (titleSize <= possibleNumberOfCharacters + 1) {
             $(this).text(allTitles[index]);
         } else {
             titleEllipsis($(this), possibleNumberOfCharacters - 1, index);

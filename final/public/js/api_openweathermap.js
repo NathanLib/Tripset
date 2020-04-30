@@ -42,8 +42,11 @@ if (from.length == 3 && to.length == 3) {
     var from_date = new Date(from[0], from[1] - 1, from[2]);
     var to_date = new Date(to[0], to[1] - 1, to[2]);
 
-    // Calculate the values of the both variables
-    nb_days_from_today = from_date.getDate() - today.getDate();
+    // To calculate the time difference of two dates
+    var difference_in_time = from_date.getTime() - today.getTime();
+
+    // Set the values of the both variables
+    nb_days_from_today = Math.ceil(difference_in_time / (1000 * 3600 * 24));
     duration = to_date.getDate() - from_date.getDate() + 1;
 
     // Sets the values +4 and +7 to variables
@@ -128,6 +131,7 @@ function getSlicedForecast() {
     // the selected dates are displayed.
     if (to_date <= today_plus_seven) {
         $(".error-message-weather").text("");
+
         return forecast.slice(
             nb_days_from_today,
             nb_days_from_today + duration

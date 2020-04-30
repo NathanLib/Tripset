@@ -16,7 +16,7 @@ var URL =
 
 $.getJSON(URL, function (data) {
     if (parseInt(data.totalHits) > 0) {
-        $.each(data.hits.slice(10), function (i, hit) {
+        $.each(data.hits.slice(0, 10), function (i, hit) {
             var photo = {
                 largeImageURL: hit.largeImageURL,
                 previewURL: hit.previewURL,
@@ -28,6 +28,9 @@ $.getJSON(URL, function (data) {
         });
     } else {
         console.log("No hits");
+        $(".photos-header").text(
+            "We're sorry, but no pictures of your town have been posted yet!"
+        );
     }
 }).then(function () {
     displayPhotos(photos);
