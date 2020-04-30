@@ -80,9 +80,23 @@
                         <a href="/profile">Cancel</a>
                     </div>
                 </form>
-                <div class="pwd">
-                    <p>Want to change your password ?</p>
-                    <a href="/resetPwd">Click here</a>
+
+                <hr class="edit-profile-separator" />
+
+                <div class="delete-account">
+                    <form
+                        action="/deleteaccount"
+                        method="post"
+                        onsubmit="return confirm('Warning! This is a destructive action. \n Do you want to continue?');"
+                    >
+                        <input
+                            type="text"
+                            class="delete-account-email"
+                            name="deleteAccountEmail"
+                            value="<%= user.login.email%>"
+                        />
+                        <button type="submit">Delete your account</button>
+                    </form>
                 </div>
             </div>
         </div>

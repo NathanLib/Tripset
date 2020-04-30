@@ -1765,6 +1765,36 @@ nav .menuHamburger img {
     color: black;
 }
 
+.edit-profile-separator {
+    border: 0;
+    border-top: solid 1px var(--color-gray);
+}
+
+.delete-account {
+    display: flex;
+    justify-content: center;
+}
+
+.delete-account input {
+    display: none;
+}
+
+.delete-account button {
+    background-color: #be0000;
+    color: white;
+    cursor: pointer;
+    border: 0;
+    padding: 0.75rem 6rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    margin: 2.5rem auto;
+}
+
+.delete-account button:hover,
+.blue-button:hover {
+    text-decoration: underline;
+}
+
 @media screen and (min-width: 992px) {
     .edit-profile .buttons,
     .pwd {

@@ -597,6 +597,36 @@ app.post("/updateprofile", function (req, res) {
     res.redirect("/login");
 });
 
+app.post("/deleteaccount", function (req, res) {
+    // if the user is not logged in,
+    // we redirect him to the login page
+    if (!req.session.loggedin) {
+        res.redirect("/login");
+        return;
+    }
+
+    var email = req.body.deleteAccountEmail;
+
+    db.collection("profiles").deleteOne(
+        {
+            "login.email": email,
+        },
+        function (err, result) {
+            if (err) throw err;
+            console.log("account deleted");
+
+            // To finalize the account delation, we delete the also the session
+            // then we redirect the user to the login page with a warning message
+            req.session.loggedin = false;
+            req.session.destroy;
+            req.session.loginError =
+                "Your account has been successfully deleted";
+
+            res.redirect("/login");
+        }
+    );
+});
+
 // Avoid to get error if someone write a page that doesn't exist
 app.post("*", function (req, res) {
     res.redirect("/home");
