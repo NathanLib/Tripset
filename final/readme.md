@@ -36,6 +36,10 @@ To use this account: <br/>
 ## Step Four
 Type **npm start**  and enjoy our website!
 
+*You can ignore the message :* <br/>
+"found 2 high severity vulnerabilities <br/> run `npm audit fix` to fix them, or `npm audit` for details" <br/>
+*This comes from the version selected for MongoDB. However, if you are using the latest version, CODIO cannot launch the application!*
+
 <br/>
 <br/>
 
