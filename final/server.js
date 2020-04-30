@@ -122,7 +122,7 @@ app.get("/information", function (req, res) {
     var country = req.session.information.city.name
         .replace(/ *\([^)]*\) */g, "")
         .replace(/\s+/g, "");
-    var params = "(#" + country + ") min_faves:300 lang:en";
+    var params = "(#" + country + ") min_faves:200 lang:en";
 
     // Passing the message value
     // then delete the session variable where the message was stored
@@ -330,6 +330,7 @@ app.post("/dosignup", function (req, res) {
             email: email,
             password: hash,
         },
+        picture: "images/uploads/icon_profile_coloured.svg",
         favourites: [],
         historic: [],
         registered: Date(),
