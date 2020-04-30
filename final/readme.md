@@ -7,6 +7,8 @@ In order to make the project work properly on **CODIO**, some preliminary manipu
 Edit the file **package.json**
 At the line **"mongodb"**, change the value **"^3.2.7"** to **"^2.2.33"**
 
+*Normally it's already done, but just in case...*
+
 The reason of this change is that, working the project locally, it was impossible to install the version of MongoDB used by Codio (2.4.9). So I had to install the version 3.2. However, this version is not compatible with Codio's one. 
 In order to make it work, I was careful to use only functions that already exist with the Codio version, and I modify the version of the library used by the project just before installing everything. 
 That way, everything works as desired! 😁
