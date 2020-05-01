@@ -1,7 +1,9 @@
 
 # Welcome to Tripset!
 
-In order to make the project work properly on **CODIO**, some preliminary manipulations are necessary - we apologize for this inconvenience. 
+To launch the project on my **CODIO**, you will normally just have to do `npm start`
+
+But in case something goes wrong, some manipulations are necessary - we apologize for this inconvenience. 
 
 ## Step One
 Edit the file **package.json**
@@ -14,7 +16,7 @@ In order to make it work, I was careful to use only functions that already exist
 That way, everything works as desired! 😁
 
 ## Step Two
-Type **npm install**
+Type `npm install`
 
 Pretty easy but very important!
 The packages.json file contains a list of all the packages required to run our project.
@@ -26,7 +28,7 @@ NPM can read this and install all the required packages for us!
 
 ## Step Three
 Type *(all as one line)* the following command: <br/>
-**mongoimport --db tripset --collection profiles --drop --file admin.json --jsonArray**
+`mongoimport --db tripset --collection profiles --drop --file admin.json --jsonArray`
 
 This command will delete all the data contained in the **"profiles"** collection and add only one **Admin** account.
 This account does not have any particular privilege but will allow you to test the login system without having to create an account, as well as pre-filled data for the **Profile page**.
@@ -38,7 +40,7 @@ To use this account: <br/>
 
 
 ## Step Four
-Type **npm start**  and enjoy our website!
+Type `npm start`  and enjoy our website!
 
 <br/>
 <br/>
